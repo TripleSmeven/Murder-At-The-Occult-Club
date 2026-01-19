@@ -1,0 +1,19 @@
+.homeParent {
+  font-family: 'Consolas';
+  margin: 5em auto;
+  max-width: 45em;
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: .1em;
+  }
+
+  h2 {
+    font-size: 2em;
+    margin-bottom: .1em;
+  }
+
+  div {
+    font-size: 1em;
+  }
+}
