@@ -1,0 +1,11 @@
+.carousel {
+  height: 70vh;
+  overflow: auto;
+}
+
+.arrowParent {
+  /* top, sides, bottom */
+  margin: 4vh auto 0;
+  justify-content: center;
+  font-family: Consolas;
+}

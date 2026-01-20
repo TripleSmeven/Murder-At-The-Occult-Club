@@ -1,7 +1,20 @@
 .gameParent {
   font-family: 'Consolas';
-  margin: 7em auto;
-  max-width: 60em;
+  margin: 10vh auto;
+  max-width: 70vw;
+  font-size: 16px;
+}
+
+@media screen and (max-height: 700px) {
+  .gameParent {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .gameParent {
+    font-size: 12px;
+  }
 }
 
 .tabContent {

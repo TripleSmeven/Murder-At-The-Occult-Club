@@ -2,3 +2,19 @@
   font-family: Patrick Hand;
   font-size: 1.3em;
 }
+
+.page1 {
+  background-image: url('./paper.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 1em;
+  color: black
+}
+
+.page2 {
+  background-image: url('./paper2.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 1em;
+  color: black
+}
