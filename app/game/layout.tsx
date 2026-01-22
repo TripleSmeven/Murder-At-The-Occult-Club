@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Caveat, Shadows_Into_Light, Patrick_Hand, Special_Elite } from "next/font/google";
+import { Caveat, Handlee, Patrick_Hand, Special_Elite } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./gameLayout.module.css"
+import "./gameLayout.module.css";
 
 const caveat = Caveat({
   variable: "--font-caveat-sans",
   subsets: ["latin"],
 });
-const shadows = Shadows_Into_Light({
-  variable: "--font-shadows",
+const handlee = Handlee({
+  variable: "--font-handlee",
   weight: "400",
   subsets: ["latin"],
 });
@@ -21,7 +21,7 @@ const special = Special_Elite({
   variable: "--font-special",
   weight: "400",
   subsets: ["latin"],
-})
+});
 
 export const metadata: Metadata = {
   title: "Murder At The Occult Club",
@@ -33,9 +33,5 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <div className={special.variable}>
-      {children}
-    </div>
-  );
+  return <div className={special.variable}>{children}</div>;
 }

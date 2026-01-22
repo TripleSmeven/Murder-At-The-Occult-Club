@@ -3,7 +3,7 @@
   overflow: auto;
 }
 
-.arrowParent {
+.pageButtonsParent {
   /* top, sides, bottom */
   margin: 4vh auto 0;
   justify-content: center;

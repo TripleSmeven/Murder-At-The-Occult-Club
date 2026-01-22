@@ -1,6 +1,6 @@
 .gameParent {
-  font-family: 'Consolas';
-  margin: 10vh auto;
+  font-family: "Consolas";
+  margin: 8vh auto;
   max-width: 70vw;
   font-size: 16px;
 }
@@ -21,5 +21,33 @@
   max-height: 80vh;
   max-width: 50vw;
   overflow-y: auto;
-  padding: 0 1em;
+  padding: 0;
+}
+
+.notesHeader {
+  text-align: center;
+}
+
+.notesTextarea {
+  width: 100%;
+  height: 80vh;
+  max-height: 80vh;
+  min-height: 30em;
+  font-family: Handlee;
+  font-size: 1em;
+}
+
+.yellowNotes {
+  background-color: lemonChiffon;
+  color: black;
+}
+
+.blueNotes {
+  background-color: lightskyblue;
+  color: black;
+}
+
+.greenNotes {
+  background-color: palegreen;
+  color: black;
 }

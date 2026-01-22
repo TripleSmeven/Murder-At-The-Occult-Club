@@ -1,28 +1,41 @@
-import React, { JSX, useCallback, useEffect, useState } from 'react';
-import { Pagination } from 'react-bootstrap';
-import Carousel from 'react-bootstrap/Carousel';
-import styles from './CustomCarousel.module.css';
+import React, { JSX, useCallback, useEffect, useRef, useState } from "react";
+import { Pagination } from "react-bootstrap";
+import Carousel, { CarouselRef } from "react-bootstrap/Carousel";
+import styles from "./CustomCarousel.module.css";
 
 interface CustomCarouselProps {
   size: number;
   items: JSX.Element[];
 }
 
+const scrollToTop = (ref: React.RefObject<CarouselRef | null>) => {
+  ref.current?.element?.scroll({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
 export default function CustomCarousel({ size, items }: CustomCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef<CarouselRef | null>(null);
 
-  const handleKeyPress = useCallback((event: KeyboardEvent) => {
-    if (event.key === 'ArrowLeft') {
-      setActiveIndex(Math.max(activeIndex - 1, 0));
-    } else if (event.key === 'ArrowRight') {
-      setActiveIndex(Math.min(activeIndex + 1, size - 1));
-    }
-  }, [activeIndex, size]);
+  const handleKeyPress = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") {
+        setActiveIndex(Math.max(activeIndex - 1, 0));
+        scrollToTop(carouselRef);
+      } else if (event.key === "ArrowRight") {
+        setActiveIndex(Math.min(activeIndex + 1, size - 1));
+        scrollToTop(carouselRef);
+      }
+    },
+    [activeIndex, size],
+  );
 
   useEffect(() => {
-    document.addEventListener('keydown', handleKeyPress);
+    document.addEventListener("keydown", handleKeyPress);
     return () => {
-      document.removeEventListener('keydown', handleKeyPress);
+      document.removeEventListener("keydown", handleKeyPress);
     };
   }, [handleKeyPress]);
 
@@ -36,23 +49,27 @@ export default function CustomCarousel({ size, items }: CustomCarouselProps) {
         keyboard={true}
         activeIndex={activeIndex}
         className={styles.carousel}
+        ref={carouselRef}
       >
         {items.map((item, index) => (
-          <Carousel.Item key={index}>
-            {item}
-          </Carousel.Item>
+          <Carousel.Item key={index}>{item}</Carousel.Item>
         ))}
-      </Carousel >
+      </Carousel>
 
-      <Pagination className={styles.arrowParent}>
+      <Pagination className={styles.pageButtonsParent}>
         {items.map((_, index) => (
           <Pagination.Item
             key={index}
             active={activeIndex === index}
-            onClick={() => setActiveIndex(index)}
-          >{index + 1}</Pagination.Item>
+            onClick={() => {
+              setActiveIndex(index);
+              scrollToTop(carouselRef);
+            }}
+          >
+            {index + 1}
+          </Pagination.Item>
         ))}
       </Pagination>
     </>
-  )
+  );
 }

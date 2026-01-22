@@ -6,7 +6,7 @@ export default function LetterFromX() {
     <div>Hi,</div>
     <br />
     <div>
-      It&apos;s been a while since our last, but it looks like we&apos;ve got another case on our hands. Zack Cunningham, a senior majoring in bio-chem and the president of the unofficial “Occult Club” at our school, was found dead in one of the classrooms on the 6th floor last week. It was ruled a suicide by the police, and they blamed stress and mental health issues. No foul play, they said.
+      It&apos;s been a while since our last, but it looks like we&apos;ve got another case on our hands. Zach Cunningham, a senior majoring in bio-chem and the president of the unofficial “Occult Club” at our school, was found dead in one of the classrooms on the 6th floor last week. It was ruled a suicide by the police, and they blamed stress and mental health issues. No foul play, they said.
     </div>
     <br />
     <div>
