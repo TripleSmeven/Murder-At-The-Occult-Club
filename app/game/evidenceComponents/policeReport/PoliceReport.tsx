@@ -67,7 +67,7 @@ export default function PoliceReport() {
           <li><strong>Thomas Brooks</strong>, male, 21 years old, senior</li>
           <li><strong>Carlos Sanchez</strong>, male, 19 years old, sophomore</li>
           <li><strong>Daisy Verde</strong>, female, 18 years old, freshman</li>
-          <li><strong>Andrew Wolf</strong>, male, 20 years old, junior</li>
+          <li><strong>Andrew Wolfe</strong>, male, 20 years old, junior</li>
           <li><strong>Candace Eng</strong>, female, 20 years old, junior</li>
         </ol>
 

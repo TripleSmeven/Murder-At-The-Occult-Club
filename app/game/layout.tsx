@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat, Handlee, Patrick_Hand, Special_Elite } from "next/font/google";
+import { Caveat, Handlee, Patrick_Hand, Special_Elite, Gochi_Hand } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
 
@@ -22,6 +22,11 @@ const special = Special_Elite({
   weight: "400",
   subsets: ["latin"],
 });
+const gochi = Gochi_Hand({
+  variable: "--font-gochi",
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Murder At The Occult Club",
@@ -33,5 +38,5 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className={special.variable}>{children}</div>;
+  return <div>{children}</div>;
 }

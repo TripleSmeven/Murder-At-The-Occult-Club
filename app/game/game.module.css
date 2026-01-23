@@ -1,7 +1,8 @@
 .gameParent {
   font-family: "Consolas";
-  margin: 8vh auto;
+  margin: 10vh auto 8vh;
   max-width: 70vw;
+  height: 100%;
   font-size: 16px;
 }
 
@@ -26,15 +27,24 @@
 
 .notesHeader {
   text-align: center;
+
+  h2 {
+    margin: 0;
+  }
 }
 
-.notesTextarea {
-  width: 100%;
-  height: 80vh;
-  max-height: 80vh;
-  min-height: 30em;
-  font-family: Handlee;
+.notesButtons {
+  display: flex;
+  justify-content: center;
+}
+
+.notesButton {
+  height: 3em;
+  width: 3em;
+  font-family: "Consolas";
   font-size: 1em;
+  margin: 0.5em;
+  cursor: pointer;
 }
 
 .yellowNotes {
@@ -43,11 +53,25 @@
 }
 
 .blueNotes {
-  background-color: lightskyblue;
+  background-color: rgb(181, 227, 255); /* lighter lightskyblue */
   color: black;
 }
 
 .greenNotes {
-  background-color: palegreen;
+  background-color: rgb(185, 255, 185); /* lighter lightgreen */
   color: black;
+}
+
+.notesTextarea {
+  width: 100%;
+  height: 50vh;
+  max-height: 50vh;
+  min-height: 15em;
+  font-family: Handlee;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.notesTextarea:focus {
+  outline: none;
 }

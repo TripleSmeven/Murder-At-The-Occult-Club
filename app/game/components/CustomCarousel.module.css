@@ -1,11 +1,11 @@
 .carousel {
-  height: 70vh;
+  height: 72vh;
   overflow: auto;
 }
 
 .pageButtonsParent {
   /* top, sides, bottom */
-  margin: 4vh auto 0;
+  margin: 2vh auto 0;
   justify-content: center;
   font-family: Consolas;
 }

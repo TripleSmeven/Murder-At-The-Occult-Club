@@ -14,16 +14,10 @@ export default function LetterFromX() {
     </div>
     <br />
     <div>
-      But yours truly here knows better. Here&apos;s how I know for sure it wasn&apos;t a suicide: some idiot police officer forgot to turn on their VPN before sending out the evidence they collected to their HQ, all while being connected to our school&apos;s wifi. Thankfully the IT manager is on leave, so I spent the day compiling all the evidence the police have gathered.
-    </div>
-  </div>;
-
-  const item2 = <div className={styles.page2}>
-    <div>
-      And it turns out the cops were onto something. They actually were investigating this case as a murder and narrowed down the list of suspects to the 6 members of the Occult Club, before Lark called them to shut the investigation down. Check out the attached police report.
+      But yours truly here knows better. Here&apos;s how I know for sure it wasn&apos;t a suicide: some idiot police officer forgot to turn on their VPN before sending out the evidence they collected to their HQ, all while being connected to our school&apos;s wifi. Thankfully the IT manager is on leave, so I spent the day compiling all the evidence the police have gathered. And it turns out the cops were onto something. They actually were investigating this case as a murder and narrowed down the list of suspects to the 6 members of the Occult Club, before Lark called them to shut the investigation down. Check out the attached police report.
     </div>
     <br />
-    <div>
+        <div>
       So you know the drill. Take a look at the evidence and connect the dots. Something definitely fishy happened, and the evidence should prove it. Find out what the police didn&apos;t.
     </div>
     <br />
@@ -34,7 +28,9 @@ export default function LetterFromX() {
     <div>
       - X
     </div>
-    <br />
+  </div>;
+
+  const item2 = <div className={styles.page2}>
     <div>
       P.S. If any evidence is missing any data, IT&apos;S NOT MY FAULT. I didn&apos;t have time to run the decryption software the whole way through. You&apos;re just gonna have to make do.
     </div>
