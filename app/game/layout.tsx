@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Caveat, Handlee, Patrick_Hand, Special_Elite, Gochi_Hand } from "next/font/google";
+import {
+  Caveat,
+  Handlee,
+  Patrick_Hand,
+  Special_Elite,
+  Gochi_Hand,
+  Noto_Sans,
+} from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
 
@@ -24,6 +31,11 @@ const special = Special_Elite({
 });
 const gochi = Gochi_Hand({
   variable: "--font-gochi",
+  weight: "400",
+  subsets: ["latin"],
+});
+const noto = Noto_Sans({
+  variable: "--font-noto",
   weight: "400",
   subsets: ["latin"],
 });

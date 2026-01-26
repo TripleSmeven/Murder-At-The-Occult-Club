@@ -12,6 +12,7 @@ import LetterFromX from "./evidenceComponents/letterFromX/LetterFromX";
 import PoliceReport from "./evidenceComponents/policeReport/PoliceReport";
 import Recipe from "./evidenceComponents/recipe/Recipe";
 import AmazingOrders from "./evidenceComponents/amazingOrders/AmazingOrders";
+import TextConversations from "./evidenceComponents/textConversations/TextConversations";
 
 export default function Game() {
   return (
@@ -31,7 +32,10 @@ export default function Game() {
                 <Nav.Link eventKey="3">Mysterious Recipe</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="4">AmazingOrders Orders</Nav.Link>
+                <Nav.Link eventKey="4">Text Messages</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="5">AmazingOrders Orders</Nav.Link>
               </Nav.Item>
             </Nav>
           </Col>
@@ -47,6 +51,9 @@ export default function Game() {
                 <Recipe />
               </Tab.Pane>
               <Tab.Pane eventKey="4">
+                <TextConversations />
+              </Tab.Pane>
+              <Tab.Pane eventKey="5">
                 <AmazingOrders />
               </Tab.Pane>
             </Tab.Content>

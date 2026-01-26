@@ -1,0 +1,32 @@
+.parent {
+  font-family: Noto Sans;
+  display: flex;
+  padding: 0.5em;
+}
+
+.profile {
+  height: 2em;
+  width: 2em;
+  background-color: red;
+}
+
+.messageParent {
+  padding: 0 0.5em;
+}
+
+.messageHeader {
+  display: flex;
+}
+
+.messageSender {
+  font-weight: bold;
+  padding: 0 0.1em;
+}
+
+.messageTime {
+  color: gray;
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+  padding: 0 0.1em;
+}

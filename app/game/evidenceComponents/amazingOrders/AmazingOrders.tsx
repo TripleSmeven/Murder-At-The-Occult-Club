@@ -1,20 +1,38 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-
 import { OrdersList } from "./OrdersList";
 import { JSX } from "react";
+import styles from "./AmazingOrders.module.css";
 
-function OrderRow({ entries, rowClassName }: { entries: string[]; rowClassName?: string }) {
+function OrderRow({
+  entries,
+  rowClassName,
+  color,
+}: {
+  entries: string[];
+  rowClassName?: string;
+  color?: string;
+}) {
   return (
-    <Row className={rowClassName}>
-      <Col>{entries[0]}</Col>
-      <Col>{entries[1]}</Col>
-      <Col>{entries[2]}</Col>
-      <Col>{entries[3]}</Col>
-      <Col>{entries[4]}</Col>
-      <Col>{entries[5]}</Col>
-    </Row>
+    <tr className={`${rowClassName} ${color && styles[color]}`}>
+      <td className={styles.numberCell}>{entries[0]}</td>
+      <td className={styles.dateCell}>{entries[1]}</td>
+      <td className={styles.idCell}>{entries[2]}</td>
+      <td className={styles.titleCell}>{entries[3]}</td>
+      <td className={styles.categoryCell}>{entries[4]}</td>
+      <td className={styles.priceCell}>{entries[5]}</td>
+    </tr>
+  );
+}
+
+function OrderRowHeader({ entries }: { entries: string[] }) {
+  return (
+    <tr className={styles.orderRowHeader}>
+      <td className={`${styles.numberCell} ${styles.ignoreInHeaderRow}`}>{entries[0]}</td>
+      <td className={styles.dateCell}>{entries[1]}</td>
+      <td className={styles.idCell}>{entries[2]}</td>
+      <td className={styles.titleCell}>{entries[3]}</td>
+      <td className={styles.categoryCell}>{entries[4]}</td>
+      <td className={styles.priceCell}>{entries[5]}</td>
+    </tr>
   );
 }
 
@@ -26,6 +44,7 @@ export default function AmazingOrders() {
       orderRows.push(
         <OrderRow
           key={rowCount}
+          color={order.color}
           entries={[
             rowCount.toString(),
             order.date,
@@ -40,10 +59,14 @@ export default function AmazingOrders() {
     });
   });
   return (
-    <Container>
-      <OrderRow entries={["", "1", "2", "3", "4", "5"]} />
-      <OrderRow entries={["1", "Order Date", "Order ID", "Title", "Category", "Price"]} />
-      {orderRows}
-    </Container>
+    <table className={styles.amazingOrdersTable}>
+      <thead>
+        <OrderRow rowClassName={styles.lettersRow} entries={["", "A", "B", "C", "D", "E"]} />
+      </thead>
+      <tbody>
+        <OrderRowHeader entries={["1", "Date", "Order ID", "Title", "Category", "Price"]} />
+        {orderRows}
+      </tbody>
+    </table>
   );
 }

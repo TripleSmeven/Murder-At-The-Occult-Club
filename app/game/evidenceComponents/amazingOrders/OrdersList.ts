@@ -2,6 +2,7 @@ export const OrdersList = [
   {
     date: "1/7",
     orderId: "1139A-002", // Candace Eng
+    color: "red",
     items: [
       {
         name: "Baking Soda 1lb - For Baking, Cleaning",
@@ -33,6 +34,7 @@ export const OrdersList = [
   {
     date: "1/8",
     orderId: "1139A-009", // Andrew Wolfe
+    color: "orange",
     items: [
       {
         name: "2-in-1 Corded Stick Mini Vacuum Cleaner",
@@ -59,6 +61,7 @@ export const OrdersList = [
   {
     date: "1/8",
     orderId: "1139A-023", // Carlos Sanchez
+    color: "yellow",
     items: [
       {
         name: "Adult Mult-Sport Helmet (Biking, Skateboarding)",
@@ -85,6 +88,7 @@ export const OrdersList = [
   {
     date: "1/9",
     orderId: "1139A-028", // named, Thomas Brooke
+    color: "green",
     items: [
       {
         name: "HyperY Computer Headset with Microphone",
@@ -97,7 +101,7 @@ export const OrdersList = [
         price: "11.75",
       },
       {
-        name: "SuperTech Computer Ergonomic Mouse (R)",
+        name: "MegTech Computer Ergonomic Mouse (R)",
         category: "OFFICE",
         price: "20.00",
       },
@@ -111,6 +115,7 @@ export const OrdersList = [
   {
     date: "1/9",
     orderId: "1139A-031", // named, Daisy Verde
+    color: "cyan",
     items: [
       {
         name: "Premium Canada Goose Down Jacket",
@@ -127,6 +132,7 @@ export const OrdersList = [
   {
     date: "1/9",
     orderId: "1139A-033", // named, Sarah Findley
+    color: "blue",
     items: [
       {
         name: "9oz Red Plastic Solo Cups For Parties 20ct",
@@ -144,7 +150,7 @@ export const OrdersList = [
         price: "10.00",
       },
       {
-        name: "SuperTech Computer Ergonomic Mouse (L)",
+        name: "MegTech Computer Ergonomic Mouse (L)",
         category: "OFFICE",
         price: "20.00",
       },
@@ -158,6 +164,7 @@ export const OrdersList = [
   {
     date: "1/10",
     orderId: "1139A-044", // named, Daisy Verde
+    color: "purple",
     items: [
       {
         name: "Concentrated Bleach Tablets (32 Tablets)",
@@ -190,6 +197,8 @@ export const OrdersList = [
   {
     date: "1/10",
     orderId: "1139A-052", // Andrew Wolfe
+    color: "black",
+
     items: [
       {
         name: "10oz Fae Salt - Protection From Evil - Break Curses",
