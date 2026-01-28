@@ -93,7 +93,7 @@ export default function PoliceReport() {
     </div >
   return (
     <div className={styles.reportParent}>
-      <CustomCarousel size={2} items={[item1, item2]} />
+      <CustomCarousel items={[item1, item2]} />
     </div>
   );
 }

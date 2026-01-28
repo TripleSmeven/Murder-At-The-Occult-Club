@@ -7,10 +7,17 @@ interface TextMessageJson {
   time: string;
 }
 
+const senderToProfileMap: { [key: string]: string } = {
+  "Sebastian Walsh": "walsh",
+  "Roy Samson": "samson",
+  "Unknown A": "unknownA",
+  "Unknown B": "unknownB",
+};
+
 const TextMessagePrimary = ({ sender, content, time }: TextMessageJson) => {
   return (
-    <div className={styles.parent}>
-      <div className={styles.profile}></div>
+    <div className={styles.primaryParent}>
+      <div className={`${styles.profile} ${styles[senderToProfileMap[sender]]}`}></div>
       <div className={styles.messageParent}>
         <div className={styles.messageHeader}>
           <div className={styles.messageSender}>{sender}</div>
@@ -24,9 +31,8 @@ const TextMessagePrimary = ({ sender, content, time }: TextMessageJson) => {
 
 const TextMessageSecondary = ({ content }: { content: string }) => {
   return (
-    <div className={styles.parent}>
-      <div className={styles.profile}></div>
-      <div className={styles.messageParent}>
+    <div className={styles.secondaryParent}>
+      <div className={styles.secondaryMessageParent}>
         <div className={styles.messageContent}>{content}</div>
       </div>
     </div>

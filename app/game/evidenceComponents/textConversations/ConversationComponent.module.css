@@ -1,17 +1,64 @@
-.parent {
+.conversationParent {
   font-family: Noto Sans;
+  color: black;
+  max-height: var(--carousel-height);
+  min-height: var(--carousel-height);
+  margin: 0 9vw;
+  border-radius: 3em;
+  padding: 1em;
+
+  background-color: #fffaf0;
+  overflow: auto;
+  scrollbar-color: grey transparent;
+  scrollbar-width: thin;
+}
+
+.primaryParent {
   display: flex;
-  padding: 0.5em;
+  padding: 1em 0.5em 0.2em;
+}
+
+.secondaryParent {
+  display: flex;
+  padding: 0.1em 0.5em;
 }
 
 .profile {
+  margin-top: 0.3em; /* move profile down a bit */
   height: 2em;
-  width: 2em;
-  background-color: red;
+  min-width: 2em;
+  border-radius: 0.3em;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  &.walsh {
+    /*https://www.pexels.com/photo/man-drinking-liquor-wearing-red-cap-and-black-crew-neck-shirt-1267335/*/
+    background-image: url("./profilePictures/walsh.jpg");
+  }
+  /*https://www.pexels.com/photo/smiling-father-and-pregnant-mother-standing-with-daughter-20354887/*/
+  &.samson {
+    background-image: url("./profilePictures/samson.jpg");
+  }
+
+  &.unknownA {
+    background-image: url("./profilePictures/blank.png");
+    background-blend-mode: multiply;
+    background-color: rgb(255, 205, 205);
+  }
+
+  &.unknownB {
+    background-image: url("./profilePictures/blank.png");
+    background-blend-mode: multiply;
+    background-color: rgb(184, 184, 255);
+  }
 }
 
 .messageParent {
   padding: 0 0.5em;
+}
+
+.secondaryMessageParent {
+  padding: 0 2.5em; /* extra padding to align under the primary message */
 }
 
 .messageHeader {

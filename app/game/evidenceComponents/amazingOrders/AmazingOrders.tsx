@@ -1,6 +1,8 @@
 import { OrdersList } from "./OrdersList";
-import { JSX } from "react";
+import { JSX, useState } from "react";
 import styles from "./AmazingOrders.module.css";
+import NamePicker from "../../components/NamePicker";
+import CustomCarousel from "../../components/CustomCarousel";
 
 function OrderRow({
   entries,
@@ -36,7 +38,7 @@ function OrderRowHeader({ entries }: { entries: string[] }) {
   );
 }
 
-export default function AmazingOrders() {
+function AmazingOrdersTable() {
   const orderRows: JSX.Element[] = [];
   let rowCount = 2;
   OrdersList.forEach((order, index) => {
@@ -69,4 +71,24 @@ export default function AmazingOrders() {
       </tbody>
     </table>
   );
+}
+
+function AnswerPage() {
+  const [order1, setOrder1] = useState("");
+  return (
+    <div className={styles.answerPage}>
+      <NamePicker label={"1139A-002"} color={"red"} onChange={(e) => setOrder1(e.target.value)} />
+      <NamePicker
+        label={"1139A-009"}
+        color={"orange"}
+        onChange={(e) => setOrder1(e.target.value)}
+      />
+    </div>
+  );
+}
+
+export default function AmazingOrders() {
+  const item1 = <AmazingOrdersTable />;
+  const item2 = <AnswerPage />;
+  return <CustomCarousel items={[item1, item2]} />;
 }

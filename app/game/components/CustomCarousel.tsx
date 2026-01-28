@@ -4,7 +4,6 @@ import Carousel, { CarouselRef } from "react-bootstrap/Carousel";
 import styles from "./CustomCarousel.module.css";
 
 interface CustomCarouselProps {
-  size: number;
   items: JSX.Element[];
 }
 
@@ -15,16 +14,19 @@ const scrollToTop = (ref: React.RefObject<CarouselRef | null>) => {
   });
 };
 
-export default function CustomCarousel({ size, items }: CustomCarouselProps) {
+export default function CustomCarousel({ items }: CustomCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselRef = useRef<CarouselRef | null>(null);
+  const size = items.length;
 
   const handleKeyPress = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === "ArrowLeft") {
+        console.log("arrow left", Math.max(activeIndex - 1, 0));
         setActiveIndex(Math.max(activeIndex - 1, 0));
         scrollToTop(carouselRef);
       } else if (event.key === "ArrowRight") {
+        console.log("arrow right", Math.min(activeIndex + 1, size - 1));
         setActiveIndex(Math.min(activeIndex + 1, size - 1));
         scrollToTop(carouselRef);
       }
@@ -60,6 +62,7 @@ export default function CustomCarousel({ size, items }: CustomCarouselProps) {
         {items.map((_, index) => (
           <Pagination.Item
             key={index}
+            className={styles.pageButton}
             active={activeIndex === index}
             onClick={() => {
               setActiveIndex(index);

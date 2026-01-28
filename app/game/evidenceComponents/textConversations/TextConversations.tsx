@@ -1,12 +1,14 @@
 import CustomCarousel from "../../components/CustomCarousel";
 import { ConversationComponent } from "./ConversationComponent";
-import { Police } from "./Conversations";
+import { allConversations } from "./Conversations";
 
 export default function TextConversations() {
-  const policeText = <ConversationComponent {...Police} />;
+  const conversations = allConversations.map((conversation, index) => (
+    <ConversationComponent key={index} {...conversation} />
+  ));
   return (
     <div>
-      <CustomCarousel size={1} items={[policeText]} />
+      <CustomCarousel items={conversations} />
     </div>
   );
 }

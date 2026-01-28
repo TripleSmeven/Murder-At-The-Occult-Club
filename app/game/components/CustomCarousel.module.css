@@ -1,5 +1,5 @@
 .carousel {
-  height: 72vh;
+  height: var(--carousel-height);
   overflow: auto;
 }
 
@@ -8,4 +8,8 @@
   margin: 2vh auto 0;
   justify-content: center;
   font-family: Consolas;
+}
+
+.pageButton {
+  margin: 0 0.1em;
 }

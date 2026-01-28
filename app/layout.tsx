@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 
@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   description: "A detective puzzle game",
 };
 
+export const viewport: Viewport = {
+  width: 1100,
+  height: 500,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,8 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-      </head>
+      <head></head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased`}
       >

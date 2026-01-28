@@ -1,0 +1,51 @@
+.namePickerParent {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+
+  & select {
+    width: 12em;
+  }
+}
+
+.label {
+  font-size: 1.7em;
+  padding: 0 0.5em;
+  margin-right: 0.5em;
+  background-color: gray;
+  border-radius: 1em;
+  color: black;
+}
+
+.red {
+  background-color: var(--faded-red);
+}
+
+.orange {
+  background-color: var(--faded-orange);
+}
+
+.yellow {
+  background-color: lightyellow;
+}
+
+.green {
+  background-color: var(--faded-green);
+}
+
+.cyan {
+  background-color: var(--faded-cyan);
+}
+
+.blue {
+  background-color: var(--faded-blue);
+}
+
+.purple {
+  background-color: var(--faded-purple);
+}
+
+.black {
+  background-color: black;
+  color: white;
+}

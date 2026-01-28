@@ -6,7 +6,7 @@ export interface ConversationJson {
   }>;
 }
 
-export const Police: ConversationJson = {
+const Police: ConversationJson = {
   date: "12/17/2016 15:06",
   messages: [
     {
@@ -74,3 +74,116 @@ export const Police: ConversationJson = {
     },
   ],
 };
+
+const Aftermath1: ConversationJson = {
+  date: "12/13/2016 20:31",
+  messages: [
+    {
+      sender: "Unknown A",
+      content: "Noone has texted the group chat and there are police on campus now.",
+    },
+    {
+      sender: "Unknown A",
+      content: "He's dead, isn't he?",
+    },
+    {
+      sender: "Unknown B",
+      content: "Don't text me",
+    },
+    {
+      sender: "Unknown A",
+      content: "Why, because you killed him?",
+    },
+    {
+      sender: "Unknown B",
+      content: "No, because we are all accomplices.",
+    },
+    {
+      sender: "Unknown B",
+      content: "All of us, including you.",
+    },
+    {
+      sender: "Unknown A",
+      content: "What? I'm not the one that killed him!",
+    },
+    {
+      sender: "Unknown B",
+      content: "No, but you didn't call for help either. None of us did.",
+    },
+    {
+      sender: "Unknown B",
+      content: "Instead, we just ran for our lives when his eyes started doing that.",
+    },
+    {
+      sender: "Unknown A",
+      content: "I figured at least someone else there would have.",
+    },
+    {
+      sender: "Unknown B",
+      content: "Can't you see? They're all delusional!",
+    },
+    {
+      sender: "Unknown B",
+      content:
+        "They all thought he was glimpsing. They wouldn't want any interruptions. I bet they kept watching until he died.",
+    },
+    {
+      sender: "Unknown A",
+      content: "What have we done...",
+    },
+    {
+      sender: "Unknown B",
+      content: "I don't even understand what happened. Did someone poison him?",
+    },
+    {
+      sender: "Unknown A",
+      content: "If it was poison, we would have all died.",
+    },
+    {
+      sender: "Unknown B",
+      content: "You're right",
+    },
+    {
+      sender: "Unknown B",
+      content: "Regardless, dont say a word to the police!",
+    },
+  ],
+};
+
+const Aftermath2: ConversationJson = {
+  date: "12/13/16 21:20",
+  messages: [
+    {
+      sender: "Unknown A",
+      content:
+        "I still don't understand. I had believed at least myself and possibly you would have joined him. Yet he glimpsed alone.",
+    },
+    {
+      sender: "Unknown A",
+      content: "He is dead because of that.",
+    },
+    {
+      sender: "Unknown B",
+      content: "I don't know what to say… it all happened so fast.",
+    },
+    {
+      sender: "Unknown B",
+      content: "So the Oblivion really did kill him?",
+    },
+    {
+      sender: "Unknown A",
+      content: "That is the only plausible explanation.",
+    },
+    {
+      sender: "Unknown A",
+      content:
+        "We were not prepared. We should have consulted a master before trying an advanced ritual.",
+    },
+    {
+      sender: "Unknown B",
+      content: "A master? Hold on, let me get back to you.",
+    },
+  ],
+};
+
+export const allConversations = [Police, Aftermath1, Aftermath2];

@@ -59,11 +59,11 @@
 }
 
 .red {
-  background-color: rgb(252, 192, 192);
+  background-color: var(--faded-red);
 }
 
 .orange {
-  background-color: rgb(255, 214, 191);
+  background-color: var(--faded-orange);
 }
 
 .yellow {
@@ -71,22 +71,29 @@
 }
 
 .green {
-  background-color: rgb(206, 255, 206);
+  background-color: var(--faded-green);
 }
 
 .cyan {
-  background-color: rgb(207, 255, 255);
+  background-color: var(--faded-cyan);
 }
 
 .blue {
-  background-color: rgb(175, 222, 238);
+  background-color: var(--faded-blue);
 }
 
 .purple {
-  background-color: rgb(243, 197, 255);
+  background-color: var(--faded-purple);
 }
 
 .black {
   background-color: black;
   color: white;
+}
+
+.answerPage {
+  margin: 5em;
+  padding: 1em;
+  background-color: gray;
+  border-radius: 1em;
 }

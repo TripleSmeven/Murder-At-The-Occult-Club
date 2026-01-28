@@ -1,16 +1,26 @@
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --tab-content-height: 80vh;
+  --tab-content-width: 50vw;
+  --carousel-height: 72vh;
+  --faded-red: rgb(252, 192, 192);
+  --faded-orange: rgb(255, 214, 191);
+  --faded-yellow: lightyellow;
+  --faded-green: rgb(206, 255, 206);
+  --faded-cyan: rgb(207, 255, 255);
+  --faded-blue: rgb(175, 222, 238);
+  --faded-purple: rgb(243, 197, 255);
+}
 
-  @theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
-  }
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
 
-  /*
+/*
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +29,8 @@
 }
 */
 
-  body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
-  }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
