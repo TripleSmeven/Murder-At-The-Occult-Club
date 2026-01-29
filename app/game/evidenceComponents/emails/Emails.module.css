@@ -1,0 +1,38 @@
+.emailList {
+  background-color: whitesmoke;
+  color: black;
+  max-width: 70%;
+  max-height: var(--carousel-height);
+  min-height: var(--carousel-height);
+  overflow: auto;
+  margin: 0 auto;
+
+  scrollbar-color: grey transparent;
+  scrollbar-width: thin;
+}
+
+.emailParent {
+  font-family: Roboto;
+  padding: 0.5em 2em;
+  border-top: 1px solid gray;
+}
+
+.sender {
+  font-size: 1.3em;
+}
+
+.titleDateParent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+}
+
+.date {
+}
+
+.content {
+  text-overflow: ellipsis;
+  color: gray;
+}

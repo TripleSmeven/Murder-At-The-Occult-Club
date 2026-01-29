@@ -6,6 +6,7 @@ import {
   Special_Elite,
   Gochi_Hand,
   Noto_Sans,
+  Roboto,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
@@ -36,6 +37,12 @@ const gochi = Gochi_Hand({
 });
 const noto = Noto_Sans({
   variable: "--font-noto",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const roboto = Roboto({
+  variable: "--font-roboto",
   weight: "400",
   subsets: ["latin"],
 });

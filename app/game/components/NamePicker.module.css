@@ -5,11 +5,14 @@
 
   & select {
     width: 12em;
+    font-size: 1.3em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
   }
 }
 
 .label {
-  font-size: 1.7em;
+  font-size: 1.6em;
   padding: 0 0.5em;
   margin-right: 0.5em;
   background-color: gray;

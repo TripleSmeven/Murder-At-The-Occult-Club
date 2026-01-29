@@ -13,6 +13,8 @@ import PoliceReport from "./evidenceComponents/policeReport/PoliceReport";
 import Recipe from "./evidenceComponents/recipe/Recipe";
 import AmazingOrders from "./evidenceComponents/amazingOrders/AmazingOrders";
 import TextConversations from "./evidenceComponents/textConversations/TextConversations";
+import Emails from "./evidenceComponents/emails/Emails";
+import { useLocalStorage } from "./components/useLocalStorage";
 
 export default function Game() {
   return (
@@ -35,7 +37,10 @@ export default function Game() {
                 <Nav.Link eventKey="4">Text Messages</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="5">AmazingOrders Orders</Nav.Link>
+                <Nav.Link eventKey="5">Emails</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="6">AmazingOrders Orders</Nav.Link>
               </Nav.Item>
             </Nav>
           </Col>
@@ -54,6 +59,9 @@ export default function Game() {
                 <TextConversations />
               </Tab.Pane>
               <Tab.Pane eventKey="5">
+                <Emails />
+              </Tab.Pane>
+              <Tab.Pane eventKey="6">
                 <AmazingOrders />
               </Tab.Pane>
             </Tab.Content>
@@ -69,20 +77,9 @@ export default function Game() {
 
 function Notes() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [yellowNotes, setYellowNotes] = useState("");
-  const [blueNotes, setBlueNotes] = useState("");
-  const [greenNotes, setGreenNotes] = useState("");
-
-  useEffect(() => {
-    const initialYellowNotes = window.localStorage.getItem("yellowNotes") || "";
-    const initialBlueNotes = window.localStorage.getItem("blueNotes") || "";
-    const initialGreenNotes = window.localStorage.getItem("greenNotes") || "";
-
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setYellowNotes(initialYellowNotes);
-    setBlueNotes(initialBlueNotes);
-    setGreenNotes(initialGreenNotes);
-  }, []); // make sure this dep array is empty to only run on mount
+  const [yellowNotes, setYellowNotes] = useLocalStorage("yellowNotes");
+  const [blueNotes, setBlueNotes] = useLocalStorage("blueNotes");
+  const [greenNotes, setGreenNotes] = useLocalStorage("greenNotes");
 
   return (
     <>
@@ -124,7 +121,6 @@ function Notes() {
             placeholder="Enter your notes here..."
             onChange={(event) => {
               setYellowNotes(event.target.value);
-              localStorage.setItem("yellowNotes", event.target.value);
             }}
             value={yellowNotes}
           />
@@ -135,7 +131,6 @@ function Notes() {
             placeholder="Enter your notes here..."
             onChange={(event) => {
               setBlueNotes(event.target.value);
-              localStorage.setItem("blueNotes", event.target.value);
             }}
             value={blueNotes}
           />
@@ -146,7 +141,6 @@ function Notes() {
             placeholder="Enter your notes here..."
             onChange={(event) => {
               setGreenNotes(event.target.value);
-              localStorage.setItem("greenNotes", event.target.value);
             }}
             value={greenNotes}
           />

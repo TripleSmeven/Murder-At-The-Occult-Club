@@ -97,3 +97,7 @@
   background-color: gray;
   border-radius: 1em;
 }
+
+.answerPageInstructions {
+  font-size: 1.3em;
+}
