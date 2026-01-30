@@ -1,0 +1,14 @@
+.newspaperParent {
+  font-family: Newsreader;
+  padding: 2em;
+  background-color: rgb(255, 255, 255); /* light light gray*/
+  color: black;
+
+  & h3 {
+    font-size: 2.5em;
+  }
+
+  & div {
+    font-size: 1.3em;
+  }
+}

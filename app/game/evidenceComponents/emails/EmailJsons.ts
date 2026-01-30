@@ -68,4 +68,70 @@ const Candace: EmailJson[] = [
   },
 ];
 
-export const allEmails = [Candace];
+const Thomas: EmailJson[] = [
+  {
+    sender: "Neptune",
+    title: "New reminder",
+    content:
+      "Reminder that you have homework due for ME 225: Intro to Fluid Dynamics in 2 day(s). To view your dashboard, click here",
+    date: "Dec 12",
+  },
+  {
+    sender: "Neptune",
+    title: "New reminder",
+    content:
+      "Reminder that you have homework due for MATH 364: Multidimensional Calculus in 2 day(s). To view your dashboard, click here",
+    date: "Dec 11",
+  },
+  {
+    sender: "Miranda Meadows",
+    title: "RE: taking matters into your own hands",
+    content:
+      "This is Miranda. The MAOC does NOT authorize your operation as it goes against our code of conduct. I've setup another Zoop meeting...",
+    date: "Dec 10",
+  },
+  {
+    sender: "Evelyn Samson, me (2)",
+    title: "Contact Information",
+    content: "Sure! You can DM me at @evelyn_samson. Looking forward to hearing from you!",
+    date: "Dec 10",
+  },
+
+  {
+    sender: "Daniel Katz",
+    title: "Counter Attack 2 Tournament",
+    content:
+      "Thanks for signing up! You'll know your place in the bracket in the announcement next week.",
+    date: "Dec 9",
+  },
+  {
+    sender: "Vapor",
+    title: "Thank you for your purchase!",
+    content:
+      "Hello, Thank you for your recent transaction on Vapor. The items below have been added to your Vapor Library. To view your Vapor library, go to...",
+    date: "Dec 8",
+  },
+  {
+    sender: "Zoop",
+    title: "Meeting Recording",
+    content:
+      "Your virtual meeting with Miranda Meadows has ended. To view the meeting recording, click here.",
+    date: "Dec 7",
+  },
+  {
+    sender: "Neptune",
+    title: "Submission confirmation",
+    content:
+      "You have submitted homework for ME 280: Intro to Material Science. To view your dashboard, click here.",
+    date: "Dec 6",
+  },
+  {
+    sender: "KaiserU Student Affairs",
+    title: "Re: Inquiry",
+    content:
+      "As long as you keep your registration updated, your gerbil is within our guidelines to raise in the dorms. Please note that larger pets like cats or dogs are prohibited...",
+    date: "Dec 4",
+  },
+];
+
+export const allEmails = [Candace, Thomas];

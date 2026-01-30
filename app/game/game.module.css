@@ -1,5 +1,5 @@
 .gameParent {
-  font-family: "Consolas";
+  font-family: Space Mono;
   margin: 10vh auto 8vh;
   max-width: 70vw;
   height: 100%;
@@ -43,7 +43,7 @@
 .notesButton {
   height: 3em;
   width: 3em;
-  font-family: "Consolas";
+  font-family: Space Mono;
   font-size: 1em;
   margin: 0.5em;
   cursor: pointer;

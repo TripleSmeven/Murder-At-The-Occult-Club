@@ -39,6 +39,10 @@
   &.samson {
     background-image: url("./profilePictures/samson.jpg");
   }
+  /* https://www.pexels.com/photo/student-cheating-during-an-exam-7092507/ */
+  &.esamson {
+    background-image: url("./profilePictures/evelyn_samson.jpg");
+  }
 
   &.unknownA {
     background-image: url("./profilePictures/blank.png");

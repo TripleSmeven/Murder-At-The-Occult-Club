@@ -15,6 +15,7 @@ import AmazingOrders from "./evidenceComponents/amazingOrders/AmazingOrders";
 import TextConversations from "./evidenceComponents/textConversations/TextConversations";
 import Emails from "./evidenceComponents/emails/Emails";
 import { useLocalStorage } from "./components/useLocalStorage";
+import Newspaper from "./evidenceComponents/newspaper/Newspaper";
 
 export default function Game() {
   return (
@@ -31,16 +32,19 @@ export default function Game() {
                 <Nav.Link eventKey="2">Police Report</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="3">Mysterious Recipe</Nav.Link>
+                <Nav.Link eventKey="3">School Newspaper</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="4">Text Messages</Nav.Link>
+                <Nav.Link eventKey="4">Mysterious Recipe</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="5">Emails</Nav.Link>
+                <Nav.Link eventKey="5">Text Messages</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="6">AmazingOrders Orders</Nav.Link>
+                <Nav.Link eventKey="6">Emails</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="7">AmazingOrders Orders</Nav.Link>
               </Nav.Item>
             </Nav>
           </Col>
@@ -53,15 +57,18 @@ export default function Game() {
                 <PoliceReport />
               </Tab.Pane>
               <Tab.Pane eventKey="3">
-                <Recipe />
+                <Newspaper />
               </Tab.Pane>
               <Tab.Pane eventKey="4">
-                <TextConversations />
+                <Recipe />
               </Tab.Pane>
               <Tab.Pane eventKey="5">
-                <Emails />
+                <TextConversations />
               </Tab.Pane>
               <Tab.Pane eventKey="6">
+                <Emails />
+              </Tab.Pane>
+              <Tab.Pane eventKey="7">
                 <AmazingOrders />
               </Tab.Pane>
             </Tab.Content>

@@ -7,7 +7,7 @@ export interface ConversationJson {
 }
 
 const Police: ConversationJson = {
-  date: "12/17/2016 15:06",
+  date: "12/18/2016 15:06",
   messages: [
     {
       sender: "Roy Samson",
@@ -186,4 +186,39 @@ const Aftermath2: ConversationJson = {
   ],
 };
 
-export const allConversations = [Police, Aftermath1, Aftermath2];
+const Tea: ConversationJson = {
+  date: "12/10/16 11:01",
+  messages: [
+    {
+      sender: "Evelyn Samson",
+      content: "Thanks for reaching out. I'm glad at the very least it won't all go to waste",
+    },
+    {
+      sender: "Unknown A",
+      content: "Of course! I'm really sorry about what happened.",
+    },
+    {
+      sender: "Evelyn Samson",
+      content: "Thanks, I appreciate that. Now, which ones did you want?",
+    },
+    {
+      sender: "Evelyn Samson",
+      content: "The only ones we have left are Yerba mate, chamomile,  and youthberry",
+    },
+    {
+      sender: "Unknown A",
+      content: "I'll take the mate and youthberry.",
+    },
+    {
+      sender: "Evelyn Samson",
+      content:
+        "For sure! I'll leave it with Professor Katz in the Office of Club Affairs. Just pick it up whenever you're free.",
+    },
+    {
+      sender: "Unknown A",
+      content: "Thanks!",
+    },
+  ],
+};
+
+export const allConversations = [Police, Aftermath1, Aftermath2, Tea];
