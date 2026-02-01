@@ -145,7 +145,7 @@ const Aftermath1: ConversationJson = {
     },
     {
       sender: "Unknown B",
-      content: "Regardless, dont say a word to the police!",
+      content: "Regardless, DO NOT tell the cops ANYTHING!!",
     },
   ],
 };
@@ -221,4 +221,83 @@ const Tea: ConversationJson = {
   ],
 };
 
-export const allConversations = [Police, Aftermath1, Aftermath2, Tea];
+const PromiseMe: ConversationJson = {
+  date: "11/30/16 18:31",
+  messages: [
+    {
+      sender: "Heather Douglas",
+      content: "Does the math even work out?",
+    },
+    {
+      sender: "Heather Douglas",
+      content: "3 years ago, he would have been a freshman in college, not in highschool.",
+    },
+    {
+      sender: "Unknown A",
+      content:
+        "Yeah, but rumor has it that it was actually a college student who was president of the club.",
+    },
+    {
+      sender: "Heather Douglas",
+      content: "Okay, so it's possible I guess.",
+    },
+    {
+      sender: "Heather Douglas",
+      content: "Let's say he was behind it all. What are you gonna do then?",
+    },
+    {
+      sender: "Unknown A",
+      content: "I haven't thought that far yet.",
+    },
+    {
+      sender: "Heather Douglas",
+      content: "Just promise me you won't do anything stupid, alright?",
+    },
+    {
+      sender: "Unknown A",
+      content: "Fine",
+    },
+    {
+      sender: "Unknown A",
+      content: "Also, if B contacts you, IGNORE HIM!!",
+    },
+  ],
+};
+
+const Mom: ConversationJson = {
+  date: "11/30/16 09:02",
+  messages: [
+    {
+      sender: "Carlos Sanchez",
+      content: "How are you doing, ma?",
+    },
+    {
+      sender: "Maria Sanchez",
+      content: "I'm alright mijo. How's school?",
+    },
+    {
+      sender: "Carlos Sanchez",
+      content: "Good. I've just been studying a lot and trying to make friends.",
+    },
+    {
+      sender: "Maria Sanchez",
+      content: "That's good.",
+    },
+    {
+      sender: "Carlos Sanchez",
+      content:
+        "Ma, I was thinking I can come visit you this weekend. I'll bring your favorite flowers and my tablet. It must get boring sitting in bed all day.",
+    },
+    {
+      sender: "Maria Sanchez",
+      content: "You're so sweet mijo, but I'm too far away. A plane ticket is too much.",
+    },
+    {
+      sender: "Maria Sanchez",
+      content:
+        "I want you to focus on school. Your uncle will come visit this Friday, so don't worry about me. Let me know how your exam goes tomorrow. Te amo.",
+    },
+  ],
+};
+
+export const allConversations = [Police, Aftermath1, Aftermath2, Tea, PromiseMe];

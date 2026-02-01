@@ -43,6 +43,14 @@
   &.esamson {
     background-image: url("./profilePictures/evelyn_samson.jpg");
   }
+  /* https://www.pexels.com/photo/woman-in-orange-dress-walking-on-sand-4663280/ */
+  &.heather {
+    background-image: url("./profilePictures/heather.jpg");
+  }
+  /* https://www.pexels.com/photo/purple-phalaenopsis-flowers-27028233/ */
+  &.flower {
+    background-image: url("./profilePictures/flowers.jpg");
+  }
 
   &.unknownA {
     background-image: url("./profilePictures/blank.png");

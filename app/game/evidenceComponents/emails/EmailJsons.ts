@@ -134,4 +134,115 @@ const Thomas: EmailJson[] = [
   },
 ];
 
-export const allEmails = [Candace, Thomas];
+const Sarah: EmailJson[] = [
+  {
+    sender: "Neptune",
+    title: "New reminder",
+    content:
+      "Reminder that you have homework due for PSYC 218: Research Methods in Psychology in 2 day(s). To view your dashboard, click here",
+    date: "Dec 12",
+  },
+  {
+    sender: "KaiserU Student Affairs",
+    title: "Left Hand Accommodation",
+    content:
+      "Starting January 12, you can request left hand accommodation in the testing center. This includes tablet arm chairs, computer peripherals…",
+    date: "Dec 11",
+  },
+  {
+    sender: "Gina Moore",
+    title: "Potluck allergies",
+    content:
+      "Hi all! For the volleyball team dinner, please inform us of any food allergies you might have in this form, and to bring you assigned items. Thanks!",
+    date: "Dec 9",
+  },
+  {
+    sender: "Neptune",
+    title: "Submission confirmation",
+    content:
+      "You have submitted homework for PSYC 210: Neural Foundations of Behavior. To view your dashboard, click here.",
+    date: "Dec 6",
+  },
+  {
+    sender: "KaiserU Financial Aid, me (3)",
+    title: "Status update",
+    content:
+      "Apologies for the delay. We had you under your previous surname “Wagner” in our records. We have since updated our records…",
+    date: "Dec 5",
+  },
+  {
+    sender: "KaiserU Tutoring Center",
+    title: "New Time Slots Available",
+    content:
+      "Please click the link below to sign up for one of our available slots. We hope to see you soon!",
+    date: "Dec 4",
+  },
+  {
+    sender: "Greg Clark, me (2)",
+    title: "Re: Question",
+    content:
+      'Typically the field of natural science doesn\'t consider "necromancy" to be legitimate field of study, but certain jelly fish and starfish can regenerate...',
+    date: "Dec 2",
+  },
+  {
+    sender: "Benjamin Broome",
+    title: "Are you serious?",
+    content:
+      "I can't believe you blocked me. Can we just talk like normal people? Just pick up my call.",
+    date: "Nov 30",
+  },
+];
+
+const Carlos: EmailJson[] = [
+  {
+    sender: "Red Circle Warehouses",
+    title: "Application status",
+    content:
+      "After careful consideration, we've decided not to move forward with your application at this time in favor of other candidates that align...",
+    date: "Dec 11",
+  },
+  {
+    sender: "Neptune",
+    title: "New reminder",
+    content:
+      "Reminder that you have homework due for CSC 282: Design and Analytics of Efficient Algorithms in 2 day(s). To view your dashboard, click here",
+    date: "Dec 10",
+  },
+  {
+    sender: "contact@masterthepractice.org, me (5)",
+    title: "Re: I need help",
+    content:
+      "I'm impressed, child. You have done your research. It's true, the lifeforce transference ritual can cure a sickly person. But make no mistake, the ritual requires a sacrifice…",
+    date: "Dec 8",
+  },
+  {
+    sender: "Neptune",
+    title: "Submission confirmation",
+    content:
+      "You have submitted homework for CSC 222: Database Design. To view your dashboard, click here.",
+    date: "Dec 6",
+  },
+  {
+    sender: "DoorSprint",
+    title: "Your Paystub is Available",
+    content:
+      "Your pay stub has arrived! To view your digital pay stub and other work related documents, click the link below.",
+    date: "Dec 4",
+  },
+  {
+    sender: "KaiserU Financial Aid",
+    title: "We've received your application!",
+    content:
+      "Hi, thank you for submitting your financial aid application. At KaiserU, we believe that every student should have the opportunity to thrive and excel...",
+    date: "Dec 3",
+  },
+  {
+    sender: "Phillipe Sanchez, me (9)",
+    title: "About mom",
+    content:
+      "I'm gonna be honest, it's not looking good, kid. Doc says if she can't get treatment soon, she's looking at 6 to 12 months…",
+    date: "Dec 2",
+  },
+];
+
+export const allEmails = [Candace, Thomas, Sarah, Carlos];
