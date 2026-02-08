@@ -55,7 +55,7 @@ export default function Newspaper() {
       <div>
         Miranda Meadows, Head Coordinator of the non profit &quot;Mothers Against Occult
         Clubs&quot;, released a message to the Kaiser Country Community Board at yesterday&apos;s
-        Sunday meeting.
+        meeting.
       </div>
       <br />
       <div>
@@ -198,10 +198,11 @@ export default function Newspaper() {
       <br />
       <div>
         &quot;There will be dangerous chemicals in there, some that could be fatal if
-        ingested,&quot; said Clark in a statement. &quot;I need to ensure they are secured&quot;.
+        ingested,&quot; said Clark in a statement. &quot;I need to ensure they are secured for the
+        sake of our students&apos; safety.&quot;.
       </div>
       <br />
-      <div>Clark refused to elaborate what chemicals are kept in those storage units.</div>
+      <div>Clark did not elaborate on the exact chemicals that are kept in the storage units. </div>
       <br />
       <div>
         The statement quickly circulated among KaiserU social media, with the hashtag
@@ -209,9 +210,7 @@ export default function Newspaper() {
       </div>
       <br />
       <div>
-        The lab is open to seniors in the BioChemistry department for limited use. According to one
-        anonymous tip, the storage units still remained locked. So for now, the contents of these
-        units remain a mystery.
+        The lab will be open to Biology and Chemistry majors for limited use. Contact Professor Clark for details.
       </div>
     </div>
   );

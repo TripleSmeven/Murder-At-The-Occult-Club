@@ -145,7 +145,11 @@ const Aftermath1: ConversationJson = {
     },
     {
       sender: "Unknown B",
-      content: "Regardless, DO NOT tell the cops ANYTHING!!",
+      content: "Anyway, DO NOT say a word to the cops!!",
+    },
+    {
+      sender: "Unknown B",
+      content: "And NOTHING to MM either!!",
     },
   ],
 };
@@ -155,16 +159,11 @@ const Aftermath2: ConversationJson = {
   messages: [
     {
       sender: "Unknown A",
-      content:
-        "I still don't understand. I had believed at least myself and possibly you would have joined him. Yet he glimpsed alone.",
-    },
-    {
-      sender: "Unknown A",
-      content: "He is dead because of that.",
+      content: "You didn't call the cops, did you?",
     },
     {
       sender: "Unknown B",
-      content: "I don't know what to say… it all happened so fast.",
+      content: "No, of course not!",
     },
     {
       sender: "Unknown B",
@@ -259,7 +258,7 @@ const PromiseMe: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "Also, if B contacts you, IGNORE HIM!!",
+      content: "Also, if BB contacts you, IGNORE HIM!!",
     },
   ],
 };
@@ -300,4 +299,78 @@ const Mom: ConversationJson = {
   ],
 };
 
-export const allConversations = [Police, Aftermath1, Aftermath2, Tea, PromiseMe];
+const Welcome: ConversationJson = {
+  date: "11/29/16 4:44",
+  messages: [
+    {
+      sender: "Unknown A",
+      content: "hi gurl! welcome to the club 😊😊😊",
+    },
+    {
+      sender: "Unknown B",
+      content: "Hi! Thanks so much!",
+    },
+    {
+      sender: "Unknown A",
+      content: "im so excited! us girlies are finally not outnumbered!",
+    },
+    {
+      sender: "Unknown A",
+      content: "i just wanted to let you know you can talk to me anytime about the club!",
+    },
+    {
+      sender: "Unknown A",
+      content: "im friendlier than the boys anyways 💅",
+    },
+    {
+      sender: "Unknown B",
+      content: "Haha, of course if I have any questions I'll let you know!",
+    },
+    {
+      sender: "Unknown A",
+      content: "yep 😁😁😁",
+    },
+    {
+      sender: "Unknown A",
+      content: "so what do you think? a frog or a bat?",
+    },
+    {
+      sender: "Unknown B",
+      content: "I'm sorry?",
+    },
+    {
+      sender: "Unknown A",
+      content: "what kind of pet should I make my familiar?",
+    },
+    {
+      sender: "Unknown A",
+      content: "i would do cat but someone else has that covered already",
+    },
+    {
+      sender: "Unknown A",
+      content: "so thoughts???",
+    },
+    {
+      sender: "Unknown B",
+      content: "Uhh...",
+    },
+    {
+      sender: "Unknown B",
+      content: "Maybe a frog?",
+    },
+    {
+      sender: "Unknown A",
+      content: "YES I LOVE FROGS 🐸🐸🐸",
+    },
+    {
+      sender: "Unknown A",
+      content: "THANKS BESTIE",
+    },
+    {
+      sender: "Unknown A",
+      content: "gtg! Ttyl!",
+    },
+  ],
+};
+
+export const allConversations = [Police, Aftermath1, Aftermath2, Tea, PromiseMe, Mom, Welcome];

@@ -31,7 +31,7 @@ export default function PoliceReport() {
       <div className={styles.section}>
         <div className={styles.smallTitle}><strong>Incident Summary</strong></div>
 
-        Officers Walsh and Samson responded to a call made from the Secretary’s Office of Kaiser University on Friday, December 13 at 7:46PM. They arrived at the scene at 7:58PM.
+        Officers Walsh and Samson responded to a call made from the Secretary’s Office of Kaiser University on Tuesday, December 13 at 7:46PM. They arrived at the scene at 7:58PM.
         <br />
         <br />
         A janitor had discovered a body in room 608 on the 6th floor of the east wing. The body was identified as 21 year old Zach Cunningham, a senior majoring in biochemistry. Officers Walsh and Samson had noted there were no signs of a struggle and no blood at the scene.

@@ -5,6 +5,14 @@ export interface EmailJson {
   date: string;
 }
 
+const zachEmail: EmailJson = {
+  sender: "Zach Cunningham",
+  title: "Final Ritual of the Year",
+  content:
+    "Dear practicioners, it's almost time! We've spent years researching the Oblivion. It's time for us finally witness it ourselves. The Elixir of Oblivion will be the gateway...",
+  date: "Dec 6",
+};
+
 const Candace: EmailJson[] = [
   {
     sender: "Dinterest",
@@ -39,6 +47,7 @@ const Candace: EmailJson[] = [
       "I just added one more piece of feedback: please don't use emojis in formal writing. As for your paragraph structure...",
     date: "Dec 7",
   },
+  zachEmail,
   {
     sender: "Neptune",
     title: "New reminder",
@@ -64,7 +73,7 @@ const Candace: EmailJson[] = [
     title: "Re: Inquiry",
     content:
       "Thanks for reaching out! We do in fact have a selection of frogs and toads for you to take a look at! If you'd like, we can schedule...",
-    date: "Dec 2",
+    date: "Dec 1",
   },
 ];
 
@@ -118,15 +127,9 @@ const Thomas: EmailJson[] = [
       "Your virtual meeting with Miranda Meadows has ended. To view the meeting recording, click here.",
     date: "Dec 7",
   },
+  zachEmail,
   {
-    sender: "Neptune",
-    title: "Submission confirmation",
-    content:
-      "You have submitted homework for ME 280: Intro to Material Science. To view your dashboard, click here.",
-    date: "Dec 6",
-  },
-  {
-    sender: "KaiserU Student Affairs",
+    sender: "KaiserU Student Affairs, me (3)",
     title: "Re: Inquiry",
     content:
       "As long as you keep your registration updated, your gerbil is within our guidelines to raise in the dorms. Please note that larger pets like cats or dogs are prohibited...",
@@ -156,13 +159,7 @@ const Sarah: EmailJson[] = [
       "Hi all! For the volleyball team dinner, please inform us of any food allergies you might have in this form, and to bring you assigned items. Thanks!",
     date: "Dec 9",
   },
-  {
-    sender: "Neptune",
-    title: "Submission confirmation",
-    content:
-      "You have submitted homework for PSYC 210: Neural Foundations of Behavior. To view your dashboard, click here.",
-    date: "Dec 6",
-  },
+  zachEmail,
   {
     sender: "KaiserU Financial Aid, me (3)",
     title: "Status update",
@@ -209,19 +206,20 @@ const Carlos: EmailJson[] = [
     date: "Dec 10",
   },
   {
+    sender: "Neptune",
+    title: "Submission confirmation",
+    content:
+      "You have submitted homework for CSC 222: Database Design. To view your dashboard, click here.",
+    date: "Dec 9",
+  },
+  {
     sender: "contact@masterthepractice.org, me (5)",
     title: "Re: I need help",
     content:
       "I'm impressed, child. You have done your research. It's true, the lifeforce transference ritual can cure a sickly person. But make no mistake, the ritual requires a sacrifice…",
     date: "Dec 8",
   },
-  {
-    sender: "Neptune",
-    title: "Submission confirmation",
-    content:
-      "You have submitted homework for CSC 222: Database Design. To view your dashboard, click here.",
-    date: "Dec 6",
-  },
+  zachEmail,
   {
     sender: "DoorSprint",
     title: "Your Paystub is Available",
@@ -242,6 +240,84 @@ const Carlos: EmailJson[] = [
     content:
       "I'm gonna be honest, it's not looking good, kid. Doc says if she can't get treatment soon, she's looking at 6 to 12 months…",
     date: "Dec 2",
+  },
+];
+
+const Daisy: EmailJson[] = [
+  {
+    sender: "Greg Clark, me (2)",
+    title: "6th floor lab access",
+    content:
+      "The new lab has not been officially announced yet, nor am I ready to share the equipment and inventory at this time. I can put you on the waitlist for when it is...",
+    date: "Dec 9",
+  },
+  {
+    sender: "Neptune",
+    title: "Submission confirmation",
+    content:
+      "You have submitted homework for CHEM 208: Organic Chemistry II with Lab. To view your dashboard, click here.",
+    date: "Dec 7",
+  },
+  zachEmail,
+  {
+    sender: "Neptune",
+    title: "New reminder",
+    content:
+      "Reminder that you have homework due for CHEM 208: Organic Chemistry II with Lab in 2 day(s). To view your dashboard, click here",
+    date: "Dec 5",
+  },
+  {
+    sender: "Bisney+",
+    title: "We're updating our privacy agreement",
+    content:
+      "These terms will apply as of January 27, 2017 for new subscribers. For prior and existing subscribers, like you, these terms will be effective beginning...",
+    date: "Dec 4",
+  },
+  {
+    sender: "Zach Cunningham",
+    title: "Welcome to our club",
+    content:
+      "I wanted to personally welcome you again to our club. Re-iterating what we spoke of previously, our pursuit of knowledge and understanding of natural world is a bit unorthodox, and thus not officially sactioned by KaiserU. I would ask that you...",
+    date: "Nov 30",
+  },
+];
+
+const Andrew: EmailJson[] = [
+  {
+    sender: "Evelyn Samson, me (4)",
+    title: "Flowers",
+    content:
+      "What a coincidence, as those are the only ones we have left! I'm glad they'll have a new home. I'll leave them in the Office of Club Affairs with...",
+    date: "Dec 11",
+  },
+  {
+    sender: "Greg Klark, me (2)",
+    title: "Question for Project",
+    content:
+      "Interesting project you have there! Turacaffinate extraction is definitely possible. Technically I'm not supposed to, but I can show you the equipment in the new lab which should have what you need...",
+    date: "Dec 10",
+  },
+  {
+    sender: "Neptune",
+    title: "New reminder",
+    content:
+      "Reminder that you have homework due for CHEM 461: Spectroscopy Techniques Applied to Biological Systems in 2 day(s). To view your dashboard, click here",
+    date: "Dec 10",
+  },
+  zachEmail,
+  {
+    sender: "KaiserU Cloud",
+    title: "Your storage is getting full",
+    content:
+      "You've used 11.85 GB of the 15 GB of KaiserU Cloud storage. Click here to manage your cloud storage space.",
+    date: "Dec 6",
+  },
+  {
+    sender: "KaiserU Student Affairs",
+    title: "Housing of illegal pet",
+    content:
+      "We've received an anonymous report that you may be housing an illegal pet. At KaiserU, we take our safety policies seriously, and only certain pets are allowed in the dorms. We will be coming for an...",
+    date: "Dec 4",
   },
 ];
 
