@@ -2,12 +2,29 @@
   display: flex;
   justify-content: center;
   margin: 1em;
+  font-family: Indie Flower;
+  font-weight: bolder;
 
-  & select {
-    width: 12em;
-    font-size: 1.3em;
-    padding-top: 0.1em;
-    padding-bottom: 0.1em;
+  background-color: gray;
+  border-radius: 1em;
+
+  select {
+    width: 9.5em;
+    font-size: 1.5em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+    appearance: none;
+    font-weight: bold;
+    justify-content: center;
+    /* background: transparent; */
+
+    option {
+      font-weight: bold;
+    }
+  }
+
+  select.disabled {
+    background-image: none; /* Removes the down arrow*/
   }
 }
 
@@ -15,8 +32,7 @@
   font-size: 1.6em;
   padding: 0 0.5em;
   margin-right: 0.5em;
-  background-color: gray;
-  border-radius: 1em;
+  margin-left: 0.5em;
   color: black;
 }
 

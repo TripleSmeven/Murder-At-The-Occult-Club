@@ -1,3 +1,9 @@
+.inboxParent {
+  display: flex;
+  max-height: var(--carousel-height);
+  flex-direction: column;
+}
+
 .emailList {
   background-color: whitesmoke;
   color: black;
@@ -11,10 +17,21 @@
   scrollbar-width: thin;
 }
 
+.loggedIn {
+  font-family: Space Mono;
+  font-weight: bold;
+  position: fixed;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+  background-color: rgb(253, 255, 224);
+  width: inherit;
+  padding: 0.1em 0.5em;
+}
+
 .emailParent {
   font-family: Roboto;
   padding: 0.5em 2em;
-  border-top: 1px solid gray;
+  border-bottom: 1px solid grey;
 }
 
 .sender {
@@ -26,13 +43,7 @@
   justify-content: space-between;
 }
 
-.title {
-}
-
-.date {
-}
-
 .content {
   text-overflow: ellipsis;
-  color: gray;
+  color: rgb(97, 97, 97);
 }

@@ -8,6 +8,7 @@ import {
   Noto_Sans,
   Roboto,
   Newsreader,
+  Indie_Flower,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
@@ -64,6 +65,13 @@ const space_mono = Space_Mono({
 // newspaper
 const newsreader = Newsreader({
   variable: "--font-newsreader",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// picker
+const indie_flower = Indie_Flower({
+  variable: "--font-indie_flower",
   weight: "400",
   subsets: ["latin"],
 });

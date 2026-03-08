@@ -3,17 +3,29 @@ import Form from "react-bootstrap/Form";
 import styles from "./NamePicker.module.css";
 
 interface NamePickerProps {
-  label: string;
-  color: string;
-  onChange: ChangeEventHandler<HTMLSelectElement>;
+  label?: string;
+  labelPosition?: string;
+  color?: string;
+  value?: string;
+  disabled?: boolean;
+  onChange?: ChangeEventHandler<HTMLSelectElement>;
 }
 
-export default function NamePicker({ label, color, onChange }: NamePickerProps) {
+export default function NamePicker({
+  label,
+  labelPosition,
+  color,
+  value,
+  disabled,
+  onChange,
+}: NamePickerProps) {
   return (
-    <div className={styles.namePickerParent}>
-      <div className={`${styles.label} ${styles[color]}`}>{label}:</div>
-      <Form.Select onChange={onChange} size={"sm"}>
-        <option>---</option>
+    <div className={`${styles.namePickerParent} ${styles[color || "red"]}`}>
+      {labelPosition !== "back" ? (
+        <div className={`${styles.label}`}>{label}</div>
+      ) : null}
+      <Form.Select onChange={onChange} size={"sm"} disabled={disabled} value={value}>
+        <option>[Select a name]</option>
         <option value="Sarah Findley">Sarah Findley</option>
         <option value="Thomas Brooks">Thomas Brooks</option>
         <option value="Carlos Sanchez">Carlos Sanchez</option>
@@ -22,6 +34,9 @@ export default function NamePicker({ label, color, onChange }: NamePickerProps) 
         <option value="Candace Eng">Candace Eng</option>
         <option value="Zach Cunningham">Zach Cunningham</option>
       </Form.Select>
+      {labelPosition == "back" ? (
+        <div className={`${styles.label} ${styles[color || "red"]}`}>{label}</div>
+      ) : null}
     </div>
   );
 }

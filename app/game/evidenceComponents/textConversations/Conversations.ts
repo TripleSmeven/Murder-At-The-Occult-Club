@@ -165,13 +165,17 @@ const Aftermath2: ConversationJson = {
       sender: "Unknown B",
       content: "No, of course not!",
     },
+        {
+      sender: "Unknown B",
+      content: "That means... he's dead and someone found his body.",
+    },
     {
       sender: "Unknown B",
-      content: "So the Oblivion really did kill him?",
+      content: "Did the Oblivion really kill him?",
     },
     {
       sender: "Unknown A",
-      content: "That is the only plausible explanation.",
+      content: "I don't see what else could have. It makes sense, since Zach is the ",
     },
     {
       sender: "Unknown A",
