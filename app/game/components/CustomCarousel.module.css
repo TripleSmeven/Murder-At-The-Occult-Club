@@ -1,15 +1,30 @@
-.carousel {
-  height: var(--carousel-height);
-  overflow: auto;
-}
+.carouselParent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
-.pageButtonsParent {
-  /* top, sides, bottom */
-  margin: 2vh auto 0;
-  justify-content: center;
-  font-family: Space Mono;
-}
+  .carousel {
+    flex: 1 1 auto;
+    overflow: hidden;
 
-.pageButton {
-  margin: 0 0.1em;
+    /* hack the inner div to maintain height down to children */
+    > div {
+      height: 100%;
+    }
+
+    .carouselItem {
+      height: 100%;
+    }
+  }
+
+  .pageButtonsParent {
+    /* top, sides, bottom */
+    margin: 1em auto 0;
+    justify-content: center;
+    font-family: Space Mono;
+
+    .pageButton {
+      margin: 0 0.1em;
+    }
+  }
 }

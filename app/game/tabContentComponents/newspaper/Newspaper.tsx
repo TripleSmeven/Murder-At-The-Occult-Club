@@ -1,4 +1,6 @@
 import CustomCarousel from "../../components/CustomCarousel";
+import Notepad from "../../components/Notepad";
+import TabContentBase from "../TabContentBase";
 import styles from "./Newspaper.module.css";
 
 export default function Newspaper() {
@@ -19,7 +21,7 @@ export default function Newspaper() {
       <br />
       <div>
         &quot;It was not uncommon for Zach to swing by my office with his latest theories,&quot;
-        says Greg Clark, the head advisor of the BioChemistry department. &quot;His thirst for the
+        says Greg Clark, the head advisor of the biochemistry department. &quot;His thirst for the
         pursuit of knowledge will be sorely missed&quot;.
       </div>
       <br />
@@ -210,9 +212,12 @@ export default function Newspaper() {
       </div>
       <br />
       <div>
-        The lab will be open to Biology and Chemistry majors for limited use. Contact Professor Clark for details.
+        The lab will be open to Biology and Chemistry majors for limited use. Contact Professor
+        Clark for details.
       </div>
     </div>
   );
-  return <CustomCarousel items={[page1, page2, page3, page4, page5, page6]} />;
+
+  const evidence = <CustomCarousel items={[page1, page2, page3, page4, page5, page6]} />;
+  return <TabContentBase evidence={evidence} />;
 }

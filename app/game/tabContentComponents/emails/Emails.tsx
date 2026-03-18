@@ -1,5 +1,6 @@
 import CustomCarousel from "../../components/CustomCarousel";
-import NamePicker from "../../components/NamePicker";
+import Notepad from "../../components/Notepad";
+import TabContentBase from "../TabContentBase";
 import { allInboxes, type EmailJson, type Inbox } from "./EmailJsons";
 import styles from "./Emails.module.css";
 
@@ -23,18 +24,11 @@ function Inbox({ inbox }: { inbox: Inbox }) {
     return <Email key={index} {...email} />;
   });
 
-  let picker;
-
-  if (inbox.owner !== "Candace Eng") {
-    picker = <NamePicker label={"Whose emails are these?"} color={"blue"} />;
-  }
-
   return (
     <div className={styles.inboxParent}>
-      {picker}
       <div className={styles.emailList}>
         <div className={styles.loggedIn}>
-          You are logged in as: {picker ? "Unknown" : "Candace Eng"}
+          You are logged in as: {inbox.owner === "Candace Eng" ? "Candace Eng" : "Unknown"}
         </div>
         <div>.</div> {/** invisible top padding */}
         {emailList}
@@ -48,5 +42,7 @@ export default function Emails() {
   const emailListComponents = allInboxes.map((inbox, index) => {
     return <Inbox key={index} inbox={inbox} />;
   });
-  return <CustomCarousel items={emailListComponents} />;
+
+  const evidence = <CustomCarousel items={emailListComponents} />;
+  return <TabContentBase evidence={evidence} />;
 }

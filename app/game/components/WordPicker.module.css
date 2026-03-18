@@ -1,16 +1,17 @@
 .namePickerParent {
   display: flex;
   justify-content: center;
-  margin: 1em;
+  margin: 0.3em;
+  padding-top: 0.1em;
   font-family: Indie Flower;
   font-weight: bolder;
 
-  background-color: gray;
   border-radius: 1em;
+  border: 1px solid black;
 
   select {
-    width: 9.5em;
-    font-size: 1.5em;
+    width: 10em;
+    font-size: 1em;
     padding-top: 0em;
     padding-bottom: 0em;
     appearance: none;
@@ -29,7 +30,7 @@
 }
 
 .label {
-  font-size: 1.6em;
+  font-size: 1em;
   padding: 0 0.5em;
   margin-right: 0.5em;
   margin-left: 0.5em;
@@ -58,6 +59,10 @@
 
 .blue {
   background-color: var(--faded-blue);
+}
+
+.indigo {
+  background-color: var(--faded-indigo);
 }
 
 .purple {

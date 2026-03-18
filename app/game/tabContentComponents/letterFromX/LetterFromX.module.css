@@ -1,0 +1,22 @@
+.letter {
+  font-family: Patrick Hand;
+  font-size: 1.3em;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: black;
+
+  height: 100%;
+  overflow: auto;
+  scrollbar-color: gray transparent;
+}
+
+.page1 {
+  background-image: url("./paper.jpg");
+  padding: 2em;
+}
+
+.page2 {
+  background-image: url("./paper2.jpg");
+  padding: 2em;
+  height: 100%;
+}

@@ -1,7 +1,6 @@
 import { OrdersList } from "./OrdersList";
 import { JSX, useState } from "react";
 import styles from "./AmazingOrders.module.css";
-import NamePicker from "../../components/NamePicker";
 import CustomCarousel from "../../components/CustomCarousel";
 
 function OrderRow({
@@ -73,23 +72,7 @@ function AmazingOrdersTable() {
   );
 }
 
-function AnswerPage() {
-  const [order1, setOrder1] = useState("");
-  return (
-    <div className={styles.answerPage}>
-      <div className={styles.answerPageInstructions}>Select the person that each order belongs to.</div>
-      <NamePicker label={"1139A-002"} color={"red"} onChange={(e) => setOrder1(e.target.value)} />
-      <NamePicker
-        label={"1139A-009"}
-        color={"orange"}
-        onChange={(e) => setOrder1(e.target.value)}
-      />
-    </div>
-  );
-}
-
 export default function AmazingOrders() {
   const item1 = <AmazingOrdersTable />;
-  const item2 = <AnswerPage />;
-  return <CustomCarousel items={[item1, item2]} />;
+  return <CustomCarousel items={[item1]} />;
 }

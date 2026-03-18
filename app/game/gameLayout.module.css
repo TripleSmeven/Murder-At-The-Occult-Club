@@ -2,7 +2,7 @@
   --background: #0a0a0a;
   --foreground: #ededed;
   --tab-content-height: 80vh;
-  --tab-content-width: 50vw;
+  --tab-content-width: 70vw;
   --carousel-height: 72vh;
   --faded-red: rgb(252, 192, 192);
   --faded-orange: rgb(255, 214, 191);
@@ -11,6 +11,7 @@
   --faded-cyan: rgb(207, 255, 255);
   --faded-blue: rgb(175, 222, 238);
   --faded-purple: rgb(243, 197, 255);
+  --faded-indigo: rgb(184, 184, 255);
 }
 
 @theme inline {

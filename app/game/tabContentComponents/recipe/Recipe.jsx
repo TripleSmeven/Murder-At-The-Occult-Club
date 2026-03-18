@@ -1,7 +1,9 @@
+import Notepad from "../../components/Notepad";
+import TabContentBase from "../TabContentBase";
 import styles from "./Recipe.module.css";
 
 export default function Recipe() {
-  return (
+  const evidence = (
     <div className={styles.recipeParent}>
       <div className={styles.recipeHeader}>
         <h2>THE ELIXIR OF OBLIVION</h2>
@@ -35,4 +37,6 @@ export default function Recipe() {
       </div>
     </div>
   );
+
+  return <TabContentBase evidence={evidence} />;
 }

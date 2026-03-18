@@ -1,11 +1,10 @@
 .conversationParent {
   font-family: Noto Sans;
   color: black;
-  max-height: var(--carousel-height);
-  min-height: var(--carousel-height);
-  margin: 0 9vw;
+  margin: 0 8vw;
   border-radius: 3em;
   padding: 1em;
+  height: 100%;
 
   background-color: #fffaf0;
   overflow: auto;
@@ -55,7 +54,7 @@
   &.unknownA {
     background-image: url("./profilePictures/blank.png");
     background-blend-mode: multiply;
-    background-color: rgb(255, 205, 205);
+    background-color: rgb(255, 172, 172);
   }
 
   &.unknownB {

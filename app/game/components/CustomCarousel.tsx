@@ -42,7 +42,7 @@ export default function CustomCarousel({ items }: CustomCarouselProps) {
   }, [handleKeyPress]);
 
   return (
-    <>
+    <div className={styles.carouselParent}>
       <Carousel
         slide={false}
         indicators={false}
@@ -54,7 +54,9 @@ export default function CustomCarousel({ items }: CustomCarouselProps) {
         ref={carouselRef}
       >
         {items.map((item, index) => (
-          <Carousel.Item key={index}>{item}</Carousel.Item>
+          <Carousel.Item key={index} className={styles.carouselItem}>
+            {item}
+          </Carousel.Item>
         ))}
       </Carousel>
 
@@ -73,6 +75,6 @@ export default function CustomCarousel({ items }: CustomCarouselProps) {
           </Pagination.Item>
         ))}
       </Pagination>
-    </>
+    </div>
   );
 }

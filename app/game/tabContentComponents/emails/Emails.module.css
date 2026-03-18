@@ -1,19 +1,18 @@
 .inboxParent {
   display: flex;
-  max-height: var(--carousel-height);
   flex-direction: column;
+  height: 100%;
+  overflow: auto;
 }
 
 .emailList {
   background-color: whitesmoke;
   color: black;
   max-width: 70%;
-  max-height: var(--carousel-height);
-  min-height: var(--carousel-height);
-  overflow: auto;
   margin: 0 auto;
 
-  scrollbar-color: grey transparent;
+  overflow: auto;
+  scrollbar-color: gray transparent;
   scrollbar-width: thin;
 }
 

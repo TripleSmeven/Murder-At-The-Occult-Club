@@ -1,0 +1,25 @@
+.parent {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.evidence {
+  flex: 3;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.notes {
+  flex: 2;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  height: 100%;
+  padding: 1em;
+  padding-top: 0;
+}
