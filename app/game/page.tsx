@@ -22,7 +22,7 @@ export default function Game() {
       {/* https://react-bootstrap.netlify.app/docs/components/tabs/#custom-tab-layout */}
       <Tab.Container id="left-tabs-example" defaultActiveKey="1">
         <Row>
-          <Col sm={2} className={styles.clampHeight}>
+          <Col sm={2} className={`${styles.navCol}`}>
             <Nav variant="pills">
               <Nav.Item>
                 <Nav.Link eventKey="1">Letter From X</Nav.Link>
@@ -40,14 +40,14 @@ export default function Game() {
                 <Nav.Link eventKey="5">Text Messages</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link eventKey="6">Emails</Nav.Link>
+                <Nav.Link eventKey="6">Email Inboxes</Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link eventKey="7">AmazingOrders Orders</Nav.Link>
               </Nav.Item>
             </Nav>
           </Col>
-          <Col sm={10} className={styles.clampHeight}>
+          <Col sm={10} className={styles.col}>
             <Tab.Content className={styles.tabContent}>
               <Tab.Pane eventKey="1">
                 <LetterFromX />
@@ -67,7 +67,8 @@ export default function Game() {
               <Tab.Pane eventKey="6">
                 <Emails />
               </Tab.Pane>
-              <Tab.Pane eventKey="7">
+              {/* need special width cssfor some reason */}
+              <Tab.Pane eventKey="7" className={styles.amazingOrdersTab}>
                 <AmazingOrders />
               </Tab.Pane>
             </Tab.Content>

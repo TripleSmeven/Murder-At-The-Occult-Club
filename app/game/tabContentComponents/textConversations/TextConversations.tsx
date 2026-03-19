@@ -13,32 +13,32 @@ export default function TextConversations() {
     heading: "Who are the unknown persons?",
     sections: [
       {
-        title: "Text 2",
+        title: "Text Message 2",
         questions: [
           { question: "Unknown A", answer: "", color: Color.RED },
-          { question: "Unknown A", answer: "", color: Color.INDIGO },
+          { question: "Unknown B", answer: "", color: Color.INDIGO },
         ],
       },
       {
-        title: "Text 3",
+        title: "Text Message 3",
         questions: [
           { question: "Unknown A", answer: "", color: Color.RED },
-          { question: "Unknown A", answer: "", color: Color.INDIGO },
+          { question: "Unknown B", answer: "", color: Color.INDIGO },
         ],
       },
       {
-        title: "Text 4",
+        title: "Text Message 4",
         questions: [{ question: "Unknown A", answer: "", color: Color.RED }],
       },
       {
-        title: "Text 5",
+        title: "Text Message 5",
         questions: [{ question: "Unknown A", answer: "", color: Color.RED }],
       },
       {
-        title: "Text 7",
+        title: "Text Message 7",
         questions: [
           { question: "Unknown A", answer: "", color: Color.RED },
-          { question: "Unknown A", answer: "", color: Color.INDIGO },
+          { question: "Unknown B", answer: "", color: Color.INDIGO },
         ],
       },
     ],

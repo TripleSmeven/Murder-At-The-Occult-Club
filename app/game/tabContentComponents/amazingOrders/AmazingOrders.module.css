@@ -1,10 +1,23 @@
+.amazingOrdersParent {
+  height: 100%;
+  overflow: auto;
+}
+
 .amazingOrdersTable {
   background-color: white;
   color: black;
+  height: 100%;
+
+  thead {
+    position: sticky;
+    background-color: white;
+    top: 0;
+    border-bottom: 1px black;
+  }
 
   td {
     border: solid 1px;
-    border-color: lightgray;
+    border-color: rgb(0, 0, 0);
     padding: 1px 5px;
   }
 }
@@ -27,8 +40,7 @@
 
 .titleCell {
   max-width: 1em; /* Artificially low for the "excel" appearence */
-  overflow: hidden;
-  white-space: nowrap;
+  white-space: wrap;
 }
 
 .categoryCell {
@@ -89,15 +101,4 @@
 .black {
   background-color: black;
   color: white;
-}
-
-.answerPage {
-  margin: 5em;
-  padding: 1em;
-  background-color: gray;
-  border-radius: 1em;
-}
-
-.answerPageInstructions {
-  font-size: 1.3em;
 }

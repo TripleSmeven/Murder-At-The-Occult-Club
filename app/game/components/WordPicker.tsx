@@ -1,15 +1,15 @@
 import { ChangeEventHandler } from "react";
 import Form from "react-bootstrap/Form";
 import styles from "./WordPicker.module.css";
+import { useLocalStorage } from "./useLocalStorage";
 
 interface CustomPickerProps {
   label?: string;
   labelPosition?: string;
   color?: Color;
-  value?: string;
   disabled?: boolean;
-  onChange?: ChangeEventHandler<HTMLSelectElement>;
   words?: string[];
+  storageKey: string;
 }
 
 const SUSPECTS = [
@@ -23,6 +23,7 @@ const SUSPECTS = [
 ];
 
 export enum Color {
+  WHITE = "white",
   RED = "red",
   ORANGE = "orange",
   YELLOW = "yellow",
@@ -34,31 +35,32 @@ export enum Color {
   BLACK = "black",
 }
 
-export function NamePicker({ label, color, value, disabled, onChange }: CustomPickerProps) {
+export function NamePicker({ label, color, disabled, storageKey }: CustomPickerProps) {
   return (
     <CustomPicker
       label={label}
       color={color}
-      value={value}
       disabled={disabled}
-      onChange={onChange}
       words={SUSPECTS}
+      storageKey={storageKey}
     />
   );
 }
 
-export function CustomPicker({
-  label,
-  color,
-  value,
-  disabled,
-  onChange,
-  words,
-}: CustomPickerProps) {
+export function CustomPicker({ label, color, disabled, words, storageKey }: CustomPickerProps) {
+  const [localStorageValue, setLocalStorageValue] = useLocalStorage(storageKey);
+  const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setLocalStorageValue(e.target.value);
+  };
   return (
     <div className={`${styles.namePickerParent} ${color ? styles[color] : ""}`}>
-      <div className={styles.label}> {label}</div>
-      <Form.Select onChange={onChange} size={"sm"} disabled={disabled} value={value}>
+      <div className={styles.label}>{label} :</div>
+      <Form.Select
+        onChange={onChange}
+        size={"sm"}
+        disabled={disabled}
+        value={localStorageValue || ""}
+      >
         <option>[Select a name]</option>
         {words?.map((word, index) => (
           <option key={index} value={word}>

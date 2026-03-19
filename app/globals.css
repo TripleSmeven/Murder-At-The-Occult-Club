@@ -24,3 +24,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* overriding react bootstrap */
+.flex-row.nav.nav-tabs {
+  justify-content: center;
+  border-bottom: none;
+}
+
+#top-tabs-tab-objectives {
+  background-color: rgb(230, 231, 153);
+  color: black;
+
+  &.active {
+    background-color: rgb(248, 250, 117);
+  }
+}
+
+#top-tabs-tab-freeform {
+  background-color: rgb(206, 233, 245);
+  color: black;
+
+  &.active {
+    background-color: rgb(206, 240, 255);
+  }
+}
+
+.nav-pills .nav-item {
+  width: 100%;
+}

@@ -12,6 +12,8 @@
   --faded-blue: rgb(175, 222, 238);
   --faded-purple: rgb(243, 197, 255);
   --faded-indigo: rgb(184, 184, 255);
+
+  --boostrap-blue: #0d6efd;
 }
 
 @theme inline {

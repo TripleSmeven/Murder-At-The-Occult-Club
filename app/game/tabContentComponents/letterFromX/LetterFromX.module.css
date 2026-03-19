@@ -7,7 +7,7 @@
 
   height: 100%;
   overflow: auto;
-  scrollbar-color: gray transparent;
+  scrollbar-color: gray rgb(239, 240, 234);
 }
 
 .page1 {

@@ -1,76 +1,71 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import Carousel from "react-bootstrap/Carousel";
 import styles from "./Notepad.module.css";
 import { useLocalStorage } from "./useLocalStorage";
 import { NamePicker } from "./WordPicker";
 import { ObjectivesJson } from "./ObjectivesJson";
+import { Col, Nav, Row, Tab, Tabs } from "react-bootstrap";
 
 export default function Notepad({ heading, sections }: ObjectivesJson) {
-  const startingIndex = heading ? 0 : 1;
-  const [activeIndex, setActiveIndex] = useState(startingIndex);
+  const startingKey = heading ? "objectives" : "freeform";
   const [globalNotes, setGlobalNotes] = useLocalStorage("globalNotes");
 
-  let objectivesComponent;
+  const objectivesTab = heading ? (
+    <Tab.Pane
+      eventKey="objectives"
+      title="Objectives"
+      className={`${styles.tabContent} ${styles.objectivesContent}`}
+    >
+      <Objectives heading={heading} sections={sections} />
+    </Tab.Pane>
+  ) : null;
 
-  if (heading) {
-    objectivesComponent = <Objectives heading={heading} sections={sections} />;
-  }
-
-  return (
-    <div className={styles.notepadParent}>
-      <div className={styles.notesHeader}>
-        <h2>Notepad</h2>
-        <div className={styles.tabs}>
-          {objectivesComponent && (
-            <div
-              className={`${styles.notesButton}`}
-              onClick={() => {
-                setActiveIndex(0);
-              }}
-            >
-              Objectives
-            </div>
-          )}
-          <div
-            className={`${styles.notesButton}`}
-            onClick={() => {
-              setActiveIndex(1);
-            }}
-          >
-            Freeform
-          </div>
-        </div>
+  const freeformTab = (
+    <Tab.Pane
+      eventKey="freeform"
+      title="Freeform"
+      className={`${styles.tabContent} ${styles.freeformContent}`}
+    >
+      <div>
+        <textarea
+          className={`${styles.notesTextarea}`}
+          placeholder="Write anything here..."
+          onChange={(event) => {
+            setGlobalNotes(event.target.value);
+          }}
+          value={globalNotes}
+        />
       </div>
-      <Carousel
-        slide={false}
-        indicators={false}
-        controls={false}
-        wrap={false}
-        keyboard={true}
-        activeIndex={activeIndex}
-        className={styles.carousel}
-      >
-        <Carousel.Item
-          key={1}
-          className={`${styles.carouselItem} ${styles.objectivesCarouselItem}`}
-        >
-          {objectivesComponent}
-        </Carousel.Item>
-        <Carousel.Item key={2} className={`${styles.carouselItem} ${styles.notesCarouselItem}`}>
-          <textarea
-            className={`${styles.notesTextarea}`}
-            placeholder="Write anything here..."
-            onChange={(event) => {
-              setGlobalNotes(event.target.value);
-            }}
-            value={globalNotes}
-          />
-        </Carousel.Item>
-      </Carousel>
-    </div>
+    </Tab.Pane>
   );
+
+  const tabs = (
+    <Tab.Container id="top-tabs" defaultActiveKey={startingKey} transition={false}>
+      <Col className={styles.tabCol}>
+        <Row sm={1}>
+          <Nav variant="tabs" className="flex-row">
+            {objectivesTab && (
+              <Nav.Item className={styles.tabs}>
+                <Nav.Link eventKey="objectives">OBJECTIVES</Nav.Link>
+              </Nav.Item>
+            )}
+            <Nav.Item className={styles.tabs}>
+              <Nav.Link eventKey="freeform">NOTES</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </Row>
+        <Row sm={9} className={styles.tabContentRow}>
+          <Tab.Content>
+            {objectivesTab}
+            {freeformTab}
+          </Tab.Content>
+        </Row>
+      </Col>
+    </Tab.Container>
+  );
+
+  return <div className={styles.notepadParent}>{tabs}</div>;
 }
 
 const Objectives = ({ heading, sections }: ObjectivesJson) => {
@@ -80,11 +75,18 @@ const Objectives = ({ heading, sections }: ObjectivesJson) => {
       {sections?.map((section, index) => (
         <div className={styles.objectivesSection} key={index}>
           <div className={styles.objectivesSectionTitle}>{section.title}</div>
-          {section.questions.map((question, questionIndex) => (
-            <div key={questionIndex}>
-              <NamePicker label={question.question} color={question.color} />
-            </div>
-          ))}
+          {section.questions.map((question, questionIndex) => {
+            const storageKey = `objective-${section.title}-${question.question}`;
+            return (
+              <div key={questionIndex}>
+                <NamePicker
+                  label={question.question}
+                  color={question.color}
+                  storageKey={storageKey}
+                />
+              </div>
+            );
+          })}
         </div>
       ))}
     </div>

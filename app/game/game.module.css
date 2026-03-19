@@ -26,8 +26,15 @@
 }
 
 /* maintain height of game */
-.clampHeight {
+.col {
   height: 100%;
+  padding: 0 0.5em;
+}
+
+.navCol {
+  border: 1px solid var(--boostrap-blue);
+  padding: 0.5em;
+  height: fit-content;
 }
 
 /* hack the bootstrap nav a bit */
@@ -39,4 +46,8 @@
     height: 100%;
     display: flex;
   }
+}
+
+.amazingOrdersTab {
+  width: 100%;
 }

@@ -1,7 +1,6 @@
 .notepadParent {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
   height: 100%;
 }
 
@@ -11,29 +10,39 @@
   }
 }
 
-.notesButton {
-  font-family: Indie Flower;
-}
-
 .tabs {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  font-family: Indie Flower;
+  font-size: 1.3em;
+  font-weight: bolder;
 }
 
-.carousel {
-  /* background-image: url("./images/paper.jpg");
-  background-repeat: repeat; */
-  background-color: rgb(233, 233, 233);
+.tabCol {
   display: flex;
+  flex-direction: column;
 }
 
-.carouselItem {
+.tabContentRow {
+  flex: 1 1 auto;
+}
+
+.tabContent {
   color: black;
   font-family: Indie Flower;
   font-size: 1em;
   font-weight: bolder;
   padding: 1em;
+
+  overflow: auto;
+}
+
+.objectivesContent {
+  height: 100%;
+  background-color: rgb(252, 252, 209);
+}
+
+.freeformContent {
+  height: 100%;
+  background-color: rgb(230, 246, 253);
 }
 
 .notesTextarea {
@@ -52,17 +61,14 @@
 /* OBJECTIVES SECTION */
 
 .objectivesParent {
+  height: 100%;
 }
 
 .objectivesHeading {
   font-size: 2em;
+  line-height: 1em;
   font-weight: bolder;
   text-align: center;
-  margin-bottom: 0.5em;
-}
-
-.objectivesSection {
-  margin-bottom: 1.5em;
 }
 
 .objectivesSectionTitle {
@@ -70,4 +76,5 @@
   text-decoration: underline;
   padding-bottom: 0;
   line-height: 1em;
+  margin-top: 1.25em;
 }

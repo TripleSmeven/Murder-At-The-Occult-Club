@@ -2,6 +2,7 @@ import { OrdersList } from "./OrdersList";
 import { JSX, useState } from "react";
 import styles from "./AmazingOrders.module.css";
 import CustomCarousel from "../../components/CustomCarousel";
+import TabContentBase from "../TabContentBase";
 
 function OrderRow({
   entries,
@@ -60,19 +61,22 @@ function AmazingOrdersTable() {
     });
   });
   return (
-    <table className={styles.amazingOrdersTable}>
-      <thead>
-        <OrderRow rowClassName={styles.lettersRow} entries={["", "A", "B", "C", "D", "E"]} />
-      </thead>
-      <tbody>
-        <OrderRowHeader entries={["1", "Date", "Order ID", "Title", "Category", "Price"]} />
-        {orderRows}
-      </tbody>
-    </table>
+    <div className={styles.amazingOrdersParent}>
+      <table className={styles.amazingOrdersTable}>
+        <thead className={styles.tableHeader}>
+          <OrderRow rowClassName={styles.lettersRow} entries={["", "A", "B", "C", "D", "E"]} />
+        </thead>
+        <tbody>
+          <OrderRowHeader entries={["1", "Date", "Order ID", "Title", "Category", "Price"]} />
+          {orderRows}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
 export default function AmazingOrders() {
   const item1 = <AmazingOrdersTable />;
-  return <CustomCarousel items={[item1]} />;
+  const evidenceComponent = <CustomCarousel items={[item1]} />;
+  return <TabContentBase evidence={evidenceComponent} />;
 }

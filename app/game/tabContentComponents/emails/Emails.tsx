@@ -1,5 +1,7 @@
 import CustomCarousel from "../../components/CustomCarousel";
 import Notepad from "../../components/Notepad";
+import { ObjectivesJson } from "../../components/ObjectivesJson";
+import { Color } from "../../components/WordPicker";
 import TabContentBase from "../TabContentBase";
 import { allInboxes, type EmailJson, type Inbox } from "./EmailJsons";
 import styles from "./Emails.module.css";
@@ -43,6 +45,32 @@ export default function Emails() {
     return <Inbox key={index} inbox={inbox} />;
   });
 
+  const objectives: ObjectivesJson = {
+    heading: "Who are the unknown persons?",
+    sections: [
+      {
+        title: "Inbox 2",
+        questions: [{ question: "Unknown", answer: "", color: Color.GREEN }],
+      },
+      {
+        title: "Inbox 3",
+        questions: [{ question: "Unknown", answer: "", color: Color.GREEN }],
+      },
+      {
+        title: "Inbox 4",
+        questions: [{ question: "Unknown", answer: "", color: Color.GREEN }],
+      },
+      {
+        title: "Inbox 5",
+        questions: [{ question: "Unknown", answer: "", color: Color.GREEN }],
+      },
+      {
+        title: "Inbox 6",
+        questions: [{ question: "Unknown", answer: "", color: Color.GREEN }],
+      },
+    ],
+  };
+
   const evidence = <CustomCarousel items={emailListComponents} />;
-  return <TabContentBase evidence={evidence} />;
+  return <TabContentBase evidence={evidence} objectives={objectives} />;
 }
