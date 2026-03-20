@@ -1,40 +1,62 @@
 "use client";
-import { useEffect, useState } from "react";
+import { JSX, useContext, useEffect, useCallback, useState, useRef } from "react";
 
 import styles from "./Notepad.module.css";
-import { useLocalStorage } from "./useLocalStorage";
 import { NamePicker } from "./WordPicker";
 import { ObjectivesJson } from "./ObjectivesJson";
-import { Col, Nav, Row, Tab, Tabs } from "react-bootstrap";
+import { Button, Col, Nav, OverlayTrigger, Row, Tab, Tooltip } from "react-bootstrap";
+import { GlobalNotesContext } from "./GlobalNotesContext";
 
 export default function Notepad({ heading, sections }: ObjectivesJson) {
   const startingKey = heading ? "objectives" : "freeform";
-  const [globalNotes, setGlobalNotes] = useLocalStorage("globalNotes");
+  const { globalNotes, setGlobalNotes } = useContext(GlobalNotesContext);
+  const [localNotes, setLocalNotes] = useState(globalNotes);
+  const debounceTimer = useRef<NodeJS.Timeout | null>(null);
+
+  // Sync local state when global context changes
+  useEffect(() => {
+    setLocalNotes(globalNotes);
+  }, [globalNotes]);
+
+  // Clean up timer on unmount
+  useEffect(() => {
+    return () => {
+      if (debounceTimer.current) {
+        clearTimeout(debounceTimer.current);
+      }
+    };
+  }, []);
+
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      const newValue = event.target.value;
+      setLocalNotes(newValue);
+
+      if (debounceTimer.current) {
+        clearTimeout(debounceTimer.current);
+      }
+
+      debounceTimer.current = setTimeout(() => {
+        setGlobalNotes(newValue);
+      }, 500);
+    },
+    [setGlobalNotes],
+  );
 
   const objectivesTab = heading ? (
-    <Tab.Pane
-      eventKey="objectives"
-      title="Objectives"
-      className={`${styles.tabContent} ${styles.objectivesContent}`}
-    >
-      <Objectives heading={heading} sections={sections} />
+    <Tab.Pane eventKey="objectives" className={`${styles.tabContent} ${styles.objectivesContent}`}>
+      <ObjectivesContent heading={heading} sections={sections} />
     </Tab.Pane>
   ) : null;
 
   const freeformTab = (
-    <Tab.Pane
-      eventKey="freeform"
-      title="Freeform"
-      className={`${styles.tabContent} ${styles.freeformContent}`}
-    >
-      <div>
+    <Tab.Pane eventKey="freeform" className={`${styles.tabContent} ${styles.freeformContent}`}>
+      <div className={`${styles.notesTextareaParent}`}>
         <textarea
           className={`${styles.notesTextarea}`}
-          placeholder="Write anything here..."
-          onChange={(event) => {
-            setGlobalNotes(event.target.value);
-          }}
-          value={globalNotes}
+          placeholder="This is your notepad. Use it to take notes!"
+          onChange={handleChange}
+          value={localNotes}
         />
       </div>
     </Tab.Pane>
@@ -47,7 +69,9 @@ export default function Notepad({ heading, sections }: ObjectivesJson) {
           <Nav variant="tabs" className="flex-row">
             {objectivesTab && (
               <Nav.Item className={styles.tabs}>
-                <Nav.Link eventKey="objectives">OBJECTIVES</Nav.Link>
+                <MyToolTip text="test">
+                  <Nav.Link eventKey="objectives">OBJECTIVES</Nav.Link>
+                </MyToolTip>
               </Nav.Item>
             )}
             <Nav.Item className={styles.tabs}>
@@ -68,7 +92,7 @@ export default function Notepad({ heading, sections }: ObjectivesJson) {
   return <div className={styles.notepadParent}>{tabs}</div>;
 }
 
-const Objectives = ({ heading, sections }: ObjectivesJson) => {
+const ObjectivesContent = ({ heading, sections }: ObjectivesJson) => {
   return (
     <div className={styles.objectivesParent}>
       <div className={styles.objectivesHeading}>{heading}</div>
@@ -92,3 +116,17 @@ const Objectives = ({ heading, sections }: ObjectivesJson) => {
     </div>
   );
 };
+
+function MyToolTip({ children, text }: { children: JSX.Element; text: string }) {
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {text}
+    </Tooltip>
+  );
+
+  return (
+    <OverlayTrigger placement="top" delay={{ show: 250, hide: 300 }} overlay={renderTooltip}>
+      {children}
+    </OverlayTrigger>
+  );
+}

@@ -41,7 +41,7 @@ body {
 }
 
 #top-tabs-tab-freeform {
-  background-color: rgb(206, 233, 245);
+  background-color: rgb(196, 222, 233);
   color: black;
 
   &.active {

@@ -15,8 +15,12 @@ import AmazingOrders from "./tabContentComponents/amazingOrders/AmazingOrders";
 import TextConversations from "./tabContentComponents/textConversations/TextConversations";
 import Emails from "./tabContentComponents/emails/Emails";
 import Newspaper from "./tabContentComponents/newspaper/Newspaper";
+import { useLocalStorage } from "./components/useLocalStorage";
+import { GlobalNotesContext } from "./components/GlobalNotesContext";
 
 export default function Game() {
+  const [globalNotes, setGlobalNotes] = useLocalStorage("globalNotes");
+
   return (
     <div className={styles.gameParent}>
       {/* https://react-bootstrap.netlify.app/docs/components/tabs/#custom-tab-layout */}
@@ -48,30 +52,32 @@ export default function Game() {
             </Nav>
           </Col>
           <Col sm={10} className={styles.col}>
-            <Tab.Content className={styles.tabContent}>
-              <Tab.Pane eventKey="1">
-                <LetterFromX />
-              </Tab.Pane>
-              <Tab.Pane eventKey="2">
-                <PoliceReport />
-              </Tab.Pane>
-              <Tab.Pane eventKey="3">
-                <Newspaper />
-              </Tab.Pane>
-              <Tab.Pane eventKey="4">
-                <Recipe />
-              </Tab.Pane>
-              <Tab.Pane eventKey="5">
-                <TextConversations />
-              </Tab.Pane>
-              <Tab.Pane eventKey="6">
-                <Emails />
-              </Tab.Pane>
-              {/* need special width cssfor some reason */}
-              <Tab.Pane eventKey="7" className={styles.amazingOrdersTab}>
-                <AmazingOrders />
-              </Tab.Pane>
-            </Tab.Content>
+            <GlobalNotesContext value={{ globalNotes, setGlobalNotes }}>
+              <Tab.Content className={styles.tabContent}>
+                <Tab.Pane eventKey="1">
+                  <LetterFromX />
+                </Tab.Pane>
+                <Tab.Pane eventKey="2">
+                  <PoliceReport />
+                </Tab.Pane>
+                <Tab.Pane eventKey="3">
+                  <Newspaper />
+                </Tab.Pane>
+                <Tab.Pane eventKey="4">
+                  <Recipe />
+                </Tab.Pane>
+                <Tab.Pane eventKey="5">
+                  <TextConversations />
+                </Tab.Pane>
+                <Tab.Pane eventKey="6">
+                  <Emails />
+                </Tab.Pane>
+                {/* need special width cssfor some reason */}
+                <Tab.Pane eventKey="7" className={styles.amazingOrdersTab}>
+                  <AmazingOrders />
+                </Tab.Pane>
+              </Tab.Content>
+            </GlobalNotesContext>
           </Col>
         </Row>
       </Tab.Container>

@@ -115,8 +115,8 @@ export default function Newspaper() {
       <br />
       <div>
         Evelyn Samson declined to comment on Kyle Singh&apos;s near-fatal allergic reaction.
-        However, she did want to thank everyone who took the club&apos;s leftover tea after the club
-        was forced to close, saying, &quot;I&apos;m glad at least the tea won&apos;t go to
+        However, she did want to thank everyone who is taking the club&apos;s leftover tea after the
+        club was forced to close, saying, &quot;I&apos;m glad at least the tea won&apos;t go to
         waste.&quot;
       </div>
     </div>
@@ -149,7 +149,7 @@ export default function Newspaper() {
       <br />
       <div>
         The tournament is still looking for signups. If you&apos;re interested in the next Counter
-        Attak 2 tournament, reach out to Daniel Katz for details.
+        Attack 2 tournament, reach out to Daniel Katz for details.
       </div>
     </div>
   );
@@ -212,8 +212,16 @@ export default function Newspaper() {
       </div>
       <br />
       <div>
-        The lab will be open to Biology and Chemistry majors for limited use. Contact Professor
-        Clark for details.
+        The lab will be open to Biology and Chemistry majors for limited use. A few students have
+        expressed interest in signing up for the lab, but many are still skeptical about the
+        chemicals that are being stored in the lab.
+      </div>
+      <br />
+      <div>
+        &quot;I don&apos;t know if I want to be anywhere near that,&quot; said one student.
+        &quot;What if there&apos;s a leak or something?&quot; Another student said, &quot;We should
+        be thinking about what exciting things we can learn there. Aren&apos;t we a science-minded
+        community?&quot;
       </div>
     </div>
   );

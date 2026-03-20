@@ -42,7 +42,11 @@
 
 .freeformContent {
   height: 100%;
-  background-color: rgb(230, 246, 253);
+  background-color: rgb(234, 245, 250);
+}
+
+.notesTextareaParent {
+  height: 100%;
 }
 
 .notesTextarea {
