@@ -72,7 +72,7 @@ export default function Game() {
                 <Tab.Pane eventKey="6">
                   <Emails />
                 </Tab.Pane>
-                {/* need special width cssfor some reason */}
+                {/* need special width css for some reason */}
                 <Tab.Pane eventKey="7" className={styles.amazingOrdersTab}>
                   <AmazingOrders />
                 </Tab.Pane>

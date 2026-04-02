@@ -1,4 +1,3 @@
-import { ChangeEventHandler } from "react";
 import Form from "react-bootstrap/Form";
 import styles from "./WordPicker.module.css";
 import { useLocalStorage } from "./useLocalStorage";
@@ -10,11 +9,12 @@ interface CustomPickerProps {
   disabled?: boolean;
   words?: string[];
   storageKey: string;
+  callback?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const SUSPECTS = [
   "Sarah Findley",
-  "Thomas Brooks",
+  "Thomas Brooke",
   "Carlos Sanchez",
   "Daisy Verde",
   "Andrew Wolfe",
@@ -35,7 +35,7 @@ export enum Color {
   BLACK = "black",
 }
 
-export function NamePicker({ label, color, disabled, storageKey }: CustomPickerProps) {
+export function NamePicker({ label, color, disabled, storageKey, callback }: CustomPickerProps) {
   return (
     <CustomPicker
       label={label}
@@ -43,18 +43,27 @@ export function NamePicker({ label, color, disabled, storageKey }: CustomPickerP
       disabled={disabled}
       words={SUSPECTS}
       storageKey={storageKey}
+      callback={callback}
     />
   );
 }
 
-export function CustomPicker({ label, color, disabled, words, storageKey }: CustomPickerProps) {
+export function CustomPicker({
+  label,
+  color,
+  disabled,
+  words,
+  storageKey,
+  callback,
+}: CustomPickerProps) {
   const [localStorageValue, setLocalStorageValue] = useLocalStorage(storageKey);
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLocalStorageValue(e.target.value);
+    callback?.(e);
   };
   return (
-    <div className={`${styles.namePickerParent} ${color ? styles[color] : ""}`}>
-      <div className={styles.label}>{label} :</div>
+    <div className={`${styles.namePickerParent} ${color && styles[color]}`}>
+      <div className={`${styles.label} ${color && styles[color]}`}>{label} :</div>
       <Form.Select
         onChange={onChange}
         size={"sm"}

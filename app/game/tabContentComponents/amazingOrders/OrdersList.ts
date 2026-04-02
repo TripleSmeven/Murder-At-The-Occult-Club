@@ -1,7 +1,20 @@
-export const OrdersList = [
+interface Order {
+  date: string;
+  customerName: string;
+  color?: string;
+  items: Item[];
+}
+
+interface Item {
+  name: string;
+  category: string;
+  price: string;
+}
+
+export const OrdersList: Order[] = [
   {
-    date: "1/7",
-    orderId: "1139A-002", // Candace Eng
+    date: "12/7",
+    customerName: "Unknown A", // Candace Eng
     color: "red",
     items: [
       {
@@ -32,8 +45,8 @@ export const OrdersList = [
     ],
   },
   {
-    date: "1/8",
-    orderId: "1139A-009", // Andrew Wolfe
+    date: "12/8",
+    customerName: "Unknown B", // Andrew Wolfe
     color: "orange",
     items: [
       {
@@ -59,8 +72,8 @@ export const OrdersList = [
     ],
   },
   {
-    date: "1/8",
-    orderId: "1139A-023", // Carlos Sanchez
+    date: "12/8",
+    customerName: "Unknown C", // Carlos Sanchez
     color: "yellow",
     items: [
       {
@@ -86,8 +99,8 @@ export const OrdersList = [
     ],
   },
   {
-    date: "1/9",
-    orderId: "1139A-028", // named, Thomas Brooke
+    date: "12/9",
+    customerName: "Thomas Brooke",
     color: "green",
     items: [
       {
@@ -113,8 +126,8 @@ export const OrdersList = [
     ],
   },
   {
-    date: "1/9",
-    orderId: "1139A-031", // named, Daisy Verde
+    date: "12/9",
+    customerName: "Daisy Verde",
     color: "cyan",
     items: [
       {
@@ -130,8 +143,8 @@ export const OrdersList = [
     ],
   },
   {
-    date: "1/9",
-    orderId: "1139A-033", // named, Sarah Findley
+    date: "12/9",
+    customerName: "Sarah Findley",
     color: "blue",
     items: [
       {
@@ -162,8 +175,8 @@ export const OrdersList = [
     ],
   },
   {
-    date: "1/10",
-    orderId: "1139A-044", // named, Daisy Verde
+    date: "12/10",
+    customerName: "Daisy Verde",
     color: "purple",
     items: [
       {
@@ -179,8 +192,8 @@ export const OrdersList = [
     ],
   },
   {
-    date: "1/10",
-    orderId: "1139A-047", // named, Candace Eng
+    date: "12/10",
+    customerName: "Candace Eng",
     items: [
       {
         name: "Tom's Rodenticide 50oz (L)",
@@ -195,8 +208,8 @@ export const OrdersList = [
     ],
   },
   {
-    date: "1/10",
-    orderId: "1139A-052", // Andrew Wolfe
+    date: "12/10",
+    customerName: "Unknown D", // Andrew Wolfe
     color: "black",
 
     items: [

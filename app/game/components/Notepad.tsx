@@ -37,6 +37,7 @@ export default function Notepad({ heading, sections }: ObjectivesJson) {
       }
 
       debounceTimer.current = setTimeout(() => {
+        // debounce global notes, because update global context on every keystroke causes lag
         setGlobalNotes(newValue);
       }, 500);
     },
@@ -69,9 +70,7 @@ export default function Notepad({ heading, sections }: ObjectivesJson) {
           <Nav variant="tabs" className="flex-row">
             {objectivesTab && (
               <Nav.Item className={styles.tabs}>
-                <MyToolTip text="test">
-                  <Nav.Link eventKey="objectives">OBJECTIVES</Nav.Link>
-                </MyToolTip>
+                <Nav.Link eventKey="objectives">OBJECTIVES</Nav.Link>
               </Nav.Item>
             )}
             <Nav.Item className={styles.tabs}>
@@ -93,20 +92,54 @@ export default function Notepad({ heading, sections }: ObjectivesJson) {
 }
 
 const ObjectivesContent = ({ heading, sections }: ObjectivesJson) => {
+  const [clearTrigger, setClearTrigger] = useState(0);
+
+  const checkCorrect = () => {
+    const isCorrect = sections?.every((section) =>
+      section.questions.every((question) => {
+        const storageKey = `objective-${section.title}-${question.question}`;
+        const storedValue = localStorage?.getItem?.(storageKey);
+        console.log(
+          `Checking ${storageKey}: storedValue=${storedValue}, expected=${question.answer}`,
+        );
+        return storedValue === question.answer;
+      }),
+    );
+    return isCorrect ?? false;
+  };
+
+  const [correct, setCorrect] = useState(checkCorrect());
+
+  const storageKeys =
+    sections?.flatMap((section) =>
+      section.questions.map((question) => `objective-${section.title}-${question.question}`),
+    ) ?? [];
+
+  const handleClear = () => {
+    storageKeys.forEach((key) => {
+      localStorage.removeItem(key);
+    });
+    // triggers a rerender of the NamePicker components by changing the clearTrigger state
+    setClearTrigger((prev) => prev + 1);
+    setCorrect(false);
+  };
+
   return (
     <div className={styles.objectivesParent}>
       <div className={styles.objectivesHeading}>{heading}</div>
+      {correct ? <CorrectStatus /> : <IncorrectStatus />}
       {sections?.map((section, index) => (
         <div className={styles.objectivesSection} key={index}>
           <div className={styles.objectivesSectionTitle}>{section.title}</div>
           {section.questions.map((question, questionIndex) => {
             const storageKey = `objective-${section.title}-${question.question}`;
             return (
-              <div key={questionIndex}>
+              <div key={`${questionIndex}-${clearTrigger}`}>
                 <NamePicker
                   label={question.question}
                   color={question.color}
                   storageKey={storageKey}
+                  callback={() => setCorrect(checkCorrect())}
                 />
               </div>
             );
@@ -117,16 +150,36 @@ const ObjectivesContent = ({ heading, sections }: ObjectivesJson) => {
   );
 };
 
-function MyToolTip({ children, text }: { children: JSX.Element; text: string }) {
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      {text}
+const CorrectStatus = () => {
+  const renderTooltip = (
+    <Tooltip id="objectives-status-tooltip">
+      All your answers are correct! This objective is complete.
     </Tooltip>
   );
-
   return (
-    <OverlayTrigger placement="top" delay={{ show: 250, hide: 300 }} overlay={renderTooltip}>
-      {children}
+    <OverlayTrigger placement="top" delay={{ show: 250, hide: 100 }} overlay={renderTooltip}>
+      <div className={styles.objectivesStatus}>
+        <span className={`${styles.statusText} ${styles.correctStatus}`}>
+          Status: All Correct ✓
+        </span>
+      </div>
     </OverlayTrigger>
   );
-}
+};
+
+const IncorrectStatus = () => {
+  const renderTooltip = (
+    <Tooltip id="objectives-status-tooltip">
+      Select the correct answer for each question to complete this objective.
+    </Tooltip>
+  );
+  return (
+    <OverlayTrigger placement="top" delay={{ show: 250, hide: 100 }} overlay={renderTooltip}>
+      <div className={styles.objectivesStatus}>
+        <span className={`${styles.statusText} ${styles.incorrectStatus}`}>
+          Status: Incorrect ✗
+        </span>
+      </div>
+    </OverlayTrigger>
+  );
+};

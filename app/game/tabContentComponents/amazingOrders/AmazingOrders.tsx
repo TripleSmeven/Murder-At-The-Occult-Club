@@ -3,6 +3,8 @@ import { JSX, useState } from "react";
 import styles from "./AmazingOrders.module.css";
 import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
+import { Color } from "../../components/WordPicker";
+import { ObjectivesJson } from "../../components/ObjectivesJson";
 
 function OrderRow({
   entries,
@@ -50,7 +52,7 @@ function AmazingOrdersTable() {
           entries={[
             rowCount.toString(),
             order.date,
-            order.orderId,
+            order.customerName,
             item.name,
             item.category,
             item.price,
@@ -67,7 +69,9 @@ function AmazingOrdersTable() {
           <OrderRow rowClassName={styles.lettersRow} entries={["", "A", "B", "C", "D", "E"]} />
         </thead>
         <tbody>
-          <OrderRowHeader entries={["1", "Date", "Order ID", "Title", "Category", "Price"]} />
+          <OrderRowHeader
+            entries={["1", "Date", "Customer Name", "Item Name", "Category", "Price"]}
+          />
           {orderRows}
         </tbody>
       </table>
@@ -78,5 +82,21 @@ function AmazingOrdersTable() {
 export default function AmazingOrders() {
   const item1 = <AmazingOrdersTable />;
   const evidenceComponent = <CustomCarousel items={[item1]} />;
-  return <TabContentBase evidence={evidenceComponent} />;
+
+  const objectives: ObjectivesJson = {
+    heading: "Who are the unknown persons?",
+    sections: [
+      {
+        title: "",
+        questions: [
+          { question: "Unknown A", answer: "Candace Eng", color: Color.RED },
+          { question: "Unknown B", answer: "Andrew Wolfe", color: Color.ORANGE },
+          { question: "Unknown C", answer: "Carlos Sanchez", color: Color.YELLOW },
+          { question: "Unknown D", answer: "Sarah Findley", color: Color.BLACK },
+        ],
+      },
+    ],
+  };
+
+  return <TabContentBase evidence={evidenceComponent} objectives={objectives} />;
 }

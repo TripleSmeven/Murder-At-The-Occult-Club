@@ -39,7 +39,7 @@
 }
 
 .titleCell {
-  max-width: 1em; /* Artificially low for the "excel" appearence */
+  max-width: 1em;
   white-space: wrap;
 }
 
@@ -61,7 +61,7 @@
   td {
     font-weight: bold;
     color: white;
-    background-color: gray;
+    background-color: rgb(102, 102, 102);
   }
   .ignoreInHeaderRow {
     font-weight: normal;
@@ -101,4 +101,10 @@
 .black {
   background-color: black;
   color: white;
+  td {
+    border: 1px solid white;
+  }
+  .numberCell {
+    border: 1px solid black;
+  }
 }

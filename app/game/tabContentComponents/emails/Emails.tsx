@@ -50,23 +50,23 @@ export default function Emails() {
     sections: [
       {
         title: "Inbox 2",
-        questions: [{ question: "Unknown", answer: "", color: Color.GREEN }],
+        questions: [{ question: "Unknown", answer: "Thomas Brooke", color: Color.GREEN }],
       },
       {
         title: "Inbox 3",
-        questions: [{ question: "Unknown", answer: "", color: Color.GREEN }],
+        questions: [{ question: "Unknown", answer: "Sara Findley", color: Color.GREEN }],
       },
       {
         title: "Inbox 4",
-        questions: [{ question: "Unknown", answer: "", color: Color.GREEN }],
+        questions: [{ question: "Unknown", answer: "Carlos Sanchez", color: Color.GREEN }],
       },
       {
         title: "Inbox 5",
-        questions: [{ question: "Unknown", answer: "", color: Color.GREEN }],
+        questions: [{ question: "Unknown", answer: "Daisy Verde", color: Color.GREEN }],
       },
       {
         title: "Inbox 6",
-        questions: [{ question: "Unknown", answer: "", color: Color.GREEN }],
+        questions: [{ question: "Unknown", answer: "Andrew Wolfe", color: Color.GREEN }],
       },
     ],
   };

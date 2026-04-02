@@ -14,7 +14,7 @@
 @media screen and (max-height: 800px) {
   .gameParent {
     font-size: 12px;
-    max-width: 85vw;
+    padding: 8vh 0 6vh 0;
   }
 }
 
@@ -44,10 +44,12 @@
 
   > div {
     height: 100%;
+    width: 100%;
     display: flex;
   }
 }
 
+/* hack */
 .amazingOrdersTab {
   width: 100%;
 }

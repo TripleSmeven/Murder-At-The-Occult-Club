@@ -15,30 +15,30 @@ export default function TextConversations() {
       {
         title: "Text Message 2",
         questions: [
-          { question: "Unknown A", answer: "", color: Color.RED },
-          { question: "Unknown B", answer: "", color: Color.INDIGO },
+          { question: "Unknown A", answer: "Thomas Brooke", color: Color.RED },
+          { question: "Unknown B", answer: "Sarah Findley", color: Color.INDIGO },
         ],
       },
       {
         title: "Text Message 3",
         questions: [
-          { question: "Unknown A", answer: "", color: Color.RED },
-          { question: "Unknown B", answer: "", color: Color.INDIGO },
+          { question: "Unknown A", answer: "Andrew Wolfe", color: Color.RED },
+          { question: "Unknown B", answer: "Carlos Sanchez", color: Color.INDIGO },
         ],
       },
       {
         title: "Text Message 4",
-        questions: [{ question: "Unknown A", answer: "", color: Color.RED }],
+        questions: [{ question: "Unknown A", answer: "Thomas Brooke", color: Color.RED }],
       },
       {
         title: "Text Message 5",
-        questions: [{ question: "Unknown A", answer: "", color: Color.RED }],
+        questions: [{ question: "Unknown A", answer: "Sarah Findley", color: Color.RED }],
       },
       {
         title: "Text Message 7",
         questions: [
-          { question: "Unknown A", answer: "", color: Color.RED },
-          { question: "Unknown B", answer: "", color: Color.INDIGO },
+          { question: "Unknown A", answer: "Candace Eng", color: Color.RED },
+          { question: "Unknown B", answer: "Daisy Verde", color: Color.INDIGO },
         ],
       },
     ],
