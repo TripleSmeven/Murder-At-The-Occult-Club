@@ -12,7 +12,7 @@ interface ObjectiveSection {
 
 interface ObjectiveQuestion {
   question: string;
+  answers?: string[];
   answer?: string;
-  type?: "text" | "namePicker";
   color: Color;
 }

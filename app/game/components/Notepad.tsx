@@ -2,15 +2,17 @@
 import { JSX, useContext, useEffect, useCallback, useState, useRef } from "react";
 
 import styles from "./Notepad.module.css";
-import { NamePicker } from "./WordPicker";
+import { CustomPicker, NamePicker } from "./WordPicker";
 import { ObjectivesJson } from "./ObjectivesJson";
 import { Button, Col, Nav, OverlayTrigger, Row, Tab, Tooltip } from "react-bootstrap";
 import { GlobalNotesContext } from "./GlobalNotesContext";
+import { useLocalStorage } from "./useLocalStorage";
 
-export default function Notepad({ heading, sections }: ObjectivesJson) {
+export default function Notepad({ heading, sections, onCorrect }: ObjectivesContentProps) {
   const startingKey = heading ? "objectives" : "freeform";
   const { globalNotes, setGlobalNotes } = useContext(GlobalNotesContext);
   const [localNotes, setLocalNotes] = useState(globalNotes);
+  const [objectivesVisited, setObjectivesVisited] = useLocalStorage("objectivesVisited");
   const debounceTimer = useRef<NodeJS.Timeout | null>(null);
 
   // Sync local state when global context changes
@@ -44,9 +46,18 @@ export default function Notepad({ heading, sections }: ObjectivesJson) {
     [setGlobalNotes],
   );
 
+  const handleTabSelect = useCallback(
+    (eventKey: string | null) => {
+      if (eventKey === "objectives" && objectivesVisited !== "true") {
+        setObjectivesVisited("true");
+      }
+    },
+    [objectivesVisited, setObjectivesVisited],
+  );
+
   const objectivesTab = heading ? (
     <Tab.Pane eventKey="objectives" className={`${styles.tabContent} ${styles.objectivesContent}`}>
-      <ObjectivesContent heading={heading} sections={sections} />
+      <ObjectivesContent heading={heading} sections={sections} onCorrect={onCorrect} />
     </Tab.Pane>
   ) : null;
 
@@ -64,13 +75,20 @@ export default function Notepad({ heading, sections }: ObjectivesJson) {
   );
 
   const tabs = (
-    <Tab.Container id="top-tabs" defaultActiveKey={startingKey} transition={false}>
+    <Tab.Container
+      id="top-tabs"
+      defaultActiveKey={startingKey}
+      transition={false}
+      onSelect={handleTabSelect}
+    >
       <Col className={styles.tabCol}>
         <Row sm={1}>
           <Nav variant="tabs" className="flex-row">
             {objectivesTab && (
               <Nav.Item className={styles.tabs}>
-                <Nav.Link eventKey="objectives">OBJECTIVES</Nav.Link>
+                <Nav.Link eventKey="objectives">
+                  {objectivesVisited === "true" ? "" : "❗ "}OBJECTIVES
+                </Nav.Link>
               </Nav.Item>
             )}
             <Nav.Item className={styles.tabs}>
@@ -91,38 +109,31 @@ export default function Notepad({ heading, sections }: ObjectivesJson) {
   return <div className={styles.notepadParent}>{tabs}</div>;
 }
 
-const ObjectivesContent = ({ heading, sections }: ObjectivesJson) => {
-  const [clearTrigger, setClearTrigger] = useState(0);
+export interface ObjectivesContentProps extends ObjectivesJson {
+  onCorrect?: () => void;
+}
 
+const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentProps) => {
   const checkCorrect = () => {
     const isCorrect = sections?.every((section) =>
       section.questions.every((question) => {
         const storageKey = `objective-${section.title}-${question.question}`;
         const storedValue = localStorage?.getItem?.(storageKey);
-        console.log(
-          `Checking ${storageKey}: storedValue=${storedValue}, expected=${question.answer}`,
-        );
         return storedValue === question.answer;
       }),
     );
+    if (isCorrect && onCorrect) {
+      onCorrect();
+    }
     return isCorrect ?? false;
   };
 
-  const [correct, setCorrect] = useState(checkCorrect());
+  const [correct, setCorrect] = useState(false);
 
-  const storageKeys =
-    sections?.flatMap((section) =>
-      section.questions.map((question) => `objective-${section.title}-${question.question}`),
-    ) ?? [];
-
-  const handleClear = () => {
-    storageKeys.forEach((key) => {
-      localStorage.removeItem(key);
-    });
-    // triggers a rerender of the NamePicker components by changing the clearTrigger state
-    setClearTrigger((prev) => prev + 1);
-    setCorrect(false);
-  };
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCorrect(checkCorrect()); // Only run on client where localStorage is available
+  }, []); // empty dependency array to run only once on mount.
 
   return (
     <div className={styles.objectivesParent}>
@@ -133,12 +144,27 @@ const ObjectivesContent = ({ heading, sections }: ObjectivesJson) => {
           <div className={styles.objectivesSectionTitle}>{section.title}</div>
           {section.questions.map((question, questionIndex) => {
             const storageKey = `objective-${section.title}-${question.question}`;
+            if (question.answers && question.answers.length > 0) {
+              return (
+                <div key={`${questionIndex}`}>
+                  <CustomPicker
+                    label={question.question}
+                    color={question.color}
+                    words={question.answers}
+                    storageKey={storageKey}
+                    disabled={correct}
+                    callback={() => setCorrect(checkCorrect())}
+                  />
+                </div>
+              );
+            }
             return (
-              <div key={`${questionIndex}-${clearTrigger}`}>
+              <div key={`${questionIndex}`}>
                 <NamePicker
                   label={question.question}
                   color={question.color}
                   storageKey={storageKey}
+                  disabled={correct}
                   callback={() => setCorrect(checkCorrect())}
                 />
               </div>
@@ -157,7 +183,7 @@ const CorrectStatus = () => {
     </Tooltip>
   );
   return (
-    <OverlayTrigger placement="top" delay={{ show: 250, hide: 100 }} overlay={renderTooltip}>
+    <OverlayTrigger placement="top" overlay={renderTooltip}>
       <div className={styles.objectivesStatus}>
         <span className={`${styles.statusText} ${styles.correctStatus}`}>
           Status: All Correct ✓
@@ -174,7 +200,7 @@ const IncorrectStatus = () => {
     </Tooltip>
   );
   return (
-    <OverlayTrigger placement="top" delay={{ show: 250, hide: 100 }} overlay={renderTooltip}>
+    <OverlayTrigger placement="top" overlay={renderTooltip}>
       <div className={styles.objectivesStatus}>
         <span className={`${styles.statusText} ${styles.incorrectStatus}`}>
           Status: Incorrect ✗

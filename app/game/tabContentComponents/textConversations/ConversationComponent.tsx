@@ -8,11 +8,12 @@ interface TextMessageJson {
 }
 
 const senderToProfileMap: { [key: string]: string } = {
-  "Sebastian Walsh": "walsh",
-  "Roy Samson": "samson",
+  "Sebastian Waller": "waller",
+  "Troy Samson": "samson",
   "Evelyn Samson": "esamson",
   "Heather Douglas": "heather",
   "Maria Sanchez": "flower",
+  "Carlos Sanchez": "sanchez",
   "Unknown A": "unknownA",
   "Unknown B": "unknownB",
 };

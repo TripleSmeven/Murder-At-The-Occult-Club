@@ -1,13 +1,24 @@
 import CustomCarousel from "../../components/CustomCarousel";
-import Notepad from "../../components/Notepad";
 import TabContentBase from "../TabContentBase";
 import styles from "./Newspaper.module.css";
+import { StageContext } from "../../components/StageContext";
+import { useContext } from "react";
+
+function Subheader({ author, date }: { author: string; date: string }) {
+  return (
+    <div className={styles.subheader}>
+      <div>{author}</div>
+      <div>{date}</div>
+    </div>
+  );
+}
 
 export default function Newspaper() {
   const page1 = (
     <div className={styles.newspaperParent}>
       <h3>Vigil For Zach Cunningham to be Held Dec 20th</h3>
-
+      <Subheader author="Justin Holmes" date="December 18, 2016" />
+      <br />
       <div>
         The KaiserU Department of Student affairs has announced a candlelight vigil will be held in
         the remembrance of Zach Cunningham on December 20th, in the east wing garden.
@@ -21,7 +32,7 @@ export default function Newspaper() {
       <br />
       <div>
         &quot;It was not uncommon for Zach to swing by my office with his latest theories,&quot;
-        says Greg Clark, the head advisor of the biochemistry department. &quot;His thirst for the
+        says Greg Carlson, the head advisor of the biochemistry department. &quot;His thirst for the
         pursuit of knowledge will be sorely missed&quot;.
       </div>
       <br />
@@ -53,7 +64,8 @@ export default function Newspaper() {
   const page2 = (
     <div className={styles.newspaperParent}>
       <h3>Mothers Against Occult Clubs Head Coordinator Speaks Out</h3>
-
+      <Subheader author="Justin Holmes" date="December 16, 2016" />
+      <br />
       <div>
         Miranda Meadows, Head Coordinator of the non profit &quot;Mothers Against Occult
         Clubs&quot;, released a message to the Kaiser Country Community Board at yesterday&apos;s
@@ -67,8 +79,8 @@ export default function Newspaper() {
       </div>
       <br />
       <div>
-        Yesterday marks the 3-year anniversary of the death of Scott Wagner, a high school senior
-        who was killed in a deadly ritual conducted by an underground occult club at his high
+        Three days ago marks the 3-year anniversary of the death of Scott Wagner, a high school
+        senior who was killed in a deadly ritual conducted by an underground occult club at his high
         school.
       </div>
       <br />
@@ -88,6 +100,8 @@ export default function Newspaper() {
   const page3 = (
     <div className={styles.newspaperParent}>
       <h3>Tea Club To Remain Closed Until Next Semester</h3>
+      <Subheader author="Vivian Park" date="December 16, 2016" />
+      <br />
 
       <div>
         Nearly two weeks ago, Kyle Singh, a second-year electrical engineering major, was admitted
@@ -125,6 +139,8 @@ export default function Newspaper() {
   const page4 = (
     <div className={styles.newspaperParent}>
       <h3>Banned From Video Game Tournament. Justified?</h3>
+      <Subheader author="Vivian Park" date="December 15, 2016" />
+      <br />
       <div>
         {
           "Freshman Evan Worth was allegedly suspended from KaiserU's weekly Counter Attack 2 tournament for the rest of the semester. Worth claims it was because he was seen drinking energy drinks before a match."
@@ -157,6 +173,8 @@ export default function Newspaper() {
   const page5 = (
     <div className={styles.newspaperParent}>
       <h3>Duck Migration in Full Force Month</h3>
+      <Subheader author="Miriam Nwani" date="December 15, 2016" />
+      <br />
       <div>
         KaiserU&apos;s yearly duck migration is in full swing these past 2 weeks, with the American
         White-Breasted duck being the most common breed to be seen on campus. Although most students
@@ -192,8 +210,9 @@ export default function Newspaper() {
   const page6 = (
     <div className={styles.newspaperParent}>
       <h3>New Chemistry Lab Opens on 6th Floor</h3>
+      <Subheader author="Justin Holmes" date="December 14, 2016" />
       <div>
-        Professor Greg Clark announced the opening of a new chemistry lab on the 6th floor earlier
+        Professor Greg Carlson announced the opening of a new chemistry lab on the 6th floor earlier
         today. The lab was bathed in controversy over budget concerns, as Clark advocated for
         expensive, high security storage units to be installed.
       </div>
@@ -226,6 +245,10 @@ export default function Newspaper() {
     </div>
   );
 
-  const evidence = <CustomCarousel items={[page1, page2, page3, page4, page5, page6]} />;
+  const { currentStage } = useContext(StageContext);
+  const lockedPages = currentStage < 2 ? [2, 3, 4, 5] : [];
+  const evidence = (
+    <CustomCarousel items={[page1, page2, page3, page4, page5, page6]} lockedPages={lockedPages} />
+  );
   return <TabContentBase evidence={evidence} />;
 }

@@ -30,9 +30,9 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
 
-  &.walsh {
+  &.waller {
     /*https://www.pexels.com/photo/man-drinking-liquor-wearing-red-cap-and-black-crew-neck-shirt-1267335/*/
-    background-image: url("./profilePictures/walsh.jpg");
+    background-image: url("./profilePictures/waller.jpg");
   }
   /*https://www.pexels.com/photo/smiling-father-and-pregnant-mother-standing-with-daughter-20354887/*/
   &.samson {
@@ -49,6 +49,11 @@
   /* https://www.pexels.com/photo/purple-phalaenopsis-flowers-27028233/ */
   &.flower {
     background-image: url("./profilePictures/flowers.jpg");
+  }
+
+  /* https://www.pexels.com/photo/portrait-of-brunette-man-15836964/ */
+  &.sanchez {
+    background-image: url("./profilePictures/sanchez.jpg");
   }
 
   &.unknownA {

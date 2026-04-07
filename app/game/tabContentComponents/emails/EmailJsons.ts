@@ -196,7 +196,7 @@ const Sarah: Inbox = {
       date: "Dec 4",
     },
     {
-      sender: "Greg Clark, me (2)",
+      sender: "Greg Carlson, me (2)",
       title: "Re: Question",
       content:
         'Typically the field of natural science doesn\'t consider "necromancy" to be legitimate field of study, but certain jelly fish and starfish can regenerate...',
@@ -272,7 +272,7 @@ const Daisy: Inbox = {
   owner: "Daisy Verde",
   emails: [
     {
-      sender: "Greg Clark, me (2)",
+      sender: "Greg Carlson, me (2)",
       title: "6th floor lab access",
       content:
         "The new lab has not been officially announced yet, nor am I ready to share the equipment and inventory at this time. I can put you on the waitlist for when it is...",

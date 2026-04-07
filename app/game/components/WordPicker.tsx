@@ -63,14 +63,16 @@ export function CustomPicker({
   };
   return (
     <div className={`${styles.namePickerParent} ${color && styles[color]}`}>
-      <div className={`${styles.label} ${color && styles[color]}`}>{label} :</div>
+      <div className={`${styles.label} ${color && styles[color]}`}>
+        {label?.length ? label + ":" : null}
+      </div>
       <Form.Select
         onChange={onChange}
         size={"sm"}
         disabled={disabled}
         value={localStorageValue || ""}
       >
-        <option>[Select a name]</option>
+        <option>[Select an option]</option>
         {words?.map((word, index) => (
           <option key={index} value={word}>
             {word}

@@ -5,6 +5,9 @@ import styles from "./CustomCarousel.module.css";
 
 interface CustomCarouselProps {
   items: JSX.Element[];
+  lockedPages?: number[];
+  // onSelect is slow for some reason, so use onChange and useEffect instead
+  onChange?: ((index: number) => void) | undefined;
 }
 
 const scrollToTop = (ref: React.RefObject<CarouselRef | null>) => {
@@ -14,24 +17,33 @@ const scrollToTop = (ref: React.RefObject<CarouselRef | null>) => {
   });
 };
 
-export default function CustomCarousel({ items }: CustomCarouselProps) {
+export default function CustomCarousel({ items, lockedPages = [], onChange }: CustomCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselRef = useRef<CarouselRef | null>(null);
   const size = items.length;
 
+  const isPageLocked = useCallback(
+    (pageIndex: number) => lockedPages.includes(pageIndex),
+    [lockedPages],
+  );
+
   const handleKeyPress = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === "ArrowLeft") {
-        console.log("arrow left", Math.max(activeIndex - 1, 0));
-        setActiveIndex(Math.max(activeIndex - 1, 0));
-        scrollToTop(carouselRef);
+        const newIndex = Math.max(activeIndex - 1, 0);
+        if (!isPageLocked(newIndex)) {
+          setActiveIndex(newIndex);
+          scrollToTop(carouselRef);
+        }
       } else if (event.key === "ArrowRight") {
-        console.log("arrow right", Math.min(activeIndex + 1, size - 1));
-        setActiveIndex(Math.min(activeIndex + 1, size - 1));
-        scrollToTop(carouselRef);
+        const newIndex = Math.min(activeIndex + 1, size - 1);
+        if (!isPageLocked(newIndex)) {
+          setActiveIndex(newIndex);
+          scrollToTop(carouselRef);
+        }
       }
     },
-    [activeIndex, size],
+    [activeIndex, isPageLocked, size],
   );
 
   useEffect(() => {
@@ -40,6 +52,12 @@ export default function CustomCarousel({ items }: CustomCarouselProps) {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, [handleKeyPress]);
+
+  useEffect(() => {
+    if (onChange) {
+      onChange(activeIndex);
+    }
+  }, [activeIndex, onChange]);
 
   return (
     <div className={styles.carouselParent}>
@@ -60,18 +78,21 @@ export default function CustomCarousel({ items }: CustomCarouselProps) {
         ))}
       </Carousel>
 
-      <Pagination className={styles.pageButtonsParent}>
+      <Pagination className={styles.pageButtonsParent} onChange={() => console.log("changed")}>
         {items.map((_, index) => (
           <Pagination.Item
             key={index}
-            className={styles.pageButton}
+            className={`${styles.pageButton} ${isPageLocked(index) ? styles.lockedPageButton : ""}`}
             active={activeIndex === index}
+            disabled={isPageLocked(index)}
             onClick={() => {
-              setActiveIndex(index);
-              scrollToTop(carouselRef);
+              if (!isPageLocked(index)) {
+                setActiveIndex(index);
+                scrollToTop(carouselRef);
+              }
             }}
           >
-            {index + 1}
+            {isPageLocked(index) ? "🔒" : index + 1}
           </Pagination.Item>
         ))}
       </Pagination>

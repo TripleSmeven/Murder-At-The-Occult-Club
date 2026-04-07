@@ -3,6 +3,10 @@ import Image from "next/image";
 import badge from "./police-badge.png";
 import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
+import { ObjectivesJson } from "../../components/ObjectivesJson";
+import { Color } from "../../components/WordPicker";
+import { useContext } from "react";
+import { StageContext } from "../../components/StageContext";
 
 export default function PoliceReport() {
   const item1 = (
@@ -26,7 +30,7 @@ export default function PoliceReport() {
         <div className={styles.smallTitle}>
           <strong>Incident Details</strong>
         </div>
-        Responding Officers: Sebastian Walsh, Roy Samson
+        Responding Officers: Sebastian Waller, Troy Samson
         <br />
         Incident Location: Kaiser University, 150 Pleasant Grove Rd, Kaiser County, NY 14850
         <br />
@@ -37,13 +41,13 @@ export default function PoliceReport() {
         <div className={styles.smallTitle}>
           <strong>Incident Summary</strong>
         </div>
-        Officers Walsh and Samson responded to a call made from the Secretary’s Office of Kaiser
+        Officers Waller and Samson responded to a call made from the Secretary’s Office of Kaiser
         University on Tuesday, December 13 at 7:46PM. They arrived at the scene at 7:58PM.
         <br />
         <br />
         A janitor had discovered a body in room 608 on the 6th floor of the east wing. The body was
-        identified as 21 year old Zach Cunningham, a senior majoring in biochemistry. Officers Walsh
-        and Samson had noted there were no signs of a struggle and no blood at the scene.
+        identified as 21 year old Zach Cunningham, a senior majoring in biochemistry. Officers
+        Waller and Samson had noted there were no signs of a struggle and no blood at the scene.
         <br />
         <br />
         Medical personnel arrived soon after and confirmed the victim had passed. Medical arranged
@@ -70,7 +74,9 @@ export default function PoliceReport() {
           <li>Burnt ashes of animal fur and bird feathers</li>
           <li>Stimulants mixed in liquid</li>
           <li>Flower petal fibers</li>
-          <li>An unknown substance</li>
+          <li>
+            An <strong>unknown substance</strong>
+          </li>
         </ol>
         Further investigation of this liquid is pending.
         <br />
@@ -124,6 +130,52 @@ export default function PoliceReport() {
     </div>
   );
 
-  const evidenceComponent = <CustomCarousel items={[item1, item2]} />;
-  return <TabContentBase evidence={evidenceComponent} />;
+  const { currentStage, setStage } = useContext(StageContext);
+
+  // set stage from 0 to 1 when user views second page of police report.
+  const onChange = (index: number) => {
+    if (currentStage < 1 && index === 1) {
+      setStage(1);
+    }
+  };
+  const evidenceComponent = <CustomCarousel items={[item1, item2]} onChange={onChange} />;
+  const objectives: ObjectivesJson = {
+    heading: "Answer the questions below:",
+    sections: [
+      {
+        title: "What kind of compound is the unknown substance mentioned on page 2?",
+        questions: [
+          {
+            question: "",
+            answer: "A sodium one",
+            answers: ["A lithium one", "A sodium one", "A hydrogen one", "A calcium one"],
+            color: Color.GREEN,
+          },
+        ],
+      },
+      {
+        title: "Who ordered the police to stop investigating Cunningham's murder?",
+        questions: [
+          {
+            question: "",
+            answer: "Eric Lark",
+            answers: ["Miranda Meadows", "Greg Carlson", "Eric Lark", "Troy Samson"],
+            color: Color.GREEN,
+          },
+        ],
+      },
+    ],
+  };
+
+  // move to stage 2 if police report objective is complete
+  const onCorrect = () => {
+    setStage(2);
+  };
+  return (
+    <TabContentBase
+      evidence={evidenceComponent}
+      objectives={currentStage < 1 ? undefined : objectives}
+      onCorrect={onCorrect}
+    />
+  );
 }

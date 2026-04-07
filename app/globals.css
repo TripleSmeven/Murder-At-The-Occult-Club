@@ -58,3 +58,18 @@ body {
 .nav-pills .nav-item {
   width: 100%;
 }
+
+/* hack bootstrap disabled nav item text color */
+.nav-item {
+  .nav-link.disabled,
+  .nav-link:disabled {
+    color: gray;
+    cursor: not-allowed;
+  }
+}
+
+/* hack bootstrap disabled select forms */
+select.form-select:disabled {
+  background-color: rgb(255, 255, 255);
+  background-image: none;
+}

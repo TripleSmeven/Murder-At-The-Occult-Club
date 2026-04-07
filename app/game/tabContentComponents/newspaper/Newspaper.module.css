@@ -11,9 +11,18 @@
 
   & h3 {
     font-size: 2.5em;
+    margin-bottom: 0.25em;
   }
 
   & div {
     font-size: 1.3em;
+  }
+}
+
+.subheader {
+  font-style: italic;
+  & div {
+    font-size: 0.9em;
+    line-height: 1em;
   }
 }

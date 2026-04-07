@@ -1,10 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
-import Carousel from "react-bootstrap/Carousel";
+import Button from "react-bootstrap/Button";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { useCallback } from "react";
 
 import styles from "./game.module.css";
 
@@ -15,72 +16,144 @@ import AmazingOrders from "./tabContentComponents/amazingOrders/AmazingOrders";
 import TextConversations from "./tabContentComponents/textConversations/TextConversations";
 import Emails from "./tabContentComponents/emails/Emails";
 import Newspaper from "./tabContentComponents/newspaper/Newspaper";
-import { useLocalStorage } from "./components/useLocalStorage";
-import { GlobalNotesContext } from "./components/GlobalNotesContext";
+import { GameContext } from "./components/GameContext";
+import { useContext } from "react";
+import { StageContext } from "./components/StageContext";
 
 export default function Game() {
-  const [globalNotes, setGlobalNotes] = useLocalStorage("globalNotes");
+  return (
+    <GameContext>
+      <GameComponent />
+    </GameContext>
+  );
+}
+
+function GameComponent() {
+  const { currentStage } = useContext(StageContext);
+
+  const handleReset = useCallback(() => {
+    const confirmed = window.confirm(
+      "Are you sure you want to reset all game progress? This will delete all local data.",
+    );
+    if (confirmed) {
+      localStorage.clear();
+      window.location.reload();
+    }
+  }, []);
+
+  const stage2LockedTooltip =
+    currentStage > 0 ? "Unlock by completing the Objectives in the Police Report." : "";
 
   return (
     <div className={styles.gameParent}>
+      <Button variant="danger" size="sm" onClick={handleReset} className={styles.resetButton}>
+        Reset
+      </Button>
       {/* https://react-bootstrap.netlify.app/docs/components/tabs/#custom-tab-layout */}
       <Tab.Container id="left-tabs-example" defaultActiveKey="1">
         <Row>
           <Col sm={2} className={`${styles.navCol}`}>
             <Nav variant="pills">
-              <Nav.Item>
-                <Nav.Link eventKey="1">Letter From X</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="2">Police Report</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="3">School Newspaper</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="4">Mysterious Recipe</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="5">Text Messages</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="6">Email Inboxes</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="7">AmazingOrders Orders</Nav.Link>
-              </Nav.Item>
+              <NavItemWithLock eventKey="1" title="Letter from X" />
+              <NavItemWithLock eventKey="2" title="Police Report" />
+              <NavItemWithLock
+                eventKey="3"
+                title="School Newspaper"
+                stageToUnlock={1}
+                currentStage={currentStage}
+              />
+              <NavItemWithLock
+                eventKey="4"
+                title="Mysterious Recipe"
+                stageToUnlock={1}
+                currentStage={currentStage}
+              />
+              <NavItemWithLock
+                eventKey="5"
+                title="Text Messages"
+                stageToUnlock={2}
+                currentStage={currentStage}
+                lockedTooltip={stage2LockedTooltip}
+              />
+              <NavItemWithLock
+                eventKey="6"
+                title="Email Inboxes"
+                stageToUnlock={2}
+                currentStage={currentStage}
+                lockedTooltip={stage2LockedTooltip}
+              />
+              <NavItemWithLock
+                eventKey="7"
+                title="Online Orders"
+                stageToUnlock={2}
+                currentStage={currentStage}
+                lockedTooltip={stage2LockedTooltip}
+              />
             </Nav>
           </Col>
           <Col sm={10} className={styles.col}>
-            <GlobalNotesContext value={{ globalNotes, setGlobalNotes }}>
-              <Tab.Content className={styles.tabContent}>
-                <Tab.Pane eventKey="1">
-                  <LetterFromX />
-                </Tab.Pane>
-                <Tab.Pane eventKey="2">
-                  <PoliceReport />
-                </Tab.Pane>
-                <Tab.Pane eventKey="3">
-                  <Newspaper />
-                </Tab.Pane>
-                <Tab.Pane eventKey="4">
-                  <Recipe />
-                </Tab.Pane>
-                <Tab.Pane eventKey="5">
-                  <TextConversations />
-                </Tab.Pane>
-                <Tab.Pane eventKey="6">
-                  <Emails />
-                </Tab.Pane>
-                {/* need special width css for some reason */}
-                <Tab.Pane eventKey="7" className={styles.amazingOrdersTab}>
-                  <AmazingOrders />
-                </Tab.Pane>
-              </Tab.Content>
-            </GlobalNotesContext>
+            <Tab.Content className={styles.tabContent}>
+              <Tab.Pane eventKey="1">
+                <LetterFromX />
+              </Tab.Pane>
+              <Tab.Pane eventKey="2">
+                <PoliceReport />
+              </Tab.Pane>
+              <Tab.Pane eventKey="3">
+                <Newspaper />
+              </Tab.Pane>
+              <Tab.Pane eventKey="4">
+                <Recipe />
+              </Tab.Pane>
+              <Tab.Pane eventKey="5">
+                <TextConversations />
+              </Tab.Pane>
+              <Tab.Pane eventKey="6">
+                <Emails />
+              </Tab.Pane>
+              {/* need special width css for some reason */}
+              <Tab.Pane eventKey="7" className={styles.amazingOrdersTab}>
+                <AmazingOrders />
+              </Tab.Pane>
+            </Tab.Content>
           </Col>
         </Row>
       </Tab.Container>
     </div>
   );
+}
+
+function NavItemWithLock({
+  eventKey,
+  title,
+  stageToUnlock = 0,
+  currentStage = 0,
+  lockedTooltip,
+}: {
+  eventKey: string;
+  title: string;
+  stageToUnlock?: number;
+  currentStage?: number;
+  lockedTooltip?: string;
+}) {
+  const isLocked = currentStage < stageToUnlock;
+
+  const navLink = (
+    <Nav.Link eventKey={eventKey} disabled={isLocked}>
+      {isLocked ? `🔒${title}` : title}
+    </Nav.Link>
+  );
+
+  if (isLocked) {
+    const tooltip = <Tooltip id={`tooltip-${title}`}>{lockedTooltip}</Tooltip>;
+    return (
+      <Nav.Item>
+        <OverlayTrigger placement="auto" overlay={tooltip}>
+          <div className={styles.lockedNavItem}>{navLink}</div>
+        </OverlayTrigger>
+      </Nav.Item>
+    );
+  }
+
+  return <Nav.Item>{navLink}</Nav.Item>;
 }

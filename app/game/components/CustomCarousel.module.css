@@ -26,5 +26,18 @@
     .pageButton {
       margin: 0 0.1em;
     }
+
+    .lockedPageButton {
+      color: #999;
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: transparent;
+      }
+      & span {
+        padding-left: 0.4em;
+        padding-right: 0.4em;
+      }
+    }
   }
 }
