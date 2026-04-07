@@ -1,5 +1,5 @@
 import React, { JSX, useCallback, useEffect, useRef, useState } from "react";
-import { Pagination } from "react-bootstrap";
+import { OverlayTrigger, PageItemProps, Pagination, Tooltip } from "react-bootstrap";
 import Carousel, { CarouselRef } from "react-bootstrap/Carousel";
 import styles from "./CustomCarousel.module.css";
 
@@ -78,23 +78,37 @@ export default function CustomCarousel({ items, lockedPages = [], onChange }: Cu
         ))}
       </Carousel>
 
-      <Pagination className={styles.pageButtonsParent} onChange={() => console.log("changed")}>
-        {items.map((_, index) => (
-          <Pagination.Item
-            key={index}
-            className={`${styles.pageButton} ${isPageLocked(index) ? styles.lockedPageButton : ""}`}
-            active={activeIndex === index}
-            disabled={isPageLocked(index)}
-            onClick={() => {
-              if (!isPageLocked(index)) {
-                setActiveIndex(index);
-                scrollToTop(carouselRef);
-              }
-            }}
-          >
-            {isPageLocked(index) ? "🔒" : index + 1}
-          </Pagination.Item>
-        ))}
+      <Pagination className={styles.pageButtonsParent}>
+        {items.map((_, index) => {
+          const tooltip = (
+            <Tooltip id={`tooltip-${activeIndex}`}>
+              Unlock by completing the Objectives in the Police Report.
+            </Tooltip>
+          );
+          const itemContent = isPageLocked(index) ? (
+            <OverlayTrigger placement="top" overlay={tooltip}>
+              <span>🔒</span>
+            </OverlayTrigger>
+          ) : (
+            index + 1
+          );
+          return (
+            <Pagination.Item
+              key={index}
+              className={`${styles.pageButton} ${isPageLocked(index) ? styles.lockedPageButton : ""}`}
+              active={activeIndex === index}
+              disabled={isPageLocked(index)}
+              onClick={() => {
+                if (!isPageLocked(index)) {
+                  setActiveIndex(index);
+                  scrollToTop(carouselRef);
+                }
+              }}
+            >
+              {itemContent}
+            </Pagination.Item>
+          );
+        })}
       </Pagination>
     </div>
   );

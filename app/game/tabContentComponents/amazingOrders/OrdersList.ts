@@ -50,9 +50,9 @@ export const OrdersList: Order[] = [
     color: "orange",
     items: [
       {
-        name: "2-in-1 Corded Stick Mini Vacuum Cleaner",
+        name: "Pet Grooming Scisscors with Rounded Tips",
         category: "HOME",
-        price: "27.50",
+        price: "7.50",
       },
       {
         name: "Flexible Adhesive Bandages, Small, 100ct",
@@ -85,11 +85,6 @@ export const OrdersList: Order[] = [
         name: "Purple Orchid Flower Plant, Long Stem",
         category: "HOME",
         price: "20.50",
-      },
-      {
-        name: "Dreamcatcher, 100% Hemp and Duck Feather 3ct",
-        category: "MISC",
-        price: "20.00",
       },
       {
         name: "Ace of Spades 24pk",
@@ -127,7 +122,7 @@ export const OrdersList: Order[] = [
   },
   {
     date: "12/9",
-    customerName: "Daisy Verde",
+    customerName: "Candace Eng",
     color: "cyan",
     items: [
       {
@@ -176,7 +171,7 @@ export const OrdersList: Order[] = [
   },
   {
     date: "12/10",
-    customerName: "Daisy Verde",
+    customerName: "Carlos Sanchez",
     color: "purple",
     items: [
       {

@@ -84,7 +84,7 @@ export default function AmazingOrders() {
   const evidenceComponent = <CustomCarousel items={[item1]} />;
 
   const objectives: ObjectivesJson = {
-    heading: "Who are the unknown persons?",
+    heading: "Who are unknown purchasers in the list of orders?",
     sections: [
       {
         title: "",

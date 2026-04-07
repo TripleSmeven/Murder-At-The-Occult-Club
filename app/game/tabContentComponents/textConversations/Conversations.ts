@@ -175,16 +175,25 @@ const Aftermath2: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "I don't see what else could have. It makes sense, since Zach is the ",
+      content: "It must be. That means the ritual actually worked.",
+    },
+    {
+      sender: "Unknown B",
+      content:
+        "But why only him? Maybe not the rest, but at least you or me would have glimpsed too, right?",
+    },
+    {
+      sender: "Unknown A",
+      content: "Zach is on different level than us.",
     },
     {
       sender: "Unknown A",
       content:
-        "We were not prepared. We should have consulted a master before trying an advanced ritual.",
+        "Regardless, we need to contact the other clubs and tell them about Zach. Maybe there's someone knows more about the Oblivion who can help.",
     },
     {
       sender: "Unknown B",
-      content: "A master? Hold on, let me get back to you.",
+      content: "I think I might know someone. Hold on.",
     },
   ],
 };
@@ -198,7 +207,7 @@ const Tea: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "Of course! I'm really sorry about what happened.",
+      content: "Of course! I'm really sorry about what happened 😢",
     },
     {
       sender: "Evelyn Samson",
@@ -210,7 +219,7 @@ const Tea: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "I'll take the mate and youthberry.",
+      content: "I'll take the mate and youthberry 😁",
     },
     {
       sender: "Evelyn Samson",
@@ -233,7 +242,7 @@ const PromiseMe: ConversationJson = {
     },
     {
       sender: "Heather Douglas",
-      content: "3 years ago, he would have been a freshman in college, not in highschool.",
+      content: "3 years ago, he would have been still in college, not in highschool.",
     },
     {
       sender: "Unknown A",
@@ -316,7 +325,7 @@ const Welcome: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "im so excited! us girlies are finally not outnumbered!",
+      content: "im so excited! finally another girl!",
     },
     {
       sender: "Unknown A",
@@ -336,7 +345,7 @@ const Welcome: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "so what do you think? a frog or a bat?",
+      content: "so what do you think? a frog 🐸 or a bat 🦇?",
     },
     {
       sender: "Unknown B",
@@ -348,7 +357,7 @@ const Welcome: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "i would do cat but someone else has that covered already",
+      content: "i would do cat (or gerbil) but someone else has that covered already",
     },
     {
       sender: "Unknown A",
@@ -378,3 +387,31 @@ const Welcome: ConversationJson = {
 };
 
 export const allConversations = [Police, Aftermath1, Aftermath2, Tea, PromiseMe, Mom, Welcome];
+
+const Help: ConversationJson = {
+  date: "12/11/16 19:20",
+  messages: [
+    {
+      sender: "Unknown A",
+      content: "You got Zach's message right? He said I can help you make the elixir.",
+    },
+    {
+      sender: "Unknown B",
+      content: "Yes, I got the speech about mentoring new blood and all that.",
+    },
+    {
+      sender: "Unknown A",
+      content:
+        "Great! I already got started. I actually have the sun-like flower for the recipe, and I can get the other ingredients too.",
+    },
+    {
+      sender: "Unknown B",
+      content:
+        "Don't bother. I've already gotten everything. Just meet me in the clubroom on the 13th at 8am. It takes 3 hours to make. You can watch.",
+    },
+    {
+      sender: "Unknown A",
+      content: "Sure! See you there!",
+    },
+  ],
+};

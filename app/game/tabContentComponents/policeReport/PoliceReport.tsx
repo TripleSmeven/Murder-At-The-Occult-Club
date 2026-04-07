@@ -84,7 +84,7 @@ export default function PoliceReport() {
         different individuals:
         <ol className={styles.orderedList}>
           <li>
-            <strong>Zack Cunningham</strong>, male, 21 years old, senior
+            <strong>Zack Cunningham</strong>, male, 24 years old, senior
           </li>
           <li>
             <strong>Sarah Findley</strong>, female, 18 year old, freshman
@@ -94,9 +94,6 @@ export default function PoliceReport() {
           </li>
           <li>
             <strong>Carlos Sanchez</strong>, male, 19 years old, sophomore
-          </li>
-          <li>
-            <strong>Daisy Verde</strong>, female, 18 years old, freshman
           </li>
           <li>
             <strong>Andrew Wolfe</strong>, male, 20 years old, junior

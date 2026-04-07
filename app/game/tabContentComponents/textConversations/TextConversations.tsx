@@ -10,7 +10,7 @@ export default function TextConversations() {
     <ConversationComponent key={index} {...conversation} />
   ));
   const objectives: ObjectivesJson = {
-    heading: "Who are the unknown persons?",
+    heading: "Who are the unknown senders in these texts?",
     sections: [
       {
         title: "Text Message 2",
@@ -28,7 +28,7 @@ export default function TextConversations() {
       },
       {
         title: "Text Message 4",
-        questions: [{ question: "Unknown A", answer: "Thomas Brooke", color: Color.RED }],
+        questions: [{ question: "Unknown A", answer: "Candace Eng", color: Color.RED }],
       },
       {
         title: "Text Message 5",
@@ -38,7 +38,7 @@ export default function TextConversations() {
         title: "Text Message 7",
         questions: [
           { question: "Unknown A", answer: "Candace Eng", color: Color.RED },
-          { question: "Unknown B", answer: "Daisy Verde", color: Color.INDIGO },
+          { question: "Unknown B", answer: "Sarah Findley", color: Color.INDIGO },
         ],
       },
     ],

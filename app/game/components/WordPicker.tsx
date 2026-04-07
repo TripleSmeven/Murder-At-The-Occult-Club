@@ -72,9 +72,11 @@ export function CustomPicker({
         disabled={disabled}
         value={localStorageValue || ""}
       >
-        <option>[Select an option]</option>
+        <option key={0} value="null">
+          [Select an option]
+        </option>
         {words?.map((word, index) => (
-          <option key={index} value={word}>
+          <option key={index + 1} value={word}>
             {word}
           </option>
         ))}

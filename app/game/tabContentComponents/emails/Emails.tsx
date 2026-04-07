@@ -46,7 +46,7 @@ export default function Emails() {
   });
 
   const objectives: ObjectivesJson = {
-    heading: "Who are the unknown persons?",
+    heading: "Who is the owner of each email inbox?",
     sections: [
       {
         title: "Inbox 2",
@@ -62,10 +62,6 @@ export default function Emails() {
       },
       {
         title: "Inbox 5",
-        questions: [{ question: "Unknown", answer: "Daisy Verde", color: Color.GREEN }],
-      },
-      {
-        title: "Inbox 6",
         questions: [{ question: "Unknown", answer: "Andrew Wolfe", color: Color.GREEN }],
       },
     ],

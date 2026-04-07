@@ -29,14 +29,15 @@
 
     .lockedPageButton {
       color: #999;
-      cursor: not-allowed;
+      cursor: default;
 
       &:hover {
         background-color: transparent;
       }
       & span {
-        padding-left: 0.4em;
-        padding-right: 0.4em;
+        padding-left: 0.2em;
+        padding-right: 0.2em;
+        pointer-events: auto;
       }
     }
   }

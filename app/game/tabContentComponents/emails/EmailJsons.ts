@@ -30,22 +30,22 @@ const Candace: Inbox = {
   owner: "Candace Eng",
   emails: [
     {
-      sender: "Dinterest",
-      title: "17 popular Din's for you",
-      content: "Here's what's trending on Dinterest: ",
-      date: "Dec 11",
-    },
-    {
       sender: "Neptune",
       title: "New reminder",
       content:
         "Reminder that you have homework due for MUSC 134: Introduction to Music History in 2 day(s). To view your dashboard, click here",
-      date: "Dec 10",
+      date: "Dec 11",
     },
     {
       sender: "Baking Monthly",
       title: "Weekly Digest",
       content: "Click here to view your weekly digest",
+      date: "Dec 10",
+    },
+    {
+      sender: "Evelyn Samson, me (2)",
+      title: "Contact Information",
+      content: "Sure! You can DM me at @evelyn_samson. Looking forward to hearing from you!",
       date: "Dec 10",
     },
     {
@@ -118,13 +118,6 @@ const Thomas: Inbox = {
       date: "Dec 10",
     },
     {
-      sender: "Evelyn Samson, me (2)",
-      title: "Contact Information",
-      content: "Sure! You can DM me at @evelyn_samson. Looking forward to hearing from you!",
-      date: "Dec 10",
-    },
-
-    {
       sender: "Daniel Katz",
       title: "Counter Attack 2 Tournament",
       content:
@@ -165,6 +158,13 @@ const Sarah: Inbox = {
       content:
         "Reminder that you have homework due for PSYC 218: Research Methods in Psychology in 2 day(s). To view your dashboard, click here",
       date: "Dec 12",
+    },
+    {
+      sender: "Evelyn Samson, me (4)",
+      title: "Flowers",
+      content:
+        "What a coincidence, as those are the only ones we have left! I'm glad they'll have a new home. I'll leave them in the Office of Club Affairs with...",
+      date: "Dec 11",
     },
     {
       sender: "KaiserU Student Affairs",
@@ -208,6 +208,13 @@ const Sarah: Inbox = {
       content:
         "I can't believe you blocked me. Can we just talk like normal people? Just pick up my call.",
       date: "Nov 30",
+    },
+    {
+      sender: "Zach Cunningham",
+      title: "Welcome to our club",
+      content:
+        "I wanted to personally welcome you again to our club. Re-iterating what we spoke of previously, our pursuit of knowledge and understanding of natural world is a bit unorthodox, and thus not officially sactioned by KaiserU. I would ask that you...",
+      date: "Nov 29",
     },
   ],
 };
@@ -314,13 +321,6 @@ const Andrew: Inbox = {
   owner: "Andrew Wolfe",
   emails: [
     {
-      sender: "Evelyn Samson, me (4)",
-      title: "Flowers",
-      content:
-        "What a coincidence, as those are the only ones we have left! I'm glad they'll have a new home. I'll leave them in the Office of Club Affairs with...",
-      date: "Dec 11",
-    },
-    {
       sender: "Greg Klark, me (2)",
       title: "Question for Project",
       content:
@@ -334,6 +334,7 @@ const Andrew: Inbox = {
         "Reminder that you have homework due for CHEM 461: Spectroscopy Techniques Applied to Biological Systems in 2 day(s). To view your dashboard, click here",
       date: "Dec 10",
     },
+    feathersEmail,
     zachEmail,
     {
       sender: "KaiserU Cloud",
@@ -352,4 +353,4 @@ const Andrew: Inbox = {
   ],
 };
 
-export const allInboxes = [Candace, Thomas, Sarah, Carlos, Daisy, Andrew];
+export const allInboxes = [Candace, Thomas, Sarah, Carlos, Andrew];

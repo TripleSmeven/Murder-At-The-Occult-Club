@@ -66,6 +66,10 @@ body {
     color: gray;
     cursor: not-allowed;
   }
+
+  .nav-link {
+    color: #2e81ff;
+  }
 }
 
 /* hack bootstrap disabled select forms */

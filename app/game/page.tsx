@@ -44,6 +44,8 @@ function GameComponent() {
   const stage2LockedTooltip =
     currentStage > 0 ? "Unlock by completing the Objectives in the Police Report." : "";
 
+  const stage3LockedTooltip = "Unlock by completing all the Objectives.";
+
   return (
     <div className={styles.gameParent}>
       <Button variant="danger" size="sm" onClick={handleReset} className={styles.resetButton}>
@@ -53,43 +55,63 @@ function GameComponent() {
       <Tab.Container id="left-tabs-example" defaultActiveKey="1">
         <Row>
           <Col sm={2} className={`${styles.navCol}`}>
-            <Nav variant="pills">
-              <NavItemWithLock eventKey="1" title="Letter from X" />
-              <NavItemWithLock eventKey="2" title="Police Report" />
-              <NavItemWithLock
-                eventKey="3"
-                title="School Newspaper"
-                stageToUnlock={1}
-                currentStage={currentStage}
-              />
-              <NavItemWithLock
-                eventKey="4"
-                title="Mysterious Recipe"
-                stageToUnlock={1}
-                currentStage={currentStage}
-              />
-              <NavItemWithLock
-                eventKey="5"
-                title="Text Messages"
-                stageToUnlock={2}
-                currentStage={currentStage}
-                lockedTooltip={stage2LockedTooltip}
-              />
-              <NavItemWithLock
-                eventKey="6"
-                title="Email Inboxes"
-                stageToUnlock={2}
-                currentStage={currentStage}
-                lockedTooltip={stage2LockedTooltip}
-              />
-              <NavItemWithLock
-                eventKey="7"
-                title="Online Orders"
-                stageToUnlock={2}
-                currentStage={currentStage}
-                lockedTooltip={stage2LockedTooltip}
-              />
-            </Nav>
+            <div className={`${styles.navSection}`}>
+              <Nav variant="pills">
+                <NavItemWithLock eventKey="1" title="Letter from X" />
+                <NavItemWithLock
+                  eventKey="2"
+                  title="Police Report"
+                  emoji={currentStage >= 1 ? "🎯" : undefined}
+                />
+                <NavItemWithLock
+                  eventKey="3"
+                  title="School Newspaper"
+                  stageToUnlock={1}
+                  currentStage={currentStage}
+                />
+                <NavItemWithLock
+                  eventKey="4"
+                  title="Mysterious Recipe"
+                  stageToUnlock={1}
+                  currentStage={currentStage}
+                />
+                <NavItemWithLock
+                  eventKey="5"
+                  title="Text Messages"
+                  stageToUnlock={2}
+                  currentStage={currentStage}
+                  lockedTooltip={stage2LockedTooltip}
+                  emoji="🎯"
+                />
+                <NavItemWithLock
+                  eventKey="6"
+                  title="Email Inboxes"
+                  stageToUnlock={2}
+                  currentStage={currentStage}
+                  lockedTooltip={stage2LockedTooltip}
+                  emoji="🎯"
+                />
+                <NavItemWithLock
+                  eventKey="7"
+                  title="Online Orders"
+                  stageToUnlock={2}
+                  currentStage={currentStage}
+                  lockedTooltip={stage2LockedTooltip}
+                  emoji="🎯"
+                />
+              </Nav>
+            </div>
+            <div className={`${styles.navSection}`}>
+              <Nav variant="pills">
+                <NavItemWithLock
+                  eventKey="8"
+                  title="Solve the Case"
+                  stageToUnlock={3}
+                  currentStage={currentStage}
+                  lockedTooltip={stage3LockedTooltip}
+                />
+              </Nav>
+            </div>
           </Col>
           <Col sm={10} className={styles.col}>
             <Tab.Content className={styles.tabContent}>
@@ -126,25 +148,39 @@ function GameComponent() {
 function NavItemWithLock({
   eventKey,
   title,
+  emoji,
   stageToUnlock = 0,
   currentStage = 0,
   lockedTooltip,
 }: {
   eventKey: string;
   title: string;
+  emoji?: string;
   stageToUnlock?: number;
   currentStage?: number;
   lockedTooltip?: string;
 }) {
   const isLocked = currentStage < stageToUnlock;
 
+  let textToShow;
+  if (isLocked) {
+    if (title === "Solve the Case") {
+      textToShow = "🔒" + title;
+    } else {
+      textToShow = `🔒???`;
+    }
+  } else {
+    textToShow = `${emoji || ""}${title}`;
+  }
+
   const navLink = (
     <Nav.Link eventKey={eventKey} disabled={isLocked}>
-      {isLocked ? `🔒${title}` : title}
+      {textToShow}
     </Nav.Link>
   );
 
-  if (isLocked) {
+  // wrap a tooltip over the navLink if its locked
+  if (isLocked && lockedTooltip) {
     const tooltip = <Tooltip id={`tooltip-${title}`}>{lockedTooltip}</Tooltip>;
     return (
       <Nav.Item>

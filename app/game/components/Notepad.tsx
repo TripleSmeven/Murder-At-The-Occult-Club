@@ -29,6 +29,7 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
     };
   }, []);
 
+  // handler for typing in the notes textrea.
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       const newValue = event.target.value;
@@ -87,12 +88,12 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
             {objectivesTab && (
               <Nav.Item className={styles.tabs}>
                 <Nav.Link eventKey="objectives">
-                  {objectivesVisited === "true" ? "" : "❗ "}OBJECTIVES
+                  {objectivesVisited === "true" ? "" : "❗"}🎯OBJECTIVES
                 </Nav.Link>
               </Nav.Item>
             )}
             <Nav.Item className={styles.tabs}>
-              <Nav.Link eventKey="freeform">NOTES</Nav.Link>
+              <Nav.Link eventKey="freeform">📝NOTES</Nav.Link>
             </Nav.Item>
           </Nav>
         </Row>
@@ -114,31 +115,52 @@ export interface ObjectivesContentProps extends ObjectivesJson {
 }
 
 const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentProps) => {
-  const checkCorrect = () => {
-    const isCorrect = sections?.every((section) =>
+  const checkStatus = (): "correct" | "incorrect" | "incomplete" => {
+    // Check if all questions have been filled out
+    const allQuestionsAnswered = sections?.every((section) =>
+      section.questions.every((question) => {
+        const storageKey = `objective-${section.title}-${question.question}`;
+        const storedValue = localStorage?.getItem?.(storageKey);
+        return storedValue !== null && storedValue !== "null";
+      }),
+    );
+
+    if (!allQuestionsAnswered) {
+      return "incomplete";
+    }
+
+    // Check if all answers are correct
+    const allAnswersCorrect = sections?.every((section) =>
       section.questions.every((question) => {
         const storageKey = `objective-${section.title}-${question.question}`;
         const storedValue = localStorage?.getItem?.(storageKey);
         return storedValue === question.answer;
       }),
     );
-    if (isCorrect && onCorrect) {
-      onCorrect();
+
+    if (allAnswersCorrect) {
+      if (onCorrect) {
+        onCorrect();
+      }
+      return "correct";
     }
-    return isCorrect ?? false;
+
+    return "incorrect";
   };
 
-  const [correct, setCorrect] = useState(false);
+  const [status, setStatus] = useState<"correct" | "incorrect" | "incomplete">("incomplete");
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setCorrect(checkCorrect()); // Only run on client where localStorage is available
+    setStatus(checkStatus()); // Only run on client where localStorage is available
   }, []); // empty dependency array to run only once on mount.
 
   return (
     <div className={styles.objectivesParent}>
       <div className={styles.objectivesHeading}>{heading}</div>
-      {correct ? <CorrectStatus /> : <IncorrectStatus />}
+      {status === "correct" && <CorrectStatus />}
+      {status === "incorrect" && <IncorrectStatus />}
+      {status === "incomplete" && <IncompleteStatus />}
       {sections?.map((section, index) => (
         <div className={styles.objectivesSection} key={index}>
           <div className={styles.objectivesSectionTitle}>{section.title}</div>
@@ -152,8 +174,8 @@ const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentPr
                     color={question.color}
                     words={question.answers}
                     storageKey={storageKey}
-                    disabled={correct}
-                    callback={() => setCorrect(checkCorrect())}
+                    disabled={status === "correct"}
+                    callback={() => setStatus(checkStatus())}
                   />
                 </div>
               );
@@ -164,8 +186,8 @@ const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentPr
                   label={question.question}
                   color={question.color}
                   storageKey={storageKey}
-                  disabled={correct}
-                  callback={() => setCorrect(checkCorrect())}
+                  disabled={status === "correct"}
+                  callback={() => setStatus(checkStatus())}
                 />
               </div>
             );
@@ -204,6 +226,23 @@ const IncorrectStatus = () => {
       <div className={styles.objectivesStatus}>
         <span className={`${styles.statusText} ${styles.incorrectStatus}`}>
           Status: Incorrect ✗
+        </span>
+      </div>
+    </OverlayTrigger>
+  );
+};
+
+const IncompleteStatus = () => {
+  const renderTooltip = (
+    <Tooltip id="objectives-status-tooltip">
+      Select the correct answer for each question to complete this objective.
+    </Tooltip>
+  );
+  return (
+    <OverlayTrigger placement="top" overlay={renderTooltip}>
+      <div className={styles.objectivesStatus}>
+        <span className={`${styles.statusText} ${styles.incompleteStatus}`}>
+          Status: Incomplete ⚠
         </span>
       </div>
     </OverlayTrigger>
