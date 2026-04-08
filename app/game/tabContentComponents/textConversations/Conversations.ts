@@ -4,6 +4,7 @@ export interface ConversationJson {
     sender: string;
     content: string;
   }>;
+  linkedAnswerKey?: string;
 }
 
 const Police: ConversationJson = {
@@ -88,7 +89,7 @@ const Aftermath1: ConversationJson = {
     },
     {
       sender: "Unknown B",
-      content: "Don't text me",
+      content: "Don't text me about ZC.",
     },
     {
       sender: "Unknown A",
@@ -152,6 +153,7 @@ const Aftermath1: ConversationJson = {
       content: "And NOTHING to MM either!!",
     },
   ],
+  linkedAnswerKey: "Text Message 2",
 };
 
 const Aftermath2: ConversationJson = {
@@ -386,8 +388,6 @@ const Welcome: ConversationJson = {
   ],
 };
 
-export const allConversations = [Police, Aftermath1, Aftermath2, Tea, PromiseMe, Mom, Welcome];
-
 const Help: ConversationJson = {
   date: "12/11/16 19:20",
   messages: [
@@ -407,7 +407,7 @@ const Help: ConversationJson = {
     {
       sender: "Unknown B",
       content:
-        "Don't bother. I've already gotten everything. Just meet me in the clubroom on the 13th at 8am. It takes 3 hours to make. You can watch.",
+        "Don't bother. I've already gotten everything since yesterday. Just meet me in the clubroom on the 13th at 8am. It takes 3 hours to make. You can watch.",
     },
     {
       sender: "Unknown A",
@@ -415,3 +415,14 @@ const Help: ConversationJson = {
     },
   ],
 };
+
+export const allConversations = [
+  Police,
+  Aftermath1,
+  Aftermath2,
+  Help,
+  Tea,
+  PromiseMe,
+  Mom,
+  Welcome,
+];

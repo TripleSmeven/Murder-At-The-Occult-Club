@@ -1,11 +1,13 @@
 import React, { JSX, useCallback, useEffect, useRef, useState } from "react";
-import { OverlayTrigger, PageItemProps, Pagination, Tooltip } from "react-bootstrap";
+import { OverlayTrigger, Pagination, Tooltip } from "react-bootstrap";
 import Carousel, { CarouselRef } from "react-bootstrap/Carousel";
 import styles from "./CustomCarousel.module.css";
 
 interface CustomCarouselProps {
   items: JSX.Element[];
+  /* locked pages by index */
   lockedPages?: number[];
+  lockedTooltip?: string;
   // onSelect is slow for some reason, so use onChange and useEffect instead
   onChange?: ((index: number) => void) | undefined;
 }
@@ -17,7 +19,12 @@ const scrollToTop = (ref: React.RefObject<CarouselRef | null>) => {
   });
 };
 
-export default function CustomCarousel({ items, lockedPages = [], onChange }: CustomCarouselProps) {
+export default function CustomCarousel({
+  items,
+  lockedPages = [],
+  lockedTooltip,
+  onChange,
+}: CustomCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselRef = useRef<CarouselRef | null>(null);
   const size = items.length;
@@ -80,11 +87,7 @@ export default function CustomCarousel({ items, lockedPages = [], onChange }: Cu
 
       <Pagination className={styles.pageButtonsParent}>
         {items.map((_, index) => {
-          const tooltip = (
-            <Tooltip id={`tooltip-${activeIndex}`}>
-              Unlock by completing the Objectives in the Police Report.
-            </Tooltip>
-          );
+          const tooltip = <Tooltip id={`tooltip-${activeIndex}`}>{lockedTooltip}</Tooltip>;
           const itemContent = isPageLocked(index) ? (
             <OverlayTrigger placement="top" overlay={tooltip}>
               <span>🔒</span>

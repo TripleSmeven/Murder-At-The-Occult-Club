@@ -1,12 +1,13 @@
 "use client";
-import { JSX, useContext, useEffect, useCallback, useState, useRef } from "react";
+import { useContext, useEffect, useCallback, useState, useRef } from "react";
 
 import styles from "./Notepad.module.css";
 import { CustomPicker, NamePicker } from "./WordPicker";
 import { ObjectivesJson } from "./ObjectivesJson";
-import { Button, Col, Nav, OverlayTrigger, Row, Tab, Tooltip } from "react-bootstrap";
+import { Col, Nav, OverlayTrigger, Row, Tab, Tooltip } from "react-bootstrap";
 import { GlobalNotesContext } from "./GlobalNotesContext";
 import { useLocalStorage } from "./useLocalStorage";
+import { AnswersContext } from "./AnswersContext";
 
 export default function Notepad({ heading, sections, onCorrect }: ObjectivesContentProps) {
   const startingKey = heading ? "objectives" : "freeform";
@@ -114,14 +115,21 @@ export interface ObjectivesContentProps extends ObjectivesJson {
   onCorrect?: () => void;
 }
 
+const getStorageKey = (sectionTitle: string, question: string) => {
+  return `${sectionTitle.substring(0, 16)}-${question}`;
+};
+
 const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentProps) => {
-  const checkStatus = (): "correct" | "incorrect" | "incomplete" => {
+  const { answers } = useContext(AnswersContext);
+  const [status, setStatus] = useState<"correct" | "incorrect" | "incomplete">("incomplete");
+
+  const checkStatus = useCallback((): "correct" | "incorrect" | "incomplete" => {
     // Check if all questions have been filled out
     const allQuestionsAnswered = sections?.every((section) =>
       section.questions.every((question) => {
-        const storageKey = `objective-${section.title}-${question.question}`;
-        const storedValue = localStorage?.getItem?.(storageKey);
-        return storedValue !== null && storedValue !== "null";
+        const storageKey = getStorageKey(section.title, question.question);
+        const storedValue = answers[storageKey];
+        return storedValue && storedValue !== "";
       }),
     );
 
@@ -132,8 +140,8 @@ const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentPr
     // Check if all answers are correct
     const allAnswersCorrect = sections?.every((section) =>
       section.questions.every((question) => {
-        const storageKey = `objective-${section.title}-${question.question}`;
-        const storedValue = localStorage?.getItem?.(storageKey);
+        const storageKey = getStorageKey(section.title, question.question);
+        const storedValue = answers[storageKey];
         return storedValue === question.answer;
       }),
     );
@@ -146,14 +154,12 @@ const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentPr
     }
 
     return "incorrect";
-  };
+  }, [answers, sections, onCorrect]);
 
-  const [status, setStatus] = useState<"correct" | "incorrect" | "incomplete">("incomplete");
-
+  // check answers everytime checkStatus changes, which is whenever answers change
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setStatus(checkStatus()); // Only run on client where localStorage is available
-  }, []); // empty dependency array to run only once on mount.
+    setStatus(checkStatus());
+  }, [checkStatus]);
 
   return (
     <div className={styles.objectivesParent}>
@@ -165,7 +171,7 @@ const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentPr
         <div className={styles.objectivesSection} key={index}>
           <div className={styles.objectivesSectionTitle}>{section.title}</div>
           {section.questions.map((question, questionIndex) => {
-            const storageKey = `objective-${section.title}-${question.question}`;
+            const storageKey = getStorageKey(section.title, question.question);
             if (question.answers && question.answers.length > 0) {
               return (
                 <div key={`${questionIndex}`}>
@@ -175,7 +181,6 @@ const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentPr
                     words={question.answers}
                     storageKey={storageKey}
                     disabled={status === "correct"}
-                    callback={() => setStatus(checkStatus())}
                   />
                 </div>
               );
@@ -187,7 +192,6 @@ const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentPr
                   color={question.color}
                   storageKey={storageKey}
                   disabled={status === "correct"}
-                  callback={() => setStatus(checkStatus())}
                 />
               </div>
             );

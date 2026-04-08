@@ -33,7 +33,7 @@ function GameComponent() {
 
   const handleReset = useCallback(() => {
     const confirmed = window.confirm(
-      "Are you sure you want to reset all game progress? This will delete all local data.",
+      "Are you sure you want to reset all game progress? You will restart from the beginning.",
     );
     if (confirmed) {
       localStorage.clear();
@@ -44,7 +44,8 @@ function GameComponent() {
   const stage2LockedTooltip =
     currentStage > 0 ? "Unlock by completing the Objectives in the Police Report." : "";
 
-  const stage3LockedTooltip = "Unlock by completing all the Objectives.";
+  const stage3LockedTooltip =
+    "Unlock by completing the Objectives in Text Messages, Email Inboxes, and Online Orders.";
 
   return (
     <div className={styles.gameParent}>
@@ -99,12 +100,19 @@ function GameComponent() {
                   lockedTooltip={stage2LockedTooltip}
                   emoji="🎯"
                 />
+                <NavItemWithLock
+                  eventKey="8"
+                  title="List of Allergies"
+                  stageToUnlock={3}
+                  currentStage={currentStage}
+                  lockedTooltip={stage3LockedTooltip}
+                />
               </Nav>
             </div>
             <div className={`${styles.navSection}`}>
               <Nav variant="pills">
                 <NavItemWithLock
-                  eventKey="8"
+                  eventKey="9"
                   title="Solve the Case"
                   stageToUnlock={3}
                   currentStage={currentStage}

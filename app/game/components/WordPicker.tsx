@@ -1,6 +1,7 @@
 import Form from "react-bootstrap/Form";
+import { useContext } from "react";
 import styles from "./WordPicker.module.css";
-import { useLocalStorage } from "./useLocalStorage";
+import { AnswersContext } from "./AnswersContext";
 
 interface CustomPickerProps {
   label?: string;
@@ -56,23 +57,21 @@ export function CustomPicker({
   storageKey,
   callback,
 }: CustomPickerProps) {
-  const [localStorageValue, setLocalStorageValue] = useLocalStorage(storageKey);
+  const { answers, setAnswer } = useContext(AnswersContext);
+  const currentValue = answers[storageKey] || "";
+
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLocalStorageValue(e.target.value);
+    setAnswer(storageKey, e.target.value);
     callback?.(e);
   };
+
   return (
     <div className={`${styles.namePickerParent} ${color && styles[color]}`}>
       <div className={`${styles.label} ${color && styles[color]}`}>
         {label?.length ? label + ":" : null}
       </div>
-      <Form.Select
-        onChange={onChange}
-        size={"sm"}
-        disabled={disabled}
-        value={localStorageValue || ""}
-      >
-        <option key={0} value="null">
+      <Form.Select onChange={onChange} size={"sm"} disabled={disabled} value={currentValue}>
+        <option key={0} value={""}>
           [Select an option]
         </option>
         {words?.map((word, index) => (

@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode } from "react";
+import { JSX, ReactNode } from "react";
+import { AnswersProvider } from "./AnswersContext";
 import { GlobalNotesProvider } from "./GlobalNotesContext";
 import { StageProvider } from "./StageContext";
 
@@ -12,7 +13,9 @@ export function GameContext({ children }: GameContextProps): JSX.Element {
   return (
     <StageProvider>
       <GlobalNotesProvider>
-        {children}
+        <AnswersProvider>
+          {children}
+        </AnswersProvider>
       </GlobalNotesProvider>
     </StageProvider>
   );

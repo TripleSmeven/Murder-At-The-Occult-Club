@@ -106,8 +106,8 @@ export default function Newspaper() {
       <div>
         Nearly two weeks ago, Kyle Singh, a second-year electrical engineering major, was admitted
         to the hospital after suffering a severe allergic reaction to one of the teas served at the
-        KaiserU tea club. Since the incident, the club has remained closed and will not open again
-        until next semester.
+        KaiserU tea club. Since the incident, the club has officially decided to remain closed and
+        will not open again until next semester.
       </div>
       <br />
       <div>
@@ -248,7 +248,11 @@ export default function Newspaper() {
   const { currentStage } = useContext(StageContext);
   const lockedPages = currentStage < 2 ? [2, 3, 4, 5] : [];
   const evidence = (
-    <CustomCarousel items={[page1, page2, page3, page4, page5, page6]} lockedPages={lockedPages} />
+    <CustomCarousel
+      items={[page1, page2, page3, page4, page5, page6]}
+      lockedPages={lockedPages}
+      lockedTooltip="Unlock by completing the Objectives in the Police Report."
+    />
   );
   return <TabContentBase evidence={evidence} />;
 }

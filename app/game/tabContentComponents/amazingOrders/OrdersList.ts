@@ -69,6 +69,11 @@ export const OrdersList: Order[] = [
         category: "DRINK",
         price: "12.00",
       },
+      {
+        name: "Concentrated Bleach Tablets (32 Tablets)",
+        category: "HOME",
+        price: "9.00",
+      },
     ],
   },
   {
@@ -166,23 +171,6 @@ export const OrdersList: Order[] = [
         name: "Davy Crockett Hat - Real Rabbit Fur and Raccoon Tail",
         category: "CLOTHING",
         price: "90.00",
-      },
-    ],
-  },
-  {
-    date: "12/10",
-    customerName: "Carlos Sanchez",
-    color: "purple",
-    items: [
-      {
-        name: "Concentrated Bleach Tablets (32 Tablets)",
-        category: "HOME",
-        price: "9.00",
-      },
-      {
-        name: "Pink Himalayan Salt 5lb",
-        category: "FOOD",
-        price: "17.00",
       },
     ],
   },

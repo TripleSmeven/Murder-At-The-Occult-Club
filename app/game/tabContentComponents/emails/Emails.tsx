@@ -1,10 +1,11 @@
+import { useContext } from "react";
 import CustomCarousel from "../../components/CustomCarousel";
-import Notepad from "../../components/Notepad";
 import { ObjectivesJson } from "../../components/ObjectivesJson";
 import { Color } from "../../components/WordPicker";
 import TabContentBase from "../TabContentBase";
 import { allInboxes, type EmailJson, type Inbox } from "./EmailJsons";
 import styles from "./Emails.module.css";
+import { AnswersContext } from "../../components/AnswersContext";
 
 // a single email in the inbox
 function Email({ sender, title, content, date }: EmailJson) {
@@ -20,18 +21,27 @@ function Email({ sender, title, content, date }: EmailJson) {
   );
 }
 
+interface InboxProps {
+  inbox: Inbox;
+  index: number;
+}
+
 // an inbox (1 page)
-function Inbox({ inbox }: { inbox: Inbox }) {
+function Inbox({ inbox, index }: InboxProps) {
+  const { answers } = useContext(AnswersContext);
   const emailList = inbox.emails.map((email, index) => {
     return <Email key={index} {...email} />;
   });
 
+  // if the player has guessed the owner, display the guess. Otherwise show what's in the json.
+  const storageKey = `Inbox ${index + 1}-Unknown`;
+  const guessedName = answers[storageKey];
+  const ownerToDisplay = guessedName ? `[${guessedName}?]` : inbox.owner;
+
   return (
     <div className={styles.inboxParent}>
       <div className={styles.emailList}>
-        <div className={styles.loggedIn}>
-          You are logged in as: {inbox.owner === "Candace Eng" ? "Candace Eng" : "Unknown"}
-        </div>
+        <div className={styles.loggedIn}>You are logged in as: {ownerToDisplay}</div>
         <div>.</div> {/** invisible top padding */}
         {emailList}
       </div>
@@ -42,7 +52,7 @@ function Inbox({ inbox }: { inbox: Inbox }) {
 // the component with all the pages
 export default function Emails() {
   const emailListComponents = allInboxes.map((inbox, index) => {
-    return <Inbox key={index} inbox={inbox} />;
+    return <Inbox key={index} inbox={inbox} index={index} />;
   });
 
   const objectives: ObjectivesJson = {
@@ -54,7 +64,7 @@ export default function Emails() {
       },
       {
         title: "Inbox 3",
-        questions: [{ question: "Unknown", answer: "Sara Findley", color: Color.GREEN }],
+        questions: [{ question: "Unknown", answer: "Sarah Findley", color: Color.GREEN }],
       },
       {
         title: "Inbox 4",

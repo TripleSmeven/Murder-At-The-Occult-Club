@@ -14,7 +14,7 @@ const zachEmail: EmailJson = {
   sender: "Zach Cunningham",
   title: "Final Ritual of the Year",
   content:
-    "Dear practicioners, it's almost time! We've spent years researching the Oblivion. It's time for us finally witness it ourselves. The Elixir of Oblivion will be the gateway...",
+    "Dear practicioners, it's almost time! We've spent months researching the Oblivion. It's time for us finally witness it ourselves. The Elixir of Oblivion will be the gateway...",
   date: "Dec 6",
 };
 
@@ -22,7 +22,7 @@ const feathersEmail: EmailJson = {
   sender: "Gina Moore, me (4)",
   title: "Buying good luck charm",
   content:
-    "Alright, that sounds like a fair price. I'm done with my volleyball games anyway. Meet me in the cafeteria tomorrow?",
+    "Alright, sounds like a deal. I'm done with my volleyball games anyway. Meet me in the cafeteria tomorrow at 12pm?",
   date: "Dec 9",
 };
 
@@ -45,7 +45,8 @@ const Candace: Inbox = {
     {
       sender: "Evelyn Samson, me (2)",
       title: "Contact Information",
-      content: "Sure! You can DM me at @evelyn_samson. Looking forward to hearing from you!",
+      content:
+        "Sure! You can DM me at @evelyn_samson for the tea. Looking forward to hearing from you!",
       date: "Dec 10",
     },
     {
@@ -94,7 +95,7 @@ const Candace: Inbox = {
 };
 
 const Thomas: Inbox = {
-  owner: "Thomas Brooke",
+  owner: "Unknown", // Thomas Brooke,
   emails: [
     {
       sender: "Neptune",
@@ -150,7 +151,7 @@ const Thomas: Inbox = {
 };
 
 const Sarah: Inbox = {
-  owner: "Sarah Findley",
+  owner: "Unknown", // Sarah Findley
   emails: [
     {
       sender: "Neptune",
@@ -177,8 +178,8 @@ const Sarah: Inbox = {
       sender: "Gina Moore",
       title: "Potluck allergies",
       content:
-        "Hi all! For the volleyball team dinner, please inform us of any food allergies you might have in this form, and to bring you assigned items. Thanks!",
-      date: "Dec 9",
+        "Hi all! For the volleyball team dinner, please inform us of any food allergies you might have in this form, and to bring your assigned items. Thanks!",
+      date: "Dec 7",
     },
     zachEmail,
     {
@@ -213,14 +214,14 @@ const Sarah: Inbox = {
       sender: "Zach Cunningham",
       title: "Welcome to our club",
       content:
-        "I wanted to personally welcome you again to our club. Re-iterating what we spoke of previously, our pursuit of knowledge and understanding of natural world is a bit unorthodox, and thus not officially sactioned by KaiserU. I would ask that you...",
+        "It was great connecting with you at the volleyball game. It's comforting to know my cousin has such a supportive teammate. I wanted to personally welcome you to our club...",
       date: "Nov 29",
     },
   ],
 };
 
 const Carlos: Inbox = {
-  owner: "Carlos Mendoza",
+  owner: "Unknown", // Carlos Sanchez
   emails: [
     {
       sender: "Red Circle Warehouses",
@@ -318,21 +319,21 @@ const Daisy: Inbox = {
 };
 
 const Andrew: Inbox = {
-  owner: "Andrew Wolfe",
+  owner: "Unknown", // Andrew Wolfe
   emails: [
     {
       sender: "Greg Klark, me (2)",
       title: "Question for Project",
       content:
-        "Interesting project you have there! Turacaffinate extraction is definitely possible. Technically I'm not supposed to, but I can show you the equipment in the new lab which should have what you need...",
-      date: "Dec 10",
+        "Interesting project you have there! Turacaffinate extraction is from energy drinks definitely possible. Tomorrow I can show you the equipment in the new lab which should have what you need...",
+      date: "Dec 9",
     },
     {
       sender: "Neptune",
       title: "New reminder",
       content:
         "Reminder that you have homework due for CHEM 461: Spectroscopy Techniques Applied to Biological Systems in 2 day(s). To view your dashboard, click here",
-      date: "Dec 10",
+      date: "Dec 8",
     },
     feathersEmail,
     zachEmail,
