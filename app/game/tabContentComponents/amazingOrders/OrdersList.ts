@@ -96,6 +96,11 @@ export const OrdersList: Order[] = [
         category: "DRINK",
         price: "50.00",
       },
+            {
+        name: "SleepQuill Nighttime Sleep Aid 24ct",
+        category: "MEDICINE",
+        price: "86.00",
+      },
     ],
   },
   {
@@ -176,10 +181,10 @@ export const OrdersList: Order[] = [
   },
   {
     date: "12/10",
-    customerName: "Candace Eng",
+    customerName: "Thomas Brooke",
     items: [
       {
-        name: "Tom's Rodenticide 50oz (L)",
+        name: "Tom's Rodenticide (Rat Poison) 50oz (L)",
         category: "HOME",
         price: "14.00",
       },

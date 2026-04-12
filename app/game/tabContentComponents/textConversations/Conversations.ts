@@ -257,7 +257,7 @@ const PromiseMe: ConversationJson = {
     },
     {
       sender: "Heather Douglas",
-      content: "Let's say he was behind it all. What are you gonna do then?",
+      content: "Let's say you do ask around and find out he went to that same highschool. What are you gonna do then?",
     },
     {
       sender: "Unknown A",

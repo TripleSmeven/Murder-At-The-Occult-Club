@@ -6,6 +6,7 @@ import TabContentBase from "../TabContentBase";
 import { ConversationComponent } from "./ConversationComponent";
 import { allConversations } from "./Conversations";
 import { StageContext } from "../../components/StageContext";
+import { ObjectivesContext } from "../../components/ObjectivesContext";
 
 export default function TextConversations() {
   const conversations = allConversations.map((conversation, index) => (
@@ -47,8 +48,14 @@ export default function TextConversations() {
   };
 
   const { currentStage } = useContext(StageContext);
-  const lockedPages = currentStage < 3 ? [3] : [];
+  const { progress, setProgress } = useContext(ObjectivesContext);
+  const onCorrect = () => {
+    if (progress?.textConversations !== "true") {
+      setProgress("textConversations", "true");
+    }
+  };
 
+  const lockedPages = currentStage < 3 ? [3] : [];
   const evidence = (
     <CustomCarousel
       items={conversations}
@@ -56,5 +63,5 @@ export default function TextConversations() {
       lockedTooltip="Unlock by completing the Objectives in Text Messages, Email Inboxes, and Online Orders."
     />
   );
-  return <TabContentBase evidence={evidence} objectives={objectives} />;
+  return <TabContentBase evidence={evidence} objectives={objectives} onCorrect={onCorrect} />;
 }

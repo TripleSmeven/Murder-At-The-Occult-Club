@@ -7,6 +7,7 @@ import { ObjectivesJson } from "../../components/ObjectivesJson";
 import { Color } from "../../components/WordPicker";
 import { useContext } from "react";
 import { StageContext } from "../../components/StageContext";
+import { ObjectivesContext } from "../../components/ObjectivesContext";
 
 export default function PoliceReport() {
   const item1 = (
@@ -128,6 +129,7 @@ export default function PoliceReport() {
   );
 
   const { currentStage, setStage } = useContext(StageContext);
+  const { progress, setProgress } = useContext(ObjectivesContext);
 
   // set stage from 0 to 1 when user views second page of police report.
   const onChange = (index: number) => {
@@ -166,7 +168,12 @@ export default function PoliceReport() {
 
   // move to stage 2 if police report objective is complete
   const onCorrect = () => {
-    setStage(2);
+    if (currentStage === 1) {
+      setStage(2);
+    }
+    if (progress.policeReport !== "true") {
+      setProgress("policeReport", "true");
+    }
   };
   return (
     <TabContentBase

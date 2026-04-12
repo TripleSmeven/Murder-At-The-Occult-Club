@@ -1,6 +1,6 @@
 import { ConversationJson } from "./Conversations";
 import styles from "./ConversationComponent.module.css";
-import { AnswersContext } from "../../components/AnswersContext";
+import { ObjectivesContext } from "../../components/ObjectivesContext";
 import { useContext } from "react";
 
 interface TextMessageJson {
@@ -51,7 +51,7 @@ interface ConversationComponentProps extends ConversationJson {
 }
 
 export const ConversationComponent = ({ date, messages, index }: ConversationComponentProps) => {
-  const { answers } = useContext(AnswersContext);
+  const { answers } = useContext(ObjectivesContext);
   const dateFormat: Intl.DateTimeFormatOptions = {
     year: "2-digit",
     month: "2-digit",

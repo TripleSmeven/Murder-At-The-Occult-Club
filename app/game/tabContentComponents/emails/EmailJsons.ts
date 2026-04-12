@@ -178,8 +178,8 @@ const Sarah: Inbox = {
       sender: "Gina Moore",
       title: "Potluck allergies",
       content:
-        "Hi all! For the volleyball team dinner, please inform us of any food allergies you might have in this form, and to bring your assigned items. Thanks!",
-      date: "Dec 7",
+        "Hi all! For the volleyball team potluck, please put your food allergies on the doc, and remember to bring your assigned items. Thanks!",
+      date: "Dec 6",
     },
     zachEmail,
     {

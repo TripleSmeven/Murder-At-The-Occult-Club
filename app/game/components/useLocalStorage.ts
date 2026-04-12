@@ -1,4 +1,6 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+"use client";
+
+import { useEffect, useState, useCallback } from "react";
 
 export function useLocalStorage(key: string): [string, (newValue: string) => void] {
   const [value, setValueState] = useState("");
@@ -11,10 +13,10 @@ export function useLocalStorage(key: string): [string, (newValue: string) => voi
     [key],
   );
 
-  const sync = () => {
+  const sync = useCallback(() => {
     const initialValue = window?.localStorage?.getItem(key) || "";
     setValueState(initialValue);
-  };
+  }, [key, setValueState]);
 
   // must put this in a useEffect to avoid "window is not defined" error when deploying on vercel
   useEffect(() => {

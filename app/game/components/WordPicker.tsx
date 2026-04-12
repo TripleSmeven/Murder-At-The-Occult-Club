@@ -1,7 +1,7 @@
 import Form from "react-bootstrap/Form";
 import { useContext } from "react";
 import styles from "./WordPicker.module.css";
-import { AnswersContext } from "./AnswersContext";
+import { ObjectivesContext } from "./ObjectivesContext";
 
 interface CustomPickerProps {
   label?: string;
@@ -17,7 +17,6 @@ const SUSPECTS = [
   "Sarah Findley",
   "Thomas Brooke",
   "Carlos Sanchez",
-  "Daisy Verde",
   "Andrew Wolfe",
   "Candace Eng",
   "Zach Cunningham",
@@ -57,7 +56,7 @@ export function CustomPicker({
   storageKey,
   callback,
 }: CustomPickerProps) {
-  const { answers, setAnswer } = useContext(AnswersContext);
+  const { answers, setAnswer } = useContext(ObjectivesContext);
   const currentValue = answers[storageKey] || "";
 
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

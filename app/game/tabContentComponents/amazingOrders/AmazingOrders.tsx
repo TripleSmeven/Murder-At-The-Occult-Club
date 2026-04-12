@@ -1,10 +1,11 @@
 import { OrdersList } from "./OrdersList";
-import { JSX, useState } from "react";
+import { JSX, useContext, useState } from "react";
 import styles from "./AmazingOrders.module.css";
 import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
 import { Color } from "../../components/WordPicker";
 import { ObjectivesJson } from "../../components/ObjectivesJson";
+import { ObjectivesContext } from "../../components/ObjectivesContext";
 
 function OrderRow({
   entries,
@@ -87,7 +88,7 @@ export default function AmazingOrders() {
     heading: "Who are unknown purchasers in the list of orders?",
     sections: [
       {
-        title: "",
+        title: "Customer Name",
         questions: [
           { question: "Unknown A", answer: "Candace Eng", color: Color.RED },
           { question: "Unknown B", answer: "Andrew Wolfe", color: Color.ORANGE },
@@ -98,5 +99,14 @@ export default function AmazingOrders() {
     ],
   };
 
-  return <TabContentBase evidence={evidenceComponent} objectives={objectives} />;
+  const { progress, setProgress } = useContext(ObjectivesContext);
+  const onCorrect = () => {
+    if (progress?.amazingOrders !== "true") {
+      setProgress("amazingOrders", "true");
+    }
+  };
+
+  return (
+    <TabContentBase evidence={evidenceComponent} objectives={objectives} onCorrect={onCorrect} />
+  );
 }

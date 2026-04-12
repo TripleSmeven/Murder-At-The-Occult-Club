@@ -6,7 +6,9 @@ export default function Home() {
       <h1>Murder At The Occult Club</h1>
       <div>A detective puzzle game by TripleSmeven</div>
 
-      <a href="/game">Click here to play!</a>
+      <a className={styles.playLink} href="/game">
+        Click here to play!
+      </a>
 
       <h2>About this game</h2>
       <div>

@@ -1,0 +1,79 @@
+.container {
+  font-family: "Arial", "Helvetica Neue", sans-serif;
+  padding: 40px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  color: #202124;
+  line-height: 1.6;
+}
+
+.docHeader {
+  margin-bottom: 30px;
+  border-bottom: 2px solid #e8eaed;
+  padding-bottom: 15px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+  color: #1a73e8;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #5f6368;
+  margin: 0;
+}
+
+.tableWrapper {
+  margin-top: 20px;
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.headerRow {
+  background-color: #f3f3f3;
+  border-bottom: 2px solid #dadce0;
+}
+
+.th {
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  color: #202124;
+  border-bottom: 2px solid #dadce0;
+}
+
+.td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #e8eaed;
+  color: #202124;
+}
+
+.rowEven {
+  background-color: #ffffff;
+}
+
+.rowOdd {
+  background-color: #f8f9fa;
+}
+
+.footer {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #e8eaed;
+}
+
+.note {
+  font-size: 12px;
+  color: #9aa0a6;
+  margin: 0;
+  font-style: italic;
+}

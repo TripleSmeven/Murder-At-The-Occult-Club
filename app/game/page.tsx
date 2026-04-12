@@ -19,6 +19,8 @@ import Newspaper from "./tabContentComponents/newspaper/Newspaper";
 import { GameContext } from "./components/GameContext";
 import { useContext } from "react";
 import { StageContext } from "./components/StageContext";
+import PotluckPlanner from "./tabContentComponents/potluckPlanner/PotluckPlanner";
+import { ObjectivesContext } from "./components/ObjectivesContext";
 
 export default function Game() {
   return (
@@ -30,6 +32,7 @@ export default function Game() {
 
 function GameComponent() {
   const { currentStage } = useContext(StageContext);
+  const { progress } = useContext(ObjectivesContext);
 
   const handleReset = useCallback(() => {
     const confirmed = window.confirm(
@@ -47,6 +50,11 @@ function GameComponent() {
   const stage3LockedTooltip =
     "Unlock by completing the Objectives in Text Messages, Email Inboxes, and Online Orders.";
 
+  let policeReportEmoji;
+  if (currentStage >= 1) {
+    policeReportEmoji = progress?.policeReport === "true" ? "✅" : "🎯";
+  }
+
   return (
     <div className={styles.gameParent}>
       <Button variant="danger" size="sm" onClick={handleReset} className={styles.resetButton}>
@@ -59,11 +67,7 @@ function GameComponent() {
             <div className={`${styles.navSection}`}>
               <Nav variant="pills">
                 <NavItemWithLock eventKey="1" title="Letter from X" />
-                <NavItemWithLock
-                  eventKey="2"
-                  title="Police Report"
-                  emoji={currentStage >= 1 ? "🎯" : undefined}
-                />
+                <NavItemWithLock eventKey="2" title="Police Report" emoji={policeReportEmoji} />
                 <NavItemWithLock
                   eventKey="3"
                   title="School Newspaper"
@@ -98,11 +102,11 @@ function GameComponent() {
                   stageToUnlock={2}
                   currentStage={currentStage}
                   lockedTooltip={stage2LockedTooltip}
-                  emoji="🎯"
+                  emoji={progress?.amazingOrders === "true" ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="8"
-                  title="List of Allergies"
+                  title="Potluck Planner"
                   stageToUnlock={3}
                   currentStage={currentStage}
                   lockedTooltip={stage3LockedTooltip}
@@ -144,6 +148,9 @@ function GameComponent() {
               {/* need special width css for some reason */}
               <Tab.Pane eventKey="7" className={styles.amazingOrdersTab}>
                 <AmazingOrders />
+              </Tab.Pane>
+              <Tab.Pane eventKey="8">
+                <PotluckPlanner />
               </Tab.Pane>
             </Tab.Content>
           </Col>

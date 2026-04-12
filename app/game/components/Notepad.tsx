@@ -7,7 +7,7 @@ import { ObjectivesJson } from "./ObjectivesJson";
 import { Col, Nav, OverlayTrigger, Row, Tab, Tooltip } from "react-bootstrap";
 import { GlobalNotesContext } from "./GlobalNotesContext";
 import { useLocalStorage } from "./useLocalStorage";
-import { AnswersContext } from "./AnswersContext";
+import { ObjectivesContext } from "./ObjectivesContext";
 
 export default function Notepad({ heading, sections, onCorrect }: ObjectivesContentProps) {
   const startingKey = heading ? "objectives" : "freeform";
@@ -120,7 +120,7 @@ const getStorageKey = (sectionTitle: string, question: string) => {
 };
 
 const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentProps) => {
-  const { answers } = useContext(AnswersContext);
+  const { answers } = useContext(ObjectivesContext);
   const [status, setStatus] = useState<"correct" | "incorrect" | "incomplete">("incomplete");
 
   const checkStatus = useCallback((): "correct" | "incorrect" | "incomplete" => {
