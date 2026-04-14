@@ -7,7 +7,7 @@ import { ObjectivesJson } from "../../components/ObjectivesJson";
 import { Color } from "../../components/WordPicker";
 import { useContext } from "react";
 import { StageContext } from "../../components/StageContext";
-import { ObjectivesContext } from "../../components/ObjectivesContext";
+import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
 
 export default function PoliceReport() {
   const item1 = (
@@ -31,11 +31,12 @@ export default function PoliceReport() {
         <div className={styles.smallTitle}>
           <strong>Incident Details</strong>
         </div>
-        Responding Officers: Sebastian Waller, Troy Samson
+        <strong>Responding Officers:</strong> Sebastian Waller, Troy Samson
         <br />
-        Incident Location: Kaiser University, 150 Pleasant Grove Rd, Kaiser County, NY 14850
+        <strong>Incident Location:</strong> Kaiser University, 150 Pleasant Grove Rd, Kaiser County,
+        NY 14850
         <br />
-        Last Updated: December 18, 2017, 14:32 PM (see addendum)
+        <strong>Last Updated:</strong> December 18, 2017, 14:32 PM (see addendum)
       </div>
 
       <div className={styles.section}>
@@ -47,7 +48,7 @@ export default function PoliceReport() {
         <br />
         <br />
         A janitor had discovered a body in room 608 on the 6th floor of the east wing. The body was
-        identified as 21 year old Zach Cunningham, a senior majoring in biochemistry. Officers
+        identified as 24 year old Zach Cunningham, a senior majoring in biochemistry. Officers
         Waller and Samson had noted there were no signs of a struggle and no blood at the scene.
         <br />
         <br />
@@ -56,9 +57,8 @@ export default function PoliceReport() {
         Kaiser County department sheriff.
         <br />
         <br />
-        The cause of death was asphyxiation, but there were no signs of manual strangulation. The
-        toxicology report shows no signs of narcotics, alcohol, poisons, or toxins in the body. The
-        root cause of asphyxiation is currently unknown and is pending investigation.
+        The cause of death was asphyxiation, but there were no signs of manual strangulation. A
+        toxicology report is pending.
       </div>
     </div>
   );
@@ -80,6 +80,7 @@ export default function PoliceReport() {
           </li>
         </ol>
         Further investigation of this liquid is pending.
+        <br />
         <br />
         Additionally, DNA analysis of the vials revealed each of the 7 vials was drunk by 7
         different individuals:
@@ -104,26 +105,26 @@ export default function PoliceReport() {
           </li>
         </ol>
         Preliminary digital forensics investigation revealed that all 7 students were part of an
-        “occult club”, an unsupervised club focusing on the study of magic, rituals, divination, and
-        demonology. The club met once a week to discuss books, online material, and theories. On the
-        day Cunningham died, the cult had scheduled their final meeting. The agenda of their meeting
-        is pending investigation.
+        “occult club”, an unsupervised club led by Cunningham focusing on the study of magic,
+        rituals, divination, and demonology. The club met once a week to discuss books, online
+        material, and theories. On the day Cunningham died, the cult had scheduled their final
+        meeting.
         <br />
         <br />
-        The 6 other remaining students of the club are considered <strong>PRIME SUSPECTS</strong>.
+        The 5 other remaining students of the club are considered <strong>PRIME SUSPECTS</strong>.
         <br />
         <br />
         The priority action items for this case are:
         <ol className={styles.orderedList}>
-          <li>Identifying the agenda of the final meeting. </li>
           <li>Establishing possible motives for each suspect.</li>
           <li>Determining the composition of the unknown liquid.</li>
           <li>Confirming the root cause of asphyxiation.</li>
           <li>Naming the final suspect.</li>
         </ol>
-        ADDENDUM: As of December 18th, the case is closed due to the initiating of the KARL
-        protocol. All pending investigations are cancelled. The Medical Examiner will be releasing
-        the body of Z to the next of kin. All digital evidence will be encrypted and archived.
+        <strong>ADDENDUM</strong>: As of December 18th, the case is closed due to the initiating of
+        the KARL protocol. All pending investigations are cancelled. The Medical Examiner will be
+        releasing the body of Z to the next of kin. All digital evidence will be encrypted and
+        archived.
       </div>
     </div>
   );
@@ -171,8 +172,8 @@ export default function PoliceReport() {
     if (currentStage === 1) {
       setStage(2);
     }
-    if (progress.policeReport !== "true") {
-      setProgress("policeReport", "true");
+    if (progress?.[ProgressKeys.POLICE_REPORT] !== "true") {
+      setProgress(ProgressKeys.POLICE_REPORT, "true");
     }
   };
   return (

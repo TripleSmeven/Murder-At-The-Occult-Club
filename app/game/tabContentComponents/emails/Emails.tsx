@@ -5,7 +5,7 @@ import { Color } from "../../components/WordPicker";
 import TabContentBase from "../TabContentBase";
 import { allInboxes, type EmailJson, type Inbox } from "./EmailJsons";
 import styles from "./Emails.module.css";
-import { ObjectivesContext } from "../../components/ObjectivesContext";
+import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
 
 // a single email in the inbox
 function Email({ sender, title, content, date }: EmailJson) {
@@ -80,8 +80,8 @@ export default function Emails() {
   const evidence = <CustomCarousel items={emailListComponents} />;
   const { progress, setProgress } = useContext(ObjectivesContext);
   const onCorrect = () => {
-    if (progress?.emails !== "true") {
-      setProgress("emails", "true");
+    if (progress?.[ProgressKeys.EMAILS] !== "true") {
+      setProgress(ProgressKeys.EMAILS, "true");
     }
   };
   return <TabContentBase evidence={evidence} objectives={objectives} onCorrect={onCorrect} />;

@@ -1,6 +1,7 @@
 .letter {
   font-family: Patrick Hand;
-  font-size: 1.3em;
+  font-size: 2em;
+  line-height: 1.1em;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   color: black;
@@ -12,11 +13,39 @@
 
 .page1 {
   background-image: url("./paper.jpg");
-  padding: 2em;
+  padding: 1.8em;
 }
 
-.page2 {
-  background-image: url("./paper2.jpg");
-  padding: 2em;
-  height: 100%;
+.line {
+  margin-bottom: 1em;
+}
+
+.victoryOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1s ease-in-out;
+  user-select: none;
+}
+
+.victoryTitle {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  transition: opacity 1.5s ease-in;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.victorySubtitle {
+  font-size: 2rem;
+  font-weight: 500;
+  color: white;
+  margin-top: 1rem;
+  transition: opacity 1.5s ease-in;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }

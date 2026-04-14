@@ -6,7 +6,7 @@ import TabContentBase from "../TabContentBase";
 import { ConversationComponent } from "./ConversationComponent";
 import { allConversations } from "./Conversations";
 import { StageContext } from "../../components/StageContext";
-import { ObjectivesContext } from "../../components/ObjectivesContext";
+import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
 
 export default function TextConversations() {
   const conversations = allConversations.map((conversation, index) => (
@@ -50,8 +50,8 @@ export default function TextConversations() {
   const { currentStage } = useContext(StageContext);
   const { progress, setProgress } = useContext(ObjectivesContext);
   const onCorrect = () => {
-    if (progress?.textConversations !== "true") {
-      setProgress("textConversations", "true");
+    if (progress?.[ProgressKeys.TEXT_CONVERSATIONS] !== "true") {
+      setProgress(ProgressKeys.TEXT_CONVERSATIONS, "true");
     }
   };
 

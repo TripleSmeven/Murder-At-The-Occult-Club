@@ -5,7 +5,7 @@ import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
 import { Color } from "../../components/WordPicker";
 import { ObjectivesJson } from "../../components/ObjectivesJson";
-import { ObjectivesContext } from "../../components/ObjectivesContext";
+import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
 
 function OrderRow({
   entries,
@@ -101,8 +101,8 @@ export default function AmazingOrders() {
 
   const { progress, setProgress } = useContext(ObjectivesContext);
   const onCorrect = () => {
-    if (progress?.amazingOrders !== "true") {
-      setProgress("amazingOrders", "true");
+    if (progress?.[ProgressKeys.ONLINE_ORDERS] !== "true") {
+      setProgress(ProgressKeys.ONLINE_ORDERS, "true");
     }
   };
 

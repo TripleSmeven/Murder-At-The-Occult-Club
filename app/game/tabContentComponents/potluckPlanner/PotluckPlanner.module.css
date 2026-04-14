@@ -5,7 +5,8 @@
   margin: 0 auto;
   background-color: #ffffff;
   color: #202124;
-  line-height: 1.6;
+  line-height: 1.25em;
+  overflow-y: auto;
 }
 
 .docHeader {
@@ -29,7 +30,6 @@
 
 .tableWrapper {
   margin-top: 20px;
-  overflow: auto;
 }
 
 .table {

@@ -1,3 +1,4 @@
+import TabContentBase from "../TabContentBase";
 import styles from "./PotluckPlanner.module.css";
 
 interface TeamMember {
@@ -31,10 +32,11 @@ const teamMembers: TeamMember[] = [
   },
   { name: "Dr. Patricia Hall", role: "Advisor", bringing: "Tiramisu", allergies: "None" },
   { name: "Zach Cunningham", role: "Guest", bringing: "—", allergies: "Chamomile tea" },
+  { name: "Thomas Brooke", role: "Guest", bringing: "—", allergies: "None" },
 ];
 
 export default function PotluckPlanner() {
-  return (
+  const document = (
     <div className={styles.container}>
       <div className={styles.docHeader}>
         <h1 className={styles.title}>🏐 Volleyball Team Potluck - Winter 2016</h1>
@@ -69,4 +71,6 @@ export default function PotluckPlanner() {
       </div>
     </div>
   );
+
+  return <TabContentBase evidence={document} />;
 }

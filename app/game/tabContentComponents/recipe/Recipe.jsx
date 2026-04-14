@@ -11,8 +11,8 @@ export default function Recipe() {
       <div>Ingredients:</div>
       <ol>
         <li>A tuft of fur from a small mammalian</li>
-        <li>A fistful of sodium compound</li>
         <li>A feather of waterfowl</li>
+        <li>A fistful of sodium compound</li>
         <li>A drop of concentrated liquid energy</li>
         <li>Petals from a sun-like flower</li>
       </ol>

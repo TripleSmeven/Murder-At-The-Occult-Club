@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 import Button from "react-bootstrap/Button";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import { useCallback } from "react";
+import { use, useCallback, useEffect } from "react";
 
 import styles from "./game.module.css";
 
@@ -20,7 +20,9 @@ import { GameContext } from "./components/GameContext";
 import { useContext } from "react";
 import { StageContext } from "./components/StageContext";
 import PotluckPlanner from "./tabContentComponents/potluckPlanner/PotluckPlanner";
-import { ObjectivesContext } from "./components/ObjectivesContext";
+import { ObjectivesContext, ProgressKeys } from "./components/ObjectivesContext";
+import LetterFromX2 from "./tabContentComponents/letterFromX/LetterFromX2";
+import Afterword from "./tabContentComponents/afterword/Afterword";
 
 export default function Game() {
   return (
@@ -31,7 +33,7 @@ export default function Game() {
 }
 
 function GameComponent() {
-  const { currentStage } = useContext(StageContext);
+  const { currentStage, setStage } = useContext(StageContext);
   const { progress } = useContext(ObjectivesContext);
 
   const handleReset = useCallback(() => {
@@ -48,12 +50,26 @@ function GameComponent() {
     currentStage > 0 ? "Unlock by completing the Objectives in the Police Report." : "";
 
   const stage3LockedTooltip =
-    "Unlock by completing the Objectives in Text Messages, Email Inboxes, and Online Orders.";
+    currentStage > 0
+      ? "Unlock by completing the Objectives in Text Messages, Email Inboxes, and Online Orders."
+      : "";
 
   let policeReportEmoji;
   if (currentStage >= 1) {
     policeReportEmoji = progress?.policeReport === "true" ? "✅" : "🎯";
   }
+
+  // make sure we are on stage 3 when texts, emails, and orders are completed
+  useEffect(() => {
+    if (currentStage < 3) {
+      const textsCompleted = progress?.[ProgressKeys.TEXT_CONVERSATIONS] === "true";
+      const emailsCompleted = progress?.[ProgressKeys.EMAILS] === "true";
+      const ordersCompleted = progress?.[ProgressKeys.ONLINE_ORDERS] === "true";
+      if (textsCompleted && emailsCompleted && ordersCompleted) {
+        setStage(3);
+      }
+    }
+  }, [currentStage, progress, setStage]);
 
   return (
     <div className={styles.gameParent}>
@@ -86,7 +102,7 @@ function GameComponent() {
                   stageToUnlock={2}
                   currentStage={currentStage}
                   lockedTooltip={stage2LockedTooltip}
-                  emoji="🎯"
+                  emoji={progress?.[ProgressKeys.TEXT_CONVERSATIONS] === "true" ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="6"
@@ -94,7 +110,7 @@ function GameComponent() {
                   stageToUnlock={2}
                   currentStage={currentStage}
                   lockedTooltip={stage2LockedTooltip}
-                  emoji="🎯"
+                  emoji={progress?.[ProgressKeys.EMAILS] === "true" ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="7"
@@ -102,7 +118,7 @@ function GameComponent() {
                   stageToUnlock={2}
                   currentStage={currentStage}
                   lockedTooltip={stage2LockedTooltip}
-                  emoji={progress?.amazingOrders === "true" ? "✅" : "🎯"}
+                  emoji={progress?.[ProgressKeys.ONLINE_ORDERS] === "true" ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="8"
@@ -121,7 +137,9 @@ function GameComponent() {
                   stageToUnlock={3}
                   currentStage={currentStage}
                   lockedTooltip={stage3LockedTooltip}
+                  emoji={progress?.[ProgressKeys.SOLVE_THE_CASE] === "true" ? "✅" : "🎯"}
                 />
+                {currentStage === 4 && <NavItemWithLock eventKey="10" title="Afterword" />}
               </Nav>
             </div>
           </Col>
@@ -151,6 +169,12 @@ function GameComponent() {
               </Tab.Pane>
               <Tab.Pane eventKey="8">
                 <PotluckPlanner />
+              </Tab.Pane>
+              <Tab.Pane eventKey="9">
+                <LetterFromX2 />
+              </Tab.Pane>
+              <Tab.Pane eventKey="10">
+                <Afterword />
               </Tab.Pane>
             </Tab.Content>
           </Col>
