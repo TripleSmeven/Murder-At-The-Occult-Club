@@ -89,44 +89,44 @@ export default function LetterFromX2() {
     heading: "Solve the case",
     sections: [
       {
-        title: "Who made the Elixir of Oblivion?",
+        title: "Who brewed the Elixir of Oblivion?",
         questions: [
           {
             question: "",
             answer: "Andrew Wolfe",
-            color: Color.RED,
+            color: Color.BLUE,
           },
         ],
       },
       {
-        title: "What was the Elixir made of?",
+        title: "Identity each ingredient in the Elixir of Oblivion:",
         questions: [
           {
-            question: "What animal's fur?",
+            question: "Animal fur",
             answer: "Cat",
             answers: ["Cat", "Dog", "Gerbil", "Rabbit", "Fox", "Beaver"],
-            color: Color.RED,
+            color: Color.BLUE,
           },
           {
-            question: "What bird's feather?",
+            question: "Bird feather",
             answer: "Duck",
-            answers: ["Goose", "Duck", "Pigeon", "Swan"],
-            color: Color.RED,
+            answers: ["Goose", "Duck", "Pigeon", "Swan", "Parrot"],
+            color: Color.BLUE,
           },
           {
-            question: "Which sodium compound?",
+            question: "Sodium compound",
             answer: "Bleach",
             answers: ["Salt", "Fertilizer", "Baking Soda", "Bleach"],
-            color: Color.RED,
+            color: Color.BLUE,
           },
           {
-            question: "What kind of liquid energy?",
+            question: "Liquid energy",
             answer: "Energy Drink",
             answers: ["Tea", "Coffee", "Energy Drink"],
-            color: Color.RED,
+            color: Color.BLUE,
           },
           {
-            question: "What kind of flower?",
+            question: "Flower",
             answer: "Chamomile",
             answers: [
               "Sunflower",
@@ -136,7 +136,7 @@ export default function LetterFromX2() {
               "Yellow Rose",
               "Chrysanthemum",
             ],
-            color: Color.RED,
+            color: Color.BLUE,
           },
         ],
       },
@@ -154,12 +154,12 @@ export default function LetterFromX2() {
               "Sleeping Medication",
               "Other",
             ],
-            color: Color.RED,
+            color: Color.BLUE,
           },
         ],
       },
       {
-        title: "Why did they do it?",
+        title: "Why did perpetrator do it?",
         questions: [
           {
             question: "Reason",
@@ -173,7 +173,7 @@ export default function LetterFromX2() {
               "Science",
               "Sacrifice",
             ],
-            color: Color.RED,
+            color: Color.BLUE,
           },
           {
             question: "Related Person",
@@ -187,7 +187,7 @@ export default function LetterFromX2() {
               "Greg Carlson",
               "Maria Sanchez",
             ],
-            color: Color.RED,
+            color: Color.BLUE,
           },
         ],
       },

@@ -123,8 +123,8 @@ export default function PoliceReport() {
         </ol>
         <strong>ADDENDUM</strong>: As of December 18th, the case is closed due to the initiating of
         the KARL protocol. All pending investigations are cancelled. The Medical Examiner will be
-        releasing the body of Z to the next of kin. All digital evidence will be encrypted and
-        archived.
+        releasing the body of Zach Cunningham to the next of kin. All digital evidence will be
+        encrypted and archived.
       </div>
     </div>
   );

@@ -257,7 +257,8 @@ const PromiseMe: ConversationJson = {
     },
     {
       sender: "Heather Douglas",
-      content: "Let's say you do ask around and find out he went to that same highschool. What are you gonna do then?",
+      content:
+        "Let's say you do ask around and find out he went to that same highschool. What are you gonna do then?",
     },
     {
       sender: "Unknown A",
@@ -359,7 +360,7 @@ const Welcome: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "i would do cat (or gerbil) but someone else has that covered already",
+      content: "i would do cat (or gerbil) but others have that covered already",
     },
     {
       sender: "Unknown A",

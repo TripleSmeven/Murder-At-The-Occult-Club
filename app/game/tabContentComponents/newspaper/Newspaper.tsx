@@ -193,7 +193,7 @@ export default function Newspaper() {
       <br />
       <div>
         Tournament organizer faculty Daniel Katz claims the suspension has nothing to do with any
-        pre-match behavior or rules.
+        pre-match behavior.
       </div>
       <br />
       <div>
