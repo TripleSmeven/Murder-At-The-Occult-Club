@@ -11,7 +11,7 @@
 }
 
 .tabs {
-  font-family: Indie Flower;
+  font-family: Handlee;
   font-size: 1.3em;
   font-weight: bolder;
 }
@@ -29,7 +29,7 @@
 
 .tabContent {
   color: black;
-  font-family: Indie Flower;
+  font-family: Handlee;
   font-size: 1em;
   font-weight: bolder;
   padding: 1em;
@@ -55,7 +55,6 @@
   background-color: transparent;
   width: stretch;
   height: 100%;
-  font-family: Indie Flower;
   font-size: 1.3em;
   font-weight: bolder;
 

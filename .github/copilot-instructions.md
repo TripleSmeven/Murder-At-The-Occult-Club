@@ -72,7 +72,6 @@ Each game section uses a **thematic Google Font** to enhance immersion:
 - Noto Sans: Text messages
 - Roboto: Emails
 - Newsreader: Newspaper
-- Indie Flower: Word picker
 - Permanent Marker: Notepad
 - Space Mono: Default
 

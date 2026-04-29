@@ -8,7 +8,6 @@ import {
   Noto_Sans,
   Roboto,
   Newsreader,
-  Indie_Flower,
   Permanent_Marker,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -70,14 +69,7 @@ const newsreader = Newsreader({
   subsets: ["latin"],
 });
 
-// picker
-const indie_flower = Indie_Flower({
-  variable: "--font-indie_flower",
-  weight: "400",
-  subsets: ["latin"],
-});
-
-// notepad
+// notepad's completeness state
 const permanent_marker = Permanent_Marker({
   variable: "--font-permanent_marker",
   weight: "400",

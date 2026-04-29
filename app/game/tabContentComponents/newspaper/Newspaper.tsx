@@ -50,8 +50,14 @@ export default function Newspaper() {
       </div>
       <br />
       <div>
-        Out of respect for the family, we will not be releasing any further details. We ask that as
-        a community we can approach this situation with compassion and integrity.&quot;
+        Out of respect for the family, we will not be releasing any further details. I ask that we
+        approach this situation with compassion and integrity.
+      </div>
+      <br />
+      <div>
+        And finally, I want to thank the KPD for their cooperation and sensitivity during this
+        difficult time. Their dedication to the county is what makes me proud of our
+        community.&quot;
       </div>
       <br />
       <div>
@@ -142,17 +148,19 @@ export default function Newspaper() {
       <Subheader author="Justin Holmes" date="December 11, 2016" />
       <div>
         Professor Greg Carlson announced the opening of a new chemistry lab on the 6th floor earlier
-        today. The lab was bathed in controversy over budget concerns, as Clark advocated for
+        today. The lab was bathed in controversy over budget concerns, as Carlson advocated for
         expensive, high security storage units to be installed.
       </div>
       <br />
       <div>
         &quot;There will be dangerous chemicals in there, some that could be fatal if
-        ingested,&quot; said Clark in a statement. &quot;I need to ensure they are secured for the
+        ingested,&quot; said Carlson in a statement. &quot;I need to ensure they are secured for the
         sake of our students&apos; safety.&quot;.
       </div>
       <br />
-      <div>Clark did not elaborate on the exact chemicals that are kept in the storage units. </div>
+      <div>
+        Carlson did not elaborate on the exact chemicals that are kept in the storage units.
+      </div>
       <br />
       <div>
         The statement quickly circulated among KaiserU social media, with the hashtag

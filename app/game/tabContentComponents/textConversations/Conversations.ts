@@ -209,7 +209,7 @@ const Tea: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "Of course! I'm really sorry about what happened 😢",
+      content: "of course! i'm really sorry about what happened 😢😢",
     },
     {
       sender: "Evelyn Samson",
@@ -217,11 +217,11 @@ const Tea: ConversationJson = {
     },
     {
       sender: "Evelyn Samson",
-      content: "The only ones we have left are Yerba mate, chamomile,  and youthberry",
+      content: "The only ones we have left are Yerba mate, chamomile, and youthberry",
     },
     {
       sender: "Unknown A",
-      content: "I'll take the mate and youthberry 😁",
+      content: "i'll take the mate and youthberry 😁😁",
     },
     {
       sender: "Evelyn Samson",
@@ -230,7 +230,7 @@ const Tea: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "Thanks!",
+      content: "tyyyy!🙌🙌",
     },
   ],
 };

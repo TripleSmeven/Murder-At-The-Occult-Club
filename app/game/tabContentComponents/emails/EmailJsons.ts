@@ -113,9 +113,9 @@ const Thomas: Inbox = {
     },
     {
       sender: "Miranda Meadows",
-      title: "RE: taking matters into your own hands",
+      title: "RE: RE: taking matters into your own hands",
       content:
-        "This is Miranda. The MAOC does NOT authorize your operation as it goes against our code of conduct. I've setup another Zoop meeting...",
+        "This is Miranda. I think you missed my previous email. The MAOC does NOT authorize your operation. Reply to me ASAP so I know you...",
       date: "Dec 10",
     },
     {
@@ -133,10 +133,10 @@ const Thomas: Inbox = {
       date: "Dec 8",
     },
     {
-      sender: "Zoop",
-      title: "Meeting Recording",
+      sender: "Miranda Meadows",
+      title: "RE: taking matters into your own hands (10)",
       content:
-        "Your virtual meeting with Miranda Meadows has ended. To view the meeting recording, click here.",
+        "We have to do this the right way. I know you want results, but we need to be on the same page if we want to make impactful...",
       date: "Dec 7",
     },
     zachEmail,
@@ -146,6 +146,13 @@ const Thomas: Inbox = {
       content:
         "As long as you keep your registration updated, your gerbil is within our guidelines to raise in the dorms. Please note that larger pets like cats or dogs are prohibited...",
       date: "Dec 4",
+    },
+    {
+      sender: "Zoop",
+      title: "Meeting Recording",
+      content:
+        "Your virtual meeting with Miranda Meadows has ended. To view the meeting recording, click here.",
+      date: "Dec 3",
     },
   ],
 };
@@ -267,7 +274,7 @@ const Carlos: Inbox = {
       date: "Dec 3",
     },
     {
-      sender: "Phillipe Sanchez, me (9)",
+      sender: "Phillipe Garcia, me (9)",
       title: "About mom",
       content:
         "I'm gonna be honest, it's not looking good, kid. Doc says if she can't get treatment soon, she's looking at 6 to 12 months…",
@@ -322,7 +329,7 @@ const Andrew: Inbox = {
   owner: "Unknown", // Andrew Wolfe
   emails: [
     {
-      sender: "Greg Klark, me (2)",
+      sender: "Greg Carlson, me (2)",
       title: "Question for Project",
       content:
         "Interesting project you have there! Turacaffinate extraction is from energy drinks definitely possible. Tomorrow I can show you the equipment in the new lab which should have what you need...",

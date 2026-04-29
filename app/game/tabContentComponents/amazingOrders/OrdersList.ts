@@ -96,7 +96,7 @@ export const OrdersList: Order[] = [
         category: "DRINK",
         price: "50.00",
       },
-            {
+      {
         name: "SleepQuill Nighttime Sleep Aid 24ct",
         category: "MEDICINE",
         price: "86.00",
@@ -148,7 +148,7 @@ export const OrdersList: Order[] = [
     ],
   },
   {
-    date: "12/9",
+    date: "12/10",
     customerName: "Sarah Findley",
     color: "blue",
     items: [
@@ -173,7 +173,7 @@ export const OrdersList: Order[] = [
         price: "20.00",
       },
       {
-        name: "Davy Crockett Hat - Real Rabbit Fur and Raccoon Tail",
+        name: "Davy Crockett Hat - Real Rabbit Fur and Rock Dove Pigeon Feather",
         category: "CLOTHING",
         price: "90.00",
       },
@@ -210,6 +210,11 @@ export const OrdersList: Order[] = [
         name: "Occult Incantations Vol 4 - Includes Grimm's Incantations",
         category: "BOOKS",
         price: "43.00",
+      },
+      {
+        name: "Daisy Bouquet, 12 Stems (American Farms)",
+        category: "HOME",
+        price: "15",
       },
     ],
   },

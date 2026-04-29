@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   margin: 0.25em;
-  font-family: Indie Flower;
+  font-family: Handlee;
   font-weight: bolder;
 
   border-radius: 1em;
@@ -12,7 +12,7 @@
     width: 10.5em;
     line-height: 1.1em;
     font-size: 1.2em;
-    padding-top: 0em;
+    padding-top: 0.1em;
     padding-bottom: 0em;
     font-weight: bold;
     justify-content: center;

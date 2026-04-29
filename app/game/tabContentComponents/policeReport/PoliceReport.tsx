@@ -43,8 +43,8 @@ export default function PoliceReport() {
         <div className={styles.smallTitle}>
           <strong>Incident Summary</strong>
         </div>
-        Officers Waller and Samson responded to a call made from the Secretary’s Office of Kaiser
-        University on Tuesday, December 13 at 7:46PM. They arrived at the scene at 7:58PM.
+        Officers Waller and Samson responded to a call made from the Secretary&apos;s Office of
+        Kaiser University on Tuesday, December 13 at 7:46PM. They arrived at the scene at 7:58PM.
         <br />
         <br />
         A janitor had discovered a body in room 608 on the 6th floor of the east wing. The body was
@@ -86,7 +86,7 @@ export default function PoliceReport() {
         different individuals:
         <ol className={styles.orderedList}>
           <li>
-            <strong>Zack Cunningham</strong>, male, 24 years old, senior
+            <strong>Zach Cunningham</strong>, male, 24 years old, senior
           </li>
           <li>
             <strong>Sarah Findley</strong>, female, 18 year old, freshman

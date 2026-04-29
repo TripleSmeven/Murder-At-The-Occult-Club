@@ -67,7 +67,7 @@ export default function PotluckPlanner() {
       </div>
 
       <div className={styles.footer}>
-        <p className={styles.note}>✏️ Last edited by Gina Moore · Dec 6, 2016 at 3:45 PM</p>
+        <p className={styles.note}>✏️ Last edited by Gina Moore · Dec 9, 2016 at 3:45 PM</p>
       </div>
     </div>
   );
