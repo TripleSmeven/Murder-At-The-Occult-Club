@@ -69,11 +69,6 @@ export const OrdersList: Order[] = [
         category: "DRINK",
         price: "12.00",
       },
-      {
-        name: "Concentrated Bleach Tablets (32 Tablets)",
-        category: "HOME",
-        price: "9.00",
-      },
     ],
   },
   {
@@ -127,6 +122,11 @@ export const OrdersList: Order[] = [
         name: "All Natural Wood Chip Bedding For Small Cages",
         category: "HOME",
         price: "14.00",
+      },
+      {
+        name: "Concentrated Bleach Tablets (32 Tablets)",
+        category: "HOME",
+        price: "9.00",
       },
     ],
   },
@@ -202,7 +202,7 @@ export const OrdersList: Order[] = [
 
     items: [
       {
-        name: "10oz Fae Salt - Protection From Evil - Break Curses",
+        name: "10oz Fae Dust - Protection From Evil - Break Curses",
         category: "HOME",
         price: "26.00",
       },
@@ -214,7 +214,12 @@ export const OrdersList: Order[] = [
       {
         name: "Daisy Bouquet, 12 Stems (American Farms)",
         category: "HOME",
-        price: "15",
+        price: "15.00",
+      },
+      {
+        name: "Chile Saltpeter 1lb - For Curing Meat, Preserving Food",
+        category: "MISC",
+        price: "30.00",
       },
     ],
   },

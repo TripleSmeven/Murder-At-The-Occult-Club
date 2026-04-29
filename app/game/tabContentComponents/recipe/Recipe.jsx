@@ -21,7 +21,7 @@ export default function Recipe() {
         <li>Burn both the animal fur and feather until nothing but ash is left.</li>
         <li>
           Prepare your cauldron by placing it over your heating implement. Surround the cauldron
-          with fae salt.
+          with fae dust.
         </li>
         <li>Stir ashes and rest of materials in a cauldron of boiling water for 3 hours.</li>
         <li>

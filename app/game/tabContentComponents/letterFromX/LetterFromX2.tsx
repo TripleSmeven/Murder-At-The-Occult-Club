@@ -114,9 +114,9 @@ export default function LetterFromX2() {
             color: Color.BLUE,
           },
           {
-            question: "Sodium compound",
-            answer: "Bleach",
-            answers: ["Salt", "Fertilizer", "Baking Soda", "Bleach"],
+            question: "Chile Saltpeter",
+            answer: "Fertilizer",
+            answers: ["Salt", "Fertilizer", "Baking Soda", "Bleach", "Chile Saltpeter"],
             color: Color.BLUE,
           },
           {

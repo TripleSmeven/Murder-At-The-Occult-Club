@@ -329,6 +329,13 @@ const Andrew: Inbox = {
   owner: "Unknown", // Andrew Wolfe
   emails: [
     {
+      sender: "Far Trees Publishing",
+      title: "Use your code to redeem rewards NOW!",
+      content:
+        "Thank you for your purchase of Occult Incantations Vol 4. As a token of our thanks, you can use this code to redeem a FREE Far Trees Dream Catcher! To redeem...",
+      date: "Dec 10",
+    },
+    {
       sender: "Greg Carlson, me (2)",
       title: "Question for Project",
       content:
@@ -340,7 +347,7 @@ const Andrew: Inbox = {
       title: "New reminder",
       content:
         "Reminder that you have homework due for CHEM 461: Spectroscopy Techniques Applied to Biological Systems in 2 day(s). To view your dashboard, click here",
-      date: "Dec 8",
+      date: "Dec 9",
     },
     feathersEmail,
     zachEmail,
