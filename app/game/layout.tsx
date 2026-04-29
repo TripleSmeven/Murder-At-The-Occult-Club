@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import {
   Space_Mono,
-  Handlee,
   Patrick_Hand,
   Special_Elite,
   Gochi_Hand,
@@ -9,13 +8,14 @@ import {
   Roboto,
   Newsreader,
   Permanent_Marker,
+  Pangolin,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
 
 // notes
-const handlee = Handlee({
-  variable: "--font-handlee",
+const pangolin = Pangolin({
+  variable: "--font-pangolin",
   weight: "400",
   subsets: ["latin"],
 });

@@ -63,14 +63,14 @@ const Candace: Inbox = {
         "I just added one more piece of feedback: please don't use emojis in formal writing. As for your paragraph structure...",
       date: "Dec 7",
     },
-    zachEmail,
     {
-      sender: "Neptune",
-      title: "New reminder",
+      sender: "Zach Cunningham, me (4)",
+      title: "Why not me?",
       content:
-        "Reminder that you have homework due for SART 244: Digital Composition in 2 day(s). To view your dashboard, click here",
-      date: "Dec 6",
+        "Candace, it's nothing personal. I have no doubt you can brew it. But the semester is ending and I'm busy with something currently. I simply picked the person with the most tenure. Let's...",
+      date: "Dec 7",
     },
+    zachEmail,
     {
       sender: "Samantha Li, me (4)",
       title: "Cookie plan!",

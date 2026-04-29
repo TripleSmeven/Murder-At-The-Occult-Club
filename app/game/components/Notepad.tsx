@@ -1,5 +1,6 @@
 "use client";
 import { useContext, useEffect, useCallback, useState, useRef } from "react";
+import dynamic from "next/dynamic";
 
 import styles from "./Notepad.module.css";
 import { CustomPicker, NamePicker } from "./WordPicker";
@@ -8,6 +9,8 @@ import { Col, Nav, OverlayTrigger, Row, Tab, Tooltip } from "react-bootstrap";
 import { GlobalNotesContext } from "./GlobalNotesContext";
 import { useLocalStorage } from "./useLocalStorage";
 import { ObjectivesContext } from "./ObjectivesContext";
+
+const MarkdownEditor = dynamic(() => import("./MarkdownEditor"), { ssr: false });
 
 export default function Notepad({ heading, sections, onCorrect }: ObjectivesContentProps) {
   const startingKey = heading ? "objectives" : "freeform";
@@ -32,9 +35,8 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
 
   // handler for typing in the notes textrea.
   const handleChange = useCallback(
-    (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-      const newValue = event.target.value;
-      setLocalNotes(newValue);
+    (markdown: string) => {
+      setLocalNotes(markdown);
 
       if (debounceTimer.current) {
         clearTimeout(debounceTimer.current);
@@ -42,7 +44,7 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
 
       debounceTimer.current = setTimeout(() => {
         // debounce global notes, because update global context on every keystroke causes lag
-        setGlobalNotes(newValue);
+        setGlobalNotes(markdown);
       }, 500);
     },
     [setGlobalNotes],
@@ -66,12 +68,7 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
   const freeformTab = (
     <Tab.Pane eventKey="freeform" className={`${styles.tabContent} ${styles.freeformContent}`}>
       <div className={`${styles.notesTextareaParent}`}>
-        <textarea
-          className={`${styles.notesTextarea}`}
-          placeholder="This is your notepad. Use it to take notes!"
-          onChange={handleChange}
-          value={localNotes}
-        />
+        <MarkdownEditor markdown={localNotes} onChange={handleChange} />
       </div>
     </Tab.Pane>
   );

@@ -11,7 +11,7 @@
 }
 
 .tabs {
-  font-family: Handlee;
+  font-family: Pangolin;
   font-size: 1.3em;
   font-weight: bolder;
 }
@@ -29,9 +29,8 @@
 
 .tabContent {
   color: black;
-  font-family: Handlee;
+  font-family: Pangolin;
   font-size: 1em;
-  font-weight: bolder;
   padding: 1em;
 
   overflow: auto;
@@ -49,6 +48,8 @@
 
 .notesTextareaParent {
   height: 100%;
+  font-size: 1.3em;
+  font-weight: normal;
 }
 
 .notesTextarea {

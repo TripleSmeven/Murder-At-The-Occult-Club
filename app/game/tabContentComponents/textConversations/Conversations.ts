@@ -182,11 +182,11 @@ const Aftermath2: ConversationJson = {
     {
       sender: "Unknown B",
       content:
-        "But why only him? Maybe not the rest, but at least you or me would have glimpsed too, right?",
+        "But why only him? Maybe not the rest, but at least you would have glimpsed too, right?",
     },
     {
       sender: "Unknown A",
-      content: "Zach is on different level than us.",
+      content: "Not even I can match Zach's level. He's a prodigy.",
     },
     {
       sender: "Unknown A",
@@ -196,6 +196,14 @@ const Aftermath2: ConversationJson = {
     {
       sender: "Unknown B",
       content: "I think I might know someone. Hold on.",
+    },
+    {
+      sender: "Unknown B",
+      content: "...And I guess this means you're the president, now? According to the rules?",
+    },
+    {
+      sender: "Unknown A",
+      content: "We'll deal with that later.",
     },
   ],
 };

@@ -9,17 +9,21 @@
 ## Build, Test & Lint Commands
 
 ``ash
+
 # Development
-npm run dev              # Start development server (http://localhost:3000)
+
+npm run dev # Start development server (http://localhost:3000)
 
 # Production
-npm run build            # Build for production
-npm start                # Start production server
+
+npm run build # Build for production
+npm start # Start production server
 
 # Code Quality
-npm run lint             # Run ESLint on the entire codebase
-npm run lint -- app      # Lint only the app directory
-npm run lint -- app/game/page.tsx  # Lint specific file
+
+npm run lint # Run ESLint on the entire codebase
+npm run lint -- app # Lint only the app directory
+npm run lint -- app/game/page.tsx # Lint specific file
 ``
 
 **Note**: ESLint is configured with Next.js best practices (ESLint 9+), TypeScript support, and Prettier formatting integration. No separate test suite exists.
@@ -29,6 +33,7 @@ npm run lint -- app/game/page.tsx  # Lint specific file
 ### High-Level Game Flow
 
 The game is organized around a **tab-based interface** with progressive unlocking:
+
 - **Stage 0**: Initial evidence (Letter from X, Police Report)
 - **Stage 1**: Secondary evidence unlocked after Police Report objectives (Newspaper, Recipe)
 - **Stage 2**: Secondary investigation sources unlocked (Text Messages, Emails, Online Orders)
@@ -57,7 +62,8 @@ All contexts persist to localStorage and sync on mount.
 ### Data Organization
 
 Content data lives in separate TypeScript files (not components):
-- app/game/tabContentComponents/*/[ContentName]Jsons.ts - Contains game content arrays (conversations, emails, orders, etc.)
+
+- app/game/tabContentComponents/\*/[ContentName]Jsons.ts - Contains game content arrays (conversations, emails, orders, etc.)
 - ObjectivesJson.ts - Defines interfaces for objective structure (questions with multiple answer options and colors)
 
 Components import these data files and render them, keeping presentation separate from content.
@@ -65,7 +71,8 @@ Components import these data files and render them, keeping presentation separat
 ### Font Strategy
 
 Each game section uses a **thematic Google Font** to enhance immersion:
-- Handlee: Notepad
+
+- Pangolin: Notepad
 - Patrick Hand: Letter from X
 - Special Elite: Police Report
 - Gochi Hand: Recipe
@@ -75,17 +82,19 @@ Each game section uses a **thematic Google Font** to enhance immersion:
 - Permanent Marker: Notepad
 - Space Mono: Default
 
-Fonts are loaded in app/game/layout.tsx with CSS variables (--font-*).
+Fonts are loaded in app/game/layout.tsx with CSS variables (--font-\*).
 
 ### Component Structure
 
-**Tab Content Components** (app/game/tabContentComponents/*/):
+**Tab Content Components** (app/game/tabContentComponents/\*/):
+
 - Inherit from TabContentBase.tsx (provides common functionality)
 - Each has its own .module.css file
 - Import and render data from corresponding .ts files
 - Interact with contexts to read/update objectives
 
 **Shared Components** (app/game/components/):
+
 - Context providers
 - WordPicker.tsx - Multi-choice puzzle UI
 - CustomCarousel.tsx - Evidence carousel
@@ -118,7 +127,7 @@ Fonts are loaded in app/game/layout.tsx with CSS variables (--font-*).
 - Strict mode enabled in tsconfig.json
 - React 19 uses functional components with hooks
 - Context types are explicitly defined with interfaces
-- Import paths use @/* alias for root imports
+- Import paths use @/\* alias for root imports
 
 ### Progress Persistence
 
