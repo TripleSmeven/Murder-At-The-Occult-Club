@@ -50,7 +50,7 @@ export const OrdersList: Order[] = [
     color: "orange",
     items: [
       {
-        name: "Pet Grooming Scisscors with Rounded Tips",
+        name: "Pet Grooming Scissors with Rounded Tips",
         category: "HOME",
         price: "7.50",
       },

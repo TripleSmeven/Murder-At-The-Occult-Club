@@ -35,10 +35,10 @@ export default function Recipe() {
         </li>
       </ol>
       <div>
-        This elixir allows the strong-willed to glimpse into the Realm of Oblivion. For the
-        weak-minded, the elixir has no effect. It is best to drink this elixir as a group, as those
-        entering the Realm may need to enlist allies to help combat whatever entities they may
-        encounter.
+        This elixir allows experienced practicioners to glimpse into the Realm of Oblivion. For the
+        those not molded enough by the practice, the elixir has no effect. It is best to drink this
+        elixir as a group, as those entering the Realm may need to enlist allies to help combat
+        whatever entities they may encounter.
       </div>
     </div>
   );

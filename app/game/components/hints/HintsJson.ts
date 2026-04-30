@@ -61,7 +61,8 @@ export const hintsJson: HintsJson = {
         },
         {
           title: "Who brewed the Elixir?",
-          content: "There's an email or text that reveals who was chosen to brew the Elixir.",
+          content:
+            "Information found in emails and texts points to who was chosen to brew the Elixir.",
         },
         {
           title: "Animal fur hint",
