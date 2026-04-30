@@ -41,13 +41,18 @@ export const hintsJson: HintsJson = {
             "The online orders tell you a lot about the suspects. See if you can find any connection between what people are buying and the other pieces of evidence.",
         },
         {
-          title: "Gentle Nudge 1",
-          content: "Who are ZC, BB, and MM?",
+          title: "Gentle nudge 1",
+          content:
+            "Some members of the club have particular texting habits. Maybe that can help you figure out who the senders of the texts are",
         },
         {
-          title: "Gentle Nudge 2",
+          title: "Gentle nudge 2",
           content:
-            'In Text Message 2, "Unknown B" mentions knowing someone who knows about the Oblivion. Who could that be?',
+            'In Text Message 3, "Unknown B" mentions knowing someone who knows about the Oblivion. Who could that be?',
+        },
+        {
+          title: "Big text message hint",
+          content: "Who are ZC, MM, and BB? Why are they being brought up in conversation?",
         },
       ],
     },
@@ -56,7 +61,7 @@ export const hintsJson: HintsJson = {
       unlockedAtStage: 3,
       panels: [
         {
-          title: "Gentle Nudge",
+          title: "Gentle nudge",
           content: "Make sure you've checked the new Text Message that unlocked.",
         },
         {
@@ -88,6 +93,11 @@ export const hintsJson: HintsJson = {
         {
           title: "Perpetrator hint",
           content: "Is the person who brewed the elixir the same person who killed Zach?",
+        },
+        {
+          title: "Perpetrator motive hint",
+          content:
+            "How is the perpetrator connected to Zach? Look at all the evidence that has the perpretrator's name on it.",
         },
       ],
     },
