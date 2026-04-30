@@ -66,7 +66,7 @@ export default function PoliceReport() {
   const item2 = (
     <div className={styles.reportParent}>
       <div className={styles.section}>
-        During the investigation of the crime scene, 7 small vials with residual liquid were
+        During the investigation of the crime scene, 6 small vials with residual liquid were
         discovered. Analysis of the residual liquid revealed it was not any kind of common drink or
         commercial product, but instead was a mixture of several seemingly unrelated components. The
         initial results are:
@@ -82,7 +82,7 @@ export default function PoliceReport() {
         Further investigation of this liquid is pending.
         <br />
         <br />
-        Additionally, DNA analysis of the vials revealed each of the 7 vials was drunk by 7
+        Additionally, DNA analysis of the vials revealed each of the 6 vials was drunk by 6
         different individuals:
         <ol className={styles.orderedList}>
           <li>
@@ -104,7 +104,7 @@ export default function PoliceReport() {
             <strong>Candace Eng</strong>, female, 20 years old, junior
           </li>
         </ol>
-        Preliminary digital forensics investigation revealed that all 7 students were part of an
+        Preliminary digital forensics investigation revealed that all 6 students were part of an
         “occult club”, an unsupervised club led by Cunningham focusing on the study of magic,
         rituals, divination, and demonology. The club met once a week to discuss books, online
         material, and theories. On the day Cunningham died, the cult had scheduled their final
