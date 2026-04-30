@@ -43,7 +43,7 @@ export const hintsJson: HintsJson = {
         {
           title: "Gentle nudge 1",
           content:
-            "Some members of the club have particular texting habits. Maybe that can help you figure out who the senders of the texts are",
+            "Some members of the club have particular texting habits. Maybe that can help you figure out who the senders of the texts are.",
         },
         {
           title: "Gentle nudge 2",

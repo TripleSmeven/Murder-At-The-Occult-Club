@@ -10,7 +10,7 @@ import {
   quotePlugin,
   thematicBreakPlugin,
 } from "@mdxeditor/editor";
-import { FC } from "react";
+import { FC, useEffect, useRef } from "react";
 import "@mdxeditor/editor/style.css";
 
 interface EditorProps {
@@ -23,7 +23,10 @@ interface EditorProps {
  * Extend this Component further with the necessary plugins or props you need.
  * proxying the ref is necessary. Next.js dynamically imported components don't support refs.
  */
-const MarkdownEditor: FC<EditorProps> = ({ markdown, editorRef, onChange }) => {
+const MarkdownEditor: FC<EditorProps> = ({ markdown, onChange, editorRef }) => {
+  useEffect(() => {
+    editorRef?.current?.setMarkdown(markdown);
+  }, [editorRef, markdown]);
   return (
     <MDXEditor
       onChange={onChange}

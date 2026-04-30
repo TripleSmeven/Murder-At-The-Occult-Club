@@ -76,7 +76,7 @@ export default function Newspaper() {
       <br />
       <div>
         Miranda Meadows, Head Coordinator of the non profit &quot;Mothers Against Occult
-        Clubs&quot;, released a message to the Kaiser Country Community Board at yesterday&apos;s
+        Clubs&quot;, released a message to the Kaiser County Community Board at yesterday&apos;s
         meeting.
       </div>
       <br />
@@ -93,9 +93,9 @@ export default function Newspaper() {
       </div>
       <br />
       <div>
-        &quot;Kaiser Country is facing a crisis,&quot; Meadows continues. &quot;With unpoliced
-        social media and internet access, it&apos;s now more than ever a breeding ground for bad
-        influences to spread to young minds, and the occult epidemic is one of them.&quot;
+        &quot;Kaiser County is facing a crisis,&quot; Meadows continues. &quot;With unpoliced social
+        media and internet access, it&apos;s now more than ever a breeding ground for bad influences
+        to spread to young minds, and the occult epidemic is one of them.&quot;
       </div>
       <br />
       <div>

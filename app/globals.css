@@ -91,6 +91,10 @@ select.form-select:disabled {
     font-style: italic;
     color: #616161;
   }
+
+  p {
+    margin-bottom: 0.5em;
+  }
 }
 .mdxeditor-root-contenteditable {
   height: 100%;

@@ -115,7 +115,7 @@ const Thomas: Inbox = {
       sender: "Miranda Meadows",
       title: "RE: RE: taking matters into your own hands",
       content:
-        "This is Miranda. I think you missed my previous email. The MAOC does NOT authorize your operation. Reply to me ASAP so I know you...",
+        "This is Miranda. I think you missed my previous email. MAOC does NOT authorize your operation. Reply to me ASAP so I know you...",
       date: "Dec 10",
     },
     {
@@ -332,7 +332,7 @@ const Andrew: Inbox = {
       sender: "Greg Carlson, me (2)",
       title: "Question for Project",
       content:
-        "Interesting project you have there! Turacaffinate extraction is from energy drinks definitely possible. Tomorrow I can show you the equipment in the new lab which should have what you need...",
+        "Interesting project you have there! Turacaffinate extraction from energy drinks is definitely possible. Tomorrow I can show you the equipment in the new lab which should have what you need...",
       date: "Dec 9",
     },
     {

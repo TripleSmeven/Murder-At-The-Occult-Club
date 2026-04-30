@@ -9,6 +9,7 @@ import { Col, Nav, OverlayTrigger, Row, Tab, Tooltip } from "react-bootstrap";
 import { GlobalNotesContext } from "./GlobalNotesContext";
 import { useLocalStorage } from "./useLocalStorage";
 import { ObjectivesContext } from "./ObjectivesContext";
+import { MDXEditorMethods } from "@mdxeditor/editor";
 
 const MarkdownEditor = dynamic(() => import("./MarkdownEditor"), { ssr: false });
 
@@ -17,7 +18,9 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
   const { globalNotes, setGlobalNotes } = useContext(GlobalNotesContext);
   const [localNotes, setLocalNotes] = useState(globalNotes);
   const [objectivesVisited, setObjectivesVisited] = useLocalStorage("objectivesVisited");
+
   const debounceTimer = useRef<NodeJS.Timeout | null>(null);
+  const editorRef = useRef<MDXEditorMethods | null>(null);
 
   // Sync local state when global context changes
   useEffect(() => {
@@ -68,7 +71,7 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
   const freeformTab = (
     <Tab.Pane eventKey="freeform" className={`${styles.tabContent} ${styles.freeformContent}`}>
       <div className={`${styles.notesTextareaParent}`}>
-        <MarkdownEditor markdown={localNotes} onChange={handleChange} />
+        <MarkdownEditor markdown={localNotes} onChange={handleChange} editorRef={editorRef} />
       </div>
     </Tab.Pane>
   );

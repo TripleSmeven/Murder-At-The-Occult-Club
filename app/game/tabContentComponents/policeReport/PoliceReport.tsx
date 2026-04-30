@@ -36,7 +36,7 @@ export default function PoliceReport() {
         <strong>Incident Location:</strong> Kaiser University, 150 Pleasant Grove Rd, Kaiser County,
         NY 14850
         <br />
-        <strong>Last Updated:</strong> December 18, 2017, 14:32 PM (see addendum)
+        <strong>Last Updated:</strong> December 18, 2017, 2:32 PM (see addendum)
       </div>
 
       <div className={styles.section}>
@@ -44,7 +44,7 @@ export default function PoliceReport() {
           <strong>Incident Summary</strong>
         </div>
         Officers Waller and Samson responded to a call made from the Secretary&apos;s Office of
-        Kaiser University on Tuesday, December 13 at 7:46PM. They arrived at the scene at 7:58PM.
+        Kaiser University on Tuesday, December 13 at 7:46 PM. They arrived at the scene at 7:58 PM.
         <br />
         <br />
         A janitor had discovered a body in room 608 on the 6th floor of the east wing. The body was
@@ -73,7 +73,7 @@ export default function PoliceReport() {
         <br />
         <ol className={styles.orderedList}>
           <li>Burnt ashes of animal fur and bird feathers</li>
-          <li>Stimulants mixed in liquid</li>
+          <li>Caffeine-like stimulant</li>
           <li>Flower petal fibers</li>
           <li>
             An <strong>unknown substance</strong>
@@ -104,11 +104,11 @@ export default function PoliceReport() {
             <strong>Candace Eng</strong>, female, 20 years old, junior
           </li>
         </ol>
-        Preliminary digital forensics investigation revealed that all 6 students were part of an
-        “occult club”, an unsupervised club led by Cunningham focusing on the study of magic,
+        {`Preliminary digital forensics investigation revealed that all 6 students were part of an
+        "occult club," an unsupervised club led by Cunningham focusing on the study of magic,
         rituals, divination, and demonology. The club met once a week to discuss books, online
         material, and theories. On the day Cunningham died, the cult had scheduled their final
-        meeting.
+        meeting.`}
         <br />
         <br />
         The 5 other remaining students of the club are considered <strong>PRIME SUSPECTS</strong>.
