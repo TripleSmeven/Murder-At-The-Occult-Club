@@ -72,13 +72,11 @@ export default function LetterFromX2() {
       <div className={styles.page1}>
         <div className={styles.line}>Hello.</div>
         <div className={styles.line}>{`You've deduced much. You're almost there.`}</div>
-        <div
-          className={styles.line}
-        >{`I've sent you one last piece of evidence. It ties it all together.`}</div>
-        <div
-          className={styles.line}
-        >{`And once you've figured it out, it's time to finally put this case to rest.`}</div>
-        <div className={styles.line}>Who killed Zach Cunningham? How did they do it? And why?</div>
+        <div className={styles.line}>
+          {
+            "Now prove once and for all that Zach's death was a murder. How was the killing done, and why?"
+          }
+        </div>
         <div className={styles.line}>{"You have everything you need to solve the case."}</div>
         <div className={styles.line}>{"- X"}</div>
       </div>
