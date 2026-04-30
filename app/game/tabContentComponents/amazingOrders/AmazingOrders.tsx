@@ -7,20 +7,28 @@ import { Color } from "../../components/WordPicker";
 import { ObjectivesJson } from "../../components/ObjectivesJson";
 import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
 
+const INDEX_TO_UNKNOWN_MAP: Record<number, string> = {
+  0: "A",
+  1: "B",
+  2: "C",
+};
+
 function OrderRow({
   entries,
   rowClassName,
   color,
+  customName,
 }: {
   entries: string[];
   rowClassName?: string;
   color?: string;
+  customName?: string;
 }) {
   return (
     <tr className={`${rowClassName} ${color && styles[color]}`}>
       <td className={styles.numberCell}>{entries[0]}</td>
       <td className={styles.dateCell}>{entries[1]}</td>
-      <td className={styles.idCell}>{entries[2]}</td>
+      <td className={styles.nameCell}>{customName || entries[2]}</td>
       <td className={styles.titleCell}>{entries[3]}</td>
       <td className={styles.categoryCell}>{entries[4]}</td>
       <td className={styles.priceCell}>{entries[5]}</td>
@@ -33,7 +41,7 @@ function OrderRowHeader({ entries }: { entries: string[] }) {
     <tr className={styles.orderRowHeader}>
       <td className={`${styles.numberCell} ${styles.ignoreInHeaderRow}`}>{entries[0]}</td>
       <td className={styles.dateCell}>{entries[1]}</td>
-      <td className={styles.idCell}>{entries[2]}</td>
+      <td className={styles.nameCell}>{entries[2]}</td>
       <td className={styles.titleCell}>{entries[3]}</td>
       <td className={styles.categoryCell}>{entries[4]}</td>
       <td className={styles.priceCell}>{entries[5]}</td>
@@ -42,10 +50,19 @@ function OrderRowHeader({ entries }: { entries: string[] }) {
 }
 
 function AmazingOrdersTable() {
+  const { answers } = useContext(ObjectivesContext);
+
   const orderRows: JSX.Element[] = [];
   let rowCount = 2;
   OrdersList.forEach((order, index) => {
     order.items.forEach((item) => {
+      let customName;
+      if (INDEX_TO_UNKNOWN_MAP[index]) {
+        const storageKey = `Customer Name-Unknown ${INDEX_TO_UNKNOWN_MAP[index]}`;
+        if (answers[storageKey]) {
+          customName = `[${answers[storageKey]}?]`;
+        }
+      }
       orderRows.push(
         <OrderRow
           key={rowCount}
@@ -58,11 +75,13 @@ function AmazingOrdersTable() {
             item.category,
             item.price,
           ]}
+          customName={customName}
         />,
       );
       rowCount++;
     });
   });
+
   return (
     <div className={styles.amazingOrdersParent}>
       <table className={styles.amazingOrdersTable}>

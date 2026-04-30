@@ -8,7 +8,7 @@ export interface ConversationJson {
 }
 
 const Police: ConversationJson = {
-  date: "12/18/2016 15:06",
+  date: "12/18/16 15:06",
   messages: [
     {
       sender: "Troy Samson",
@@ -77,7 +77,7 @@ const Police: ConversationJson = {
 };
 
 const Aftermath1: ConversationJson = {
-  date: "12/13/2016 20:31",
+  date: "12/13/16 20:31",
   messages: [
     {
       sender: "Unknown A",
@@ -150,7 +150,7 @@ const Aftermath1: ConversationJson = {
     },
     {
       sender: "Unknown B",
-      content: "And NOTHING to MM either!!",
+      content: "And idk if you're still talking with MM. But cannot say ANYTHING to her either!!",
     },
   ],
   linkedAnswerKey: "Text Message 2",
@@ -199,7 +199,8 @@ const Aftermath2: ConversationJson = {
     },
     {
       sender: "Unknown B",
-      content: "...And I guess this means you're the president, now? According to the rules?",
+      content:
+        "...And I guess this means you're the president, now? According to the rules? You're the oldest.",
     },
     {
       sender: "Unknown A",
