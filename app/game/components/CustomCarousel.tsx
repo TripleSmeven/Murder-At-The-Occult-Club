@@ -26,7 +26,9 @@ export default function CustomCarousel({
   onChange,
 }: CustomCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [hasCarouselFocus, setHasCarouselFocus] = useState(false);
   const carouselRef = useRef<CarouselRef | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const size = items.length;
 
   const isPageLocked = useCallback(
@@ -36,6 +38,10 @@ export default function CustomCarousel({
 
   const handleKeyPress = useCallback(
     (event: KeyboardEvent) => {
+      if (!hasCarouselFocus) {
+        return;
+      }
+
       if (event.key === "ArrowLeft") {
         const newIndex = Math.max(activeIndex - 1, 0);
         if (!isPageLocked(newIndex)) {
@@ -50,7 +56,7 @@ export default function CustomCarousel({
         }
       }
     },
-    [activeIndex, isPageLocked, size],
+    [activeIndex, isPageLocked, size, hasCarouselFocus],
   );
 
   useEffect(() => {
@@ -67,7 +73,13 @@ export default function CustomCarousel({
   }, [activeIndex, onChange]);
 
   return (
-    <div className={styles.carouselParent}>
+    <div
+      className={styles.carouselParent}
+      ref={containerRef}
+      tabIndex={0}
+      onFocus={() => setHasCarouselFocus(true)}
+      onBlur={() => setHasCarouselFocus(false)}
+    >
       <Carousel
         slide={false}
         indicators={false}

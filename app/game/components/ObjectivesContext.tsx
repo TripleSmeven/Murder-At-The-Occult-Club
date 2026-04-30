@@ -6,11 +6,18 @@ import { useLocalStorage } from "./useLocalStorage";
 /**
  * Allows sharing of game answers from CustomPicker components across all game components
  */
-export const ObjectivesContext = createContext({
-  answers: {} as Record<string, string>,
-  progress: {} as Record<string, string>,
+
+interface ObjectivesContentProps {
+  answers: Record<string, string>;
+  setAnswer: (_key: string, _value: string) => void;
+  getProgress: (_key: ProgressKeys) => boolean;
+  setProgress: (_key: ProgressKeys, _value: boolean) => void;
+}
+export const ObjectivesContext = createContext<ObjectivesContentProps>({
+  answers: {},
   setAnswer: (_key: string, _value: string) => {},
-  setProgress: (_key: ProgressKeys, _value: string) => {},
+  getProgress: (_key: ProgressKeys) => false,
+  setProgress: (_key: ProgressKeys, _value: boolean) => {},
 });
 
 const ANSWERS_STORAGE_KEY = "game-answers";
@@ -21,6 +28,7 @@ export enum ProgressKeys {
   TEXT_CONVERSATIONS = "textConversations",
   EMAILS = "emails",
   ONLINE_ORDERS = "onlineOrders",
+  RECIPE = "recipe",
   SOLVE_THE_CASE = "solveTheCase",
 }
 
@@ -42,16 +50,6 @@ export function ObjectivesProvider({ children }: ObjectivesProviderProps): JSX.E
     return answers;
   }, [answersState]);
 
-  const getProgressAsJson = useCallback(() => {
-    let progress = {};
-    try {
-      progress = JSON.parse(progressState);
-    } catch (e) {
-      console.log("failed to parse progressState");
-    }
-    return progress;
-  }, [progressState]);
-
   const setAnswer = useCallback(
     (key: string, value: string) => {
       const answers = getAnswersAsJson();
@@ -61,8 +59,26 @@ export function ObjectivesProvider({ children }: ObjectivesProviderProps): JSX.E
     [setAnswersState, getAnswersAsJson],
   );
 
+  const getProgressAsJson = useCallback(() => {
+    let progress = {} as Record<ProgressKeys, boolean>;
+    try {
+      progress = JSON.parse(progressState);
+    } catch (e) {
+      console.log("failed to parse progressState");
+    }
+    return progress;
+  }, [progressState]);
+
+  const getProgress = useCallback(
+    (key: ProgressKeys) => {
+      const progress = getProgressAsJson();
+      return progress[key];
+    },
+    [getProgressAsJson],
+  );
+
   const setProgress = useCallback(
-    (key: ProgressKeys, value: string) => {
+    (key: ProgressKeys, value: boolean) => {
       const progress = getProgressAsJson();
       const updated = { ...progress, [key]: value };
       setProgressState(JSON.stringify(updated));
@@ -72,7 +88,7 @@ export function ObjectivesProvider({ children }: ObjectivesProviderProps): JSX.E
 
   return (
     <ObjectivesContext.Provider
-      value={{ answers: getAnswersAsJson(), setAnswer, progress: getProgressAsJson(), setProgress }}
+      value={{ answers: getAnswersAsJson(), setAnswer, getProgress, setProgress }}
     >
       {children}
     </ObjectivesContext.Provider>

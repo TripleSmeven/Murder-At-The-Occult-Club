@@ -20,15 +20,13 @@ interface StageProviderProps {
 
 export function StageProvider({ children }: StageProviderProps): JSX.Element {
   const [stageString, setStageSstring] = useLocalStorage(STAGE_STORAGE_KEY);
-  const currentStage = stageString ? parseInt(stageString, 10) : parseInt(DEFAULT_STAGE, 10);
+  const currentStage = stageString ? parseInt(stageString, 10) : 0;
 
   const setStage = (newStage: number) => {
     setStageSstring(newStage.toString());
   };
 
   return (
-    <StageContext.Provider value={{ currentStage, setStage }}>
-      {children}
-    </StageContext.Provider>
+    <StageContext.Provider value={{ currentStage, setStage }}>{children}</StageContext.Provider>
   );
 }

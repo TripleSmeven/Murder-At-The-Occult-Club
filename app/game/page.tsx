@@ -35,7 +35,7 @@ export default function Game() {
 
 function GameComponent() {
   const { currentStage, setStage } = useContext(StageContext);
-  const { progress } = useContext(ObjectivesContext);
+  const { getProgress } = useContext(ObjectivesContext);
 
   const handleReset = useCallback(() => {
     const confirmed = window.confirm(
@@ -48,29 +48,38 @@ function GameComponent() {
   }, []);
 
   const stage2LockedTooltip =
-    currentStage > 0 ? "Unlock by completing the Objectives in the Police Report." : "";
+    currentStage >= 1 ? "Unlock by completing the Objectives in the Police Report." : "";
 
+  // don't show this tooltip until stage 2 to avoid spoilers
   const stage3LockedTooltip =
-    currentStage > 0
+    currentStage >= 2
       ? "Unlock by completing the Objectives in Text Messages, Email Inboxes, and Online Orders."
       : "";
 
+  const solveTheCaseTooltip =
+    currentStage >= 1 ? "Unlock by completing all previous objectives." : "";
+
   let policeReportEmoji;
   if (currentStage >= 1) {
-    policeReportEmoji = progress?.policeReport === "true" ? "✅" : "🎯";
+    policeReportEmoji = getProgress(ProgressKeys.POLICE_REPORT) ? "✅" : "🎯";
+  }
+
+  let recipeEmoji;
+  if (currentStage >= 3) {
+    recipeEmoji = getProgress(ProgressKeys.RECIPE) ? "✅" : "🎯";
   }
 
   // make sure we are on stage 3 when texts, emails, and orders are completed
   useEffect(() => {
     if (currentStage < 3) {
-      const textsCompleted = progress?.[ProgressKeys.TEXT_CONVERSATIONS] === "true";
-      const emailsCompleted = progress?.[ProgressKeys.EMAILS] === "true";
-      const ordersCompleted = progress?.[ProgressKeys.ONLINE_ORDERS] === "true";
+      const textsCompleted = getProgress(ProgressKeys.TEXT_CONVERSATIONS);
+      const emailsCompleted = getProgress(ProgressKeys.EMAILS);
+      const ordersCompleted = getProgress(ProgressKeys.ONLINE_ORDERS);
       if (textsCompleted && emailsCompleted && ordersCompleted) {
         setStage(3);
       }
     }
-  }, [currentStage, progress, setStage]);
+  }, [currentStage, getProgress, setStage]);
 
   return (
     <div className={styles.gameParent}>
@@ -99,6 +108,7 @@ function GameComponent() {
                   title="Mysterious Recipe"
                   stageToUnlock={1}
                   currentStage={currentStage}
+                  emoji={recipeEmoji}
                 />
                 <NavItemWithLock
                   eventKey="5"
@@ -106,7 +116,7 @@ function GameComponent() {
                   stageToUnlock={2}
                   currentStage={currentStage}
                   lockedTooltip={stage2LockedTooltip}
-                  emoji={progress?.[ProgressKeys.TEXT_CONVERSATIONS] === "true" ? "✅" : "🎯"}
+                  emoji={getProgress(ProgressKeys.TEXT_CONVERSATIONS) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="6"
@@ -114,7 +124,7 @@ function GameComponent() {
                   stageToUnlock={2}
                   currentStage={currentStage}
                   lockedTooltip={stage2LockedTooltip}
-                  emoji={progress?.[ProgressKeys.EMAILS] === "true" ? "✅" : "🎯"}
+                  emoji={getProgress(ProgressKeys.EMAILS) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="7"
@@ -122,7 +132,7 @@ function GameComponent() {
                   stageToUnlock={2}
                   currentStage={currentStage}
                   lockedTooltip={stage2LockedTooltip}
-                  emoji={progress?.[ProgressKeys.ONLINE_ORDERS] === "true" ? "✅" : "🎯"}
+                  emoji={getProgress(ProgressKeys.ONLINE_ORDERS) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="8"
@@ -138,12 +148,17 @@ function GameComponent() {
                 <NavItemWithLock
                   eventKey="9"
                   title="Solve the Case"
-                  stageToUnlock={3}
+                  stageToUnlock={4}
                   currentStage={currentStage}
-                  lockedTooltip={stage3LockedTooltip}
-                  emoji={progress?.[ProgressKeys.SOLVE_THE_CASE] === "true" ? "✅" : "🎯"}
+                  lockedTooltip={solveTheCaseTooltip}
+                  emoji={getProgress(ProgressKeys.SOLVE_THE_CASE) ? "✅" : "🎯"}
                 />
-                {currentStage === 4 && <NavItemWithLock eventKey="10" title="Afterword" />}
+                <NavItemWithLock
+                  eventKey="10"
+                  title="🙏Afterword"
+                  stageToUnlock={5}
+                  currentStage={currentStage}
+                />
               </Nav>
             </div>
           </Col>

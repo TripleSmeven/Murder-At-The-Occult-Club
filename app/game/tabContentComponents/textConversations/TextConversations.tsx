@@ -48,13 +48,14 @@ export default function TextConversations() {
   };
 
   const { currentStage } = useContext(StageContext);
-  const { progress, setProgress } = useContext(ObjectivesContext);
+  const { getProgress, setProgress } = useContext(ObjectivesContext);
   const onCorrect = () => {
-    if (progress?.[ProgressKeys.TEXT_CONVERSATIONS] !== "true") {
-      setProgress(ProgressKeys.TEXT_CONVERSATIONS, "true");
+    if (!getProgress(ProgressKeys.TEXT_CONVERSATIONS)) {
+      setProgress(ProgressKeys.TEXT_CONVERSATIONS, true);
     }
   };
 
+  // keep page 4 (at index 3) locked until stage 3;
   const lockedPages = currentStage < 3 ? [3] : [];
   const evidence = (
     <CustomCarousel

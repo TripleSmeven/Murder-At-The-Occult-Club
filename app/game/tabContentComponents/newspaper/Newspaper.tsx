@@ -36,7 +36,9 @@ export default function Newspaper() {
         pursuit of knowledge will be sorely missed&quot;.
       </div>
       <br />
-      <div>President Eric Lark released a statement today regarding the passing of Cunningham: </div>
+      <div>
+        President Eric Lark released a statement today regarding the passing of Cunningham:{" "}
+      </div>
       <br />
       <div>
         &quot;I speak on behalf of all staff and faculty, we are deeply saddened by the news
@@ -255,6 +257,7 @@ export default function Newspaper() {
   );
 
   const { currentStage } = useContext(StageContext);
+  // lock pages until stage 2
   const lockedPages = currentStage < 2 ? [2, 3, 4, 5] : [];
   const evidence = (
     <CustomCarousel

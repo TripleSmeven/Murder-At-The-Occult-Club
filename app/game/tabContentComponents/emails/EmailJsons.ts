@@ -67,7 +67,7 @@ const Candace: Inbox = {
       sender: "Zach Cunningham, me (4)",
       title: "Why not me?",
       content:
-        "Candace, it's nothing personal. I have no doubt you can brew it. But the semester is ending and I'm busy with something currently. I simply picked the person with the most tenure. Let's...",
+        "Candace, it's nothing personal. I have no doubt you can do it. But the semester is ending and I'm busy with something currently. I simply picked the person with the most tenure. Let's...",
       date: "Dec 7",
     },
     zachEmail,
@@ -328,13 +328,6 @@ const Daisy: Inbox = {
 const Andrew: Inbox = {
   owner: "Unknown", // Andrew Wolfe
   emails: [
-    {
-      sender: "Far Trees Publishing",
-      title: "Use your code to redeem rewards NOW!",
-      content:
-        "Thank you for your purchase of Occult Incantations Vol 4. As a token of our thanks, you can use this code to redeem a FREE Far Trees Dream Catcher! To redeem...",
-      date: "Dec 10",
-    },
     {
       sender: "Greg Carlson, me (2)",
       title: "Question for Project",

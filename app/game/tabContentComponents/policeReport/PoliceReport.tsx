@@ -129,11 +129,11 @@ export default function PoliceReport() {
   );
 
   const { currentStage, setStage } = useContext(StageContext);
-  const { progress, setProgress } = useContext(ObjectivesContext);
+  const { getProgress, setProgress } = useContext(ObjectivesContext);
 
   // set stage from 0 to 1 when user views second page of police report.
   const onChange = (index: number) => {
-    if (currentStage < 1 && index === 1) {
+    if (currentStage === 0 && index === 1) {
       setStage(1);
     }
   };
@@ -166,19 +166,22 @@ export default function PoliceReport() {
     ],
   };
 
+  const STAGE_UNLOCKED = 1;
+
   // move to stage 2 if police report objective is complete
   const onCorrect = () => {
-    if (currentStage === 1) {
+    if (currentStage === STAGE_UNLOCKED) {
       setStage(2);
     }
-    if (progress?.[ProgressKeys.POLICE_REPORT] !== "true") {
-      setProgress(ProgressKeys.POLICE_REPORT, "true");
+    if (!getProgress(ProgressKeys.POLICE_REPORT)) {
+      setProgress(ProgressKeys.POLICE_REPORT, true);
     }
   };
   return (
     <TabContentBase
       evidence={evidenceComponent}
-      objectives={currentStage < 1 ? undefined : objectives}
+      // dont show objectives until stage 1
+      objectives={currentStage < STAGE_UNLOCKED ? undefined : objectives}
       onCorrect={onCorrect}
     />
   );

@@ -78,10 +78,10 @@ export default function Emails() {
   };
 
   const evidence = <CustomCarousel items={emailListComponents} />;
-  const { progress, setProgress } = useContext(ObjectivesContext);
+  const { getProgress, setProgress } = useContext(ObjectivesContext);
   const onCorrect = () => {
-    if (progress?.[ProgressKeys.EMAILS] !== "true") {
-      setProgress(ProgressKeys.EMAILS, "true");
+    if (!getProgress(ProgressKeys.EMAILS)) {
+      setProgress(ProgressKeys.EMAILS, true);
     }
   };
   return <TabContentBase evidence={evidence} objectives={objectives} onCorrect={onCorrect} />;

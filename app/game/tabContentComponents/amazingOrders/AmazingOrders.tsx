@@ -98,10 +98,10 @@ export default function AmazingOrders() {
     ],
   };
 
-  const { progress, setProgress } = useContext(ObjectivesContext);
+  const { getProgress, setProgress } = useContext(ObjectivesContext);
   const onCorrect = () => {
-    if (progress?.[ProgressKeys.ONLINE_ORDERS] !== "true") {
-      setProgress(ProgressKeys.ONLINE_ORDERS, "true");
+    if (!getProgress(ProgressKeys.ONLINE_ORDERS)) {
+      setProgress(ProgressKeys.ONLINE_ORDERS, true);
     }
   };
 

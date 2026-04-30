@@ -89,58 +89,6 @@ export default function LetterFromX2() {
     heading: "Solve the case",
     sections: [
       {
-        title: "Who brewed the Elixir of Oblivion?",
-        questions: [
-          {
-            question: "",
-            answer: "Andrew Wolfe",
-            color: Color.BLUE,
-          },
-        ],
-      },
-      {
-        title: "Identity each ingredient in the Elixir of Oblivion:",
-        questions: [
-          {
-            question: "Animal fur",
-            answer: "Cat",
-            answers: ["Cat", "Dog", "Gerbil", "Rabbit", "Fox", "Beaver"],
-            color: Color.BLUE,
-          },
-          {
-            question: "Bird feather",
-            answer: "Duck",
-            answers: ["Goose", "Duck", "Pigeon", "Swan", "Parrot"],
-            color: Color.BLUE,
-          },
-          {
-            question: "Chile Saltpeter",
-            answer: "Fertilizer",
-            answers: ["Salt", "Fertilizer", "Baking Soda", "Bleach", "Chile Saltpeter"],
-            color: Color.BLUE,
-          },
-          {
-            question: "Liquid energy",
-            answer: "Energy Drink",
-            answers: ["Tea", "Coffee", "Energy Drink"],
-            color: Color.BLUE,
-          },
-          {
-            question: "Flower",
-            answer: "Chamomile",
-            answers: [
-              "Sunflower",
-              "Daisy",
-              "Chamomile",
-              "Purple Orchid",
-              "Yellow Rose",
-              "Chrysanthemum",
-            ],
-            color: Color.BLUE,
-          },
-        ],
-      },
-      {
         title: "What caused Zach Cunningham's death?",
         questions: [
           {
@@ -165,13 +113,13 @@ export default function LetterFromX2() {
             question: "Reason",
             answer: "Revenge",
             answers: [
-              "Financial Gain",
               "Fame",
               "Revenge",
-              "Accident",
               "Ascension",
               "Science",
+              "Financial Gain",
               "Sacrifice",
+              "Accident",
             ],
             color: Color.BLUE,
           },
@@ -196,19 +144,20 @@ export default function LetterFromX2() {
 
   const evidenceComponent = <CustomCarousel items={[item1]} />;
 
-  // move to stage 4 if user solves the case
+  // move to stage 5 if user solves the case
   const { currentStage, setStage } = useContext(StageContext);
-  const { progress, setProgress } = useContext(ObjectivesContext);
+  const { setProgress } = useContext(ObjectivesContext);
 
   const onCorrect = () => {
-    if (currentStage === 3) {
+    if (currentStage === 4) {
       setShowVictoryScreen(true);
     }
   };
 
+  // triggers AFTER the victory overlay plays
   const handleVictoryComplete = () => {
-    setStage(4);
-    setProgress(ProgressKeys.SOLVE_THE_CASE, "true");
+    setStage(5); // unlocks afterword
+    setProgress(ProgressKeys.SOLVE_THE_CASE, true);
     setShowVictoryScreen(false); // unmount the victory overlay after its done.
   };
 
