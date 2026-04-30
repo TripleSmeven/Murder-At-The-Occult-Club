@@ -1,0 +1,121 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContainer {
+  overflow: hidden;
+  background-color: white;
+  border-radius: 8px;
+  width: 40em;
+  height: 75vh;
+  padding: 1em;
+  position: relative;
+  color: black;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #666;
+  display: flex;
+  transition: color 0.2s;
+}
+
+.closeButton:hover {
+  color: #000;
+}
+
+.modalTitle {
+  margin-bottom: 1em;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+
+.sectionsContainer {
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.51em;
+  margin-bottom: 1em;
+}
+
+.sectionHeading {
+  margin: 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.panelWrapper {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.panelTitle {
+  width: 100%;
+  text-align: left;
+  padding: 0.75em 1.25em;
+  border: none;
+  background-color: #fffec0;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: background-color 0.2s;
+}
+
+.panelTitle:hover {
+  background-color: #ececb8;
+}
+
+.panelTitle.expanded {
+  background-color: #ececb8;
+}
+
+.panelTitleText {
+  flex: 1;
+  text-align: left;
+}
+
+.toggleIcon {
+  margin-left: 12px;
+  font-size: 12px;
+}
+
+.panelContent {
+  padding: 0.75em 1.25em;
+  background-color: #fff;
+  font-size: 0.8em;
+  border-top: 1px solid #eee;
+}
+
+.noHints {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+  font-style: italic;
+}

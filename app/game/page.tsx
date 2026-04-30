@@ -23,6 +23,7 @@ import PotluckPlanner from "./tabContentComponents/potluckPlanner/PotluckPlanner
 import { ObjectivesContext, ProgressKeys } from "./components/ObjectivesContext";
 import LetterFromX2 from "./tabContentComponents/letterFromX/LetterFromX2";
 import Afterword from "./tabContentComponents/afterword/Afterword";
+import HintsButton from "./components/hints/HintsButton";
 
 export default function Game() {
   return (
@@ -73,9 +74,12 @@ function GameComponent() {
 
   return (
     <div className={styles.gameParent}>
-      <Button variant="danger" size="sm" onClick={handleReset} className={styles.resetButton}>
-        Reset
-      </Button>
+      <div className={styles.cornerButtons}>
+        <HintsButton className={styles.hintsButton} />
+        <Button variant="danger" size="sm" onClick={handleReset} className={styles.resetButton}>
+          Reset
+        </Button>
+      </div>
       {/* https://react-bootstrap.netlify.app/docs/components/tabs/#custom-tab-layout */}
       <Tab.Container id="left-tabs-example" defaultActiveKey="1">
         <Row>

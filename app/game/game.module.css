@@ -59,11 +59,19 @@
   width: 100%;
 }
 
-.resetButton {
+.cornerButtons {
   position: absolute;
   top: 10px;
   right: 10px;
   z-index: 1000;
+  display: flex;
+
+  .resetButton {
+    margin: 0 0.2em;
+  }
+  .hintsButton {
+    margin: 0 0.2em;
+  }
 }
 
 .lockedNavItem {

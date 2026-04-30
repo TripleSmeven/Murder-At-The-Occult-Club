@@ -8,10 +8,11 @@ export default function LetterFromX() {
       <div className={styles.page1}>
         <div className={styles.line}>Hello.</div>
         <div className={styles.line}>
-          A fellow classmate of ours, Zach Cunningham, was killed. The principal will soon release a
-          statement claiming it was suicide.
+          A fellow classmate of ours, Zach Cunningham, has died. The principal will soon release a
+          statement claiming it was a suicide.
         </div>
-        <div className={styles.line}>It was not.</div>
+        <div className={styles.line}>{`But that's a lie, and the principal knows that.`}</div>
+        <div className={styles.line}>Zach Cunningham was murdered.</div>
         <div className={styles.line}>Help me prove it.</div>
         <div className={styles.line}>
           I have sent you the police report on the incident. Read it.

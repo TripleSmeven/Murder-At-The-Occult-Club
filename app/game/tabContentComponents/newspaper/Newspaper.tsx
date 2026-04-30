@@ -20,7 +20,7 @@ export default function Newspaper() {
       <Subheader author="Justin Holmes" date="December 18, 2016" />
       <br />
       <div>
-        The KaiserU Department of Student affairs has announced a candlelight vigil will be held in
+        The KaiserU Department of Student Affairs has announced a candlelight vigil will be held in
         the remembrance of Zach Cunningham on December 20th, in the east wing garden.
       </div>
       <br />
@@ -36,7 +36,7 @@ export default function Newspaper() {
         pursuit of knowledge will be sorely missed&quot;.
       </div>
       <br />
-      <div>President Eric Lark released a statement following the passing of Cunningham: </div>
+      <div>President Eric Lark released a statement today regarding the passing of Cunningham: </div>
       <br />
       <div>
         &quot;I speak on behalf of all staff and faculty, we are deeply saddened by the news
@@ -55,7 +55,7 @@ export default function Newspaper() {
       </div>
       <br />
       <div>
-        And finally, I want to thank the KPD for their cooperation and sensitivity during this
+        And finally, I want to thank the KCPD for their cooperation and sensitivity during this
         difficult time. Their dedication to the county is what makes me proud of our
         community.&quot;
       </div>
@@ -146,6 +146,7 @@ export default function Newspaper() {
     <div className={styles.newspaperParent}>
       <h3>New Chemistry Lab Opens on 6th Floor</h3>
       <Subheader author="Justin Holmes" date="December 11, 2016" />
+      <br />
       <div>
         Professor Greg Carlson announced the opening of a new chemistry lab on the 6th floor earlier
         today. The lab was bathed in controversy over budget concerns, as Carlson advocated for

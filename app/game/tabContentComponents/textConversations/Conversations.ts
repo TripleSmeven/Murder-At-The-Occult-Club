@@ -20,7 +20,7 @@ const Police: ConversationJson = {
     },
     {
       sender: "Sebastian Waller",
-      content: "Sheriff said so. KARL protocol. You can take it up with him if you want",
+      content: "Sheriff said so. You know the drill. You can take it up with him if you want",
     },
     {
       sender: "Troy Samson",

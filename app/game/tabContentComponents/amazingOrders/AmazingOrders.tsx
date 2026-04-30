@@ -93,7 +93,6 @@ export default function AmazingOrders() {
           { question: "Unknown A", answer: "Candace Eng", color: Color.RED },
           { question: "Unknown B", answer: "Andrew Wolfe", color: Color.ORANGE },
           { question: "Unknown C", answer: "Carlos Sanchez", color: Color.YELLOW },
-          { question: "Unknown D", answer: "Andrew Wolfe", color: Color.BLACK },
         ],
       },
     ],
