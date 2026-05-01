@@ -47,7 +47,7 @@
   height: 100%;
   display: flex;
 
-  > div {
+  >div {
     height: 100%;
     width: 100%;
     display: flex;
@@ -69,6 +69,7 @@
   .resetButton {
     margin: 0 0.2em;
   }
+
   .hintsButton {
     margin: 0 0.2em;
   }
@@ -76,4 +77,54 @@
 
 .lockedNavItem {
   pointer-events: auto;
+}
+
+/* Floating spotlight for “something new here” — overlay is out of flow (no layout shift). */
+.navItemSpotlight {
+  position: relative;
+}
+
+.navSpotlightOverlay {
+  position: absolute;
+  pointer-events: none;
+  inset: 2px;
+  z-index: 0;
+  border-radius: 0.5rem;
+  animation: gameNavSpotlightPulse 2.2s ease-in-out infinite;
+  box-shadow:
+    0 0 0 1px rgba(255, 220, 140, 0.65),
+    0 0 12px 3px rgba(255, 190, 90, 0.5),
+    0 0 26px 8px rgba(255, 160, 50, 0.25);
+}
+
+.navItemSpotlight :global(.nav-link) {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gameNavSpotlightPulse {
+
+  0%,
+  100% {
+    opacity: 0.85;
+    box-shadow:
+      0 0 0 1px rgba(255, 220, 140, 0.55),
+      0 0 10px 2px rgba(255, 190, 90, 0.4),
+      0 0 22px 6px rgba(255, 160, 50, 0.2);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 0 2px rgba(255, 235, 170, 0.85),
+      0 0 18px 5px rgba(255, 210, 120, 0.65),
+      0 0 36px 12px rgba(255, 180, 70, 0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navSpotlightOverlay {
+    animation: none;
+    opacity: 1;
+  }
 }

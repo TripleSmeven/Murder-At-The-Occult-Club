@@ -11,7 +11,7 @@ export default function LetterFromX() {
           A fellow classmate of ours, Zach Cunningham, has died. The principal will soon release a
           statement claiming it was a suicide.
         </div>
-        <div className={styles.line}>{`But that's a lie, and the principal knows that.`}</div>
+        <div className={styles.line}>{`But that's a lie, and the principal knows that. He's covering it up.`}</div>
         <div className={styles.line}>Zach Cunningham was murdered.</div>
         <div className={styles.line}>Help me prove it.</div>
         <div className={styles.line}>
@@ -21,7 +21,6 @@ export default function LetterFromX() {
           {"Once you've shown me you're up to the task, I'll send you more."}
         </div>
         <div className={styles.line}>{"Analyze the evidence. Solve the case. Good luck."}</div>
-
         <div className={styles.line}>{"- X"}</div>
       </div>
     </div>

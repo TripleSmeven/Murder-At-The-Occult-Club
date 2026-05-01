@@ -158,6 +158,7 @@ function GameComponent() {
                   title="🙏Afterword"
                   stageToUnlock={5}
                   currentStage={currentStage}
+                  showSpotlight={true}
                 />
               </Nav>
             </div>
@@ -210,6 +211,7 @@ function NavItemWithLock({
   stageToUnlock = 0,
   currentStage = 0,
   lockedTooltip,
+  showSpotlight = false,
 }: {
   eventKey: string;
   title: string;
@@ -217,6 +219,8 @@ function NavItemWithLock({
   stageToUnlock?: number;
   currentStage?: number;
   lockedTooltip?: string;
+  /** Pulsing glow around the tab; purely visual overlay (does not affect layout). */
+  showSpotlight?: boolean;
 }) {
   const isLocked = currentStage < stageToUnlock;
 
@@ -237,17 +241,31 @@ function NavItemWithLock({
     </Nav.Link>
   );
 
+  const spotlightOverlay = showSpotlight && !isLocked ? (
+    <span className={styles.navSpotlightOverlay} aria-hidden />
+  ) : null;
+
   // wrap a tooltip over the navLink if its locked
   if (isLocked && lockedTooltip) {
     const tooltip = <Tooltip id={`tooltip-${title}`}>{lockedTooltip}</Tooltip>;
     return (
       <Nav.Item>
         <OverlayTrigger placement="auto" overlay={tooltip}>
-          <div className={styles.lockedNavItem}>{navLink}</div>
+          <div
+            className={`${styles.lockedNavItem}${showSpotlight ? ` ${styles.navItemSpotlight}` : ""}`}
+          >
+            {spotlightOverlay}
+            {navLink}
+          </div>
         </OverlayTrigger>
       </Nav.Item>
     );
   }
 
-  return <Nav.Item>{navLink}</Nav.Item>;
+  return (
+    <Nav.Item className={showSpotlight ? styles.navItemSpotlight : undefined}>
+      {spotlightOverlay}
+      {navLink}
+    </Nav.Item>
+  );
 }

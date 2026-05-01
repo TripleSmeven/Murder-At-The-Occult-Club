@@ -1,6 +1,6 @@
 import { ConversationJson } from "./Conversations";
 import styles from "./ConversationComponent.module.css";
-import { ObjectivesContext } from "../../components/ObjectivesContext";
+import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
 import { useContext } from "react";
 
 interface TextMessageJson {
@@ -62,6 +62,9 @@ export const ConversationComponent = ({ date, messages, index }: ConversationCom
   let previousSender = "";
   const currentTimeStamp = new Date(date);
 
+  const { getProgress } = useContext(ObjectivesContext);
+  const completedObjective = getProgress(ProgressKeys.TEXT_CONVERSATIONS);
+
   const conversationContent = messages.map((message, index2) => {
     // advance the timestamp by 1 second per character in the message,
     // to simulate the time it takes to type up that message
@@ -77,7 +80,14 @@ export const ConversationComponent = ({ date, messages, index }: ConversationCom
       // by default the sender is what's in the json. But if the player has made a guess on the objectives, render the guessed name instead.
       const storageKey = `Text Message ${index + 1}-${message.sender}`;
       const guessedName = answers[storageKey];
-      const senderToDisplay = guessedName ? `[${guessedName}?]` : message.sender;
+
+      // if this section is all correct, don't render the question mark.
+      let senderToDisplay;
+      if (completedObjective) {
+        senderToDisplay = guessedName ? `[${guessedName}]` : message.sender;
+      } else {
+        senderToDisplay = guessedName ? `[${guessedName}?]` : message.sender;
+      }
       return (
         <TextMessagePrimary
           key={index2}
@@ -89,6 +99,5 @@ export const ConversationComponent = ({ date, messages, index }: ConversationCom
       );
     }
   });
-
   return <div className={styles.conversationParent}>{conversationContent}</div>;
 };

@@ -36,13 +36,21 @@ function Inbox({ inbox, index }: InboxProps) {
   // if the player has guessed the owner, display the guess. Otherwise show what's in the json.
   const storageKey = `Inbox ${index + 1}-Unknown`;
   const guessedName = answers[storageKey];
-  const ownerToDisplay = guessedName ? `[${guessedName}?]` : inbox.owner;
+
+  const { getProgress } = useContext(ObjectivesContext);
+  const completedObjective = getProgress(ProgressKeys.EMAILS);
+  let ownerToDisplay;
+  if (completedObjective) {
+    ownerToDisplay = guessedName ? `[${guessedName}]` : inbox.owner;
+  } else {
+    ownerToDisplay = guessedName ? `[${guessedName}?]` : inbox.owner;
+  }
 
   return (
     <div className={styles.inboxParent}>
       <div className={styles.emailList}>
         <div className={styles.loggedIn}>You are logged in as: {ownerToDisplay}</div>
-        <div>.</div> {/** invisible top padding */}
+        <div>.</div> {/* invisible top padding */}
         {emailList}
       </div>
     </div>

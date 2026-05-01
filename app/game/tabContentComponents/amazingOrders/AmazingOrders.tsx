@@ -52,6 +52,9 @@ function OrderRowHeader({ entries }: { entries: string[] }) {
 function AmazingOrdersTable() {
   const { answers } = useContext(ObjectivesContext);
 
+  const { getProgress } = useContext(ObjectivesContext);
+  const completedObjective = getProgress(ProgressKeys.ONLINE_ORDERS);
+
   const orderRows: JSX.Element[] = [];
   let rowCount = 2;
   OrdersList.forEach((order, index) => {
@@ -60,7 +63,7 @@ function AmazingOrdersTable() {
       if (INDEX_TO_UNKNOWN_MAP[index]) {
         const storageKey = `Customer Name-Unknown ${INDEX_TO_UNKNOWN_MAP[index]}`;
         if (answers[storageKey]) {
-          customName = `[${answers[storageKey]}?]`;
+          customName = completedObjective ? `[${answers[storageKey]}]` : `[${answers[storageKey]}?]`;
         }
       }
       orderRows.push(
