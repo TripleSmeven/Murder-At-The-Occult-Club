@@ -133,6 +133,7 @@ export default function PoliceReport() {
 
   // set stage from 0 to 1 when user views second page of police report.
   const onChange = (index: number) => {
+    console.log("onChange called", { index });
     if (currentStage === 0 && index === 1) {
       setStage(1);
     }

@@ -36,6 +36,17 @@ export default function CustomCarousel({
     [lockedPages],
   );
 
+  const changeActiveIndex = useCallback(
+    (newIndex: number) => {
+      setActiveIndex(newIndex);
+      scrollToTop(carouselRef);
+      if (onChange) {
+        onChange(newIndex);
+      }
+    },
+    [onChange],
+  );
+
   const handleKeyPress = useCallback(
     (event: KeyboardEvent) => {
       if (!hasCarouselFocus) {
@@ -45,18 +56,16 @@ export default function CustomCarousel({
       if (event.key === "ArrowLeft") {
         const newIndex = Math.max(activeIndex - 1, 0);
         if (!isPageLocked(newIndex)) {
-          setActiveIndex(newIndex);
-          scrollToTop(carouselRef);
+          changeActiveIndex(newIndex);
         }
       } else if (event.key === "ArrowRight") {
         const newIndex = Math.min(activeIndex + 1, size - 1);
         if (!isPageLocked(newIndex)) {
-          setActiveIndex(newIndex);
-          scrollToTop(carouselRef);
+          changeActiveIndex(newIndex);
         }
       }
     },
-    [activeIndex, isPageLocked, size, hasCarouselFocus],
+    [activeIndex, isPageLocked, size, hasCarouselFocus, changeActiveIndex],
   );
 
   useEffect(() => {
@@ -65,12 +74,6 @@ export default function CustomCarousel({
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, [handleKeyPress]);
-
-  useEffect(() => {
-    if (onChange) {
-      onChange(activeIndex);
-    }
-  }, [activeIndex, onChange]);
 
   return (
     <div
@@ -115,8 +118,7 @@ export default function CustomCarousel({
               disabled={isPageLocked(index)}
               onClick={() => {
                 if (!isPageLocked(index)) {
-                  setActiveIndex(index);
-                  scrollToTop(carouselRef);
+                  changeActiveIndex(index);
                 }
               }}
             >

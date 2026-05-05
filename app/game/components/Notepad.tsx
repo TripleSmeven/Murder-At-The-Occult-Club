@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useEffect, useCallback, useState, useRef } from "react";
+import { useContext, useEffect, useCallback, useState, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
 
 import styles from "./Notepad.module.css";
@@ -121,9 +121,11 @@ const getStorageKey = (sectionTitle: string, question: string) => {
 
 const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentProps) => {
   const { answers } = useContext(ObjectivesContext);
-  const [status, setStatus] = useState<"correct" | "incorrect" | "incomplete">("incomplete");
+  const hasTriggeredCorrectRef = useRef(false);
 
-  const checkStatus = useCallback((): "correct" | "incorrect" | "incomplete" => {
+  // status does not need to be saved in state, since its
+  // already derived from existing state
+  const status = useMemo((): "correct" | "incorrect" | "incomplete" => {
     // Check if all questions have been filled out
     const allQuestionsAnswered = sections?.every((section) =>
       section.questions.every((question) => {
@@ -147,19 +149,24 @@ const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentPr
     );
 
     if (allAnswersCorrect) {
-      if (onCorrect) {
-        onCorrect();
-      }
       return "correct";
     }
 
     return "incorrect";
-  }, [answers, sections, onCorrect]);
+  }, [answers, sections]);
 
-  // check answers everytime checkStatus changes, which is whenever answers change
+  // trigger the onCorrect afterwards, then mark that we have triggered it, so we dont trigger it again
   useEffect(() => {
-    setStatus(checkStatus());
-  }, [checkStatus]);
+    if (status === "correct" && onCorrect && !hasTriggeredCorrectRef.current) {
+      hasTriggeredCorrectRef.current = true;
+      onCorrect();
+      return;
+    }
+
+    if (status !== "correct") {
+      hasTriggeredCorrectRef.current = false;
+    }
+  }, [status, onCorrect]);
 
   return (
     <div className={styles.objectivesParent}>

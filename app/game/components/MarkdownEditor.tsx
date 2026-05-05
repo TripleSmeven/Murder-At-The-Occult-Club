@@ -24,6 +24,8 @@ interface EditorProps {
  * proxying the ref is necessary. Next.js dynamically imported components don't support refs.
  */
 const MarkdownEditor: FC<EditorProps> = ({ markdown, onChange, editorRef }) => {
+  // this is needed because passing markdown into the editors doesn't actually affect it. You need to
+  // call .setMarkdown();
   useEffect(() => {
     editorRef?.current?.setMarkdown(markdown);
   }, [editorRef, markdown]);
