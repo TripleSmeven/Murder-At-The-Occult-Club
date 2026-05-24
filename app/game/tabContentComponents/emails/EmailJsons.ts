@@ -101,7 +101,7 @@ const Thomas: Inbox = {
       sender: "Neptune",
       title: "New reminder",
       content:
-        "Reminder that you have homework due for ME 225: Intro to Fluid Dynamics in 2 day(s). To view your dashboard, click here",
+        "Reminder that you have homework due for ME 325: Intro to Fluid Dynamics in 2 day(s). To view your dashboard, click here",
       date: "Dec 12",
     },
     {
@@ -164,14 +164,14 @@ const Sarah: Inbox = {
       sender: "Neptune",
       title: "New reminder",
       content:
-        "Reminder that you have homework due for PSYC 218: Research Methods in Psychology in 2 day(s). To view your dashboard, click here",
+        "Reminder that you have homework due for PSYC 118: Research Methods in Psychology in 2 day(s). To view your dashboard, click here",
       date: "Dec 12",
     },
     {
       sender: "Evelyn Samson, me (4)",
-      title: "Flowers",
+      title: "Taking any leftovers",
       content:
-        "What a coincidence, as those are the only ones we have left! I'm glad they'll have a new home. I'll leave them in the Office of Club Affairs with...",
+        "What a coincidence, as those are the only ones we have left! Note they are fresh and not pre-bagged. I'll send you some instructions on how...",
       date: "Dec 11",
     },
     {

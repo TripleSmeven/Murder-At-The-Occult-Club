@@ -45,7 +45,7 @@ const Police: ConversationJson = {
     {
       sender: "Troy Samson",
       content:
-        "I have to go home and pretend that the principal of her school AND the sheriff of our county's PD aren't corrupt pieces of shit",
+        "I have to go home and pretend that the president of her school AND the sheriff of our county's PD aren't corrupt pieces of shit",
     },
     {
       sender: "Troy Samson",
@@ -150,7 +150,8 @@ const Aftermath1: ConversationJson = {
     },
     {
       sender: "Unknown B",
-      content: "And idk if you're still talking with MM. But cannot say ANYTHING to her either!!",
+      content:
+        "And idk if you're still talking with MM. But you CANNOT say ANYTHING to her either!!",
     },
   ],
   linkedAnswerKey: "Text Message 2",

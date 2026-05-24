@@ -154,12 +154,18 @@ export default function PoliceReport() {
         ],
       },
       {
-        title: "Who ordered the police to stop investigating Cunningham's murder?",
+        title: "Who does X think is covering up the true nature of Cunningham's death?",
         questions: [
           {
             question: "",
             answer: "Eric Lark",
-            answers: ["Miranda Meadows", "Greg Carlson", "Eric Lark", "Troy Samson"],
+            answers: [
+              "Miranda Meadows",
+              "Greg Carlson",
+              "Eric Lark",
+              "Troy Samson",
+              "Sebastian Waller",
+            ],
             color: Color.GREEN,
           },
         ],
