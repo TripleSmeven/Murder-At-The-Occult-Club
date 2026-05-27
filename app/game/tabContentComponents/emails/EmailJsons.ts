@@ -74,7 +74,7 @@ const Candace: Inbox = {
     {
       sender: "Samantha Li, me (4)",
       title: "Cookie plan!",
-      content: "Sounds great! Can you buy the ingredients tomorrow then?",
+      content: "Sounds great! Can you buy the ingredients for it soon?",
       date: "Dec 6",
     },
     {
@@ -283,51 +283,16 @@ const Carlos: Inbox = {
   ],
 };
 
-const Daisy: Inbox = {
-  owner: "Daisy Verde",
-  emails: [
-    {
-      sender: "Greg Carlson, me (2)",
-      title: "6th floor lab access",
-      content:
-        "The new lab has not been officially announced yet, nor am I ready to share the equipment and inventory at this time. I can put you on the waitlist for when it is...",
-      date: "Dec 9",
-    },
-    {
-      sender: "Neptune",
-      title: "Submission confirmation",
-      content:
-        "You have submitted homework for CHEM 208: Organic Chemistry II with Lab. To view your dashboard, click here.",
-      date: "Dec 7",
-    },
-    zachEmail,
-    {
-      sender: "Neptune",
-      title: "New reminder",
-      content:
-        "Reminder that you have homework due for CHEM 208: Organic Chemistry II with Lab in 2 day(s). To view your dashboard, click here",
-      date: "Dec 5",
-    },
-    {
-      sender: "Bisney+",
-      title: "We're updating our privacy agreement",
-      content:
-        "These terms will apply as of January 27, 2017 for new subscribers. For prior and existing subscribers, like you, these terms will be effective beginning...",
-      date: "Dec 4",
-    },
-    {
-      sender: "Zach Cunningham",
-      title: "Welcome to our club",
-      content:
-        "I wanted to personally welcome you again to our club. Re-iterating what we spoke of previously, our pursuit of knowledge and understanding of natural world is a bit unorthodox, and thus not officially sactioned by KaiserU. I would ask that you...",
-      date: "Nov 30",
-    },
-  ],
-};
-
 const Andrew: Inbox = {
   owner: "Unknown", // Andrew Wolfe
   emails: [
+    {
+      sender: "Justin Holmes, me (5)",
+      title: "Need chemistry majors for my video piece",
+      content:
+        "Hey man thanks again for agreeing to this! So we'll actually shoot this on the roof. The 15th will be a full moon so we'll try to...",
+      date: "Dec 12",
+    },
     {
       sender: "Greg Carlson, me (2)",
       title: "Question for Project",

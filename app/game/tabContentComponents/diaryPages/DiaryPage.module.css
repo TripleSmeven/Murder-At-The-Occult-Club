@@ -1,0 +1,29 @@
+.diaryPage {
+  background-color: #ffffff;
+  padding: 2rem 3rem;
+
+  line-height: 2rem; /* Adjust this to change line height */
+
+  /* Create the horizontal lines */
+  background-image: linear-gradient(transparent 95%, #add8e6 95%);
+
+  /* Size and repeat the background */
+  background-size: 100% 2rem; /* Must match the line-height */
+  background-attachment: local;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+.textContent {
+  position: relative;
+  z-index: 1;
+  font-family: Crafty Girls;
+  font-size: 1.5em;
+  color: #2c2c2c;
+  /* push text slightly down so it looks like its on the line */
+  padding-top: 0.25em;
+}

@@ -24,6 +24,8 @@ import { ObjectivesContext, ProgressKeys } from "./components/ObjectivesContext"
 import LetterFromX2 from "./tabContentComponents/letterFromX/LetterFromX2";
 import Afterword from "./tabContentComponents/afterword/Afterword";
 import HintsButton from "./components/hints/HintsButton";
+import SpotlightOverlay from "./components/SpotlightOverlay";
+import DiaryPages from "./tabContentComponents/diaryPages/DiaryPages";
 
 export default function Game() {
   return (
@@ -90,28 +92,32 @@ function GameComponent() {
         </Button>
       </div>
       {/* https://react-bootstrap.netlify.app/docs/components/tabs/#custom-tab-layout */}
-      <Tab.Container id="left-tabs-example" defaultActiveKey="1">
+      <Tab.Container id="left-tabs-example" defaultActiveKey="LetterFromX">
         <Row>
           <Col sm={2} className={`${styles.navCol}`}>
             <div className={`${styles.navSection}`}>
               <Nav variant="pills">
-                <NavItemWithLock eventKey="1" title="Letter from X" />
-                <NavItemWithLock eventKey="2" title="Police Report" emoji={policeReportEmoji} />
+                <NavItemWithLock eventKey="LetterFromX" title="Letter from X" />
                 <NavItemWithLock
-                  eventKey="3"
+                  eventKey="PoliceReport"
+                  title="Police Report"
+                  emoji={policeReportEmoji}
+                />
+                <NavItemWithLock
+                  eventKey="Newspaper"
                   title="School Newspaper"
                   stageToUnlock={1}
                   currentStage={currentStage}
                 />
                 <NavItemWithLock
-                  eventKey="4"
+                  eventKey="Recipe"
                   title="Mysterious Recipe"
                   stageToUnlock={1}
                   currentStage={currentStage}
                   emoji={recipeEmoji}
                 />
                 <NavItemWithLock
-                  eventKey="5"
+                  eventKey="TextConversations"
                   title="Text Messages"
                   stageToUnlock={2}
                   currentStage={currentStage}
@@ -119,7 +125,7 @@ function GameComponent() {
                   emoji={getProgress(ProgressKeys.TEXT_CONVERSATIONS) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
-                  eventKey="6"
+                  eventKey="Emails"
                   title="Email Inboxes"
                   stageToUnlock={2}
                   currentStage={currentStage}
@@ -127,16 +133,27 @@ function GameComponent() {
                   emoji={getProgress(ProgressKeys.EMAILS) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
-                  eventKey="7"
+                  eventKey="AmazingOrders"
                   title="Online Orders"
                   stageToUnlock={2}
                   currentStage={currentStage}
                   lockedTooltip={stage2LockedTooltip}
                   emoji={getProgress(ProgressKeys.ONLINE_ORDERS) ? "✅" : "🎯"}
                 />
+              </Nav>
+            </div>
+            <div className={`${styles.navSection}`}>
+              <Nav variant="pills">
                 <NavItemWithLock
-                  eventKey="8"
+                  eventKey="PotluckPlanner"
                   title="Potluck Planner"
+                  stageToUnlock={3}
+                  currentStage={currentStage}
+                  lockedTooltip={stage3LockedTooltip}
+                />
+                <NavItemWithLock
+                  eventKey="DiaryPages"
+                  title="Diary Pages"
                   stageToUnlock={3}
                   currentStage={currentStage}
                   lockedTooltip={stage3LockedTooltip}
@@ -146,7 +163,7 @@ function GameComponent() {
             <div className={`${styles.navSection}`}>
               <Nav variant="pills">
                 <NavItemWithLock
-                  eventKey="9"
+                  eventKey="LetterFromX2"
                   title="Solve the Case"
                   stageToUnlock={4}
                   currentStage={currentStage}
@@ -154,7 +171,7 @@ function GameComponent() {
                   emoji={getProgress(ProgressKeys.SOLVE_THE_CASE) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
-                  eventKey="10"
+                  eventKey="Afterword"
                   title="🙏Afterword"
                   stageToUnlock={5}
                   currentStage={currentStage}
@@ -165,35 +182,38 @@ function GameComponent() {
           </Col>
           <Col sm={10} className={styles.col}>
             <Tab.Content className={styles.tabContent}>
-              <Tab.Pane eventKey="1">
+              <Tab.Pane eventKey="LetterFromX">
                 <LetterFromX />
               </Tab.Pane>
-              <Tab.Pane eventKey="2">
+              <Tab.Pane eventKey="PoliceReport">
                 <PoliceReport />
               </Tab.Pane>
-              <Tab.Pane eventKey="3">
+              <Tab.Pane eventKey="Newspaper">
                 <Newspaper />
               </Tab.Pane>
-              <Tab.Pane eventKey="4">
+              <Tab.Pane eventKey="Recipe">
                 <Recipe />
               </Tab.Pane>
-              <Tab.Pane eventKey="5">
+              <Tab.Pane eventKey="TextConversations">
                 <TextConversations />
               </Tab.Pane>
-              <Tab.Pane eventKey="6">
+              <Tab.Pane eventKey="Emails">
                 <Emails />
               </Tab.Pane>
               {/* need special width css for some reason */}
-              <Tab.Pane eventKey="7" className={styles.amazingOrdersTab}>
+              <Tab.Pane eventKey="AmazingOrders" className={styles.amazingOrdersTab}>
                 <AmazingOrders />
               </Tab.Pane>
-              <Tab.Pane eventKey="8">
+              <Tab.Pane eventKey="PotluckPlanner">
                 <PotluckPlanner />
               </Tab.Pane>
-              <Tab.Pane eventKey="9">
+              <Tab.Pane eventKey="DiaryPages">
+                <DiaryPages />
+              </Tab.Pane>
+              <Tab.Pane eventKey="LetterFromX2">
                 <LetterFromX2 />
               </Tab.Pane>
-              <Tab.Pane eventKey="10">
+              <Tab.Pane eventKey="Afterword">
                 <Afterword />
               </Tab.Pane>
             </Tab.Content>
@@ -241,9 +261,7 @@ function NavItemWithLock({
     </Nav.Link>
   );
 
-  const spotlightOverlay = showSpotlight && !isLocked ? (
-    <span className={styles.navSpotlightOverlay} aria-hidden />
-  ) : null;
+  const spotlightOverlay = showSpotlight && !isLocked ? <SpotlightOverlay /> : null;
 
   // wrap a tooltip over the navLink if its locked
   if (isLocked && lockedTooltip) {
@@ -252,7 +270,7 @@ function NavItemWithLock({
       <Nav.Item>
         <OverlayTrigger placement="auto" overlay={tooltip}>
           <div
-            className={`${styles.lockedNavItem}${showSpotlight ? ` ${styles.navItemSpotlight}` : ""}`}
+            className={`${styles.lockedNavItem} ${showSpotlight ? `${styles.navItemSpotlight}` : undefined}`}
           >
             {spotlightOverlay}
             {navLink}

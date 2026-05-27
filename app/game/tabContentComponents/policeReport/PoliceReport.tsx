@@ -44,7 +44,7 @@ export default function PoliceReport() {
           <strong>Incident Summary</strong>
         </div>
         Officers Waller and Samson responded to a call made from the Secretary&apos;s Office of
-        Kaiser University on Tuesday, December 13 at 7:46 PM. They arrived at the scene at 7:58 PM.
+        Kaiser University on Tuesday, December 13 at 8:46 PM. They arrived at the scene at 8:58 PM.
         <br />
         <br />
         A janitor had discovered a body in room 608 on the 6th floor of the east wing. The body was

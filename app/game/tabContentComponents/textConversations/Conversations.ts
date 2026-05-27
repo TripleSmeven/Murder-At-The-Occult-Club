@@ -77,7 +77,7 @@ const Police: ConversationJson = {
 };
 
 const Aftermath1: ConversationJson = {
-  date: "12/13/16 20:31",
+  date: "12/13/16 22:31",
   messages: [
     {
       sender: "Unknown A",
@@ -158,7 +158,7 @@ const Aftermath1: ConversationJson = {
 };
 
 const Aftermath2: ConversationJson = {
-  date: "12/13/16 21:20",
+  date: "12/13/16 23:20",
   messages: [
     {
       sender: "Unknown A",
@@ -219,7 +219,7 @@ const Tea: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "of course! i'm really sorry about what happened 😢😢",
+      content: "of course! im really sorry about what happened 😢😢",
     },
     {
       sender: "Evelyn Samson",
@@ -231,7 +231,7 @@ const Tea: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "i'll take the mate and youthberry 😁😁",
+      content: "ill take the mate and youthberry 😁😁",
     },
     {
       sender: "Evelyn Samson",
@@ -386,11 +386,11 @@ const Welcome: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "YES I LOVE FROGS 🐸🐸🐸",
+      content: "omg i luv frogssss 🐸🐸🐸",
     },
     {
       sender: "Unknown A",
-      content: "THANKS BESTIE",
+      content: "ty bestie",
     },
     {
       sender: "Unknown A",

@@ -9,6 +9,7 @@ import {
   Newsreader,
   Permanent_Marker,
   Pangolin,
+  Crafty_Girls,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
@@ -72,6 +73,12 @@ const newsreader = Newsreader({
 // notepad's completeness state
 const permanent_marker = Permanent_Marker({
   variable: "--font-permanent_marker",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const crafty_girls = Crafty_Girls({
+  variable: "--font-crafty_girls",
   weight: "400",
   subsets: ["latin"],
 });
