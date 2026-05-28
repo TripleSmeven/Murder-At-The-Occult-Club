@@ -58,7 +58,7 @@ export default function Recipe() {
       },
 
       {
-        title: "Identity each ingredient in the Elixir of Oblivion:",
+        title: "Identity each ingredient used in the Elixir of Oblivion:",
         questions: [
           {
             question: "Animal fur",

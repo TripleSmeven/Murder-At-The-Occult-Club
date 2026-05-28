@@ -26,7 +26,7 @@ export default function DiaryPages() {
   );
 
   const page3 = (
-    <DiaryPage textBlocks={["December 13th, 2016", "he's dead.", "i didnt mean to", "i need to"]} />
+    <DiaryPage textBlocks={["December 13th, 2016", "he's dead.", "did i", "i need to"]} />
   );
 
   const evidence = <CustomCarousel items={[page1, page2, page3]} />;

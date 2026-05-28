@@ -1,0 +1,72 @@
+.emailContainer {
+  background: white;
+  height: 100%;
+  overflow-y: auto;
+  font-family: Domine;
+  color: #000000;
+}
+.emailTitle {
+  font-size: 1.5em;
+  padding: 1em;
+  padding-left: 4.5rem; /* must be rem to aligh with profile */
+}
+
+.underTitle {
+  display: flex;
+}
+
+.profilePicture {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 1.5em;
+  margin: 0 0.5em 0 1em;
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("../textConversations/profilePictures/blank.png");
+  background-blend-mode: multiply;
+  background-color: rgb(166, 179, 255);
+}
+
+.emailHeader {
+  padding-right: 1em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.senderLabel {
+  font-weight: bold;
+}
+
+.recipientLabel {
+  font-size: 0.85rem;
+  color: #5f6368;
+}
+
+.timeAndActions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.timestamp {
+  font-size: 0.8em;
+  color: #5f6368;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 0.25em;
+}
+
+.starButton,
+.replyButton {
+  font-size: 1.2em;
+  padding: 0 0.5em;
+}
+
+.emailBody {
+  padding: 1.5em 1.5em 1.5em 0;
+  font-size: 1em;
+}

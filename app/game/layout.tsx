@@ -10,6 +10,7 @@ import {
   Permanent_Marker,
   Pangolin,
   Crafty_Girls,
+  Domine,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
@@ -79,6 +80,13 @@ const permanent_marker = Permanent_Marker({
 
 const crafty_girls = Crafty_Girls({
   variable: "--font-crafty_girls",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// Ritual instructions email
+const domine = Domine({
+  variable: "--font-domine",
   weight: "400",
   subsets: ["latin"],
 });

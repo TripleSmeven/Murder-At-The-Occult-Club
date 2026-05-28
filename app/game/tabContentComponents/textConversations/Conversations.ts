@@ -412,17 +412,17 @@ const Help: ConversationJson = {
     },
     {
       sender: "Unknown B",
-      content: "Yes, I got the speech about mentoring new blood and all that.",
+      content: "Yes...",
     },
     {
       sender: "Unknown A",
       content:
-        "Great! I already got started. I actually have the sun-like flower for the recipe, and I can get the other ingredients too.",
+        "Great! I already got started. I actually have the flower already, and I can get the other ingredients too.",
     },
     {
       sender: "Unknown B",
       content:
-        "Don't bother. I've already gotten everything since yesterday. Just meet me in the clubroom on the 13th at 8am. It takes 3 hours to make. You can watch.",
+        "Don't bother. I've already gotten everything since yesterday. Just meet me in the clubroom on the 13th at 3pm. It takes 3 hours to make. You can watch.",
     },
     {
       sender: "Unknown A",

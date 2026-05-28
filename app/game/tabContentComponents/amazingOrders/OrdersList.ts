@@ -188,11 +188,6 @@ export const OrdersList: Order[] = [
         category: "HOME",
         price: "14.00",
       },
-      {
-        name: "Assorted MESPRESSO Coffee Pods 50ct",
-        category: "FOOD",
-        price: "20.00",
-      },
     ],
   },
   {

@@ -27,6 +27,7 @@ import HintsButton from "./components/hints/HintsButton";
 import SpotlightOverlay from "./components/SpotlightOverlay";
 import DiaryPages from "./tabContentComponents/diaryPages/DiaryPages";
 import MeetingSummary from "./tabContentComponents/meetingSummary/MeetingSummary";
+import RitualInstructions from "./tabContentComponents/ritualInstructions/RitualInstructions";
 
 export default function Game() {
   return (
@@ -166,6 +167,13 @@ function GameComponent() {
                   currentStage={currentStage}
                   lockedTooltip={stage3LockedTooltip}
                 />
+                <NavItemWithLock
+                  eventKey="RitualInstructions"
+                  title="Ritual Instructions"
+                  stageToUnlock={3}
+                  currentStage={currentStage}
+                  lockedTooltip={stage3LockedTooltip}
+                />
               </Nav>
             </div>
             <div className={`${styles.navSection}`}>
@@ -220,6 +228,9 @@ function GameComponent() {
               </Tab.Pane>
               <Tab.Pane eventKey="PotluckPlanner">
                 <PotluckPlanner />
+              </Tab.Pane>
+              <Tab.Pane eventKey="RitualInstructions">
+                <RitualInstructions />
               </Tab.Pane>
               <Tab.Pane eventKey="LetterFromX2">
                 <LetterFromX2 />

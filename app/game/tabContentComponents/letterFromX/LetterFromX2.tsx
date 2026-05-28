@@ -99,6 +99,7 @@ export default function LetterFromX2() {
               "The Oblivion",
               "Sleeping Medication",
               "A Curse",
+              "A Ritual",
             ],
             color: Color.BLUE,
           },

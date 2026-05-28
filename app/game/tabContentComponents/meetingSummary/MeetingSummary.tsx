@@ -14,7 +14,7 @@ export default function MeetingSummary() {
       </div>
       <h1 className={styles.mainTitle}>Meeting with Miranda Meadows Summary</h1>
       <div className={styles.dateSubtitle}>
-        December 11, 2016, 4:01 PM Eastern Time (US and Canada)
+        December 10, 2016, 9:36 AM Eastern Time (US and Canada)
       </div>
 
       <section className={styles.section}>
@@ -24,7 +24,7 @@ export default function MeetingSummary() {
 
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Next steps</h2>
-        <div className={styles.sectionContent}>
+        <div>
           <ul>
             <li>
               Leadership to evaluate whether Thomas remains a cultural fit for the organization.

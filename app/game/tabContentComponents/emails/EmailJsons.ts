@@ -109,14 +109,14 @@ const Thomas: Inbox = {
       title: "Meeting Recording",
       content:
         "Your virtual meeting with Miranda Meadows has ended. To view the meeting recording and summary, click here.",
-      date: "Dec 11",
+      date: "Dec 10",
     },
     {
       sender: "Miranda Meadows",
       title: "RE: RE: taking matters into your own hands",
       content:
-        "This is Miranda. I think you missed my previous email. I do not authorize your suggested course of action. Let's discuss the matter again...",
-      date: "Dec 10",
+        "This is Miranda. I believe you may have missed my previous correspondence. I do not authorize your suggested course of action. Let's align on the matter again...",
+      date: "Dec 9",
     },
     {
       sender: "Daniel Katz",
@@ -136,7 +136,7 @@ const Thomas: Inbox = {
       sender: "Miranda Meadows",
       title: "RE: taking matters into your own hands (10)",
       content:
-        "We have to do this the right way. I know you want results, but we need to be on the same page if we want to make impactful...",
+        "I know you're results-oriented, but we need to be on the same page if we want to make impactful decisions moving forward. Let's circle back...",
       date: "Dec 7",
     },
     zachEmail,
