@@ -19,13 +19,15 @@ export default function DiaryPages() {
     <DiaryPage
       textBlocks={[
         "December 11th, 2016",
-        "it took a while but i finally did it. i invited him to talk and he gave the same bs as last time. that he recognizes my work and he will have me doing more next time. liar! little did he know he walked right into the circle.",
+        "it took a while but i finally did it. i invited him to talk and he gave the same bs as last time. that he recognizes my work and he will have me doing more next time. liar! little did he know he walked right onto my hidden ritual circle.",
         "and now i just wait for the next full moon for it to activate. its just a few days. cant wait to hear him scream in agony. he'll be begging for me.",
       ]}
     />
   );
 
-  const page3 = <DiaryPage textBlocks={["December 13th, 2016", "he's dead.", "i need to"]} />;
+  const page3 = (
+    <DiaryPage textBlocks={["December 13th, 2016", "he's dead.", "i didnt mean to", "i need to"]} />
+  );
 
   const evidence = <CustomCarousel items={[page1, page2, page3]} />;
   return <TabContentBase evidence={evidence} />;

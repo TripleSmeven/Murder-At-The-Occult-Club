@@ -1,0 +1,51 @@
+.container {
+  background: white;
+  padding: 2rem;
+  color: #000000;
+  height: 100%;
+  overflow-y: auto;
+  font-family: Roboto;
+}
+
+.breadcrumb {
+  font-size: 0.875rem;
+  color: #999;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.breadcrumbLink {
+  color: rgb(0, 110, 255);
+}
+
+.mainTitle {
+  font-size: 2em;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.dateSubtitle {
+  font-size: 1em;
+  color: #999;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.section {
+  margin-bottom: 2em;
+}
+
+.sectionTitle {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+}
+
+.sectionContent {
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}

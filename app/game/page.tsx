@@ -26,6 +26,7 @@ import Afterword from "./tabContentComponents/afterword/Afterword";
 import HintsButton from "./components/hints/HintsButton";
 import SpotlightOverlay from "./components/SpotlightOverlay";
 import DiaryPages from "./tabContentComponents/diaryPages/DiaryPages";
+import MeetingSummary from "./tabContentComponents/meetingSummary/MeetingSummary";
 
 export default function Game() {
   return (
@@ -145,15 +146,22 @@ function GameComponent() {
             <div className={`${styles.navSection}`}>
               <Nav variant="pills">
                 <NavItemWithLock
-                  eventKey="PotluckPlanner"
-                  title="Potluck Planner"
+                  eventKey="DiaryPages"
+                  title="Diary Pages"
                   stageToUnlock={3}
                   currentStage={currentStage}
                   lockedTooltip={stage3LockedTooltip}
                 />
                 <NavItemWithLock
-                  eventKey="DiaryPages"
-                  title="Diary Pages"
+                  eventKey="MeetingSummary"
+                  title="Meeting Summary"
+                  stageToUnlock={3}
+                  currentStage={currentStage}
+                  lockedTooltip={stage3LockedTooltip}
+                />
+                <NavItemWithLock
+                  eventKey="PotluckPlanner"
+                  title="Potluck Planner"
                   stageToUnlock={3}
                   currentStage={currentStage}
                   lockedTooltip={stage3LockedTooltip}
@@ -204,11 +212,14 @@ function GameComponent() {
               <Tab.Pane eventKey="AmazingOrders" className={styles.amazingOrdersTab}>
                 <AmazingOrders />
               </Tab.Pane>
-              <Tab.Pane eventKey="PotluckPlanner">
-                <PotluckPlanner />
-              </Tab.Pane>
               <Tab.Pane eventKey="DiaryPages">
                 <DiaryPages />
+              </Tab.Pane>
+              <Tab.Pane eventKey="MeetingSummary">
+                <MeetingSummary />
+              </Tab.Pane>
+              <Tab.Pane eventKey="PotluckPlanner">
+                <PotluckPlanner />
               </Tab.Pane>
               <Tab.Pane eventKey="LetterFromX2">
                 <LetterFromX2 />

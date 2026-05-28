@@ -105,17 +105,17 @@ const Thomas: Inbox = {
       date: "Dec 12",
     },
     {
-      sender: "Neptune",
-      title: "New reminder",
+      sender: "Zoop",
+      title: "Meeting Recording",
       content:
-        "Reminder that you have homework due for MATH 364: Multidimensional Calculus in 2 day(s). To view your dashboard, click here",
+        "Your virtual meeting with Miranda Meadows has ended. To view the meeting recording and summary, click here.",
       date: "Dec 11",
     },
     {
       sender: "Miranda Meadows",
       title: "RE: RE: taking matters into your own hands",
       content:
-        "This is Miranda. I think you missed my previous email. MAOC does NOT authorize your operation. Reply to me ASAP so I know you...",
+        "This is Miranda. I think you missed my previous email. I do not authorize your suggested course of action. Let's discuss the matter again...",
       date: "Dec 10",
     },
     {
@@ -145,13 +145,20 @@ const Thomas: Inbox = {
       title: "Re: Inquiry",
       content:
         "As long as you keep your registration updated, your gerbil is within our guidelines to raise in the dorms. Please note that larger pets like cats or dogs are prohibited...",
-      date: "Dec 4",
+      date: "Dec 5",
+    },
+    {
+      sender: "Neptune",
+      title: "New reminder",
+      content:
+        "Reminder that you have homework due for MATH 364: Multidimensional Calculus in 2 day(s). To view your dashboard, click here",
+      date: "Dec 3",
     },
     {
       sender: "Zoop",
       title: "Meeting Recording",
       content:
-        "Your virtual meeting with Miranda Meadows has ended. To view the meeting recording, click here.",
+        "Your virtual meeting with Miranda Meadows has ended. To view the meeting recording and summary, click here.",
       date: "Dec 3",
     },
   ],

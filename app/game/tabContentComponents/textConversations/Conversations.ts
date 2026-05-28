@@ -182,6 +182,10 @@ const Aftermath2: ConversationJson = {
     },
     {
       sender: "Unknown B",
+      content: "Damnit!",
+    },
+    {
+      sender: "Unknown B",
       content:
         "But why only him? Maybe not the rest, but at least you would have glimpsed too, right?",
     },

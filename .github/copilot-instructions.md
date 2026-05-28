@@ -19,15 +19,6 @@ npm run dev # Start development server (http://localhost:3000)
 npm run build # Build for production
 npm start # Start production server
 
-# Code Quality
-
-npm run lint # Run ESLint on the entire codebase
-npm run lint -- app # Lint only the app directory
-npm run lint -- app/game/page.tsx # Lint specific file
-``
-
-**Note**: ESLint is configured with Next.js best practices (ESLint 9+), TypeScript support, and Prettier formatting integration. No separate test suite exists.
-
 ## Architecture & Structure
 
 ### High-Level Game Flow
