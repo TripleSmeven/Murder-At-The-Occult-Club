@@ -28,6 +28,7 @@ import SpotlightOverlay from "./components/SpotlightOverlay";
 import DiaryPages from "./tabContentComponents/diaryPages/DiaryPages";
 import MeetingSummary from "./tabContentComponents/meetingSummary/MeetingSummary";
 import RitualInstructions from "./tabContentComponents/ritualInstructions/RitualInstructions";
+import TextConversations2 from "./tabContentComponents/textConversations/TextConversations2";
 
 export default function Game() {
   return (
@@ -174,6 +175,13 @@ function GameComponent() {
                   currentStage={currentStage}
                   lockedTooltip={stage3LockedTooltip}
                 />
+                <NavItemWithLock
+                  eventKey="NewTextMessage"
+                  title="New Text Message"
+                  stageToUnlock={3}
+                  currentStage={currentStage}
+                  lockedTooltip={stage3LockedTooltip}
+                />
               </Nav>
             </div>
             <div className={`${styles.navSection}`}>
@@ -231,6 +239,9 @@ function GameComponent() {
               </Tab.Pane>
               <Tab.Pane eventKey="RitualInstructions">
                 <RitualInstructions />
+              </Tab.Pane>
+              <Tab.Pane eventKey="NewTextMessage">
+                <TextConversations2 />
               </Tab.Pane>
               <Tab.Pane eventKey="LetterFromX2">
                 <LetterFromX2 />

@@ -39,3 +39,8 @@
   font-size: 1.5em;
   font-weight: 600;
 }
+
+.disclaimer {
+  font-style: italic;
+  color: #999;
+}

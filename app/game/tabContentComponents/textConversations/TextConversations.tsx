@@ -4,12 +4,11 @@ import { ObjectivesJson } from "../../components/ObjectivesJson";
 import { Color } from "../../components/WordPicker";
 import TabContentBase from "../TabContentBase";
 import { ConversationComponent } from "./ConversationComponent";
-import { allConversations } from "./Conversations";
-import { StageContext } from "../../components/StageContext";
+import { primaryConversations } from "./Conversations";
 import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
 
 export default function TextConversations() {
-  const conversations = allConversations.map((conversation, index) => (
+  const conversations = primaryConversations.map((conversation, index) => (
     <ConversationComponent key={index} {...conversation} index={index} />
   ));
   const objectives: ObjectivesJson = {
@@ -47,7 +46,6 @@ export default function TextConversations() {
     ],
   };
 
-  const { currentStage } = useContext(StageContext);
   const { getProgress, setProgress } = useContext(ObjectivesContext);
   const onCorrect = () => {
     if (!getProgress(ProgressKeys.TEXT_CONVERSATIONS)) {
@@ -55,12 +53,9 @@ export default function TextConversations() {
     }
   };
 
-  // keep page 4 (at index 3) locked until stage 3;
-  const lockedPages = currentStage < 3 ? [3] : [];
   const evidence = (
     <CustomCarousel
       items={conversations}
-      lockedPages={lockedPages}
       lockedTooltip="Unlock by completing the Objectives in Text Messages, Email Inboxes, and Online Orders."
     />
   );

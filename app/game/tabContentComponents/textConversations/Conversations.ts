@@ -431,13 +431,6 @@ const Help: ConversationJson = {
   ],
 };
 
-export const allConversations = [
-  Police,
-  Aftermath1,
-  Aftermath2,
-  Help,
-  Tea,
-  PromiseMe,
-  Mom,
-  Welcome,
-];
+export const primaryConversations = [Police, Aftermath1, Aftermath2, Tea, PromiseMe, Mom, Welcome];
+
+export const newConversation = [Help];
