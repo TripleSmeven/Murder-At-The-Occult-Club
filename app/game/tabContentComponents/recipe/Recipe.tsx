@@ -1,11 +1,5 @@
-import { useContext } from "react";
-import Notepad from "../../components/Notepad";
-import { ObjectivesJson } from "../../components/ObjectivesJson";
-import { Color } from "../../components/WordPicker";
 import TabContentBase from "../TabContentBase";
 import styles from "./Recipe.module.css";
-import { StageContext } from "../../components/StageContext";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
 
 export default function Recipe() {
   const evidence = (
@@ -28,10 +22,12 @@ export default function Recipe() {
           Prepare your cauldron by placing it over your heating implement. Surround the cauldron
           with fae dust.
         </li>
-        <li>Stir ashes and rest of materials in a cauldron of boiling water for 3 hours.</li>
         <li>
-          Every hour (totaling three times), recite Grimm&apos;s incantation. Amendment 3 is
-          recommended.
+          Stir ashes and rest of materials in a cauldron of boiling water for 3 hourglass turns.
+        </li>
+        <li>
+          Every every hourglass turn (totaling three times), recite Grimm&apos;s incantation.
+          Amendment 3 is recommended.
         </li>
       </ol>
       <div>
@@ -43,80 +39,5 @@ export default function Recipe() {
     </div>
   );
 
-  const objectives: ObjectivesJson = {
-    heading: "The Elixir of Oblivion",
-    sections: [
-      {
-        title: "Who brewed the Elixir of Oblivion?",
-        questions: [
-          {
-            question: "",
-            answer: "Andrew Wolfe",
-            color: Color.ORANGE,
-          },
-        ],
-      },
-
-      {
-        title: "Identity each ingredient used in the Elixir of Oblivion:",
-        questions: [
-          {
-            question: "Animal fur",
-            answer: "Cat",
-            answers: ["Cat", "Dog", "Gerbil", "Rabbit", "Fox", "Beaver"],
-            color: Color.ORANGE,
-          },
-          {
-            question: "Bird feather",
-            answer: "Duck",
-            answers: ["Goose", "Duck", "Pigeon", "Swan", "Parrot"],
-            color: Color.ORANGE,
-          },
-          {
-            question: "Sodium Compound",
-            answer: "Chile Saltpeter",
-            answers: ["Salt", "Fertilizer", "Baking Soda", "Bleach", "Chile Saltpeter"],
-            color: Color.ORANGE,
-          },
-          {
-            question: "Liquid energy",
-            answer: "Energy Drink",
-            answers: ["Tea", "Coffee", "Energy Drink"],
-            color: Color.ORANGE,
-          },
-          {
-            question: "Flower",
-            answer: "Chamomile",
-            answers: [
-              "Sunflower",
-              "Daisy",
-              "Chamomile",
-              "Purple Orchid",
-              "Yellow Rose",
-              "Chrysanthemum",
-            ],
-            color: Color.ORANGE,
-          },
-        ],
-      },
-    ],
-  };
-  const STAGE_UNLOCKED = 3;
-
-  const { currentStage, setStage } = useContext(StageContext);
-  const { setProgress } = useContext(ObjectivesContext);
-  const onCorrect = () => {
-    setProgress(ProgressKeys.RECIPE, true);
-    if (currentStage === STAGE_UNLOCKED) {
-      setStage(4);
-    }
-  };
-  return (
-    <TabContentBase
-      evidence={evidence}
-      // dont show objectives until stage 3
-      objectives={currentStage < STAGE_UNLOCKED ? undefined : objectives}
-      onCorrect={onCorrect}
-    />
-  );
+  return <TabContentBase evidence={evidence} />;
 }

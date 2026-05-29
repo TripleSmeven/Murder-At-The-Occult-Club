@@ -1,5 +1,4 @@
-import { useContext, useState, useEffect } from "react";
-import CustomCarousel from "../../components/CustomCarousel";
+import { useContext } from "react";
 import { ObjectivesJson } from "../../components/ObjectivesJson";
 import { StageContext } from "../../components/StageContext";
 import { Color } from "../../components/WordPicker";
@@ -7,77 +6,18 @@ import TabContentBase from "../TabContentBase";
 import styles from "./LetterFromX.module.css";
 import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
 
-const VictoryScreen = ({ onComplete }: { onComplete: () => void }) => {
-  const [showFirstText, setShowFirstText] = useState(false);
-  const [showSecondText, setShowSecondText] = useState(false);
-  const [fadeOut, setFadeOut] = useState(false);
-
-  // screen renders, then triggers 1st text after 2 seconds. Then 3 seconds after second texts comes in. Finally after 5 more seconds, overlay fades out.
-  useEffect(() => {
-    const timer = setTimeout(() => setShowFirstText(true), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (showFirstText) {
-      const timer = setTimeout(() => setShowSecondText(true), 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [showFirstText]);
-
-  useEffect(() => {
-    if (showSecondText) {
-      const timer = setTimeout(() => setFadeOut(true), 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [showSecondText]);
-
-  useEffect(() => {
-    if (fadeOut) {
-      onComplete();
-    }
-  }, [fadeOut, onComplete]);
-
-  return (
-    <div
-      className={styles.victoryOverlay}
-      style={{
-        opacity: fadeOut ? 0 : 1,
-      }}
-    >
-      <div
-        className={styles.victoryTitle}
-        style={{
-          opacity: showFirstText ? 1 : 0,
-        }}
-      >
-        Congratulations
-      </div>
-      <div
-        className={styles.victorySubtitle}
-        style={{
-          opacity: showSecondText ? 1 : 0,
-        }}
-      >
-        You solved the case!
-      </div>
-    </div>
-  );
-};
-
 export default function LetterFromX2() {
-  const [showVictoryScreen, setShowVictoryScreen] = useState(false);
-  const item1 = (
+  const evidence = (
     <div className={`${styles.letter}`}>
       <div className={styles.page1}>
         <div className={styles.line}>Hello.</div>
         <div className={styles.line}>{`You've deduced much. You're almost there.`}</div>
+        <div className={styles.line}>{"You now have everything you need to solve the case."}</div>
         <div className={styles.line}>
           {
-            "Now prove once and for all that Zach's death was a murder. How was the killing done, and why?"
+            "Analyze the remaining clues, and answer the question: How did Zach Cunningham really die, and why did the murderer do it?"
           }
         </div>
-        <div className={styles.line}>{"You have everything you need to solve the case."}</div>
         <div className={styles.line}>{"- X"}</div>
       </div>
     </div>
@@ -96,8 +36,8 @@ export default function LetterFromX2() {
               "Poisoning",
               "Manual Strangulation",
               "Allergic Reaction",
-              "The Oblivion",
               "Sleeping Medication",
+              "The Oblivion",
               "A Curse",
               "A Ritual",
             ],
@@ -106,7 +46,17 @@ export default function LetterFromX2() {
         ],
       },
       {
-        title: "Why did perpetrator do it?",
+        title: "Who is the murderer?",
+        questions: [
+          {
+            question: "",
+            answer: "Sarah Findley",
+            color: Color.BLUE,
+          },
+        ],
+      },
+      {
+        title: "Why did the murderer do it?",
         questions: [
           {
             question: "Reason",
@@ -117,6 +67,7 @@ export default function LetterFromX2() {
               "Ascension",
               "Knowledge",
               "Financial Gain",
+              "Moral Justice",
               "Sacrifice",
               "Accident",
             ],
@@ -142,29 +93,16 @@ export default function LetterFromX2() {
     ],
   };
 
-  const evidenceComponent = <CustomCarousel items={[item1]} />;
-
   // move to stage 5 if user solves the case
   const { currentStage, setStage } = useContext(StageContext);
   const { setProgress } = useContext(ObjectivesContext);
 
   const onCorrect = () => {
-    if (currentStage === 4) {
-      setShowVictoryScreen(true);
+    if (currentStage === 3) {
+      setStage(4);
+      setProgress(ProgressKeys.SOLVE_THE_CASE, true);
     }
   };
 
-  // triggers AFTER the victory overlay plays
-  const handleVictoryComplete = () => {
-    setStage(5); // unlocks afterword
-    setProgress(ProgressKeys.SOLVE_THE_CASE, true);
-    setShowVictoryScreen(false); // unmount the victory overlay after its done.
-  };
-
-  return (
-    <>
-      {showVictoryScreen && <VictoryScreen onComplete={handleVictoryComplete} />}
-      <TabContentBase evidence={evidenceComponent} objectives={objectives} onCorrect={onCorrect} />
-    </>
-  );
+  return <TabContentBase evidence={evidence} objectives={objectives} onCorrect={onCorrect} />;
 }

@@ -14,6 +14,7 @@
   font-family: Pangolin;
   font-size: 1.3em;
   font-weight: bolder;
+  position: relative; /* for the spotlight component to work */
 }
 
 .tabCol {

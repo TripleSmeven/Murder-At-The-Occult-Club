@@ -76,7 +76,7 @@ export default function PoliceReport() {
           <li>Caffeine-like stimulant</li>
           <li>Flower petal fibers</li>
           <li>
-            An <strong>unknown substance</strong>
+            An additional <strong>unknown substance</strong>
           </li>
         </ol>
         Further investigation of this liquid is pending.

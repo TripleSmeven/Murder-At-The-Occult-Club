@@ -3,7 +3,7 @@ import TabContentBase from "../TabContentBase";
 import styles from "./LetterFromX.module.css";
 
 export default function LetterFromX() {
-  const item1 = (
+  const evidence = (
     <div className={`${styles.letter}`}>
       <div className={styles.page1}>
         <div className={styles.line}>Hello.</div>
@@ -28,7 +28,5 @@ export default function LetterFromX() {
     </div>
   );
 
-  const evidenceComponent = <CustomCarousel items={[item1]} />;
-
-  return <TabContentBase evidence={evidenceComponent} />;
+  return <TabContentBase evidence={evidence} />;
 }

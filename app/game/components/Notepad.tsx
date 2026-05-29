@@ -10,6 +10,7 @@ import { GlobalNotesContext } from "./GlobalNotesContext";
 import { useLocalStorage } from "./useLocalStorage";
 import { ObjectivesContext } from "./ObjectivesContext";
 import { MDXEditorMethods } from "@mdxeditor/editor";
+import SpotlightOverlay from "./SpotlightOverlay";
 
 const MarkdownEditor = dynamic(() => import("./MarkdownEditor"), { ssr: false });
 
@@ -76,6 +77,9 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
     </Tab.Pane>
   );
 
+  const spotlightOverlay =
+    objectivesVisited === "true" ? null : <SpotlightOverlay variant="topTabs" />;
+
   const tabs = (
     <Tab.Container
       id="top-tabs"
@@ -88,6 +92,7 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
           <Nav variant="tabs" className="flex-row">
             {objectivesTab && (
               <Nav.Item className={styles.tabs}>
+                {spotlightOverlay}
                 <Nav.Link eventKey="objectives">
                   {objectivesVisited === "true" ? "" : "❗"}🎯OBJECTIVES
                 </Nav.Link>

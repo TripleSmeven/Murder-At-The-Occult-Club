@@ -55,7 +55,7 @@ export default function RitualInstructions() {
             <ol>
               <li>create a Selonic circle using the charcoal and the wax candles.</li>
               <li>hang the crystals above the circle.</li>
-              <li>hang the dreamcatches above the circle as well, but below the crystals.</li>
+              <li>hang the dreamcatchers above the circle as well, but below the crystals.</li>
             </ol>
             <p>
               <strong>Ritual:</strong>
@@ -67,8 +67,8 @@ export default function RitualInstructions() {
               </li>
               <li>simply wait. There is no encantation required.</li>
               <li>
-                after about 3 hours, your crystals will be charged. You maybe wake up the person
-                now.
+                after about 4 hourglass turns your crystals will be charged. You maybe wake up the
+                person now.
               </li>
               <li>
                 leave the crystals in close proximity to the person you want to transfer the life
@@ -81,9 +81,9 @@ export default function RitualInstructions() {
               essence, which the crystals absorb and store.
             </p>
             <p>
-              Do not keep the person sleeping in the circle for more than 8 hours. Doing so may
-              cause their spirit to wander away permanently. And you cannot get life essence from a
-              corpse.
+              Do not keep the person sleeping in the circle for more than the time it takes for the
+              sun to set then rise. Doing so may cause their spirit to wander away permanently. And
+              you cannot get life essence from a corpse.
             </p>
             <p>{`Best of luck. Keep the practice alive.`}</p>
           </div>

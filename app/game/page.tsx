@@ -69,11 +69,6 @@ function GameComponent() {
     policeReportEmoji = getProgress(ProgressKeys.POLICE_REPORT) ? "✅" : "🎯";
   }
 
-  let recipeEmoji;
-  if (currentStage >= 3) {
-    recipeEmoji = getProgress(ProgressKeys.RECIPE) ? "✅" : "🎯";
-  }
-
   // make sure we are on stage 3 when texts, emails, and orders are completed
   useEffect(() => {
     if (currentStage < 3) {
@@ -117,7 +112,6 @@ function GameComponent() {
                   title="Mysterious Recipe"
                   stageToUnlock={1}
                   currentStage={currentStage}
-                  emoji={recipeEmoji}
                 />
                 <NavItemWithLock
                   eventKey="TextConversations"
@@ -189,10 +183,17 @@ function GameComponent() {
                 <NavItemWithLock
                   eventKey="LetterFromX2"
                   title="Solve the Case"
-                  stageToUnlock={4}
+                  stageToUnlock={3}
                   currentStage={currentStage}
                   lockedTooltip={solveTheCaseTooltip}
                   emoji={getProgress(ProgressKeys.SOLVE_THE_CASE) ? "✅" : "🎯"}
+                />
+                <NavItemWithLock
+                  eventKey="LetterFromX3"
+                  title="Solve the Case 2"
+                  stageToUnlock={4}
+                  currentStage={currentStage}
+                  emoji={getProgress(ProgressKeys.SOLVE_THE_CASE_2) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="Afterword"

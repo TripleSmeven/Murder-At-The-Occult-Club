@@ -28,8 +28,8 @@ export enum ProgressKeys {
   TEXT_CONVERSATIONS = "textConversations",
   EMAILS = "emails",
   ONLINE_ORDERS = "onlineOrders",
-  RECIPE = "recipe",
   SOLVE_THE_CASE = "solveTheCase",
+  SOLVE_THE_CASE_2 = "solveTheCase2",
 }
 
 interface ObjectivesProviderProps {
