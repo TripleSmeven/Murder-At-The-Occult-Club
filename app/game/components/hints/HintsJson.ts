@@ -24,11 +24,6 @@ export const hintsJson: HintsJson = {
           content:
             "To unlock more evidence, you'll have to answer the questions on the Objectives tab of the Police Report. You should take a look at the all evidence you currently have.",
         },
-        {
-          title: "Who ordered the police to stop investigating?",
-          content:
-            '"X" mentions someone deliberately lied about the circumstances of Zach\'s death. Is there something that suggests this person also can influence the police?',
-        },
       ],
     },
     {
@@ -38,7 +33,7 @@ export const hintsJson: HintsJson = {
         {
           title: "Where do I start?",
           content:
-            "The online orders tell you a lot about the suspects. See if you can find any connection between what people are buying and the other pieces of evidence.",
+            "Candace's email inbox (the first one) is already revealed, so it's a good place to start. What can you learn about her from there, and how can that help you make sense of the other evidence you have so far?",
         },
         {
           title: "Gentle nudge 1",
@@ -57,13 +52,30 @@ export const hintsJson: HintsJson = {
       ],
     },
     {
-      heading: "Mysterious Recipe",
+      heading: "Solve the Case",
       unlockedAtStage: 3,
       panels: [
         {
-          title: "Gentle nudge",
-          content: "Make sure you've checked the new Text Message that unlocked.",
+          title: "Cause of death hint",
+          content:
+            "The new evidence narrows down the cause of death to a few choices. Is there a way to narrow it further down to just one?",
         },
+        {
+          title: "Murderer hint",
+          content:
+            "Once you have the cause of death, find the person who is most connected to that cause. The new evidence is a starting point, but you'll need to dive back into previous evidence to confirm the connection.",
+        },
+        {
+          title: "Murderer motive hint",
+          content:
+            "Try searching through all the evidence with the murderer's name on it. What other details can you uncover?",
+        },
+      ],
+    },
+    {
+      heading: "Mysterious Recipe",
+      unlockedAtStage: 4,
+      panels: [
         {
           title: "Who brewed the Elixir?",
           content:
@@ -78,26 +90,6 @@ export const hintsJson: HintsJson = {
           title: "Flower hint",
           content:
             'In the newly unlocked text message, "Unknown A" mentions they have the sun-like flower. What are they talking about?',
-        },
-      ],
-    },
-    {
-      heading: "Solve the Case",
-      unlockedAtStage: 4,
-      panels: [
-        {
-          title: "Cause of death hint",
-          content:
-            "You can use the police report and text messages to rule a few causes out. Is there evidence pointing to one of the remaining causes?",
-        },
-        {
-          title: "Perpetrator hint",
-          content: "Is the person who brewed the elixir the same person who killed Zach?",
-        },
-        {
-          title: "Perpetrator motive hint",
-          content:
-            "How is the perpetrator connected to Zach? Look at all the evidence that has the perpretrator's name on it.",
         },
       ],
     },

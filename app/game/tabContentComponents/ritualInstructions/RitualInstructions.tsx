@@ -41,37 +41,37 @@ export default function RitualInstructions() {
               <strong>Required Components:</strong>
             </p>
             <ol>
-              <li>a weighty bag of charcoal</li>
-              <li>several wax candles</li>
+              <li>A weighty bag of charcoal</li>
+              <li>Several wax candles</li>
               <li>
-                a palm-sized amount of carnelian or ocean jasper crystals and rope to hang them from
+                A palm-sized amount of carnelian or ocean jasper crystals and rope to hang them from
               </li>
-              <li>four dreamcatchers made of willow rope</li>
+              <li>Four dreamcatchers made of willow rope</li>
             </ol>
 
             <p>
               <strong>Setup:</strong>
             </p>
             <ol>
-              <li>create a Selonic circle using the charcoal and the wax candles.</li>
-              <li>hang the crystals above the circle.</li>
-              <li>hang the dreamcatchers above the circle as well, but below the crystals.</li>
+              <li>Create a Selonic circle using the charcoal and the wax candles.</li>
+              <li>Hang the crystals above the circle.</li>
+              <li>Hang the dreamcatchers above the circle as well, but below the crystals.</li>
             </ol>
             <p>
               <strong>Ritual:</strong>
             </p>
             <ol>
               <li>
-                place a sleeping person in the center of the circle. Use a sleep spell to ensure
+                Place a sleeping person in the center of the circle. Use a sleep spell to ensure
                 they do not wake.
               </li>
-              <li>simply wait. There is no encantation required.</li>
+              <li>Simply wait. There is no encantation required.</li>
               <li>
-                after about 4 hourglass turns your crystals will be charged. You maybe wake up the
+                After about 4 hourglass turns your crystals will be charged. You maybe wake up the
                 person now.
               </li>
               <li>
-                leave the crystals in close proximity to the person you want to transfer the life
+                Leave the crystals in close proximity to the person you want to transfer the life
                 essence to. It may take several days.
               </li>
             </ol>

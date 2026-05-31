@@ -29,6 +29,7 @@ import DiaryPages from "./tabContentComponents/diaryPages/DiaryPages";
 import MeetingSummary from "./tabContentComponents/meetingSummary/MeetingSummary";
 import RitualInstructions from "./tabContentComponents/ritualInstructions/RitualInstructions";
 import TextConversations2 from "./tabContentComponents/textConversations/TextConversations2";
+import LetterFromX3 from "./tabContentComponents/letterFromX/LetterFromX3";
 
 export default function Game() {
   return (
@@ -246,6 +247,9 @@ function GameComponent() {
               </Tab.Pane>
               <Tab.Pane eventKey="LetterFromX2">
                 <LetterFromX2 />
+              </Tab.Pane>
+              <Tab.Pane eventKey="LetterFromX3">
+                <LetterFromX3 />
               </Tab.Pane>
               <Tab.Pane eventKey="Afterword">
                 <Afterword />

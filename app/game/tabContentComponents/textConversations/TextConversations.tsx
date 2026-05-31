@@ -29,15 +29,15 @@ export default function TextConversations() {
         ],
       },
       {
-        title: "Text Message 5",
+        title: "Text Message 4",
         questions: [{ question: "Unknown A", answer: "Candace Eng", color: Color.RED }],
       },
       {
-        title: "Text Message 6",
+        title: "Text Message 5",
         questions: [{ question: "Unknown A", answer: "Sarah Findley", color: Color.RED }],
       },
       {
-        title: "Text Message 8",
+        title: "Text Message 7",
         questions: [
           { question: "Unknown A", answer: "Candace Eng", color: Color.RED },
           { question: "Unknown B", answer: "Sarah Findley", color: Color.INDIGO },
