@@ -77,9 +77,9 @@ export const OrdersList: Order[] = [
     color: "yellow",
     items: [
       {
-        name: "Adult Mult-Sport Helmet (Biking, Skateboarding)",
-        category: "SPORTS",
-        price: "32.00",
+        name: "10Pcs Reflective Stickers for Bikes, Helmets",
+        category: "MISC",
+        price: "8.00",
       },
       {
         name: "Purple Orchid Flower Plant, Long Stem",
@@ -92,9 +92,9 @@ export const OrdersList: Order[] = [
         price: "50.00",
       },
       {
-        name: "SleepQuill Nighttime Sleep Aid 24ct",
+        name: "SleepQuill Nighttime Sleep Aid 12ct",
         category: "MEDICINE",
-        price: "86.00",
+        price: "42.00",
       },
     ],
   },

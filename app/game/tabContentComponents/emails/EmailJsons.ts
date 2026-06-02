@@ -129,7 +129,7 @@ const Thomas: Inbox = {
       sender: "Vapor",
       title: "Thank you for your purchase!",
       content:
-        "Hello, Thank you for your recent transaction on Vapor. The items below have been added to your Vapor Library. To view your Vapor library, go to...",
+        "Thank you for your recent transaction on Vapor. Your new games have been added to your Vapor Library. To view your Vapor library, go to...",
       date: "Dec 8",
     },
     {
