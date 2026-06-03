@@ -20,7 +20,7 @@ export default function RitualInstructions() {
               <div className={styles.recipientLabel}>to me</div>
             </div>
             <div className={styles.timeAndActions}>
-              <div className={styles.timestamp}>December 8, 2016, 3:00 PM</div>
+              <div className={styles.timestamp}>December 8, 2025, 3:00 PM</div>
               <div className={styles.actionButtons}>
                 <span className={styles.starButton}>★</span>
                 <span className={styles.replyButton}>⟲</span>

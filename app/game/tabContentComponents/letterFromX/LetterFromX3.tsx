@@ -129,7 +129,7 @@ export default function LetterFromX3() {
               "Daisy",
               "Chamomile",
               "Purple Orchid",
-              "Yellow Rose",
+              "White Buttercup",
               "Chrysanthemum",
             ],
             color: Color.ORANGE,

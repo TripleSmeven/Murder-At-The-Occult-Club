@@ -16,7 +16,7 @@ export default function MeetingSummary() {
       </div>
       <h1 className={styles.mainTitle}>Meeting with {MIRANDA_MEADOWS} Summary</h1>
       <div className={styles.dateSubtitle}>
-        December 10, 2016, 9:36 AM Eastern Time (US and Canada)
+        December 10, 2025, 9:36 AM Eastern Time (US and Canada)
       </div>
 
       <section className={styles.section}>

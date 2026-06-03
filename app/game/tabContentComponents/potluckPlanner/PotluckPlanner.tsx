@@ -39,7 +39,7 @@ export default function PotluckPlanner() {
   const document = (
     <div className={styles.container}>
       <div className={styles.docHeader}>
-        <h1 className={styles.title}>🏐 Volleyball Team Potluck - Winter 2016</h1>
+        <h1 className={styles.title}>🏐 Volleyball Team Potluck - Winter 2025</h1>
         <p className={styles.subtitle}>Who&apos;s bringing what? 👇</p>
       </div>
 
@@ -67,7 +67,7 @@ export default function PotluckPlanner() {
       </div>
 
       <div className={styles.footer}>
-        <p className={styles.note}>✏️ Last edited by Gina Moore · Dec 9, 2016 at 3:45 PM</p>
+        <p className={styles.note}>✏️ Last edited by Gina Moore · Dec 9, 2025 at 3:45 PM</p>
       </div>
     </div>
   );

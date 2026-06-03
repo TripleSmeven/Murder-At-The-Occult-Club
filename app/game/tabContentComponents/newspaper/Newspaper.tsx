@@ -17,7 +17,7 @@ export default function Newspaper() {
   const page1 = (
     <div className={styles.newspaperParent}>
       <h3>Vigil For Zach Cunningham to be Held Dec 20th</h3>
-      <Subheader author="Justin Holmes" date="December 18, 2016" />
+      <Subheader author="Justin Holmes" date="December 18, 2025" />
       <div>
         The KaiserU Department of Student Affairs has announced a candlelight vigil will be held in
         the remembrance of Zach Cunningham on December 20th, in the east wing garden.
@@ -63,7 +63,7 @@ export default function Newspaper() {
   const page2 = (
     <div className={styles.newspaperParent}>
       <h3>Mothers Against Occult Clubs Head Coordinator Speaks Out</h3>
-      <Subheader author="Justin Holmes" date="December 16, 2016" />
+      <Subheader author="Justin Holmes" date="December 16, 2025" />
       <div>
         Miranda Meadows, Head Coordinator of the non profit &quot;Mothers Against Occult
         Clubs&quot;, released a message to the Kaiser County Community Board at yesterday&apos;s
@@ -94,7 +94,7 @@ export default function Newspaper() {
   const page3 = (
     <div className={styles.newspaperParent}>
       <h3>Tea Club To Remain Closed Until Next Semester</h3>
-      <Subheader author="Vivian Park" date="December 16, 2016" />
+      <Subheader author="Vivian Park" date="December 16, 2025" />
       <div>
         Nearly two weeks ago, Kyle Singh, a second-year electrical engineering major, was admitted
         to the hospital after suffering a severe allergic reaction to one of the teas served at the
@@ -127,7 +127,7 @@ export default function Newspaper() {
   const page4 = (
     <div className={styles.newspaperParent}>
       <h3>New Chemistry Lab Opens on 6th Floor</h3>
-      <Subheader author="Justin Holmes" date="December 11, 2016" />
+      <Subheader author="Justin Holmes" date="December 11, 2025" />
       <div>
         Professor Greg Carlson announced the opening of a new chemistry lab on the 6th floor earlier
         today. The lab was bathed in controversy over budget concerns, as Carlson advocated for
@@ -162,7 +162,7 @@ export default function Newspaper() {
   const page5 = (
     <div className={styles.newspaperParent}>
       <h3>Banned From Video Game Tournament. Justified?</h3>
-      <Subheader author="Vivian Park" date="December 7, 2016" />
+      <Subheader author="Vivian Park" date="December 7, 2025" />
       <div>
         {
           "Freshman Evan Worth was allegedly suspended from KaiserU's weekly Counter Attack 2 tournament for the rest of the semester. Worth claims it was because he was seen drinking energy drinks before a match."
@@ -191,7 +191,7 @@ export default function Newspaper() {
   const page6 = (
     <div className={styles.newspaperParent}>
       <h3>Duck Migration in Full Force Month</h3>
-      <Subheader author="Miriam Nwani" date="December 6, 2016" />
+      <Subheader author="Miriam Nwani" date="December 6, 2025" />
       <div>
         KaiserU&apos;s yearly duck migration is in full swing these past 2 weeks, with the American
         White-Breasted duck being the most common breed to be seen on campus. Although most students

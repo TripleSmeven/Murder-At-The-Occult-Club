@@ -36,7 +36,7 @@ export default function PoliceReport() {
         <strong>Incident Location:</strong> Kaiser University, 150 Pleasant Grove Rd, Kaiser County,
         NY 14850
         <br />
-        <strong>Last Updated:</strong> December 18, 2016, 2:32 PM (see addendum)
+        <strong>Last Updated:</strong> December 18, 2025, 2:32 PM (see addendum)
       </div>
 
       <div className={styles.section}>

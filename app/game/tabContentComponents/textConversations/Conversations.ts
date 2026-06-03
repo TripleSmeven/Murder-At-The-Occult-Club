@@ -8,7 +8,7 @@ export interface ConversationJson {
 }
 
 const Police: ConversationJson = {
-  date: "12/18/16 15:06",
+  date: "12/18/25 15:06",
   messages: [
     {
       sender: "Troy Samson",
@@ -77,7 +77,7 @@ const Police: ConversationJson = {
 };
 
 const Aftermath1: ConversationJson = {
-  date: "12/13/16 22:31",
+  date: "12/13/25 22:31",
   messages: [
     {
       sender: "Unknown A",
@@ -158,7 +158,7 @@ const Aftermath1: ConversationJson = {
 };
 
 const Aftermath2: ConversationJson = {
-  date: "12/13/16 23:20",
+  date: "12/13/25 23:20",
   messages: [
     {
       sender: "Unknown A",
@@ -200,7 +200,7 @@ const Aftermath2: ConversationJson = {
     },
     {
       sender: "Unknown B",
-      content: "I think I might know someone. Hold on.",
+      content: "I've been talking to someone who I think can tell us more'. Hold on.",
     },
     {
       sender: "Unknown B",
@@ -215,7 +215,7 @@ const Aftermath2: ConversationJson = {
 };
 
 const Tea: ConversationJson = {
-  date: "12/10/16 11:01",
+  date: "12/10/25 11:01",
   messages: [
     {
       sender: "Evelyn Samson",
@@ -250,7 +250,7 @@ const Tea: ConversationJson = {
 };
 
 const PromiseMe: ConversationJson = {
-  date: "11/30/16 18:31",
+  date: "11/30/25 18:31",
   messages: [
     {
       sender: "Heather Douglas",
@@ -288,13 +288,13 @@ const PromiseMe: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "Also, if BB contacts you, IGNORE HIM!!",
+      content: "Also, if BB contacts you too, IGNORE HIM!!",
     },
   ],
 };
 
 const Mom: ConversationJson = {
-  date: "11/30/16 09:02",
+  date: "11/30/25 09:02",
   messages: [
     {
       sender: "Carlos Sanchez",
@@ -330,7 +330,7 @@ const Mom: ConversationJson = {
 };
 
 const Welcome: ConversationJson = {
-  date: "11/29/16 4:44",
+  date: "11/29/25 4:44",
   messages: [
     {
       sender: "Unknown A",
@@ -404,7 +404,7 @@ const Welcome: ConversationJson = {
 };
 
 const Help: ConversationJson = {
-  date: "12/11/16 19:20",
+  date: "12/11/25 19:20",
   messages: [
     {
       sender: "Unknown A",

@@ -207,7 +207,7 @@ export const OrdersList: Order[] = [
         price: "43.00",
       },
       {
-        name: "Daisy Bouquet, 12 Stems (American Farms)",
+        name: "White Buttercup Bouquet, 12 Stems (The FlowerShop)",
         category: "HOME",
         price: "15.00",
       },
