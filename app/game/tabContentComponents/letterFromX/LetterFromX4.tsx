@@ -6,6 +6,7 @@ export default function LetterFromX4() {
     <div className={`${styles.letter}`}>
       <div className={styles.page1}>
         <div className={styles.line}>So you figured it all out. Bravo.</div>
+        <div className={styles.line}>{`Chamomile and white buttercups look quite similar, don't they? An untrained eye would not have noticed if they had been secretly switched.`}</div>
         <div className={styles.line}>
           {`I'll be honest. I wasn't sure if you were going to go through with all of this.`}
         </div>

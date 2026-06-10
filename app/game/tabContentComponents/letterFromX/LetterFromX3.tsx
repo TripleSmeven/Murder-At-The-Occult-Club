@@ -151,7 +151,7 @@ export default function LetterFromX3() {
 
   // triggers AFTER the victory overlay plays
   const handleVictoryComplete = () => {
-    setStage(5); // unlocks afterword
+    setStage(5); // unlocks final letter
     setProgress(ProgressKeys.SOLVE_THE_CASE_2, true);
     setShowVictoryScreen(false); // unmount the victory overlay after its done.
   };

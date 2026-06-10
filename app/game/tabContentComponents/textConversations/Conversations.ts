@@ -431,47 +431,4 @@ export const Help: ConversationJson = {
   ],
 };
 
-export const Realization: ConversationJson = {
-  date: "12/14/25 13:01",
-  messages: [
-    {
-      sender: "Heather Douglas",
-      content: "Sarah? Wtf? I just heard that Zach is dead??",
-    },
-    {
-      sender: "Heather Douglas",
-      content: "Please just pick up the phone and tell me it has nothing to do with you.",
-    },
-    {
-      sender: "Heather Douglas",
-      content: "Sarah please.",
-    },
-    {
-      sender: "Heather Douglas",
-      content: "I told you not to do anything stupid.",
-    },
-    {
-      sender: "Sarah Findley",
-      content:
-        "Stupid? Andrew's the stupid one. Didn't even see me slip in that chamomile into his bag!",
-    },
-    {
-      sender: "Sarah Findley",
-      content: "Should have studied his flowers better!",
-    },
-    {
-      sender: "Heather Douglas",
-      content: "Flowers? What the hell are you talking about?",
-    },
-    {
-      sender: "Sarah Findley",
-      content: "Do you like white buttercups, Heather? I've got some extra...",
-    },
-    {
-      sender: "Heather Douglas",
-      content: "I don't know what's going on, but I'm going to find you and we're going to talk!",
-    },
-  ],
-};
-
 export const primaryConversations = [Police, Aftermath1, Aftermath2, Tea, PromiseMe, Mom, Welcome];
