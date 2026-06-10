@@ -41,13 +41,13 @@ export const hintsJson: HintsJson = {
             "Some members of the club have particular texting habits. Maybe that can help you figure out who the senders of the texts are.",
         },
         {
-          title: "Gentle nudge 2",
-          content:
-            'In Text Message 3, "Unknown B" mentions knowing someone who knows about the Oblivion. Who could that be?',
+          title: "Text Message 2 hint",
+          content: "Who are ZC and MM? Why are they being brought up in conversation?",
         },
         {
-          title: "Big text message hint",
-          content: "Who are ZC, MM, and BB? Why are they being brought up in conversation?",
+          title: "Text Message 3 hint",
+          content:
+            'In Text Message 3, "Unknown B" mentions knowing someone who knows about the Oblivion. Who could that be?',
         },
       ],
     },
@@ -79,7 +79,7 @@ export const hintsJson: HintsJson = {
         {
           title: "Who brewed the Elixir?",
           content:
-            "Information found in emails and texts points to who was chosen to brew the Elixir.",
+            "There is someone clearly hunting for the ingredients of the Elixir. An email also gives a pointer.",
         },
         {
           title: "Animal fur hint",
@@ -89,7 +89,7 @@ export const hintsJson: HintsJson = {
         {
           title: "Flower hint",
           content:
-            'In the newly unlocked text message, "Unknown A" mentions they have the sun-like flower. What are they talking about?',
+            'In the newly unlocked text message, "Unknown A" mentions they have the flower. What are they talking about?',
         },
       ],
     },

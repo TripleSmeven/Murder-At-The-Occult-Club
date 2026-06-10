@@ -30,6 +30,7 @@ import MeetingSummary from "./tabContentComponents/meetingSummary/MeetingSummary
 import RitualInstructions from "./tabContentComponents/ritualInstructions/RitualInstructions";
 import TextConversations2 from "./tabContentComponents/textConversations/TextConversations2";
 import LetterFromX3 from "./tabContentComponents/letterFromX/LetterFromX3";
+import TextConversations3 from "./tabContentComponents/textConversations/TextConversations3";
 
 export default function Game() {
   return (
@@ -197,6 +198,13 @@ function GameComponent() {
                   emoji={getProgress(ProgressKeys.SOLVE_THE_CASE_2) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
+                  eventKey="FinalTextMessage"
+                  title="Final Text Message"
+                  stageToUnlock={5}
+                  currentStage={currentStage}
+                  showSpotlight={true}
+                />
+                <NavItemWithLock
                   eventKey="Afterword"
                   title="🙏Afterword"
                   stageToUnlock={5}
@@ -250,6 +258,9 @@ function GameComponent() {
               </Tab.Pane>
               <Tab.Pane eventKey="LetterFromX3">
                 <LetterFromX3 />
+              </Tab.Pane>
+              <Tab.Pane eventKey="FinalTextMessage">
+                <TextConversations3 />
               </Tab.Pane>
               <Tab.Pane eventKey="Afterword">
                 <Afterword />
