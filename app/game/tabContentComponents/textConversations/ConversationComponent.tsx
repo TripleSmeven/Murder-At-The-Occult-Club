@@ -17,6 +17,7 @@ const senderToProfileMap: { [key: string]: string } = {
   "Heather Douglas": "heather",
   "Maria Sanchez": "flower",
   "Carlos Sanchez": "sanchez",
+  "Sarah Findley": "sarah",
   "Unknown A": "unknownA",
   "Unknown B": "unknownB",
 };

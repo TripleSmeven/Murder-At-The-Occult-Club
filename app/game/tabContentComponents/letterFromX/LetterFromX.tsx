@@ -1,4 +1,3 @@
-import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
 import styles from "./LetterFromX.module.css";
 
@@ -8,7 +7,7 @@ export default function LetterFromX() {
       <div className={styles.page1}>
         <div className={styles.line}>Hello.</div>
         <div className={styles.line}>
-          A fellow classmate of ours, Zach Cunningham, has died. The university president will soon
+          A fellow classmate of yours, Zach Cunningham, has died. The university president will soon
           release a statement claiming it was a suicide.
         </div>
         <div

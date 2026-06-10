@@ -55,6 +55,10 @@
   &.sanchez {
     background-image: url("./profilePictures/sanchez.jpg");
   }
+  /* https://www.pexels.com/photo/a-teenage-girl-in-a-tropical-park-16160898/ */
+  &.sarah {
+    background-image: url("./profilePictures/sarah.jpg");
+  }
 
   &.unknownA {
     background-image: url("./profilePictures/blank.png");

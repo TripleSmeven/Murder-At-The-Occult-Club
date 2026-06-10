@@ -31,6 +31,7 @@ import RitualInstructions from "./tabContentComponents/ritualInstructions/Ritual
 import TextConversations2 from "./tabContentComponents/textConversations/TextConversations2";
 import LetterFromX3 from "./tabContentComponents/letterFromX/LetterFromX3";
 import TextConversations3 from "./tabContentComponents/textConversations/TextConversations3";
+import LetterFromX4 from "./tabContentComponents/letterFromX/LetterFromX4";
 
 export default function Game() {
   return (
@@ -202,14 +203,12 @@ function GameComponent() {
                   title="Final Text Message"
                   stageToUnlock={5}
                   currentStage={currentStage}
-                  showSpotlight={true}
                 />
                 <NavItemWithLock
-                  eventKey="Afterword"
-                  title="🙏Afterword"
+                  eventKey="FarewellLetter"
+                  title="Farewell Letter"
                   stageToUnlock={5}
                   currentStage={currentStage}
-                  showSpotlight={true}
                 />
               </Nav>
             </div>
@@ -262,8 +261,8 @@ function GameComponent() {
               <Tab.Pane eventKey="FinalTextMessage">
                 <TextConversations3 />
               </Tab.Pane>
-              <Tab.Pane eventKey="Afterword">
-                <Afterword />
+              <Tab.Pane eventKey="FarewellLetter">
+                <LetterFromX4 />
               </Tab.Pane>
             </Tab.Content>
           </Col>
