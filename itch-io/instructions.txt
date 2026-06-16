@@ -1,2 +1,5 @@
 1. Compress itch-io/index.html into a zip file.
-2. Upload to game's project at itch.io.
+2. Upload to game's project at itch.io. (works for gamejolt too)
+
+itch-io link: https://triplesmeven.itch.io/murder-at-the-occult-club
+gamejolt link: https://gamejolt.com/games/murder-at-the-occult-club/1077521

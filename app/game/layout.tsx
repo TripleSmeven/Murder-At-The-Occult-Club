@@ -78,6 +78,7 @@ const permanent_marker = Permanent_Marker({
   subsets: ["latin"],
 });
 
+// diary
 const crafty_girls = Crafty_Girls({
   variable: "--font-crafty_girls",
   weight: "400",
