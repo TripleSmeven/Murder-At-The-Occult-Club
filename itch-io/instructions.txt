@@ -1,0 +1,2 @@
+1. Compress itch-io/index.html into a zip file.
+2. Upload to game's project at itch.io.

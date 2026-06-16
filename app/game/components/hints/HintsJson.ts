@@ -42,7 +42,8 @@ export const hintsJson: HintsJson = {
         },
         {
           title: "Text Message 2 hint",
-          content: "Who are ZC and MM? Why are they being brought up in conversation?",
+          content:
+            "Who are ZC and MM? Why are they being brought up in conversation? What's with the initials?",
         },
         {
           title: "Text Message 3 hint",
@@ -70,6 +71,11 @@ export const hintsJson: HintsJson = {
           content:
             "Try searching through all the evidence with the murderer's name on it. What other details can you uncover?",
         },
+        {
+          title: "Big motive & related person hint",
+          content:
+            "There is an email in the murderer's inbox that connects them to a person mentioned in a newspaper article. Also, a text message solidifies the motivation.",
+        },
       ],
     },
     {
@@ -79,7 +85,7 @@ export const hintsJson: HintsJson = {
         {
           title: "Who brewed the Elixir?",
           content:
-            "There is someone clearly hunting for the ingredients of the Elixir. An email also gives a pointer.",
+            "There is someone clearly hunting for the ingredients of the Elixir. Several also prove this.",
         },
         {
           title: "Animal fur hint",

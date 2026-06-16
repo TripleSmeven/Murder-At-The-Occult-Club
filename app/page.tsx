@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./home.module.css";
 
 export default function Home() {
@@ -5,10 +6,7 @@ export default function Home() {
     <div className={styles.homeParent}>
       <h1>Murder At The Occult Club</h1>
       <div>A detective puzzle game by TripleSmeven</div>
-
-      <a className={styles.playLink} href="/game">
-        Click here to play!
-      </a>
+      <Link href="/game">Click here to play!</Link>
 
       <h2>About this game</h2>
       <div>
