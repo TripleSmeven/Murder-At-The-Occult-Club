@@ -196,7 +196,7 @@ const Aftermath2: ConversationJson = {
     {
       sender: "Unknown A",
       content:
-        "Regardless, we need to contact the other clubs and tell them about Zach. Maybe there's someone knows more about the Oblivion who can help.",
+        "Regardless, we need to contact our sister club and let them know. Maybe there's someone knows more about the Oblivion who can help.",
     },
     {
       sender: "Unknown B",

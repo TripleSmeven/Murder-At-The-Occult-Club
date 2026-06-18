@@ -22,7 +22,8 @@ const space_mono = Space_Mono({
 
 export const metadata: Metadata = {
   title: "Murder At The Occult Club",
-  description: "A detective puzzle game",
+  description:
+    "A browser-based murder mystery puzzle game built in HTML5! Read the evidence, analyze the connections, and solve the case.",
 };
 
 export const viewport: Viewport = {
