@@ -1,4 +1,4 @@
-import { Color } from "./WordPicker";
+import { Color } from "../components/WordPicker";
 
 export interface ObjectivesJson {
   heading?: string;

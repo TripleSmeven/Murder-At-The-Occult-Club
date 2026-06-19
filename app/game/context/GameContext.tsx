@@ -1,10 +1,10 @@
 "use client";
 
 import { JSX, ReactNode } from "react";
-import { ObjectivesProvider } from "../context/ObjectivesContext";
-import { ProgressProvider } from "./ProgressContext";
-import { GlobalNotesProvider } from "../context/GlobalNotesContext";
-import { StageProvider } from "../context/StageContext";
+import { ObjectivesProvider } from "./ObjectivesContext";
+import { ProgressProvider } from "../components/ProgressContext";
+import { GlobalNotesProvider } from "./GlobalNotesContext";
+import { StageProvider } from "./StageContext";
 
 interface GameContextProps {
   chapter?: number;

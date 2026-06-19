@@ -3,7 +3,7 @@
 import React, { useContext, useState } from "react";
 import styles from "./Hints.module.css";
 import { HintSection, hintsJson } from "./HintsJson";
-import { StageContext } from "../StageContext";
+import { StageContext } from "../../context/StageContext";
 
 interface HintsModalProps {
   isOpen: boolean;

@@ -4,8 +4,9 @@ import styles from "./AmazingOrders.module.css";
 import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
 import { Color } from "../../components/WordPicker";
-import { ObjectivesJson } from "../../components/ObjectivesJson";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
+import { ObjectivesJson } from "../../context/ObjectivesJson";
+import { ObjectivesContext } from "../../context/ObjectivesContext";
+import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
 
 const INDEX_TO_UNKNOWN_MAP: Record<number, string> = {
   0: "A",
@@ -52,8 +53,8 @@ function OrderRowHeader({ entries }: { entries: string[] }) {
 function AmazingOrdersTable() {
   const { answers } = useContext(ObjectivesContext);
 
-  const { getProgress } = useContext(ObjectivesContext);
-  const completedObjective = getProgress(ProgressKeys.ONLINE_ORDERS);
+  const { isSolved } = useContext(ProgressContext);
+  const completedObjective = isSolved(ProgressKeys.ONLINE_ORDERS);
 
   const orderRows: JSX.Element[] = [];
   let rowCount = 2;
@@ -63,7 +64,9 @@ function AmazingOrdersTable() {
       if (INDEX_TO_UNKNOWN_MAP[index]) {
         const storageKey = `Customer Name-Unknown ${INDEX_TO_UNKNOWN_MAP[index]}`;
         if (answers[storageKey]) {
-          customName = completedObjective ? `[${answers[storageKey]}]` : `[${answers[storageKey]}?]`;
+          customName = completedObjective
+            ? `[${answers[storageKey]}]`
+            : `[${answers[storageKey]}?]`;
         }
       }
       orderRows.push(
@@ -120,14 +123,18 @@ export default function AmazingOrders() {
     ],
   };
 
-  const { getProgress, setProgress } = useContext(ObjectivesContext);
+  const { isSolved, setSolved } = useContext(ProgressContext);
   const onCorrect = () => {
-    if (!getProgress(ProgressKeys.ONLINE_ORDERS)) {
-      setProgress(ProgressKeys.ONLINE_ORDERS, true);
+    if (!isSolved(ProgressKeys.ONLINE_ORDERS)) {
+      setSolved(ProgressKeys.ONLINE_ORDERS, true);
     }
   };
 
   return (
-    <TabContentBase evidence={evidenceComponent} objectives={objectives} onCorrect={onCorrect} />
+    <TabContentBase
+      evidence={evidenceComponent}
+      objectivesJson={objectives}
+      onCorrect={onCorrect}
+    />
   );
 }

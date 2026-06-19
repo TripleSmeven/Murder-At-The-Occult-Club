@@ -85,7 +85,7 @@ export const hintsJson: HintsJson = {
         {
           title: "Who brewed the Elixir?",
           content:
-            "There is someone clearly hunting for the ingredients of the Elixir. Several also prove this.",
+            "There is someone clearly hunting for the ingredients of the Elixir. Several emails point to who it is.",
         },
         {
           title: "Animal fur hint",
@@ -95,7 +95,7 @@ export const hintsJson: HintsJson = {
         {
           title: "Flower hint",
           content:
-            'In the newly unlocked text message, "Unknown A" mentions they have the flower. What are they talking about?',
+            "There's only once choice here if you've identified the cause of death.",
         },
       ],
     },

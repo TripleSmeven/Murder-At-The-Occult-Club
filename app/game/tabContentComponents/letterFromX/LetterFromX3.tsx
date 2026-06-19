@@ -1,68 +1,11 @@
-import { useContext, useState, useEffect } from "react";
-import { ObjectivesJson } from "../../components/ObjectivesJson";
-import { StageContext } from "../../components/StageContext";
+import { useContext, useState } from "react";
+import { ObjectivesJson } from "../../context/ObjectivesJson";
+import { StageContext } from "../../context/StageContext";
 import { Color } from "../../components/WordPicker";
 import TabContentBase from "../TabContentBase";
 import styles from "./LetterFromX.module.css";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
-
-const VictoryScreen = ({ onComplete }: { onComplete: () => void }) => {
-  const [showFirstText, setShowFirstText] = useState(false);
-  const [showSecondText, setShowSecondText] = useState(false);
-  const [fadeOut, setFadeOut] = useState(false);
-
-  // screen renders, then triggers 1st text after 2 seconds. Then 3 seconds after second texts comes in. Finally after 5 more seconds, overlay fades out.
-  useEffect(() => {
-    const timer = setTimeout(() => setShowFirstText(true), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (showFirstText) {
-      const timer = setTimeout(() => setShowSecondText(true), 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [showFirstText]);
-
-  useEffect(() => {
-    if (showSecondText) {
-      const timer = setTimeout(() => setFadeOut(true), 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [showSecondText]);
-
-  useEffect(() => {
-    if (fadeOut) {
-      onComplete();
-    }
-  }, [fadeOut, onComplete]);
-
-  return (
-    <div
-      className={styles.victoryOverlay}
-      style={{
-        opacity: fadeOut ? 0 : 1,
-      }}
-    >
-      <div
-        className={styles.victoryTitle}
-        style={{
-          opacity: showFirstText ? 1 : 0,
-        }}
-      >
-        Congratulations
-      </div>
-      <div
-        className={styles.victorySubtitle}
-        style={{
-          opacity: showSecondText ? 1 : 0,
-        }}
-      >
-        You solved the case!
-      </div>
-    </div>
-  );
-};
+import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
+import { VictoryScreen } from "../../components/VictoryScreen";
 
 export default function LetterFromX3() {
   const [showVictoryScreen, setShowVictoryScreen] = useState(false);
@@ -141,7 +84,7 @@ export default function LetterFromX3() {
 
   // move to stage 5 if user solves the case
   const { currentStage, setStage } = useContext(StageContext);
-  const { setProgress } = useContext(ObjectivesContext);
+  const { setSolved } = useContext(ProgressContext);
 
   const onCorrect = () => {
     if (currentStage === 4) {
@@ -152,14 +95,14 @@ export default function LetterFromX3() {
   // triggers AFTER the victory overlay plays
   const handleVictoryComplete = () => {
     setStage(5); // unlocks final letter
-    setProgress(ProgressKeys.SOLVE_THE_CASE_2, true);
+    setSolved(ProgressKeys.SOLVE_THE_CASE_2, true);
     setShowVictoryScreen(false); // unmount the victory overlay after its done.
   };
 
   return (
     <>
       {showVictoryScreen && <VictoryScreen onComplete={handleVictoryComplete} />}
-      <TabContentBase evidence={evidence} objectives={objectives} onCorrect={onCorrect} />
+      <TabContentBase evidence={evidence} objectivesJson={objectives} onCorrect={onCorrect} />
     </>
   );
 }

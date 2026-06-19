@@ -1,7 +1,7 @@
 "use client";
 
 import TabContentBase from "../TabContentBase";
-import Email from "../email/Email";
+import Email from "./Email";
 
 export default function RitualInstructions() {
   const emailContent = (

@@ -3,11 +3,12 @@ import Image from "next/image";
 import badge from "./police-badge.png";
 import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
-import { ObjectivesJson } from "../../components/ObjectivesJson";
+import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { Color } from "../../components/WordPicker";
 import { useContext } from "react";
-import { StageContext } from "../../components/StageContext";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
+import { StageContext } from "../../context/StageContext";
+import { ObjectivesContext } from "../../context/ObjectivesContext";
+import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
 
 export default function PoliceReport() {
   const item1 = (
@@ -129,11 +130,10 @@ export default function PoliceReport() {
   );
 
   const { currentStage, setStage } = useContext(StageContext);
-  const { getProgress, setProgress } = useContext(ObjectivesContext);
+  const { isSolved, setSolved } = useContext(ProgressContext);
 
   // set stage from 0 to 1 when user views second page of police report.
   const onChange = (index: number) => {
-    console.log("onChange called", { index });
     if (currentStage === 0 && index === 1) {
       setStage(1);
     }
@@ -180,15 +180,16 @@ export default function PoliceReport() {
     if (currentStage === STAGE_UNLOCKED) {
       setStage(2);
     }
-    if (!getProgress(ProgressKeys.POLICE_REPORT)) {
-      setProgress(ProgressKeys.POLICE_REPORT, true);
+    if (!isSolved(ProgressKeys.POLICE_REPORT)) {
+      setSolved(ProgressKeys.POLICE_REPORT, true);
     }
   };
+
   return (
     <TabContentBase
       evidence={evidenceComponent}
       // dont show objectives until stage 1
-      objectives={currentStage < STAGE_UNLOCKED ? undefined : objectives}
+      objectivesJson={currentStage < STAGE_UNLOCKED ? undefined : objectives}
       onCorrect={onCorrect}
     />
   );

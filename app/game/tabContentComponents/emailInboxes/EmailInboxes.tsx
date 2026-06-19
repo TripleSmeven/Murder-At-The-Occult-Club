@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import CustomCarousel from "../../components/CustomCarousel";
-import { ObjectivesJson } from "../../components/ObjectivesJson";
+import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { Color } from "../../components/WordPicker";
 import TabContentBase from "../TabContentBase";
-import { allInboxes, type EmailJson, type Inbox } from "./EmailJsons";
-import styles from "./Emails.module.css";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
+import { allInboxes, type EmailJson, type Inbox } from "./EmailInboxJsons";
+import styles from "./EmailInboxes.module.css";
+import { ObjectivesContext } from "../../context/ObjectivesContext";
+import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
 
 // a single email in the inbox
 function Email({ sender, title, content, date }: EmailJson) {
@@ -37,8 +38,8 @@ function Inbox({ inbox, index }: InboxProps) {
   const storageKey = `Inbox ${index + 1}-Unknown`;
   const guessedName = answers[storageKey];
 
-  const { getProgress } = useContext(ObjectivesContext);
-  const completedObjective = getProgress(ProgressKeys.EMAILS);
+  const { isSolved } = useContext(ProgressContext);
+  const completedObjective = isSolved(ProgressKeys.EMAILS);
   let ownerToDisplay;
   if (completedObjective) {
     ownerToDisplay = guessedName ? `[${guessedName}]` : inbox.owner;
@@ -58,7 +59,7 @@ function Inbox({ inbox, index }: InboxProps) {
 }
 
 // the component with all the pages
-export default function Emails() {
+export default function EmailInboxes() {
   const emailListComponents = allInboxes.map((inbox, index) => {
     return <Inbox key={index} inbox={inbox} index={index} />;
   });
@@ -86,11 +87,11 @@ export default function Emails() {
   };
 
   const evidence = <CustomCarousel items={emailListComponents} />;
-  const { getProgress, setProgress } = useContext(ObjectivesContext);
+  const { isSolved, setSolved } = useContext(ProgressContext);
   const onCorrect = () => {
-    if (!getProgress(ProgressKeys.EMAILS)) {
-      setProgress(ProgressKeys.EMAILS, true);
+    if (!isSolved(ProgressKeys.EMAILS)) {
+      setSolved(ProgressKeys.EMAILS, true);
     }
   };
-  return <TabContentBase evidence={evidence} objectives={objectives} onCorrect={onCorrect} />;
+  return <TabContentBase evidence={evidence} objectivesJson={objectives} onCorrect={onCorrect} />;
 }

@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { ObjectivesJson } from "../../components/ObjectivesJson";
-import { StageContext } from "../../components/StageContext";
+import { ObjectivesJson } from "../../context/ObjectivesJson";
+import { StageContext } from "../../context/StageContext";
 import { Color } from "../../components/WordPicker";
 import TabContentBase from "../TabContentBase";
 import styles from "./LetterFromX.module.css";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
+import { ObjectivesContext } from "../../context/ObjectivesContext";
+import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
 
 export default function LetterFromX2() {
   const evidence = (
@@ -74,7 +75,7 @@ export default function LetterFromX2() {
             color: Color.BLUE,
           },
           {
-            question: "Related Person",
+            question: "Related person",
             answer: "Scott Wagner",
             answers: [
               "Miranda Meadows",
@@ -95,14 +96,14 @@ export default function LetterFromX2() {
 
   // move to stage 5 if user solves the case
   const { currentStage, setStage } = useContext(StageContext);
-  const { setProgress } = useContext(ObjectivesContext);
+  const { setSolved } = useContext(ProgressContext);
 
   const onCorrect = () => {
     if (currentStage === 3) {
       setStage(4);
-      setProgress(ProgressKeys.SOLVE_THE_CASE, true);
+      setSolved(ProgressKeys.SOLVE_THE_CASE, true);
     }
   };
 
-  return <TabContentBase evidence={evidence} objectives={objectives} onCorrect={onCorrect} />;
+  return <TabContentBase evidence={evidence} objectivesJson={objectives} onCorrect={onCorrect} />;
 }

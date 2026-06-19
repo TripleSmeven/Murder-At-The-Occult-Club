@@ -1,6 +1,6 @@
 import TabContentBase from "../TabContentBase";
 import { ConversationComponent } from "./ConversationComponent";
-import { Help } from "./Conversations";
+import { Help } from "./ConversationJsons";
 
 export default function TextConversations() {
   const evidence = <ConversationComponent date={Help.date} messages={Help.messages} index={0} />;

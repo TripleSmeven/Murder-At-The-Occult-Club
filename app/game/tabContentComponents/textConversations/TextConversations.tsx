@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import CustomCarousel from "../../components/CustomCarousel";
-import { ObjectivesJson } from "../../components/ObjectivesJson";
+import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { Color } from "../../components/WordPicker";
 import TabContentBase from "../TabContentBase";
 import { ConversationComponent } from "./ConversationComponent";
-import { primaryConversations } from "./Conversations";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
+import { primaryConversations } from "./ConversationJsons";
+import { ObjectivesContext } from "../../context/ObjectivesContext";
+import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
 
 export default function TextConversations() {
   const conversations = primaryConversations.map((conversation, index) => (
@@ -46,10 +47,10 @@ export default function TextConversations() {
     ],
   };
 
-  const { getProgress, setProgress } = useContext(ObjectivesContext);
+  const { isSolved, setSolved } = useContext(ProgressContext);
   const onCorrect = () => {
-    if (!getProgress(ProgressKeys.TEXT_CONVERSATIONS)) {
-      setProgress(ProgressKeys.TEXT_CONVERSATIONS, true);
+    if (!isSolved(ProgressKeys.TEXT_CONVERSATIONS)) {
+      setSolved(ProgressKeys.TEXT_CONVERSATIONS, true);
     }
   };
 
@@ -59,5 +60,5 @@ export default function TextConversations() {
       lockedTooltip="Unlock by completing the Objectives in Text Messages, Email Inboxes, and Online Orders."
     />
   );
-  return <TabContentBase evidence={evidence} objectives={objectives} onCorrect={onCorrect} />;
+  return <TabContentBase evidence={evidence} objectivesJson={objectives} onCorrect={onCorrect} />;
 }

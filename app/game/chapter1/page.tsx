@@ -7,33 +7,34 @@ import Button from "react-bootstrap/Button";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useCallback, useEffect } from "react";
 
-import styles from "./game.module.css";
+import styles from "../game.module.css";
 
-import LetterFromX from "./tabContentComponents/letterFromX/LetterFromX";
-import PoliceReport from "./tabContentComponents/policeReport/PoliceReport";
-import Recipe from "./tabContentComponents/recipe/Recipe";
-import AmazingOrders from "./tabContentComponents/amazingOrders/AmazingOrders";
-import TextConversations from "./tabContentComponents/textConversations/TextConversations";
-import Emails from "./tabContentComponents/emails/Emails";
-import Newspaper from "./tabContentComponents/newspaper/Newspaper";
-import { GameContext } from "./components/GameContext";
+import LetterFromX from "../tabContentComponents/letterFromX/LetterFromX";
+import PoliceReport from "../tabContentComponents/policeReport/PoliceReport";
+import Recipe from "../tabContentComponents/recipe/Recipe";
+import AmazingOrders from "../tabContentComponents/amazingOrders/AmazingOrders";
+import TextConversations from "../tabContentComponents/textConversations/TextConversations";
+import EmailInboxes from "../tabContentComponents/emailInboxes/EmailInboxes";
+import Newspaper from "../tabContentComponents/newspaper/Newspaper";
+import { GameContext } from "../context/GameContext";
 import { useContext } from "react";
-import { StageContext } from "./components/StageContext";
-import PotluckPlanner from "./tabContentComponents/potluckPlanner/PotluckPlanner";
-import { ObjectivesContext, ProgressKeys } from "./components/ObjectivesContext";
-import LetterFromX2 from "./tabContentComponents/letterFromX/LetterFromX2";
-import HintsButton from "./components/hints/HintsButton";
-import SpotlightOverlay from "./components/SpotlightOverlay";
-import DiaryPages from "./tabContentComponents/diaryPages/DiaryPages";
-import MeetingSummary from "./tabContentComponents/meetingSummary/MeetingSummary";
-import RitualInstructions from "./tabContentComponents/ritualInstructions/RitualInstructions";
-import TextConversations2 from "./tabContentComponents/textConversations/TextConversations2";
-import LetterFromX3 from "./tabContentComponents/letterFromX/LetterFromX3";
-import LetterFromX4 from "./tabContentComponents/letterFromX/LetterFromX4";
+import { StageContext } from "../context/StageContext";
+import PotluckPlanner from "../tabContentComponents/potluckPlanner/PotluckPlanner";
+import { ProgressContext, ProgressKeys } from "../components/ProgressContext";
+import LetterFromX2 from "../tabContentComponents/letterFromX/LetterFromX2";
+import HintsButton from "../components/hints/HintsButton";
+import SpotlightOverlay from "../components/SpotlightOverlay";
+import DiaryPages from "../tabContentComponents/diaryPages/DiaryPages";
+import MeetingSummary from "../tabContentComponents/meetingSummary/MeetingSummary";
+import RitualInstructions from "../tabContentComponents/email/RitualInstructions";
+import TextConversations2 from "../tabContentComponents/textConversations/TextConversations2";
+import LetterFromX3 from "../tabContentComponents/letterFromX/LetterFromX3";
+import LetterFromX4 from "../tabContentComponents/letterFromX/LetterFromX4";
+import { useDevMode } from "../hooks/useDevMode";
 
 export default function Game() {
   return (
-    <GameContext>
+    <GameContext chapter={1}>
       <GameComponent />
     </GameContext>
   );
@@ -41,7 +42,7 @@ export default function Game() {
 
 function GameComponent() {
   const { currentStage, setStage } = useContext(StageContext);
-  const { getProgress } = useContext(ObjectivesContext);
+  const { isSolved } = useContext(ProgressContext);
 
   const handleReset = useCallback(() => {
     const confirmed = window.confirm(
@@ -67,20 +68,20 @@ function GameComponent() {
 
   let policeReportEmoji;
   if (currentStage >= 1) {
-    policeReportEmoji = getProgress(ProgressKeys.POLICE_REPORT) ? "✅" : "🎯";
+    policeReportEmoji = isSolved(ProgressKeys.POLICE_REPORT) ? "✅" : "🎯";
   }
 
   // make sure we are on stage 3 when texts, emails, and orders are completed
   useEffect(() => {
     if (currentStage < 3) {
-      const textsCompleted = getProgress(ProgressKeys.TEXT_CONVERSATIONS);
-      const emailsCompleted = getProgress(ProgressKeys.EMAILS);
-      const ordersCompleted = getProgress(ProgressKeys.ONLINE_ORDERS);
+      const textsCompleted = isSolved(ProgressKeys.TEXT_CONVERSATIONS);
+      const emailsCompleted = isSolved(ProgressKeys.EMAILS);
+      const ordersCompleted = isSolved(ProgressKeys.ONLINE_ORDERS);
       if (textsCompleted && emailsCompleted && ordersCompleted) {
         setStage(3);
       }
     }
-  }, [currentStage, getProgress, setStage]);
+  }, [currentStage, isSolved, setStage]);
 
   return (
     <div className={styles.gameParent}>
@@ -120,7 +121,7 @@ function GameComponent() {
                   stageToUnlock={2}
                   currentStage={currentStage}
                   lockedTooltip={stage2LockedTooltip}
-                  emoji={getProgress(ProgressKeys.TEXT_CONVERSATIONS) ? "✅" : "🎯"}
+                  emoji={isSolved(ProgressKeys.TEXT_CONVERSATIONS) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="Emails"
@@ -128,7 +129,7 @@ function GameComponent() {
                   stageToUnlock={2}
                   currentStage={currentStage}
                   lockedTooltip={stage2LockedTooltip}
-                  emoji={getProgress(ProgressKeys.EMAILS) ? "✅" : "🎯"}
+                  emoji={isSolved(ProgressKeys.EMAILS) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="AmazingOrders"
@@ -136,7 +137,7 @@ function GameComponent() {
                   stageToUnlock={2}
                   currentStage={currentStage}
                   lockedTooltip={stage2LockedTooltip}
-                  emoji={getProgress(ProgressKeys.ONLINE_ORDERS) ? "✅" : "🎯"}
+                  emoji={isSolved(ProgressKeys.ONLINE_ORDERS) ? "✅" : "🎯"}
                 />
               </Nav>
             </div>
@@ -187,14 +188,14 @@ function GameComponent() {
                   stageToUnlock={3}
                   currentStage={currentStage}
                   lockedTooltip={solveTheCaseTooltip}
-                  emoji={getProgress(ProgressKeys.SOLVE_THE_CASE) ? "✅" : "🎯"}
+                  emoji={isSolved(ProgressKeys.SOLVE_THE_CASE) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="LetterFromX3"
                   title="Solve the Case 2"
                   stageToUnlock={4}
                   currentStage={currentStage}
-                  emoji={getProgress(ProgressKeys.SOLVE_THE_CASE_2) ? "✅" : "🎯"}
+                  emoji={isSolved(ProgressKeys.SOLVE_THE_CASE_2) ? "✅" : "🎯"}
                 />
                 <NavItemWithLock
                   eventKey="FarewellLetter"
@@ -223,7 +224,7 @@ function GameComponent() {
                 <TextConversations />
               </Tab.Pane>
               <Tab.Pane eventKey="Emails">
-                <Emails />
+                <EmailInboxes />
               </Tab.Pane>
               {/* need special width css for some reason */}
               <Tab.Pane eventKey="AmazingOrders" className={styles.amazingOrdersTab}>
@@ -279,7 +280,11 @@ function NavItemWithLock({
   /** Pulsing glow around the tab; purely visual overlay (does not affect layout). */
   showSpotlight?: boolean;
 }) {
-  const isLocked = currentStage < stageToUnlock;
+  const devMode = useDevMode();
+  let isLocked = currentStage < stageToUnlock;
+  if (devMode) {
+    isLocked = false;
+  }
 
   let textToShow;
   if (isLocked) {

@@ -1,8 +1,9 @@
 import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
 import styles from "./Newspaper.module.css";
-import { StageContext } from "../../components/StageContext";
+import { StageContext } from "../../context/StageContext";
 import { useContext } from "react";
+import { useDevMode } from "../../hooks/useDevMode";
 
 function Subheader({ author, date }: { author: string; date: string }) {
   return (
@@ -221,8 +222,9 @@ export default function Newspaper() {
   );
 
   const { currentStage } = useContext(StageContext);
+  const devMode = useDevMode();
   // lock pages until stage 2
-  const lockedPages = currentStage < 2 ? [2, 3, 4, 5] : [];
+  const lockedPages = currentStage < 2 && !devMode ? [2, 3, 4, 5] : [];
   const evidence = (
     <CustomCarousel
       items={[page1, page2, page3, page4, page5, page6]}

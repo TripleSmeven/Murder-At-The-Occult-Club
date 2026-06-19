@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, JSX, ReactNode } from "react";
-import { useLocalStorage } from "./useLocalStorage";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 /**
  * Allows sharing of global notes across all notes
@@ -12,11 +12,12 @@ export const GlobalNotesContext = createContext({
 });
 
 interface GlobalNotesProviderProps {
+  chapter: number;
   children: ReactNode;
 }
 
-export function GlobalNotesProvider({ children }: GlobalNotesProviderProps): JSX.Element {
-  const [globalNotes, setGlobalNotes] = useLocalStorage("globalNotes");
+export function GlobalNotesProvider({ chapter, children }: GlobalNotesProviderProps): JSX.Element {
+  const [globalNotes, setGlobalNotes] = useLocalStorage(`globalNotes`, chapter.toString());
 
   return (
     <GlobalNotesContext.Provider value={{ globalNotes, setGlobalNotes }}>

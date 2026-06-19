@@ -1,6 +1,7 @@
-import { ConversationJson } from "./Conversations";
+import { ConversationJson } from "./ConversationJsons";
 import styles from "./ConversationComponent.module.css";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
+import { ObjectivesContext } from "../../context/ObjectivesContext";
+import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
 import { useContext } from "react";
 
 interface TextMessageJson {
@@ -63,8 +64,8 @@ export const ConversationComponent = ({ date, messages, index }: ConversationCom
   let previousSender = "";
   const currentTimeStamp = new Date(date);
 
-  const { getProgress } = useContext(ObjectivesContext);
-  const completedObjective = getProgress(ProgressKeys.TEXT_CONVERSATIONS);
+  const { isSolved } = useContext(ProgressContext);
+  const completedObjective = isSolved(ProgressKeys.TEXT_CONVERSATIONS);
 
   const conversationContent = messages.map((message, index2) => {
     // advance the timestamp by 1 second per character in the message,

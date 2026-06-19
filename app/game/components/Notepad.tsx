@@ -4,18 +4,23 @@ import dynamic from "next/dynamic";
 
 import styles from "./Notepad.module.css";
 import { CustomPicker, NamePicker } from "./WordPicker";
-import { ObjectivesJson } from "./ObjectivesJson";
+import { ObjectivesJson } from "../context/ObjectivesJson";
 import { Col, Nav, OverlayTrigger, Row, Tab, Tooltip } from "react-bootstrap";
-import { GlobalNotesContext } from "./GlobalNotesContext";
-import { useLocalStorage } from "./useLocalStorage";
-import { ObjectivesContext } from "./ObjectivesContext";
+import { GlobalNotesContext } from "../context/GlobalNotesContext";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { ObjectivesContext } from "../context/ObjectivesContext";
 import { MDXEditorMethods } from "@mdxeditor/editor";
 import SpotlightOverlay from "./SpotlightOverlay";
 
 const MarkdownEditor = dynamic(() => import("./MarkdownEditor"), { ssr: false });
 
-export default function Notepad({ heading, sections, onCorrect }: ObjectivesContentProps) {
-  const startingKey = heading ? "objectives" : "freeform";
+interface NotepadProps {
+  objectivesJson?: ObjectivesJson;
+  onCorrect?: () => void;
+}
+
+export default function Notepad({ objectivesJson, onCorrect }: NotepadProps) {
+  const startingKey = objectivesJson ? "objectives" : "freeform";
   const { globalNotes, setGlobalNotes } = useContext(GlobalNotesContext);
   const [localNotes, setLocalNotes] = useState(globalNotes);
   const [objectivesVisited, setObjectivesVisited] = useLocalStorage("objectivesVisited");
@@ -63,9 +68,9 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
     [objectivesVisited, setObjectivesVisited],
   );
 
-  const objectivesTab = heading ? (
+  const objectivesTab = objectivesJson ? (
     <Tab.Pane eventKey="objectives" className={`${styles.tabContent} ${styles.objectivesContent}`}>
-      <ObjectivesContent heading={heading} sections={sections} onCorrect={onCorrect} />
+      <ObjectivesContent {...objectivesJson} onCorrect={onCorrect} />
     </Tab.Pane>
   ) : null;
 

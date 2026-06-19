@@ -1,7 +1,7 @@
 import Form from "react-bootstrap/Form";
 import { useContext } from "react";
 import styles from "./WordPicker.module.css";
-import { ObjectivesContext } from "./ObjectivesContext";
+import { ObjectivesContext } from "../context/ObjectivesContext";
 
 interface CustomPickerProps {
   label?: string;
