@@ -1,12 +1,12 @@
 html {
-  /* Prevent tooltips from randomly rendering scrollbars */
+  /* Prevent tooltips from randomly rendering scrollbars
   scrollbar-gutter: stable;
-  overflow-y: hidden;
+  overflow-y: hidden; */
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {

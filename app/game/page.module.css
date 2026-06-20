@@ -1,0 +1,65 @@
+.parent {
+  font-family: Space Mono;
+  margin: 5em auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 16px;
+
+  .title {
+    font-size: 5em;
+    margin-bottom: 0.5em;
+  }
+
+  .subtitle {
+    font-size: 2em;
+    font-style: italic;
+    color: rgb(192, 192, 192);
+  }
+
+  .chapterList {
+    display: flex;
+  }
+}
+
+.cardParent {
+  display: flex;
+  flex-direction: column;
+  font-size: 2em;
+  margin: 1em;
+
+  a {
+    text-decoration: none;
+  }
+
+  .cardImage {
+    &.chapter1 {
+      background: url("../images/classroom.jpg");
+      background-size: contain;
+    }
+    &.chapter2 {
+      background: url("../images/mansion.jpg");
+      background-size: contain;
+    }
+
+    background-size: contain;
+    width: 18em;
+    height: 10em;
+    border: 1px solid white;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .parent {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1550) {
+  .parent {
+    font-size: 12px;
+  }
+}
