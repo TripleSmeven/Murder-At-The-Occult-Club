@@ -2,18 +2,19 @@
 
 import React, { useContext, useState } from "react";
 import styles from "./Hints.module.css";
-import { HintSection, hintsJson } from "./HintsJson";
+import { hintsJson } from "./HintsJson";
 import { StageContext } from "../../context/StageContext";
 
 interface HintsModalProps {
+  chapter: number;
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function HintsModal({ isOpen, onClose }: HintsModalProps) {
+export default function HintsModal({ chapter, isOpen, onClose }: HintsModalProps) {
   const [expandedPanels, setExpandedPanels] = useState<Set<string>>(new Set());
 
-  const { sections } = hintsJson;
+  const sections = hintsJson[`chapter${chapter}`];
   const { currentStage } = useContext(StageContext);
 
   if (!isOpen) {

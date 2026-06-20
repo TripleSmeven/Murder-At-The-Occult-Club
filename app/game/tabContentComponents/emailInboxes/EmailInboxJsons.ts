@@ -1,14 +1,14 @@
-export interface Inbox {
+export type Inbox = {
   owner: string;
   emails: EmailJson[];
-}
+};
 
-export interface EmailJson {
+export type EmailJson = {
   sender: string;
   title: string;
   content: string;
   date: string;
-}
+};
 
 const zachEmail: EmailJson = {
   sender: "Zach Cunningham",

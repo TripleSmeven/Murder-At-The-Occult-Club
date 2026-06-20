@@ -1,20 +1,20 @@
-export interface HintPanel {
+export type HintPanel = {
   title: string;
   content: string;
-}
+};
 
-export interface HintSection {
+export type HintSection = {
   heading: string;
   panels: HintPanel[];
   unlockedAtStage: number;
-}
+};
 
-export interface HintsJson {
-  sections: HintSection[];
-}
+export type HintsJson = {
+  [chapter: string]: HintSection[];
+};
 
 export const hintsJson: HintsJson = {
-  sections: [
+  chapter1: [
     {
       heading: "Police Report",
       unlockedAtStage: 1,
@@ -94,8 +94,19 @@ export const hintsJson: HintsJson = {
         },
         {
           title: "Flower hint",
-          content:
-            "There's only once choice here if you've identified the cause of death.",
+          content: "There's only once choice here if you've identified the cause of death.",
+        },
+      ],
+    },
+  ],
+  chapter2: [
+    {
+      heading: "Test",
+      unlockedAtStage: 1,
+      panels: [
+        {
+          title: "test",
+          content: "test",
         },
       ],
     },

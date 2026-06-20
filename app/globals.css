@@ -70,6 +70,23 @@ body {
   }
 }
 
+/* hack bootstrap to make an orange version for nav*/
+.orange-nav-bootstrap .nav-pills {
+  .nav-link {
+    color: var(--chapter2-orange-default);
+  }
+  .nav-link.active {
+    color: white;
+    background: var(--chapter2-orange-default);
+  }
+  .nav-link.active:hover {
+    color: white;
+  }
+  .nav-link:hover {
+    color: var(--chapter2-orange-hover);
+  }
+}
+
 /* hack bootstrap disabled select forms */
 select.form-select:disabled {
   background-color: rgb(255, 255, 255);

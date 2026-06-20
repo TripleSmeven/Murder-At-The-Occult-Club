@@ -1,18 +1,18 @@
 import { Color } from "../components/WordPicker";
 
-export interface ObjectivesJson {
+export type ObjectivesJson = {
   heading?: string;
   sections?: ObjectiveSection[];
-}
+};
 
-interface ObjectiveSection {
+export type ObjectiveSection = {
   title: string;
   questions: ObjectiveQuestion[];
-}
+};
 
-interface ObjectiveQuestion {
+export type ObjectiveQuestion = {
   question: string;
   answers?: string[];
   answer?: string;
   color: Color;
-}
+};

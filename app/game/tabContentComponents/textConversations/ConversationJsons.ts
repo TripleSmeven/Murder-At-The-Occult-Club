@@ -1,11 +1,10 @@
-export interface ConversationJson {
+export type ConversationJson = {
   date: string;
   messages: Array<{
     sender: string;
     content: string;
   }>;
-  linkedAnswerKey?: string;
-}
+};
 
 const Police: ConversationJson = {
   date: "12/18/25 15:06",
@@ -154,7 +153,6 @@ const Aftermath1: ConversationJson = {
         "And idk if you're still talking with MM. But you CANNOT say ANYTHING to her either!!",
     },
   ],
-  linkedAnswerKey: "Text Message 2",
 };
 
 const Aftermath2: ConversationJson = {

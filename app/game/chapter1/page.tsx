@@ -3,13 +3,11 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
-import Button from "react-bootstrap/Button";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
-import styles from "../game.module.css";
+import styles from "../components/chapterBase/ChapterBaseComponent.module.css";
 
-import LetterFromX from "../tabContentComponents/letterFromX/LetterFromX";
+import LetterFromX1 from "../tabContentComponents/letterFromX/LetterFromX1";
 import PoliceReport from "../tabContentComponents/policeReport/PoliceReport";
 import Recipe from "../tabContentComponents/recipe/Recipe";
 import AmazingOrders from "../tabContentComponents/amazingOrders/AmazingOrders";
@@ -22,19 +20,22 @@ import { StageContext } from "../context/StageContext";
 import PotluckPlanner from "../tabContentComponents/potluckPlanner/PotluckPlanner";
 import { ProgressContext, ProgressKeys } from "../components/ProgressContext";
 import LetterFromX2 from "../tabContentComponents/letterFromX/LetterFromX2";
-import HintsButton from "../components/hints/HintsButton";
-import SpotlightOverlay from "../components/SpotlightOverlay";
 import DiaryPages from "../tabContentComponents/diaryPages/DiaryPages";
 import MeetingSummary from "../tabContentComponents/meetingSummary/MeetingSummary";
 import RitualInstructions from "../tabContentComponents/email/RitualInstructions";
 import TextConversations2 from "../tabContentComponents/textConversations/TextConversations2";
 import LetterFromX3 from "../tabContentComponents/letterFromX/LetterFromX3";
 import LetterFromX4 from "../tabContentComponents/letterFromX/LetterFromX4";
-import { useDevMode } from "../hooks/useDevMode";
+import {
+  ChapterBaseComponent,
+  NavItemWithLock,
+} from "../components/chapterBase/ChapterBaseComponent";
+
+const CHAPTER = 1;
 
 export default function Game() {
   return (
-    <GameContext chapter={1}>
+    <GameContext chapter={CHAPTER}>
       <GameComponent />
     </GameContext>
   );
@@ -43,16 +44,6 @@ export default function Game() {
 function GameComponent() {
   const { currentStage, setStage } = useContext(StageContext);
   const { isSolved } = useContext(ProgressContext);
-
-  const handleReset = useCallback(() => {
-    const confirmed = window.confirm(
-      "Are you sure you want to reset all game progress? You will restart from the beginning.",
-    );
-    if (confirmed) {
-      localStorage.clear();
-      window.location.reload();
-    }
-  }, []);
 
   const stage2LockedTooltip =
     currentStage >= 1 ? "Unlock by completing the Objectives in the Police Report." : "";
@@ -83,249 +74,175 @@ function GameComponent() {
     }
   }, [currentStage, isSolved, setStage]);
 
-  return (
-    <div className={styles.gameParent}>
-      <div className={styles.cornerButtons}>
-        <HintsButton className={styles.hintsButton} />
-        <Button variant="danger" size="sm" onClick={handleReset} className={styles.resetButton}>
-          Reset
-        </Button>
-      </div>
-      {/* https://react-bootstrap.netlify.app/docs/components/tabs/#custom-tab-layout */}
-      <Tab.Container id="left-tabs-example" defaultActiveKey="LetterFromX">
-        <Row>
-          <Col sm={2} className={`${styles.navCol}`}>
-            <div className={`${styles.navSection}`}>
-              <Nav variant="pills">
-                <NavItemWithLock eventKey="LetterFromX" title="Letter from X" />
-                <NavItemWithLock
-                  eventKey="PoliceReport"
-                  title="Police Report"
-                  emoji={policeReportEmoji}
-                />
-                <NavItemWithLock
-                  eventKey="Newspaper"
-                  title="School Newspaper"
-                  stageToUnlock={1}
-                  currentStage={currentStage}
-                />
-                <NavItemWithLock
-                  eventKey="Recipe"
-                  title="Mysterious Recipe"
-                  stageToUnlock={1}
-                  currentStage={currentStage}
-                />
-                <NavItemWithLock
-                  eventKey="TextConversations"
-                  title="Text Messages"
-                  stageToUnlock={2}
-                  currentStage={currentStage}
-                  lockedTooltip={stage2LockedTooltip}
-                  emoji={isSolved(ProgressKeys.TEXT_CONVERSATIONS) ? "✅" : "🎯"}
-                />
-                <NavItemWithLock
-                  eventKey="Emails"
-                  title="Email Inboxes"
-                  stageToUnlock={2}
-                  currentStage={currentStage}
-                  lockedTooltip={stage2LockedTooltip}
-                  emoji={isSolved(ProgressKeys.EMAILS) ? "✅" : "🎯"}
-                />
-                <NavItemWithLock
-                  eventKey="AmazingOrders"
-                  title="Online Orders"
-                  stageToUnlock={2}
-                  currentStage={currentStage}
-                  lockedTooltip={stage2LockedTooltip}
-                  emoji={isSolved(ProgressKeys.ONLINE_ORDERS) ? "✅" : "🎯"}
-                />
-              </Nav>
-            </div>
-            <div className={`${styles.navSection}`}>
-              <Nav variant="pills">
-                <NavItemWithLock
-                  eventKey="DiaryPages"
-                  title="Diary Pages"
-                  stageToUnlock={3}
-                  currentStage={currentStage}
-                  lockedTooltip={stage3LockedTooltip}
-                />
-                <NavItemWithLock
-                  eventKey="MeetingSummary"
-                  title="Meeting Summary"
-                  stageToUnlock={3}
-                  currentStage={currentStage}
-                  lockedTooltip={stage3LockedTooltip}
-                />
-                <NavItemWithLock
-                  eventKey="PotluckPlanner"
-                  title="Potluck Planner"
-                  stageToUnlock={3}
-                  currentStage={currentStage}
-                  lockedTooltip={stage3LockedTooltip}
-                />
-                <NavItemWithLock
-                  eventKey="RitualInstructions"
-                  title="Ritual Instructions"
-                  stageToUnlock={3}
-                  currentStage={currentStage}
-                  lockedTooltip={stage3LockedTooltip}
-                />
-                <NavItemWithLock
-                  eventKey="NewTextMessage"
-                  title="New Text Message"
-                  stageToUnlock={3}
-                  currentStage={currentStage}
-                  lockedTooltip={stage3LockedTooltip}
-                />
-              </Nav>
-            </div>
-            <div className={`${styles.navSection}`}>
-              <Nav variant="pills">
-                <NavItemWithLock
-                  eventKey="LetterFromX2"
-                  title="Solve the Case"
-                  stageToUnlock={3}
-                  currentStage={currentStage}
-                  lockedTooltip={solveTheCaseTooltip}
-                  emoji={isSolved(ProgressKeys.SOLVE_THE_CASE) ? "✅" : "🎯"}
-                />
-                <NavItemWithLock
-                  eventKey="LetterFromX3"
-                  title="Solve the Case 2"
-                  stageToUnlock={4}
-                  currentStage={currentStage}
-                  emoji={isSolved(ProgressKeys.SOLVE_THE_CASE_2) ? "✅" : "🎯"}
-                />
-                <NavItemWithLock
-                  eventKey="FarewellLetter"
-                  title="Farewell Letter"
-                  stageToUnlock={5}
-                  currentStage={currentStage}
-                />
-              </Nav>
-            </div>
-          </Col>
-          <Col sm={10} className={styles.col}>
-            <Tab.Content className={styles.tabContent}>
-              <Tab.Pane eventKey="LetterFromX">
-                <LetterFromX />
-              </Tab.Pane>
-              <Tab.Pane eventKey="PoliceReport">
-                <PoliceReport />
-              </Tab.Pane>
-              <Tab.Pane eventKey="Newspaper">
-                <Newspaper />
-              </Tab.Pane>
-              <Tab.Pane eventKey="Recipe">
-                <Recipe />
-              </Tab.Pane>
-              <Tab.Pane eventKey="TextConversations">
-                <TextConversations />
-              </Tab.Pane>
-              <Tab.Pane eventKey="Emails">
-                <EmailInboxes />
-              </Tab.Pane>
-              {/* need special width css for some reason */}
-              <Tab.Pane eventKey="AmazingOrders" className={styles.amazingOrdersTab}>
-                <AmazingOrders />
-              </Tab.Pane>
-              <Tab.Pane eventKey="DiaryPages">
-                <DiaryPages />
-              </Tab.Pane>
-              <Tab.Pane eventKey="MeetingSummary">
-                <MeetingSummary />
-              </Tab.Pane>
-              <Tab.Pane eventKey="PotluckPlanner">
-                <PotluckPlanner />
-              </Tab.Pane>
-              <Tab.Pane eventKey="RitualInstructions">
-                <RitualInstructions />
-              </Tab.Pane>
-              <Tab.Pane eventKey="NewTextMessage">
-                <TextConversations2 />
-              </Tab.Pane>
-              <Tab.Pane eventKey="LetterFromX2">
-                <LetterFromX2 />
-              </Tab.Pane>
-              <Tab.Pane eventKey="LetterFromX3">
-                <LetterFromX3 />
-              </Tab.Pane>
-              <Tab.Pane eventKey="FarewellLetter">
-                <LetterFromX4 />
-              </Tab.Pane>
-            </Tab.Content>
-          </Col>
-        </Row>
-      </Tab.Container>
-    </div>
-  );
-}
-
-function NavItemWithLock({
-  eventKey,
-  title,
-  emoji,
-  stageToUnlock = 0,
-  currentStage = 0,
-  lockedTooltip,
-  showSpotlight = false,
-}: {
-  eventKey: string;
-  title: string;
-  emoji?: string;
-  stageToUnlock?: number;
-  currentStage?: number;
-  lockedTooltip?: string;
-  /** Pulsing glow around the tab; purely visual overlay (does not affect layout). */
-  showSpotlight?: boolean;
-}) {
-  const devMode = useDevMode();
-  let isLocked = currentStage < stageToUnlock;
-  if (devMode) {
-    isLocked = false;
-  }
-
-  let textToShow;
-  if (isLocked) {
-    if (title === "Solve the Case") {
-      textToShow = "🔒" + title;
-    } else {
-      textToShow = `🔒???`;
-    }
-  } else {
-    textToShow = `${emoji || ""}${title}`;
-  }
-
-  const navLink = (
-    <Nav.Link eventKey={eventKey} disabled={isLocked}>
-      {textToShow}
-    </Nav.Link>
-  );
-
-  const spotlightOverlay = showSpotlight && !isLocked ? <SpotlightOverlay /> : null;
-
-  // wrap a tooltip over the navLink if its locked
-  if (isLocked && lockedTooltip) {
-    const tooltip = <Tooltip id={`tooltip-${title}`}>{lockedTooltip}</Tooltip>;
-    return (
-      <Nav.Item>
-        <OverlayTrigger placement="auto" overlay={tooltip}>
-          <div
-            className={`${styles.lockedNavItem} ${showSpotlight ? `${styles.navItemSpotlight}` : undefined}`}
-          >
-            {spotlightOverlay}
-            {navLink}
+  /* https://react-bootstrap.netlify.app/docs/components/tabs/#custom-tab-layout */
+  const tabsComponent = (
+    <Tab.Container id="left-tabs-example" defaultActiveKey="LetterFromX">
+      <Row>
+        <Col sm={2} className={`${styles.navCol}`}>
+          <div className={`${styles.navSection}`}>
+            <Nav variant="pills">
+              <NavItemWithLock eventKey="LetterFromX" title="Letter from X" />
+              <NavItemWithLock
+                eventKey="PoliceReport"
+                title="Police Report"
+                emoji={policeReportEmoji}
+              />
+              <NavItemWithLock
+                eventKey="Newspaper"
+                title="School Newspaper"
+                stageToUnlock={1}
+                currentStage={currentStage}
+              />
+              <NavItemWithLock
+                eventKey="Recipe"
+                title="Mysterious Recipe"
+                stageToUnlock={1}
+                currentStage={currentStage}
+              />
+              <NavItemWithLock
+                eventKey="TextConversations"
+                title="Text Messages"
+                stageToUnlock={2}
+                currentStage={currentStage}
+                lockedTooltip={stage2LockedTooltip}
+                emoji={isSolved(ProgressKeys.TEXT_CONVERSATIONS) ? "✅" : "🎯"}
+              />
+              <NavItemWithLock
+                eventKey="Emails"
+                title="Email Inboxes"
+                stageToUnlock={2}
+                currentStage={currentStage}
+                lockedTooltip={stage2LockedTooltip}
+                emoji={isSolved(ProgressKeys.EMAILS) ? "✅" : "🎯"}
+              />
+              <NavItemWithLock
+                eventKey="AmazingOrders"
+                title="Online Orders"
+                stageToUnlock={2}
+                currentStage={currentStage}
+                lockedTooltip={stage2LockedTooltip}
+                emoji={isSolved(ProgressKeys.ONLINE_ORDERS) ? "✅" : "🎯"}
+              />
+            </Nav>
           </div>
-        </OverlayTrigger>
-      </Nav.Item>
-    );
-  }
-
-  return (
-    <Nav.Item className={showSpotlight ? styles.navItemSpotlight : undefined}>
-      {spotlightOverlay}
-      {navLink}
-    </Nav.Item>
+          <div className={`${styles.navSection}`}>
+            <Nav variant="pills">
+              <NavItemWithLock
+                eventKey="DiaryPages"
+                title="Diary Pages"
+                stageToUnlock={3}
+                currentStage={currentStage}
+                lockedTooltip={stage3LockedTooltip}
+              />
+              <NavItemWithLock
+                eventKey="MeetingSummary"
+                title="Meeting Summary"
+                stageToUnlock={3}
+                currentStage={currentStage}
+                lockedTooltip={stage3LockedTooltip}
+              />
+              <NavItemWithLock
+                eventKey="PotluckPlanner"
+                title="Potluck Planner"
+                stageToUnlock={3}
+                currentStage={currentStage}
+                lockedTooltip={stage3LockedTooltip}
+              />
+              <NavItemWithLock
+                eventKey="RitualInstructions"
+                title="Ritual Instructions"
+                stageToUnlock={3}
+                currentStage={currentStage}
+                lockedTooltip={stage3LockedTooltip}
+              />
+              <NavItemWithLock
+                eventKey="NewTextMessage"
+                title="New Text Message"
+                stageToUnlock={3}
+                currentStage={currentStage}
+                lockedTooltip={stage3LockedTooltip}
+              />
+            </Nav>
+          </div>
+          <div className={`${styles.navSection}`}>
+            <Nav variant="pills">
+              <NavItemWithLock
+                eventKey="LetterFromX2"
+                title="Solve the Case"
+                stageToUnlock={3}
+                currentStage={currentStage}
+                lockedTooltip={solveTheCaseTooltip}
+                emoji={isSolved(ProgressKeys.SOLVE_THE_CASE) ? "✅" : "🎯"}
+              />
+              <NavItemWithLock
+                eventKey="LetterFromX3"
+                title="Solve the Case 2"
+                stageToUnlock={4}
+                currentStage={currentStage}
+                emoji={isSolved(ProgressKeys.SOLVE_THE_CASE_2) ? "✅" : "🎯"}
+              />
+              <NavItemWithLock
+                eventKey="FarewellLetter"
+                title="Farewell Letter"
+                stageToUnlock={5}
+                currentStage={currentStage}
+              />
+            </Nav>
+          </div>
+        </Col>
+        <Col sm={10} className={styles.col}>
+          <Tab.Content className={styles.tabContent}>
+            <Tab.Pane eventKey="LetterFromX">
+              <LetterFromX1 />
+            </Tab.Pane>
+            <Tab.Pane eventKey="PoliceReport">
+              <PoliceReport />
+            </Tab.Pane>
+            <Tab.Pane eventKey="Newspaper">
+              <Newspaper />
+            </Tab.Pane>
+            <Tab.Pane eventKey="Recipe">
+              <Recipe />
+            </Tab.Pane>
+            <Tab.Pane eventKey="TextConversations">
+              <TextConversations />
+            </Tab.Pane>
+            <Tab.Pane eventKey="Emails">
+              <EmailInboxes />
+            </Tab.Pane>
+            {/* need special width css for some reason */}
+            <Tab.Pane eventKey="AmazingOrders" className={styles.amazingOrdersTab}>
+              <AmazingOrders />
+            </Tab.Pane>
+            <Tab.Pane eventKey="DiaryPages">
+              <DiaryPages />
+            </Tab.Pane>
+            <Tab.Pane eventKey="MeetingSummary">
+              <MeetingSummary />
+            </Tab.Pane>
+            <Tab.Pane eventKey="PotluckPlanner">
+              <PotluckPlanner />
+            </Tab.Pane>
+            <Tab.Pane eventKey="RitualInstructions">
+              <RitualInstructions />
+            </Tab.Pane>
+            <Tab.Pane eventKey="NewTextMessage">
+              <TextConversations2 />
+            </Tab.Pane>
+            <Tab.Pane eventKey="LetterFromX2">
+              <LetterFromX2 />
+            </Tab.Pane>
+            <Tab.Pane eventKey="LetterFromX3">
+              <LetterFromX3 />
+            </Tab.Pane>
+            <Tab.Pane eventKey="FarewellLetter">
+              <LetterFromX4 />
+            </Tab.Pane>
+          </Tab.Content>
+        </Col>
+      </Row>
+    </Tab.Container>
   );
+
+  return <ChapterBaseComponent chapter={CHAPTER} content={tabsComponent} />;
 }

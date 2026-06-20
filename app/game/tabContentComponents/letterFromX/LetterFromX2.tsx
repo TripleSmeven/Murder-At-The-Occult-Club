@@ -2,27 +2,19 @@ import { useContext } from "react";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { StageContext } from "../../context/StageContext";
 import { Color } from "../../components/WordPicker";
-import TabContentBase from "../TabContentBase";
-import styles from "./LetterFromX.module.css";
+import LetterFromX from "./LetterFromX";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
 import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
+import TabContentBase from "../TabContentBase";
 
 export default function LetterFromX2() {
-  const evidence = (
-    <div className={`${styles.letter}`}>
-      <div className={styles.page1}>
-        <div className={styles.line}>Hello.</div>
-        <div className={styles.line}>{`You've deduced much. You're almost there.`}</div>
-        <div className={styles.line}>{"You now have everything you need to solve the case."}</div>
-        <div className={styles.line}>
-          {
-            "Analyze the remaining clues, and answer the question: How did Zach Cunningham really die, and why did the murderer do it?"
-          }
-        </div>
-        <div className={styles.line}>{"- X"}</div>
-      </div>
-    </div>
-  );
+  const lines = [
+    "Hello.",
+    `You've deduced much. You're almost there.`,
+    "You now have everything you need to solve the case.",
+    "Analyze the remaining clues, and answer the question: How did Zach Cunningham really die, and why did the murderer do it?",
+    "- X",
+  ];
 
   const objectives: ObjectivesJson = {
     heading: "Solve the case",
@@ -105,5 +97,6 @@ export default function LetterFromX2() {
     }
   };
 
+  const evidence = <LetterFromX lines={lines} />;
   return <TabContentBase evidence={evidence} objectivesJson={objectives} onCorrect={onCorrect} />;
 }

@@ -2,26 +2,19 @@ import { useContext, useState } from "react";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { StageContext } from "../../context/StageContext";
 import { Color } from "../../components/WordPicker";
-import TabContentBase from "../TabContentBase";
-import styles from "./LetterFromX.module.css";
+import LetterFromX from "./LetterFromX";
 import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
 import { VictoryScreen } from "../../components/VictoryScreen";
+import TabContentBase from "../TabContentBase";
 
 export default function LetterFromX3() {
   const [showVictoryScreen, setShowVictoryScreen] = useState(false);
-  const evidence = (
-    <div className={`${styles.letter}`}>
-      <div className={styles.page1}>
-        <div className={styles.line}>{`So it was the new girl. A tricky one, isn't she?`}</div>
-        <div className={styles.line}>
-          {
-            "One last thing to wrap this all up. Do what the police couldn't. Identity the exact ingredients used in the Elixir of Oblivion."
-          }
-        </div>
-        <div className={styles.line}>{"- X"}</div>
-      </div>
-    </div>
-  );
+
+  const lines = [
+    `So it was the new girl. A tricky one, isn't she?`,
+    "One last thing to wrap this all up. Do what the police couldn't. Identity the exact ingredients used in the Elixir of Oblivion.",
+    "- X",
+  ];
 
   const objectives: ObjectivesJson = {
     heading: "The Elixir of Oblivion",
@@ -36,7 +29,6 @@ export default function LetterFromX3() {
           },
         ],
       },
-
       {
         title: "Identity each ingredient used in the Elixir of Oblivion:",
         questions: [
@@ -98,6 +90,8 @@ export default function LetterFromX3() {
     setSolved(ProgressKeys.SOLVE_THE_CASE_2, true);
     setShowVictoryScreen(false); // unmount the victory overlay after its done.
   };
+
+  const evidence = <LetterFromX lines={lines} />;
 
   return (
     <>

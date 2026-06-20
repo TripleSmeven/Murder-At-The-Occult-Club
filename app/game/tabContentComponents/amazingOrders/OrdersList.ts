@@ -1,15 +1,15 @@
-interface Order {
+type Order = {
   date: string;
   customerName: string;
   color?: string;
   items: Item[];
-}
+};
 
-interface Item {
+type Item = {
   name: string;
   category: string;
   price: string;
-}
+};
 
 export const OrdersList: Order[] = [
   {

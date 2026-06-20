@@ -4,11 +4,14 @@ import { ObjectivesContext } from "../../context/ObjectivesContext";
 import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
 import { useContext } from "react";
 
+type Theme = "slack" | "discord";
+
 interface TextMessageJson {
   sender: string;
   profile: string;
   content: string;
   time: string;
+  theme: Theme;
 }
 
 const senderToProfileMap: { [key: string]: string } = {
@@ -21,12 +24,29 @@ const senderToProfileMap: { [key: string]: string } = {
   "Sarah Findley": "sarah",
   "Unknown A": "unknownA",
   "Unknown B": "unknownB",
+
+  justagreengirl: "justagreengirl",
+  sam_slow_down: "sam_slow_down",
+  looprevil99: "looprevil99",
+  meremere: "meremere",
+  playingWithMyHeart: "playingWithMyHeart",
 };
 
-const TextMessagePrimary = ({ sender, profile, content, time }: TextMessageJson) => {
+const TextMessagePrimary = ({
+  sender,
+  profile,
+  content,
+  time,
+  theme = "slack",
+}: TextMessageJson) => {
+  if (!senderToProfileMap[profile]) {
+    profile = "Unknown A";
+  }
   return (
     <div className={styles.primaryParent}>
-      <div className={`${styles.profile} ${styles[senderToProfileMap[profile]]}`}></div>
+      <div
+        className={`${styles.profile} ${styles[senderToProfileMap[profile]]} ${theme === "discord" && styles.discordTheme}`}
+      ></div>
       <div className={styles.messageParent}>
         <div className={styles.messageHeader}>
           <div className={styles.messageSender}>{sender}</div>
@@ -49,10 +69,16 @@ const TextMessageSecondary = ({ content }: { content: string }) => {
 };
 
 interface ConversationComponentProps extends ConversationJson {
+  theme?: Theme;
   index: number;
 }
 
-export const ConversationComponent = ({ date, messages, index }: ConversationComponentProps) => {
+export const ConversationComponent = ({
+  date,
+  messages,
+  index,
+  theme = "slack",
+}: ConversationComponentProps) => {
   const { answers } = useContext(ObjectivesContext);
   const dateFormat: Intl.DateTimeFormatOptions = {
     year: "2-digit",
@@ -97,9 +123,14 @@ export const ConversationComponent = ({ date, messages, index }: ConversationCom
           profile={message.sender}
           time={currentTimeStamp.toLocaleString(navigator.language, dateFormat)}
           content={message.content}
+          theme={theme}
         />
       );
     }
   });
-  return <div className={styles.conversationParent}>{conversationContent}</div>;
+  return (
+    <div className={`${styles.conversationParent} ${theme === "discord" && styles.discordTheme}`}>
+      {conversationContent}
+    </div>
+  );
 };

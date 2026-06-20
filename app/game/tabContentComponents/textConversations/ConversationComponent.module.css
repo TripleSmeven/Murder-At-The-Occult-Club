@@ -10,6 +10,13 @@
   overflow: auto;
   scrollbar-color: grey transparent;
   scrollbar-width: thin;
+
+  &.discordTheme {
+    background-color: #36393e;
+    color: white;
+    margin: 0 3vw;
+    border-radius: 0;
+  }
 }
 
 .primaryParent {
@@ -29,6 +36,10 @@
   border-radius: 0.3em;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+
+  &.discordTheme {
+    border-radius: 1em;
+  }
 
   &.waller {
     /*https://www.pexels.com/photo/man-drinking-liquor-wearing-red-cap-and-black-crew-neck-shirt-1267335/*/
@@ -71,6 +82,22 @@
     background-blend-mode: multiply;
     background-color: rgb(184, 184, 255);
   }
+
+  &.justagreengirl {
+    background-image: url("./profilePictures/catpfp.jpg");
+  }
+
+  &.sam_slow_down {
+    background-image: url("./profilePictures/racer.jpg");
+  }
+
+  &.looprevil99 {
+    background-image: url("./profilePictures/soccer.jpg");
+  }
+
+  &.meremere {
+    background-image: url("./profilePictures/brainbook.webp");
+  }
 }
 
 .messageParent {
@@ -92,8 +119,9 @@
 
 .messageTime {
   color: gray;
+  align-items: end;
+  padding: 0px 0.25em;
   font-size: 0.8em;
   display: flex;
-  align-items: center;
-  padding: 0 0.1em;
+  line-height: inherit;
 }

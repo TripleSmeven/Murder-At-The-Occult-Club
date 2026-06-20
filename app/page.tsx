@@ -17,7 +17,7 @@ export default function Home() {
       <br />
       <div>
         This game was inspired by murder mystery detective board games like the Hunt a Killer series
-        or Unsolved Case Files. I also took many ideas from puzzle games like The Roottrees Are Dead
+        or Unsolved Case Files. I also took many ideas from deductive reasoning games like The Roottrees Are Dead
         and Case of the Golden Idol. I hope you enjoy the game!
       </div>
       <br />

@@ -11,9 +11,9 @@
   scrollbar-color: gray rgb(239, 240, 234);
 }
 
-.page1 {
+.page {
   background-image: url("./paper.jpg");
-  padding: 1.8em;
+  padding: 1em 1.8em;
 }
 
 .line {

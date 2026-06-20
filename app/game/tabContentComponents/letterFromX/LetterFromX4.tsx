@@ -1,25 +1,17 @@
 import TabContentBase from "../TabContentBase";
-import styles from "./LetterFromX.module.css";
+import LetterFromX from "./LetterFromX";
 
 export default function LetterFromX4() {
-  const evidence = (
-    <div className={`${styles.letter}`}>
-      <div className={styles.page1}>
-        <div className={styles.line}>So you figured it all out. Bravo.</div>
-        <div className={styles.line}>{`Chamomile and white buttercups look quite similar, don't they? An untrained eye would not have noticed if they had been secretly switched.`}</div>
-        <div className={styles.line}>
-          {`I'll be honest. I wasn't sure if you were going to go through with all of this.`}
-        </div>
-        <div
-          className={styles.line}
-        >{`But something told me that since it was related to Zach Cunningham, you wouldn't be able to resist.`}</div>
-        <div className={styles.line}>
-          Goodbye for now. I have no doubt our paths will cross again.
-        </div>
-        <div className={styles.line}>- X</div>
-      </div>
-    </div>
-  );
+  const lines = [
+    "So you figured it all out. Bravo.",
+    `Chamomile and white buttercups look quite similar, don't they? An untrained eye would not have noticed if they had been secretly switched.`,
+    `I'll be honest. I wasn't sure if you were going to go through with all of this.`,
+    `But you've delivered a masterful performance. I was thoroughly entertained.`,
+    "Goodbye for now. I have no doubt our paths will cross again.",
+    "- X",
+  ];
+
+  const evidence = <LetterFromX lines={lines} />;
 
   return <TabContentBase evidence={evidence} />;
 }

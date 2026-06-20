@@ -32,7 +32,7 @@
 }
 
 .navCol {
-  padding: 0.25em;
+  padding: 0;
   height: fit-content;
 }
 
@@ -40,6 +40,10 @@
   border: 1px solid var(--boostrap-blue);
   margin-bottom: 1em;
   padding: 0.25em;
+
+  &.orange {
+    border: 1px solid var(--chapter2-orange-default);
+  }
 }
 
 /* hack the bootstrap nav a bit */

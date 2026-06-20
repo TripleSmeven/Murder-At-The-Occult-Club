@@ -4,7 +4,13 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import HintsModal from "./HintsModal";
 
-export default function HintsButton({ className }: { className?: string }) {
+export default function HintsButton({
+  className,
+  chapter,
+}: {
+  className?: string;
+  chapter: number;
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -17,7 +23,7 @@ export default function HintsButton({ className }: { className?: string }) {
       >
         Hints
       </Button>
-      <HintsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <HintsModal chapter={chapter} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }
