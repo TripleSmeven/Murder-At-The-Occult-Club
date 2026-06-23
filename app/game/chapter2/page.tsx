@@ -11,6 +11,7 @@ import { GameContext } from "../context/GameContext";
 import styles from "../components/chapterBase/ChapterBaseComponent.module.css";
 import GroupChat from "../tabContentComponents/textConversations/GroupChat";
 import LetterFromX2_1 from "../tabContentComponents/letterFromX/LetterFromX2_1";
+import PoliceTranscript from "../tabContentComponents/policeTranscript/PoliceTranscript";
 
 const CHAPTER = 2;
 
@@ -23,40 +24,42 @@ export default function Game2() {
 }
 
 function GameComponent() {
-  // const tabsComponent = (
-  //   <Tab.Container id="left-tabs-example" defaultActiveKey="LetterFromX">
-  //     <Row>
-  //       <Col sm={2} className={`${styles.navCol}`}>
-  //         <div className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}>
-  //           <Nav variant="pills">
-  //             <NavItemWithLock eventKey="LetterFromX" title="Letter from X" />
-  //             <NavItemWithLock eventKey="GroupChat" title="Group Chat" />
-  //           </Nav>
-  //         </div>
-  //         <div className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}>
-  //           <Nav variant="pills">
-  //             <NavItemWithLock eventKey="test" title="test" />
-  //           </Nav>
-  //         </div>
-  //       </Col>
-  //       <Col sm={10} className={styles.col}>
-  //         <Tab.Content className={styles.tabContent}>
-  //           <Tab.Pane eventKey="LetterFromX">
-  //             <LetterFromX2_1 />
-  //           </Tab.Pane>
-  //           <Tab.Pane eventKey="GroupChat">
-  //             <GroupChat />
-  //           </Tab.Pane>
-  //           <Tab.Pane eventKey="test">
-  //             <LetterFromX2_1 />
-  //           </Tab.Pane>
-  //         </Tab.Content>
-  //       </Col>
-  //     </Row>
-  //   </Tab.Container>
-  // );
+  const tabsComponent = (
+    <Tab.Container id="left-tabs-example" defaultActiveKey="LetterFromX">
+      <Row>
+        <Col sm={2} className={`${styles.navCol}`}>
+          <div className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}>
+            <Nav variant="pills">
+              <NavItemWithLock eventKey="LetterFromX" title="Letter from X" />
+              <NavItemWithLock eventKey="PoliceTranscript" title="Police Transcript" />
+              <NavItemWithLock eventKey="GroupChat" title="Group Chat" />
+            </Nav>
+          </div>
+          <div className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}>
+            <Nav variant="pills">
+              <NavItemWithLock eventKey="test" title="test" />
+            </Nav>
+          </div>
+        </Col>
+        <Col sm={10} className={styles.col}>
+          <Tab.Content className={styles.tabContent}>
+            <Tab.Pane eventKey="LetterFromX">
+              <LetterFromX2_1 />
+            </Tab.Pane>
+            <Tab.Pane eventKey="GroupChat">
+              <GroupChat />
+            </Tab.Pane>
+            <Tab.Pane eventKey="PoliceTranscript">
+              <PoliceTranscript />
+            </Tab.Pane>
+            <Tab.Pane eventKey="test">
+              <LetterFromX2_1 />
+            </Tab.Pane>
+          </Tab.Content>
+        </Col>
+      </Row>
+    </Tab.Container>
+  );
 
-  // return <ChapterBaseComponent chapter={CHAPTER} content={tabsComponent} />;
-
-  return <div></div>;
+  return <ChapterBaseComponent chapter={CHAPTER} content={tabsComponent} />;
 }

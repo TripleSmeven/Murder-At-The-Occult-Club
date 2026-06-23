@@ -5,10 +5,10 @@ export default function LetterFromX2_1() {
   const lines = [
     "Hello.",
     "It hasn't been long since our last encounter, but there is already a need for your skills again.",
-    "Several students from your university have gone missing.",
-    "The authorities think it's a classic case of kids having a bit too much fun, and that they'll turn up soon enough",
-    "But I have a feeling they won't.",
-    "So you know the drill. Put your skills to the test and find out where these students are.",
+    "Several students from KaiserU have gone missing.",
+    "The police are on the case, but their progress is too slow.",
+    "By the time they figure out what's going on, it'll be too late.",
+    "So you know the drill. Put your skills to the test, learn as much as you can about the students, and find out where they are.",
     "- X",
   ];
   const evidence = <LetterFromX lines={lines} />;

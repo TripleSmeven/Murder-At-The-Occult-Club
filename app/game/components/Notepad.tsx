@@ -189,24 +189,12 @@ const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentPr
           <div className={styles.objectivesSectionTitle}>{section.title}</div>
           {section.questions.map((question, questionIndex) => {
             const storageKey = getStorageKey(section.title, question.question);
-            if (question.answers && question.answers.length > 0) {
-              return (
-                <div key={`${questionIndex}`}>
-                  <CustomPicker
-                    label={question.question}
-                    color={question.color}
-                    words={question.answers}
-                    storageKey={storageKey}
-                    disabled={status === "correct"}
-                  />
-                </div>
-              );
-            }
             return (
               <div key={`${questionIndex}`}>
-                <NamePicker
+                <CustomPicker
                   label={question.question}
                   color={question.color}
+                  words={question.answers}
                   storageKey={storageKey}
                   disabled={status === "correct"}
                 />

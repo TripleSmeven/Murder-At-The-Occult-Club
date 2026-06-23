@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { StageContext } from "../../context/StageContext";
-import { Color } from "../../components/WordPicker";
+import { CHAPTER1_NAMES, Color } from "../../components/WordPicker";
 import LetterFromX from "./LetterFromX";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
 import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
@@ -43,6 +43,7 @@ export default function LetterFromX2() {
         questions: [
           {
             question: "",
+            answers: CHAPTER1_NAMES,
             answer: "Sarah Findley",
             color: Color.BLUE,
           },

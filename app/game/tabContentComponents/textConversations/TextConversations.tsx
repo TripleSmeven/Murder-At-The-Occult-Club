@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import CustomCarousel from "../../components/CustomCarousel";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
-import { Color } from "../../components/WordPicker";
+import { CHAPTER1_NAMES, Color } from "../../components/WordPicker";
 import TabContentBase from "../TabContentBase";
 import { ConversationComponent } from "./ConversationComponent";
 import { primaryConversations } from "./ConversationJsons";
-import { ObjectivesContext } from "../../context/ObjectivesContext";
 import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
 
 export default function TextConversations() {
@@ -18,30 +17,74 @@ export default function TextConversations() {
       {
         title: "Text Message 2",
         questions: [
-          { question: "Unknown A", answer: "Thomas Brooke", color: Color.RED },
-          { question: "Unknown B", answer: "Sarah Findley", color: Color.INDIGO },
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Thomas Brooke",
+            color: Color.RED,
+          },
+          {
+            question: "Unknown B",
+            answers: CHAPTER1_NAMES,
+            answer: "Sarah Findley",
+            color: Color.INDIGO,
+          },
         ],
       },
       {
         title: "Text Message 3",
         questions: [
-          { question: "Unknown A", answer: "Andrew Wolfe", color: Color.RED },
-          { question: "Unknown B", answer: "Carlos Sanchez", color: Color.INDIGO },
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Andrew Wolfe",
+            color: Color.RED,
+          },
+          {
+            question: "Unknown B",
+            answers: CHAPTER1_NAMES,
+            answer: "Carlos Sanchez",
+            color: Color.INDIGO,
+          },
         ],
       },
       {
         title: "Text Message 4",
-        questions: [{ question: "Unknown A", answer: "Candace Eng", color: Color.RED }],
+        questions: [
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Candace Eng",
+            color: Color.RED,
+          },
+        ],
       },
       {
         title: "Text Message 5",
-        questions: [{ question: "Unknown A", answer: "Sarah Findley", color: Color.RED }],
+        questions: [
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Sarah Findley",
+            color: Color.RED,
+          },
+        ],
       },
       {
         title: "Text Message 7",
         questions: [
-          { question: "Unknown A", answer: "Candace Eng", color: Color.RED },
-          { question: "Unknown B", answer: "Sarah Findley", color: Color.INDIGO },
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Candace Eng",
+            color: Color.RED,
+          },
+          {
+            question: "Unknown B",
+            answers: CHAPTER1_NAMES,
+            answer: "Sarah Findley",
+            color: Color.INDIGO,
+          },
         ],
       },
     ],

@@ -3,7 +3,7 @@ import { JSX, useContext, useState } from "react";
 import styles from "./AmazingOrders.module.css";
 import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
-import { Color } from "../../components/WordPicker";
+import { CHAPTER1_NAMES, Color } from "../../components/WordPicker";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
 import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
@@ -115,9 +115,24 @@ export default function AmazingOrders() {
       {
         title: "Customer Name",
         questions: [
-          { question: "Unknown A", answer: "Candace Eng", color: Color.RED },
-          { question: "Unknown B", answer: "Andrew Wolfe", color: Color.ORANGE },
-          { question: "Unknown C", answer: "Carlos Sanchez", color: Color.YELLOW },
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Candace Eng",
+            color: Color.RED,
+          },
+          {
+            question: "Unknown B",
+            answers: CHAPTER1_NAMES,
+            answer: "Andrew Wolfe",
+            color: Color.ORANGE,
+          },
+          {
+            question: "Unknown C",
+            answers: CHAPTER1_NAMES,
+            answer: "Carlos Sanchez",
+            color: Color.YELLOW,
+          },
         ],
       },
     ],

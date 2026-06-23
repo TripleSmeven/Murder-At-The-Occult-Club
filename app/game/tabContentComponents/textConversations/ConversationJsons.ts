@@ -3,6 +3,10 @@ export type ConversationJson = {
   messages: Array<{
     sender: string;
     content: string;
+    attachment?: {
+      title: string;
+      bytes: number;
+    };
   }>;
 };
 

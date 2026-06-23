@@ -98,6 +98,10 @@
   &.meremere {
     background-image: url("./profilePictures/brainbook.webp");
   }
+
+  &.playingWithMyHeart {
+    background-image: url("./profilePictures/pillars.webp");
+  }
 }
 
 .messageParent {
@@ -124,4 +128,44 @@
   font-size: 0.8em;
   display: flex;
   line-height: inherit;
+}
+
+.attachmentContainer {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.75em;
+  background-color: #2f3136;
+  border-radius: 0.5em;
+  width: fit-content;
+  margin-top: 0.5em;
+  margin-left: 3em;
+}
+
+.attachmentIcon {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: #1935a1;
+  border-radius: 0.3em;
+  flex-shrink: 0;
+  position: relative;
+
+  &::before {
+    content: "📄";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+  }
+}
+
+.attachmentTitle {
+  color: #00b0f4;
+  font-size: 1em;
+}
+
+.attachmentSize {
+  color: #72767d;
+  font-size: 0.8em;
 }

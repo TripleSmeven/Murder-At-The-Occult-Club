@@ -2,10 +2,11 @@
 
 import { Nav, Tooltip, OverlayTrigger } from "react-bootstrap";
 import { useDevMode } from "../../hooks/useDevMode";
-import HintsButton from "../hintsButton/HintsButton";
-import ResetButton from "../resetButton/resetButton";
+import HintsButton from "./hintsButton/HintsButton";
+import ResetButton from "./resetButton";
 import SpotlightOverlay from "../SpotlightOverlay";
 import styles from "./ChapterBaseComponent.module.css";
+import BackButton from "./backButton";
 
 interface ChapterBaseComponentProps {
   chapter: number;
@@ -14,13 +15,16 @@ interface ChapterBaseComponentProps {
 
 export function ChapterBaseComponent({ chapter, content }: ChapterBaseComponentProps) {
   return (
-    <div className={styles.gameParent}>
-      <div className={styles.cornerButtons}>
-        <HintsButton className={styles.hintsButton} chapter={chapter} />
-        <ResetButton className={styles.resetButton} />
+    <>
+      <div className={styles.gameParent}>
+        <div className={styles.cornerButtons}>
+          <BackButton className={styles.cornerButton} />
+          <HintsButton className={styles.cornerButton} chapter={chapter} />
+          <ResetButton className={styles.cornerButton} />
+        </div>
+        {content}
       </div>
-      {content}
-    </div>
+    </>
   );
 }
 

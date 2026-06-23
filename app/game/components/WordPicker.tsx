@@ -13,13 +13,21 @@ interface CustomPickerProps {
   callback?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const SUSPECTS = [
+export const CHAPTER1_NAMES = [
   "Sarah Findley",
   "Thomas Brooke",
   "Carlos Sanchez",
   "Andrew Wolfe",
   "Candace Eng",
   "Zach Cunningham",
+];
+
+export const CHAPTER2_NAMES = [
+  "Matt Crocker",
+  "Daisy Verde",
+  "Nikki Yu",
+  "David Kataria",
+  "Martin Larssen",
 ];
 
 export enum Color {
@@ -33,6 +41,7 @@ export enum Color {
   CYAN = "cyan",
   PURPLE = "purple",
   BLACK = "black",
+  GRAY = "gray",
 }
 
 export function NamePicker({ label, color, disabled, storageKey, callback }: CustomPickerProps) {
@@ -41,7 +50,20 @@ export function NamePicker({ label, color, disabled, storageKey, callback }: Cus
       label={label}
       color={color}
       disabled={disabled}
-      words={SUSPECTS}
+      words={CHAPTER1_NAMES}
+      storageKey={storageKey}
+      callback={callback}
+    />
+  );
+}
+
+export function NamePicker2({ label, color, disabled, storageKey, callback }: CustomPickerProps) {
+  return (
+    <CustomPicker
+      label={label}
+      color={color}
+      disabled={disabled}
+      words={CHAPTER2_NAMES}
       storageKey={storageKey}
       callback={callback}
     />

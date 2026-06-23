@@ -4,7 +4,7 @@ import LetterFromX from "./LetterFromX";
 export default function LetterFromX1() {
   const lines = [
     "Hello.",
-    "A fellow classmate of yours, Zach Cunningham, has died. The university president will soon release a statement claiming it was a suicide.",
+    "A student at Kaiser University, Zach Cunningham, has died. The university president will soon release a statement claiming it was a suicide.",
     `But that's a lie, and the president knows that. He's covering it up.`,
     "Zach Cunningham was murdered.",
     "Help me prove it.",

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import CustomCarousel from "../../components/CustomCarousel";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
-import { Color } from "../../components/WordPicker";
+import { CHAPTER1_NAMES, Color } from "../../components/WordPicker";
 import TabContentBase from "../TabContentBase";
 import { allInboxes, type EmailJson, type Inbox } from "./EmailInboxJsons";
 import styles from "./EmailInboxes.module.css";
@@ -69,19 +69,47 @@ export default function EmailInboxes() {
     sections: [
       {
         title: "Inbox 2",
-        questions: [{ question: "Unknown", answer: "Thomas Brooke", color: Color.GREEN }],
+        questions: [
+          {
+            question: "Unknown",
+            answers: CHAPTER1_NAMES,
+            answer: "Thomas Brooke",
+            color: Color.GREEN,
+          },
+        ],
       },
       {
         title: "Inbox 3",
-        questions: [{ question: "Unknown", answer: "Sarah Findley", color: Color.GREEN }],
+        questions: [
+          {
+            question: "Unknown",
+            answers: CHAPTER1_NAMES,
+            answer: "Sarah Findley",
+            color: Color.GREEN,
+          },
+        ],
       },
       {
         title: "Inbox 4",
-        questions: [{ question: "Unknown", answer: "Carlos Sanchez", color: Color.GREEN }],
+        questions: [
+          {
+            question: "Unknown",
+            answers: CHAPTER1_NAMES,
+            answer: "Carlos Sanchez",
+            color: Color.GREEN,
+          },
+        ],
       },
       {
         title: "Inbox 5",
-        questions: [{ question: "Unknown", answer: "Andrew Wolfe", color: Color.GREEN }],
+        questions: [
+          {
+            question: "Unknown",
+            answers: CHAPTER1_NAMES,
+            answer: "Andrew Wolfe",
+            color: Color.GREEN,
+          },
+        ],
       },
     ],
   };

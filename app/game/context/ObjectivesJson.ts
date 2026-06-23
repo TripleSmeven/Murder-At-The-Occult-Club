@@ -1,8 +1,8 @@
 import { Color } from "../components/WordPicker";
 
 export type ObjectivesJson = {
-  heading?: string;
-  sections?: ObjectiveSection[];
+  heading: string;
+  sections: ObjectiveSection[];
 };
 
 export type ObjectiveSection = {
@@ -12,7 +12,7 @@ export type ObjectiveSection = {
 
 export type ObjectiveQuestion = {
   question: string;
-  answers?: string[];
-  answer?: string;
+  answers: string[];
+  answer: string;
   color: Color;
 };

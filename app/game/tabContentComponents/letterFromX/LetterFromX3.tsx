@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { StageContext } from "../../context/StageContext";
-import { Color } from "../../components/WordPicker";
+import { CHAPTER1_NAMES, Color } from "../../components/WordPicker";
 import LetterFromX from "./LetterFromX";
 import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
 import { VictoryScreen } from "../../components/VictoryScreen";
@@ -24,6 +24,7 @@ export default function LetterFromX3() {
         questions: [
           {
             question: "",
+            answers: CHAPTER1_NAMES,
             answer: "Andrew Wolfe",
             color: Color.ORANGE,
           },

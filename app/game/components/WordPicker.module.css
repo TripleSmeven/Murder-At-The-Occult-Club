@@ -73,3 +73,8 @@
   background-color: white;
   color: black;
 }
+
+.gray {
+  background-color: rgb(80, 79, 79);
+  color: white;
+}

@@ -3,7 +3,7 @@
 import React, { useContext, useState } from "react";
 import styles from "./Hints.module.css";
 import { hintsJson } from "./HintsJson";
-import { StageContext } from "../../context/StageContext";
+import { StageContext } from "../../../context/StageContext";
 
 interface HintsModalProps {
   chapter: number;

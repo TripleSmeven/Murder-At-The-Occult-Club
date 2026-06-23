@@ -37,7 +37,7 @@
 }
 
 .navSection {
-  border: 1px solid var(--boostrap-blue);
+  border: 1px solid var(--bootstrap-blue);
   margin-bottom: 1em;
   padding: 0.25em;
 
@@ -70,12 +70,8 @@
   z-index: 1000;
   display: flex;
 
-  .resetButton {
-    margin: 0 0.2em;
-  }
-
-  .hintsButton {
-    margin: 0 0.2em;
+  .cornerButton {
+    margin: 0 0.1em;
   }
 }
 

@@ -68,6 +68,24 @@ const TextMessageSecondary = ({ content }: { content: string }) => {
   );
 };
 
+interface TextMessageAttachmentProps {
+  title: string;
+  bytes: number;
+}
+
+export const TextMessageAttachment = ({ title, bytes }: TextMessageAttachmentProps) => {
+  return (
+    <div className={styles.attachmentContainer}>
+      <div className={styles.attachmentIcon}></div>
+      <div>
+        <div className={styles.attachmentTitle}>{title}</div>
+        <div className={styles.attachmentSize}>{bytes + " KB"}</div>
+      </div>
+      <div>⬇️</div>
+    </div>
+  );
+};
+
 interface ConversationComponentProps extends ConversationJson {
   theme?: Theme;
   index: number;
@@ -97,6 +115,16 @@ export const ConversationComponent = ({
     // advance the timestamp by 1 second per character in the message,
     // to simulate the time it takes to type up that message
     currentTimeStamp.setTime(currentTimeStamp.getTime() + 1000 * message.content.length);
+
+    if (message.attachment) {
+      return (
+        <TextMessageAttachment
+          title={message.attachment.title}
+          bytes={message.attachment.bytes}
+          key={index2}
+        />
+      );
+    }
 
     // if the sender is the same as the previous message, render a secondary message (no profile or name)
     if (message.sender === previousSender) {
