@@ -27,7 +27,11 @@ export default function GameTitle() {
       <h1 className={styles.title}>Murder at the Occult Club</h1>
       <h2 className={styles.subtitle}>Select a chapter</h2>
       <div className={styles.chapterList}>
-        <ChapterCard title="1. The Elixir of Oblivion" link="/game/chapter1" image="chapter1" />
+        <ChapterCard
+          title="1. Murder at the Occult Club"
+          link="/game/chapter1"
+          image="chapter1"
+        />
         <ChapterCard title="2. (Coming soon!)" link="#" image="chapter2" />
       </div>
     </div>

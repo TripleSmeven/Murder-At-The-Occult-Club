@@ -31,6 +31,11 @@
   padding: 0 0.5em;
 }
 
+/* so that the tab container row is always expanded horizontally as much as it can*/
+.navRow {
+  width: 100%;
+}
+
 .navCol {
   padding: 0;
   height: fit-content;

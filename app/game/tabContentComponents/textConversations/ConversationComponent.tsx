@@ -1,10 +1,21 @@
 import { ConversationJson } from "./ConversationJsons";
 import styles from "./ConversationComponent.module.css";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
-import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
+import {
+  ProgressContext,
+  ProgressKeys,
+} from "../../components/ProgressContext";
 import { useContext } from "react";
 
 type Theme = "slack" | "discord";
+
+const DATE_FORMAT: Intl.DateTimeFormatOptions = {
+  year: "2-digit",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+};
 
 interface TextMessageJson {
   sender: string;
@@ -52,7 +63,7 @@ const TextMessagePrimary = ({
           <div className={styles.messageSender}>{sender}</div>
           <div className={styles.messageTime}>{time}</div>
         </div>
-        <div className={styles.messageContent}>{content}</div>
+        <MessageContent content={content} />
       </div>
     </div>
   );
@@ -62,7 +73,7 @@ const TextMessageSecondary = ({ content }: { content: string }) => {
   return (
     <div className={styles.secondaryParent}>
       <div className={styles.secondaryMessageParent}>
-        <div className={styles.messageContent}>{content}</div>
+        <MessageContent content={content} />
       </div>
     </div>
   );
@@ -73,7 +84,10 @@ interface TextMessageAttachmentProps {
   bytes: number;
 }
 
-export const TextMessageAttachment = ({ title, bytes }: TextMessageAttachmentProps) => {
+export const TextMessageAttachment = ({
+  title,
+  bytes,
+}: TextMessageAttachmentProps) => {
   return (
     <div className={styles.attachmentContainer}>
       <div className={styles.attachmentIcon}></div>
@@ -86,6 +100,30 @@ export const TextMessageAttachment = ({ title, bytes }: TextMessageAttachmentPro
   );
 };
 
+export const MessageContent = ({ content }: { content: string }) => {
+  const parts = content.split(/(@\w+|https:\/\/\S+)/g);
+
+  const processedContent = parts.map((part, index) => {
+    if (part.startsWith("@")) {
+      return (
+        <span key={index} className={styles.usernameMention}>
+          {part}
+        </span>
+      );
+    }
+    if (part.startsWith("https://")) {
+      return (
+        <span key={index} className={styles.hyperlink}>
+          {part}
+        </span>
+      );
+    }
+    return part;
+  });
+
+  return <div className={styles.messageContent}>{processedContent}</div>;
+};
+
 interface ConversationComponentProps extends ConversationJson {
   theme?: Theme;
   index: number;
@@ -96,15 +134,10 @@ export const ConversationComponent = ({
   messages,
   index,
   theme = "slack",
+  speed,
 }: ConversationComponentProps) => {
   const { answers } = useContext(ObjectivesContext);
-  const dateFormat: Intl.DateTimeFormatOptions = {
-    year: "2-digit",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-  };
+
   let previousSender = "";
   const currentTimeStamp = new Date(date);
 
@@ -114,7 +147,10 @@ export const ConversationComponent = ({
   const conversationContent = messages.map((message, index2) => {
     // advance the timestamp by 1 second per character in the message,
     // to simulate the time it takes to type up that message
-    currentTimeStamp.setTime(currentTimeStamp.getTime() + 1000 * message.content.length);
+    const msPerWord = speed === "fast" ? 100 : 1000;
+    currentTimeStamp.setTime(
+      currentTimeStamp.getTime() + msPerWord * message.content.length,
+    );
 
     if (message.attachment) {
       return (
@@ -149,7 +185,10 @@ export const ConversationComponent = ({
           key={index2}
           sender={senderToDisplay}
           profile={message.sender}
-          time={currentTimeStamp.toLocaleString(navigator.language, dateFormat)}
+          time={currentTimeStamp.toLocaleString(
+            navigator.language,
+            DATE_FORMAT,
+          )}
           content={message.content}
           theme={theme}
         />
@@ -157,7 +196,9 @@ export const ConversationComponent = ({
     }
   });
   return (
-    <div className={`${styles.conversationParent} ${theme === "discord" && styles.discordTheme}`}>
+    <div
+      className={`${styles.conversationParent} ${theme === "discord" && styles.discordTheme}`}
+    >
       {conversationContent}
     </div>
   );

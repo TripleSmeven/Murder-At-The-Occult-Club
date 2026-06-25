@@ -30,6 +30,7 @@ import {
   ChapterBaseComponent,
   NavItemWithLock,
 } from "../components/chapterBase/ChapterBaseComponent";
+import SchoolNewspaper from "../tabContentComponents/newspaper/SchoolNewspaper";
 
 const CHAPTER = 1;
 
@@ -46,7 +47,9 @@ function GameComponent() {
   const { isSolved } = useContext(ProgressContext);
 
   const stage2LockedTooltip =
-    currentStage >= 1 ? "Unlock by completing the Objectives in the Police Report." : "";
+    currentStage >= 1
+      ? "Unlock by completing the Objectives in the Police Report."
+      : "";
 
   // don't show this tooltip until stage 2 to avoid spoilers
   const stage3LockedTooltip =
@@ -77,7 +80,7 @@ function GameComponent() {
   /* https://react-bootstrap.netlify.app/docs/components/tabs/#custom-tab-layout */
   const tabsComponent = (
     <Tab.Container id="left-tabs-example" defaultActiveKey="LetterFromX">
-      <Row>
+      <Row className={styles.navRow}>
         <Col sm={2} className={`${styles.navCol}`}>
           <div className={`${styles.navSection}`}>
             <Nav variant="pills">
@@ -199,7 +202,7 @@ function GameComponent() {
               <PoliceReport />
             </Tab.Pane>
             <Tab.Pane eventKey="Newspaper">
-              <Newspaper />
+              <SchoolNewspaper />
             </Tab.Pane>
             <Tab.Pane eventKey="Recipe">
               <Recipe />
@@ -211,7 +214,10 @@ function GameComponent() {
               <EmailInboxes />
             </Tab.Pane>
             {/* need special width css for some reason */}
-            <Tab.Pane eventKey="AmazingOrders" className={styles.amazingOrdersTab}>
+            <Tab.Pane
+              eventKey="AmazingOrders"
+              className={styles.amazingOrdersTab}
+            >
               <AmazingOrders />
             </Tab.Pane>
             <Tab.Pane eventKey="DiaryPages">

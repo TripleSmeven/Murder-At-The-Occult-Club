@@ -8,6 +8,7 @@ export type ConversationJson = {
       bytes: number;
     };
   }>;
+  speed?: "fast" | "normal";
 };
 
 const Police: ConversationJson = {
@@ -23,7 +24,8 @@ const Police: ConversationJson = {
     },
     {
       sender: "Sebastian Waller",
-      content: "Sheriff said so. You know the drill. You can take it up with him if you want",
+      content:
+        "Sheriff said so. You know the drill. You can take it up with him if you want",
     },
     {
       sender: "Troy Samson",
@@ -52,7 +54,8 @@ const Police: ConversationJson = {
     },
     {
       sender: "Troy Samson",
-      content: "And that a kid from her school didn't just get poisoned by another kid.",
+      content:
+        "And that a kid from her school didn't just get poisoned by another kid.",
     },
     {
       sender: "Sebastian Waller",
@@ -84,7 +87,8 @@ const Aftermath1: ConversationJson = {
   messages: [
     {
       sender: "Unknown A",
-      content: "Noone has texted the group chat and there are police on campus now.",
+      content:
+        "Noone has texted the group chat and there are police on campus now.",
     },
     {
       sender: "Unknown A",
@@ -116,7 +120,8 @@ const Aftermath1: ConversationJson = {
     },
     {
       sender: "Unknown B",
-      content: "Instead, we just ran for our lives when his eyes started doing that.",
+      content:
+        "Instead, we just ran for our lives when his eyes started doing that.",
     },
     {
       sender: "Unknown A",
@@ -202,7 +207,8 @@ const Aftermath2: ConversationJson = {
     },
     {
       sender: "Unknown B",
-      content: "I've been talking to someone who I think can tell us more'. Hold on.",
+      content:
+        "I've been talking to someone who I think can tell us more'. Hold on.",
     },
     {
       sender: "Unknown B",
@@ -221,7 +227,8 @@ const Tea: ConversationJson = {
   messages: [
     {
       sender: "Evelyn Samson",
-      content: "Thanks for reaching out. I'm glad at the very least it won't all go to waste",
+      content:
+        "Thanks for reaching out. I'm glad at the very least it won't all go to waste",
     },
     {
       sender: "Unknown A",
@@ -233,7 +240,8 @@ const Tea: ConversationJson = {
     },
     {
       sender: "Evelyn Samson",
-      content: "The only ones we have left are Yerba mate, chamomile, and youthberry",
+      content:
+        "The only ones we have left are Yerba mate, chamomile, and youthberry",
     },
     {
       sender: "Unknown A",
@@ -260,7 +268,8 @@ const PromiseMe: ConversationJson = {
     },
     {
       sender: "Heather Douglas",
-      content: "3 years ago, he would have been still in college, not in highschool.",
+      content:
+        "3 years ago, he would have been still in college, not in highschool.",
     },
     {
       sender: "Unknown A",
@@ -308,7 +317,8 @@ const Mom: ConversationJson = {
     },
     {
       sender: "Carlos Sanchez",
-      content: "Good. I've just been studying a lot and trying to make friends.",
+      content:
+        "Good. I've just been studying a lot and trying to make friends.",
     },
     {
       sender: "Maria Sanchez",
@@ -321,7 +331,8 @@ const Mom: ConversationJson = {
     },
     {
       sender: "Maria Sanchez",
-      content: "You're so sweet mijo, but I'm too far away. A plane ticket is too much.",
+      content:
+        "You're so sweet mijo, but I'm too far away. A plane ticket is too much.",
     },
     {
       sender: "Maria Sanchez",
@@ -340,7 +351,8 @@ const Welcome: ConversationJson = {
     },
     {
       sender: "Unknown B",
-      content: "Hi! Thanks so much! Just happened to meet ZC at the right time.",
+      content:
+        "Hi! Thanks so much! Just happened to meet ZC at the right time.",
     },
     {
       sender: "Unknown A",
@@ -348,7 +360,8 @@ const Welcome: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "i just wanted to let you know you can talk to me anytime about the club!",
+      content:
+        "i just wanted to let you know you can talk to me anytime about the club!",
     },
     {
       sender: "Unknown A",
@@ -376,7 +389,8 @@ const Welcome: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "i would do cat (or gerbil) but others have that covered already",
+      content:
+        "i would do cat (or gerbil) but others have that covered already",
     },
     {
       sender: "Unknown A",
@@ -410,7 +424,8 @@ export const Help: ConversationJson = {
   messages: [
     {
       sender: "Unknown A",
-      content: "You got Zach's message right? He said I can help you make the elixir.",
+      content:
+        "You got Zach's message right? He said I can help you make the elixir.",
     },
     {
       sender: "Unknown B",
@@ -433,4 +448,12 @@ export const Help: ConversationJson = {
   ],
 };
 
-export const primaryConversations = [Police, Aftermath1, Aftermath2, Tea, PromiseMe, Mom, Welcome];
+export const primaryConversations = [
+  Police,
+  Aftermath1,
+  Aftermath2,
+  Tea,
+  PromiseMe,
+  Mom,
+  Welcome,
+];

@@ -12,6 +12,7 @@ import styles from "../components/chapterBase/ChapterBaseComponent.module.css";
 import GroupChat from "../tabContentComponents/textConversations/GroupChat";
 import LetterFromX2_1 from "../tabContentComponents/letterFromX/LetterFromX2_1";
 import PoliceTranscript from "../tabContentComponents/policeTranscript/PoliceTranscript";
+import TripPlan from "../tabContentComponents/notesApp/TripPlan";
 
 const CHAPTER = 2;
 
@@ -26,16 +27,24 @@ export default function Game2() {
 function GameComponent() {
   const tabsComponent = (
     <Tab.Container id="left-tabs-example" defaultActiveKey="LetterFromX">
-      <Row>
+      <Row className={styles.navRow}>
         <Col sm={2} className={`${styles.navCol}`}>
-          <div className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}>
+          <div
+            className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}
+          >
             <Nav variant="pills">
               <NavItemWithLock eventKey="LetterFromX" title="Letter from X" />
-              <NavItemWithLock eventKey="PoliceTranscript" title="Police Transcript" />
+              <NavItemWithLock
+                eventKey="PoliceTranscript"
+                title="Police Transcript"
+              />
               <NavItemWithLock eventKey="GroupChat" title="Group Chat" />
+              <NavItemWithLock eventKey="TripPlan" title="Trip Plan" />
             </Nav>
           </div>
-          <div className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}>
+          <div
+            className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}
+          >
             <Nav variant="pills">
               <NavItemWithLock eventKey="test" title="test" />
             </Nav>
@@ -46,14 +55,14 @@ function GameComponent() {
             <Tab.Pane eventKey="LetterFromX">
               <LetterFromX2_1 />
             </Tab.Pane>
-            <Tab.Pane eventKey="GroupChat">
-              <GroupChat />
-            </Tab.Pane>
             <Tab.Pane eventKey="PoliceTranscript">
               <PoliceTranscript />
             </Tab.Pane>
-            <Tab.Pane eventKey="test">
-              <LetterFromX2_1 />
+            <Tab.Pane eventKey="GroupChat">
+              <GroupChat />
+            </Tab.Pane>
+            <Tab.Pane eventKey="TripPlan">
+              <TripPlan />
             </Tab.Pane>
           </Tab.Content>
         </Col>

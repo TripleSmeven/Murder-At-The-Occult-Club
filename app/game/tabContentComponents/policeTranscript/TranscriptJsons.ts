@@ -47,7 +47,7 @@ const kataria1: TranscriptJson = {
 const kataria2: TranscriptJson = {
   firstPage: false,
   lines: [
-    { name: KATARIA, text: "Martin, yes. I remember him." },
+    { name: KATARIA, text: "Martin, yes. They're best friends." },
     {
       name: SAMSON,
       text: "And do you remember any of his other friends? Friends that he might be with right now?",
@@ -58,7 +58,7 @@ const kataria2: TranscriptJson = {
     { name: SAMSON, text: "Mr. Kataria, do you know the names of any of his other friends?" },
     {
       name: KATARIA,
-      text: "I, uh...He has this postcard. Hold on. (SOUNDS OF PAPERS SHUFFLING) Yes! It's his friend group. He always hangs out with them.",
+      text: "I, uh...He has this postcard. Hold on. (SOUNDS OF PAPERS SHUFFLING) Yes! It's his friend group. They do everything together.",
     },
     { name: SAMSON, text: "Can you read them out for me?" },
     { name: KATARIA, text: "Matthew Crocker, Daisy Verde, Nikki Yu, and Martin Larssen." },
