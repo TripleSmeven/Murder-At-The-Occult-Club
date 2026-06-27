@@ -23,6 +23,8 @@ export enum ProgressKeys {
   ONLINE_ORDERS = "onlineOrders",
   SOLVE_THE_CASE = "solveTheCase",
   SOLVE_THE_CASE_2 = "solveTheCase2",
+
+  KAISER_TIMES_UNLOCKED = "kaiserTimesUnlocked",
 }
 
 interface ProgressProviderProps {
@@ -30,7 +32,10 @@ interface ProgressProviderProps {
   children: ReactNode;
 }
 
-export function ProgressProvider({ chapter, children }: ProgressProviderProps): JSX.Element {
+export function ProgressProvider({
+  chapter,
+  children,
+}: ProgressProviderProps): JSX.Element {
   const [progressState, setProgressState] = useLocalStorage(
     PROGRESS_STORAGE_KEY,
     chapter.toString(),

@@ -6,6 +6,7 @@ import {
   ProgressKeys,
 } from "../../components/ProgressContext";
 import { useContext } from "react";
+import { useTab } from "../../hooks/useTab";
 
 type Theme = "slack" | "discord";
 
@@ -101,6 +102,8 @@ export const TextMessageAttachment = ({
 };
 
 export const MessageContent = ({ content }: { content: string }) => {
+  const { setActiveTab } = useTab();
+  const { setSolved } = useContext(ProgressContext);
   const parts = content.split(/(@\w+|https:\/\/\S+)/g);
 
   const processedContent = parts.map((part, index) => {
@@ -111,9 +114,13 @@ export const MessageContent = ({ content }: { content: string }) => {
         </span>
       );
     }
-    if (part.startsWith("https://")) {
+    if (part.startsWith("https://kaisertimes")) {
+      const onClick = () => {
+        setSolved(ProgressKeys.KAISER_TIMES_UNLOCKED, true);
+        setActiveTab("test");
+      };
       return (
-        <span key={index} className={styles.hyperlink}>
+        <span key={index} className={styles.hyperlink} onClick={onClick}>
           {part}
         </span>
       );

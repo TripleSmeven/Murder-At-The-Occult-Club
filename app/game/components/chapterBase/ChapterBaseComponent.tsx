@@ -13,7 +13,10 @@ interface ChapterBaseComponentProps {
   content: React.ReactNode;
 }
 
-export function ChapterBaseComponent({ chapter, content }: ChapterBaseComponentProps) {
+export function ChapterBaseComponent({
+  chapter,
+  content,
+}: ChapterBaseComponentProps) {
   return (
     <>
       <div className={styles.gameParent}>
@@ -28,33 +31,35 @@ export function ChapterBaseComponent({ chapter, content }: ChapterBaseComponentP
   );
 }
 
+// titles that are revealed even if its locked
+const EXEMPT_TITLES = ["Solve the Case"];
+
+type NavItemWithLockProps = {
+  eventKey: string;
+  title: string;
+  emoji?: string;
+  locked?: boolean;
+  lockedTooltip?: string;
+  /** Pulsing glow around the tab; purely visual overlay (does not affect layout). */
+  showSpotlight?: boolean;
+};
+
 export function NavItemWithLock({
   eventKey,
   title,
   emoji,
-  stageToUnlock = 0,
-  currentStage = 0,
+  locked = false,
   lockedTooltip,
   showSpotlight = false,
-}: {
-  eventKey: string;
-  title: string;
-  emoji?: string;
-  stageToUnlock?: number;
-  currentStage?: number;
-  lockedTooltip?: string;
-  /** Pulsing glow around the tab; purely visual overlay (does not affect layout). */
-  showSpotlight?: boolean;
-}) {
+}: NavItemWithLockProps) {
   const devMode = useDevMode();
-  let isLocked = currentStage < stageToUnlock;
   if (devMode) {
-    isLocked = false;
+    locked = false;
   }
 
   let textToShow;
-  if (isLocked) {
-    if (title === "Solve the Case") {
+  if (locked) {
+    if (EXEMPT_TITLES.includes(title)) {
       textToShow = "🔒" + title;
     } else {
       textToShow = `🔒???`;
@@ -64,15 +69,16 @@ export function NavItemWithLock({
   }
 
   const navLink = (
-    <Nav.Link eventKey={eventKey} disabled={isLocked}>
+    <Nav.Link eventKey={eventKey} disabled={locked}>
       {textToShow}
     </Nav.Link>
   );
 
-  const spotlightOverlay = showSpotlight && !isLocked ? <SpotlightOverlay /> : null;
+  const spotlightOverlay =
+    showSpotlight && !locked ? <SpotlightOverlay /> : null;
 
   // wrap a tooltip over the navLink if its locked
-  if (isLocked && lockedTooltip) {
+  if (locked && lockedTooltip) {
     const tooltip = <Tooltip id={`tooltip-${title}`}>{lockedTooltip}</Tooltip>;
     return (
       <Nav.Item>

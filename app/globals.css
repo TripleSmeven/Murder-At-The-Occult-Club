@@ -85,6 +85,9 @@ body {
   .nav-link:hover {
     color: var(--chapter2-orange-hover);
   }
+  .nav-link.disabled {
+    color: gray;
+  }
 }
 
 /* hack bootstrap disabled select forms */

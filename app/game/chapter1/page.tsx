@@ -36,7 +36,7 @@ const CHAPTER = 1;
 
 export default function Game() {
   return (
-    <GameContext chapter={CHAPTER}>
+    <GameContext chapter={CHAPTER} defaultTab="LetterFromX">
       <GameComponent />
     </GameContext>
   );
@@ -93,36 +93,31 @@ function GameComponent() {
               <NavItemWithLock
                 eventKey="Newspaper"
                 title="School Newspaper"
-                stageToUnlock={1}
-                currentStage={currentStage}
+                locked={currentStage < 1}
               />
               <NavItemWithLock
                 eventKey="Recipe"
                 title="Mysterious Recipe"
-                stageToUnlock={1}
-                currentStage={currentStage}
+                locked={currentStage < 1}
               />
               <NavItemWithLock
                 eventKey="TextConversations"
                 title="Text Messages"
-                stageToUnlock={2}
-                currentStage={currentStage}
+                locked={currentStage < 2}
                 lockedTooltip={stage2LockedTooltip}
                 emoji={isSolved(ProgressKeys.TEXT_CONVERSATIONS) ? "✅" : "🎯"}
               />
               <NavItemWithLock
                 eventKey="Emails"
                 title="Email Inboxes"
-                stageToUnlock={2}
-                currentStage={currentStage}
+                locked={currentStage < 2}
                 lockedTooltip={stage2LockedTooltip}
                 emoji={isSolved(ProgressKeys.EMAILS) ? "✅" : "🎯"}
               />
               <NavItemWithLock
                 eventKey="AmazingOrders"
                 title="Online Orders"
-                stageToUnlock={2}
-                currentStage={currentStage}
+                locked={currentStage < 2}
                 lockedTooltip={stage2LockedTooltip}
                 emoji={isSolved(ProgressKeys.ONLINE_ORDERS) ? "✅" : "🎯"}
               />
@@ -133,36 +128,31 @@ function GameComponent() {
               <NavItemWithLock
                 eventKey="DiaryPages"
                 title="Diary Pages"
-                stageToUnlock={3}
-                currentStage={currentStage}
+                locked={currentStage < 3}
                 lockedTooltip={stage3LockedTooltip}
               />
               <NavItemWithLock
                 eventKey="MeetingSummary"
                 title="Meeting Summary"
-                stageToUnlock={3}
-                currentStage={currentStage}
+                locked={currentStage < 3}
                 lockedTooltip={stage3LockedTooltip}
               />
               <NavItemWithLock
                 eventKey="PotluckPlanner"
                 title="Potluck Planner"
-                stageToUnlock={3}
-                currentStage={currentStage}
+                locked={currentStage < 3}
                 lockedTooltip={stage3LockedTooltip}
               />
               <NavItemWithLock
                 eventKey="RitualInstructions"
                 title="Ritual Instructions"
-                stageToUnlock={3}
-                currentStage={currentStage}
+                locked={currentStage < 3}
                 lockedTooltip={stage3LockedTooltip}
               />
               <NavItemWithLock
                 eventKey="NewTextMessage"
                 title="New Text Message"
-                stageToUnlock={3}
-                currentStage={currentStage}
+                locked={currentStage < 3}
                 lockedTooltip={stage3LockedTooltip}
               />
             </Nav>
@@ -172,23 +162,20 @@ function GameComponent() {
               <NavItemWithLock
                 eventKey="LetterFromX2"
                 title="Solve the Case"
-                stageToUnlock={3}
-                currentStage={currentStage}
+                locked={currentStage < 3}
                 lockedTooltip={solveTheCaseTooltip}
                 emoji={isSolved(ProgressKeys.SOLVE_THE_CASE) ? "✅" : "🎯"}
               />
               <NavItemWithLock
                 eventKey="LetterFromX3"
                 title="Solve the Case 2"
-                stageToUnlock={4}
-                currentStage={currentStage}
+                locked={currentStage < 4}
                 emoji={isSolved(ProgressKeys.SOLVE_THE_CASE_2) ? "✅" : "🎯"}
               />
               <NavItemWithLock
                 eventKey="FarewellLetter"
                 title="Farewell Letter"
-                stageToUnlock={5}
-                currentStage={currentStage}
+                locked={currentStage < 5}
               />
             </Nav>
           </div>
