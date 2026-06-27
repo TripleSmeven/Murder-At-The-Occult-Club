@@ -11,6 +11,7 @@ import {
   Pangolin,
   Crafty_Girls,
   Domine,
+  Lavishly_Yours,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
@@ -24,6 +25,13 @@ const pangolin = Pangolin({
 
 // letter from x
 const patrick = Patrick_Hand({
+  variable: "--font-patrick",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// letter from walter
+const lavishly_yours = Lavishly_Yours({
   variable: "--font-patrick",
   weight: "400",
   subsets: ["latin"],

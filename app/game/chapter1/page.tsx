@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 import styles from "../components/chapterBase/ChapterBaseComponent.module.css";
 
-import LetterFromX1 from "../tabContentComponents/letterFromX/LetterFromX1";
+import LetterFromX1 from "../tabContentComponents/handwrittenLetter/LetterFromX1";
 import PoliceReport from "../tabContentComponents/policeReport/PoliceReport";
 import Recipe from "../tabContentComponents/recipe/Recipe";
 import AmazingOrders from "../tabContentComponents/amazingOrders/AmazingOrders";
@@ -19,13 +19,13 @@ import { useContext } from "react";
 import { StageContext } from "../context/StageContext";
 import PotluckPlanner from "../tabContentComponents/potluckPlanner/PotluckPlanner";
 import { ProgressContext, ProgressKeys } from "../components/ProgressContext";
-import LetterFromX2 from "../tabContentComponents/letterFromX/LetterFromX2";
+import LetterFromX2 from "../tabContentComponents/handwrittenLetter/LetterFromX2";
 import DiaryPages from "../tabContentComponents/diaryPages/DiaryPages";
 import MeetingSummary from "../tabContentComponents/meetingSummary/MeetingSummary";
 import RitualInstructions from "../tabContentComponents/email/RitualInstructions";
 import TextConversations2 from "../tabContentComponents/textConversations/TextConversations2";
-import LetterFromX3 from "../tabContentComponents/letterFromX/LetterFromX3";
-import LetterFromX4 from "../tabContentComponents/letterFromX/LetterFromX4";
+import LetterFromX3 from "../tabContentComponents/handwrittenLetter/LetterFromX3";
+import LetterFromX4 from "../tabContentComponents/handwrittenLetter/LetterFromX4";
 import {
   ChapterBaseComponent,
   NavItemWithLock,

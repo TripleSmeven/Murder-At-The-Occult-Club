@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { StageContext } from "../../context/StageContext";
 import { CHAPTER1_NAMES, Color } from "../../components/WordPicker";
-import LetterFromX from "./LetterFromX";
+import HandwrittenLetter from "./HandwrittenLetter";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
-import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
+import {
+  ProgressContext,
+  ProgressKeys,
+} from "../../components/ProgressContext";
 import TabContentBase from "../TabContentBase";
 
 export default function LetterFromX2() {
@@ -98,6 +101,12 @@ export default function LetterFromX2() {
     }
   };
 
-  const evidence = <LetterFromX lines={lines} />;
-  return <TabContentBase evidence={evidence} objectivesJson={objectives} onCorrect={onCorrect} />;
+  const evidence = <HandwrittenLetter lines={lines} />;
+  return (
+    <TabContentBase
+      evidence={evidence}
+      objectivesJson={objectives}
+      onCorrect={onCorrect}
+    />
+  );
 }

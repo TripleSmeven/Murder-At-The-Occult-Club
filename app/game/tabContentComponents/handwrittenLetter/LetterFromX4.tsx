@@ -1,5 +1,5 @@
 import TabContentBase from "../TabContentBase";
-import LetterFromX from "./LetterFromX";
+import HandwrittenLetter from "./HandwrittenLetter";
 
 export default function LetterFromX4() {
   const lines = [
@@ -11,7 +11,7 @@ export default function LetterFromX4() {
     "- X",
   ];
 
-  const evidence = <LetterFromX lines={lines} />;
+  const evidence = <HandwrittenLetter lines={lines} />;
 
   return <TabContentBase evidence={evidence} />;
 }

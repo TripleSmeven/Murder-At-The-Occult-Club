@@ -16,8 +16,10 @@ export default function TripPlan() {
 
         <div>Stuff to do</div>
         <ul>
+          <li>Explore the grounds</li>
           <li>Have a bout round the nearby town</li>
           <li>Shop for groceries</li>
+          <li>Toy shop for Nikki&apos;s lil brother</li>
           <li>Boating in lake? (Be in same boat as David)</li>
           <li>Bowling?</li>
           <li>Karoke?</li>

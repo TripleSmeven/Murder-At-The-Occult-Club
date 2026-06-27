@@ -2,8 +2,11 @@ import { useContext, useState } from "react";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { StageContext } from "../../context/StageContext";
 import { CHAPTER1_NAMES, Color } from "../../components/WordPicker";
-import LetterFromX from "./LetterFromX";
-import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
+import HandwrittenLetter from "./HandwrittenLetter";
+import {
+  ProgressContext,
+  ProgressKeys,
+} from "../../components/ProgressContext";
 import { VictoryScreen } from "../../components/VictoryScreen";
 import TabContentBase from "../TabContentBase";
 
@@ -48,7 +51,13 @@ export default function LetterFromX3() {
           {
             question: "Sodium Compound",
             answer: "Chile Saltpeter",
-            answers: ["Salt", "Fertilizer", "Baking Soda", "Bleach", "Chile Saltpeter"],
+            answers: [
+              "Salt",
+              "Fertilizer",
+              "Baking Soda",
+              "Bleach",
+              "Chile Saltpeter",
+            ],
             color: Color.ORANGE,
           },
           {
@@ -92,12 +101,18 @@ export default function LetterFromX3() {
     setShowVictoryScreen(false); // unmount the victory overlay after its done.
   };
 
-  const evidence = <LetterFromX lines={lines} />;
+  const evidence = <HandwrittenLetter lines={lines} />;
 
   return (
     <>
-      {showVictoryScreen && <VictoryScreen onComplete={handleVictoryComplete} />}
-      <TabContentBase evidence={evidence} objectivesJson={objectives} onCorrect={onCorrect} />
+      {showVictoryScreen && (
+        <VictoryScreen onComplete={handleVictoryComplete} />
+      )}
+      <TabContentBase
+        evidence={evidence}
+        objectivesJson={objectives}
+        onCorrect={onCorrect}
+      />
     </>
   );
 }

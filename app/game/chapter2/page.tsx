@@ -10,7 +10,7 @@ import { GameContext } from "../context/GameContext";
 
 import styles from "../components/chapterBase/ChapterBaseComponent.module.css";
 import GroupChat from "../tabContentComponents/textConversations/GroupChat";
-import LetterFromX2_1 from "../tabContentComponents/letterFromX/LetterFromX2_1";
+import LetterFromX2_1 from "../tabContentComponents/handwrittenLetter/LetterFromX2_1";
 import PoliceTranscript from "../tabContentComponents/policeTranscript/PoliceTranscript";
 import TripPlan from "../tabContentComponents/notesApp/TripPlan";
 

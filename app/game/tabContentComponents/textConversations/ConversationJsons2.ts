@@ -35,15 +35,14 @@ const Hungry: ConversationJson = {
 };
 
 const Haunted: ConversationJson = {
-  date: "1/14/26 2:54",
-  speed: "fast",
+  date: "1/13/26 8:25",
   messages: [
-    { sender: demon, content: "I'M HUNGRY. WHEN ARE U FEEDING ME?" },
-    { sender: demon, content: "I'M HUNGRY. WHEN ARE U FEEDING ME?" },
-    { sender: demon, content: "I'M HUNGRY. WHEN ARE U FEEDING ME?" },
-    { sender: daisy, content: "wtf" },
-    { sender: martin, content: "who is this?" },
-    { sender: daisy, content: "did someone invite someone?" },
+    { sender: david, content: `@${nikki} @${daisy} @${matt} you guys coming down for breakfast?` },
+    { sender: nikki, content: "I'm up here with her in her room. She had a nightmare." },
+    { sender: matt, content: "Oh, sorry to hear that. Is she alright?" },
+    { sender: david, content: "I dont blame her. I didnt want to say anything but this house feels haunted. No offence @looprevil99" },
+    { sender: nikki, content: "She's a bit shaken but she's alright. Said she felt like something was watching her." },
+    { sender: nikki, content: "@looprevil99 did you check out the library? " },
     { sender: demon, content: "I'M HUNGRY. WHEN ARE U FEEDING ME?" },
     { sender: nikki, content: "@sam_slow_down Very funny." },
     { sender: david, content: "What? I didnt invite this guy." },
@@ -264,17 +263,17 @@ const Mansion: ConversationJson = {
     {
       sender: matt,
       content:
-        "Oh yeah so my mum and dad are gonna be away for business (as usual)",
+        "Oh yeah so me mum and dad are gonna be away. Have to handle some stuff back home after grandad passed",
     },
     {
       sender: matt,
       content:
-        "And a few months ago, I overheard them talking about this mansion of sorts my grandad apparently owned but noone knew about till he kicked the bucket",
+        "And a few months ago, I overheard them talking about this mansion of sorts grandad apparently owned. Had no idea it existed",
     },
     {
       sender: matt,
       content:
-        "Reckon while my folks are out, we have a little house-colding party there before they sell off the place, yea?",
+        "Reckon while my folks are out, we have a little house-colding party there before they sell off the place or something, yea?",
     },
     {
       sender: martin,
@@ -479,7 +478,7 @@ const AfterNYE: ConversationJson = {
 };
 
 export const GroupChatConversations = [
-  Ritual,
+  Haunted,
   Stars,
   Leaving,
   Mansion,
