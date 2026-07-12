@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { StageContext } from "../../context/StageContext";
-import { CHAPTER1_NAMES, Color } from "../../components/WordPicker";
+import { CHAPTER1_NAMES, Color } from "../../components/ObjectiveBuilder";
 import HandwrittenLetter from "./HandwrittenLetter";
 import {
   ProgressContext,

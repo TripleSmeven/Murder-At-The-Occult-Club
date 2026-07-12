@@ -3,10 +3,13 @@ import { JSX, useContext, useState } from "react";
 import styles from "./AmazingOrders.module.css";
 import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
-import { CHAPTER1_NAMES, Color } from "../../components/WordPicker";
+import { CHAPTER1_NAMES, Color } from "../../components/ObjectiveBuilder";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
-import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
+import {
+  ProgressContext,
+  ProgressKeys,
+} from "../../components/ProgressContext";
 
 const INDEX_TO_UNKNOWN_MAP: Record<number, string> = {
   0: "A",
@@ -40,7 +43,9 @@ function OrderRow({
 function OrderRowHeader({ entries }: { entries: string[] }) {
   return (
     <tr className={styles.orderRowHeader}>
-      <td className={`${styles.numberCell} ${styles.ignoreInHeaderRow}`}>{entries[0]}</td>
+      <td className={`${styles.numberCell} ${styles.ignoreInHeaderRow}`}>
+        {entries[0]}
+      </td>
       <td className={styles.dateCell}>{entries[1]}</td>
       <td className={styles.nameCell}>{entries[2]}</td>
       <td className={styles.titleCell}>{entries[3]}</td>
@@ -92,11 +97,21 @@ function AmazingOrdersTable() {
     <div className={styles.amazingOrdersParent}>
       <table className={styles.amazingOrdersTable}>
         <thead className={styles.tableHeader}>
-          <OrderRow rowClassName={styles.lettersRow} entries={["", "A", "B", "C", "D", "E"]} />
+          <OrderRow
+            rowClassName={styles.lettersRow}
+            entries={["", "A", "B", "C", "D", "E"]}
+          />
         </thead>
         <tbody>
           <OrderRowHeader
-            entries={["1", "Date", "Customer Name", "Item Name", "Category", "Price"]}
+            entries={[
+              "1",
+              "Date",
+              "Customer Name",
+              "Item Name",
+              "Category",
+              "Price",
+            ]}
           />
           {orderRows}
         </tbody>

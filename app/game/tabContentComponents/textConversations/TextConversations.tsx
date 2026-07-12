@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import CustomCarousel from "../../components/CustomCarousel";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
-import { CHAPTER1_NAMES, Color } from "../../components/WordPicker";
+import { CHAPTER1_NAMES, Color } from "../../components/ObjectiveBuilder";
 import TabContentBase from "../TabContentBase";
 import { ConversationComponent } from "./ConversationComponent";
 import { primaryConversations } from "./ConversationJsons";
-import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
+import {
+  ProgressContext,
+  ProgressKeys,
+} from "../../components/ProgressContext";
 
 export default function TextConversations() {
   const conversations = primaryConversations.map((conversation, index) => (
@@ -103,5 +106,11 @@ export default function TextConversations() {
       lockedTooltip="Unlock by completing the Objectives in Text Messages, Email Inboxes, and Online Orders."
     />
   );
-  return <TabContentBase evidence={evidence} objectivesJson={objectives} onCorrect={onCorrect} />;
+  return (
+    <TabContentBase
+      evidence={evidence}
+      objectivesJson={objectives}
+      onCorrect={onCorrect}
+    />
+  );
 }

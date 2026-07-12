@@ -1,6 +1,6 @@
 import Form from "react-bootstrap/Form";
 import { useContext } from "react";
-import styles from "./WordPicker.module.css";
+import styles from "./ObjectiveBuilder.module.css";
 import { ObjectivesContext } from "../context/ObjectivesContext";
 
 interface CustomPickerProps {
@@ -10,7 +10,9 @@ interface CustomPickerProps {
   disabled?: boolean;
   words?: string[];
   storageKey: string;
-  callback?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  callback?: (
+    e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>,
+  ) => void;
 }
 
 export const CHAPTER1_NAMES = [
@@ -44,32 +46,6 @@ export enum Color {
   GRAY = "gray",
 }
 
-export function NamePicker({ label, color, disabled, storageKey, callback }: CustomPickerProps) {
-  return (
-    <CustomPicker
-      label={label}
-      color={color}
-      disabled={disabled}
-      words={CHAPTER1_NAMES}
-      storageKey={storageKey}
-      callback={callback}
-    />
-  );
-}
-
-export function NamePicker2({ label, color, disabled, storageKey, callback }: CustomPickerProps) {
-  return (
-    <CustomPicker
-      label={label}
-      color={color}
-      disabled={disabled}
-      words={CHAPTER2_NAMES}
-      storageKey={storageKey}
-      callback={callback}
-    />
-  );
-}
-
 export function CustomPicker({
   label,
   color,
@@ -91,7 +67,12 @@ export function CustomPicker({
       <div className={`${styles.label} ${color && styles[color]}`}>
         {label?.length ? label + ":" : null}
       </div>
-      <Form.Select onChange={onChange} size={"sm"} disabled={disabled} value={currentValue}>
+      <Form.Select
+        onChange={onChange}
+        size={"sm"}
+        disabled={disabled}
+        value={currentValue}
+      >
         <option key={0} value={""}>
           [Select an option]
         </option>
@@ -101,6 +82,38 @@ export function CustomPicker({
           </option>
         ))}
       </Form.Select>
+    </div>
+  );
+}
+
+export function FreeformInput({
+  label,
+  color,
+  disabled,
+  storageKey,
+  callback,
+}: CustomPickerProps) {
+  const { answers, setAnswer } = useContext(ObjectivesContext);
+  const currentValue = answers[storageKey] || "";
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAnswer(storageKey, e.target.value);
+    callback?.(e);
+  };
+
+  return (
+    <div className={`${styles.namePickerParent} ${color && styles[color]}`}>
+      <div className={`${styles.label} ${color && styles[color]}`}>
+        {label?.length ? label + ":" : null}
+      </div>
+      <Form.Control
+        name={label}
+        value={currentValue}
+        placeholder="Type your answer"
+        onChange={onChange}
+        disabled={disabled}
+        maxLength={32}
+      ></Form.Control>
     </div>
   );
 }

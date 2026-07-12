@@ -6,7 +6,6 @@ import {
   ChapterBaseComponent,
 } from "../components/chapterBase/ChapterBaseComponent";
 import { GameContext } from "../context/GameContext";
-import { useTab } from "../hooks/useTab";
 
 import styles from "../components/chapterBase/ChapterBaseComponent.module.css";
 import GroupChat from "../tabContentComponents/textConversations/GroupChat";
@@ -16,6 +15,8 @@ import TripPlan from "../tabContentComponents/notesApp/TripPlan";
 import KaiserTimes from "../tabContentComponents/newspaper/KaiserTimes";
 import { ProgressContext, ProgressKeys } from "../components/ProgressContext";
 import { useContext } from "react";
+import { TabContext } from "../context/TabContext";
+import ConstellationPhoto from "../tabContentComponents/imageEvidence/ConstellationPhoto";
 
 const CHAPTER = 2;
 
@@ -28,7 +29,7 @@ export default function Game2() {
 }
 
 function GameComponent() {
-  const { activeTab, setActiveTab } = useTab();
+  const { activeTab, setActiveTab } = useContext(TabContext);
   const { isSolved } = useContext(ProgressContext);
   const tabsComponent = (
     <Tab.Container
@@ -56,9 +57,14 @@ function GameComponent() {
           >
             <Nav variant="pills">
               <NavItemWithLock
-                eventKey="test"
-                title="test"
+                eventKey="KaiserTimes"
+                title="Kaiser Times"
                 locked={!isSolved(ProgressKeys.KAISER_TIMES_UNLOCKED)}
+              />
+              <NavItemWithLock
+                eventKey="ConstellationPhoto"
+                title="Constellation Photo"
+                locked={!isSolved(ProgressKeys.CONSTELLATION_PHOTO_UNLOCKED)}
               />
             </Nav>
           </div>
@@ -77,8 +83,11 @@ function GameComponent() {
             <Tab.Pane eventKey="TripPlan">
               <TripPlan />
             </Tab.Pane>
-            <Tab.Pane eventKey="test">
+            <Tab.Pane eventKey="KaiserTimes">
               <KaiserTimes />
+            </Tab.Pane>
+            <Tab.Pane eventKey="ConstellationPhoto">
+              <ConstellationPhoto />
             </Tab.Pane>
           </Tab.Content>
         </Col>

@@ -32,7 +32,7 @@ const kataria1: TranscriptJson = {
     },
     {
       name: KATARIA,
-      text: "My children? My youngest is at home with me. My oldest...Um...he went to a friend's vacation house a few days ago. Said he'd be there for a week. Is there something going on?",
+      text: "My children? My youngest is at home with me. My oldest...Um...he went to a friend's vacation house a few days ago. Said he'd be there for a week. And that's all of them. Is there something going on?",
     },
     { name: SAMSON, text: "Do you know where this friend's house is?" },
     { name: KATARIA, text: "Somewhere in Hamper I think." },
@@ -46,7 +46,7 @@ const kataria1: TranscriptJson = {
     },
     {
       name: SAMSON,
-      text: "We're trying to verify that. We got a missing person report for one Martin Larssen, and I believe Daivd is a good friend of his.",
+      text: "We're trying to verify that. We got a missing person report for one Martin Larssen, and I believe David is a good friend of his.",
     },
   ],
 };
@@ -71,20 +71,7 @@ const kataria2: TranscriptJson = {
     },
     {
       name: KATARIA,
-      text: "I, uh...He has this postcard. Hold on. (SOUNDS OF PAPERS SHUFFLING) Yes! It's his friend group. They do everything together.",
-    },
-    { name: SAMSON, text: "Can you read them out for me?" },
-    {
-      name: KATARIA,
-      text: "Matthew Crocker, Daisy Verde, Nikki Yu, and Martin Larssen.",
-    },
-    {
-      name: SAMSON,
-      text: "And that Matthew is the same Matthew you mentioned before?",
-    },
-    {
-      name: KATARIA,
-      text: "Yeah, yeah. British guy. Rich family. Did something happen to David?",
+      text: "Umm...besides Matthew and Martin, I think there's two other girls. I don't remember their names. Officer, what in the world is going on? Is my son in danger?",
     },
     {
       name: SAMSON,
@@ -125,7 +112,7 @@ const larssen1: TranscriptJson = {
     },
     {
       name: LARSSEN,
-      text: "God, for the third time, yes! His name is Martin Larssen. I haven't seen him in over 12 hours!",
+      text: "God, for the third time, yes! My son, Martin. I haven't seen him in over 12 hours!",
     },
     { name: SAMSON, text: "I'm sorry, did you say 12 hours?" },
     {

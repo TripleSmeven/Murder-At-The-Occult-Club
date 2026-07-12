@@ -1,4 +1,4 @@
-import { Color } from "../components/WordPicker";
+import { Color } from "../components/ObjectiveBuilder";
 
 export type ObjectivesJson = {
   heading: string;
@@ -12,7 +12,7 @@ export type ObjectiveSection = {
 
 export type ObjectiveQuestion = {
   question: string;
-  answers: string[];
+  answers: string[] | null;
   answer: string;
   color: Color;
 };

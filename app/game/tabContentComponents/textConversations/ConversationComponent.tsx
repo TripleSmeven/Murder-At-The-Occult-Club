@@ -6,7 +6,7 @@ import {
   ProgressKeys,
 } from "../../components/ProgressContext";
 import { useContext } from "react";
-import { useTab } from "../../hooks/useTab";
+import { TabContext } from "../../context/TabContext";
 
 type Theme = "slack" | "discord";
 
@@ -89,22 +89,36 @@ export const TextMessageAttachment = ({
   title,
   bytes,
 }: TextMessageAttachmentProps) => {
+  const { setActiveTab } = useContext(TabContext);
+  const { setSolved } = useContext(ProgressContext);
+  const onClick = () => {
+    if (title.startsWith("photo")) {
+      setSolved(ProgressKeys.CONSTELLATION_PHOTO_UNLOCKED, true);
+      setActiveTab("ConstellationPhoto");
+    }
+  };
   return (
     <div className={styles.attachmentContainer}>
       <div className={styles.attachmentIcon}></div>
       <div>
-        <div className={styles.attachmentTitle}>{title}</div>
+        <div className={styles.attachmentTitle} onClick={onClick}>
+          {title}
+        </div>
         <div className={styles.attachmentSize}>{bytes + " KB"}</div>
       </div>
-      <div>⬇️</div>
+      <div className={styles.hyperlink} onClick={onClick}>
+        ⬇️
+      </div>
     </div>
   );
 };
 
 export const MessageContent = ({ content }: { content: string }) => {
-  const { setActiveTab } = useTab();
+  const { setActiveTab } = useContext(TabContext);
   const { setSolved } = useContext(ProgressContext);
-  const parts = content.split(/(@\w+|https:\/\/\S+)/g);
+
+  // splits string by @, https://, and _.
+  const parts = content.split(/(@\w+|https:\/\/\S+|_\S+)/g);
 
   const processedContent = parts.map((part, index) => {
     if (part.startsWith("@")) {
@@ -114,10 +128,18 @@ export const MessageContent = ({ content }: { content: string }) => {
         </span>
       );
     }
+    if (part.startsWith("_") && part.endsWith("_")) {
+      part = part.slice(1, -1); // remove starting and ending "_"
+      return (
+        <span key={index} className={styles.italics}>
+          {part}
+        </span>
+      );
+    }
     if (part.startsWith("https://kaisertimes")) {
       const onClick = () => {
         setSolved(ProgressKeys.KAISER_TIMES_UNLOCKED, true);
-        setActiveTab("test");
+        setActiveTab("KaiserTimes");
       };
       return (
         <span key={index} className={styles.hyperlink} onClick={onClick}>

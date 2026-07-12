@@ -1,12 +1,15 @@
 import { useContext } from "react";
 import CustomCarousel from "../../components/CustomCarousel";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
-import { CHAPTER1_NAMES, Color } from "../../components/WordPicker";
+import { CHAPTER1_NAMES, Color } from "../../components/ObjectiveBuilder";
 import TabContentBase from "../TabContentBase";
 import { allInboxes, type EmailJson, type Inbox } from "./EmailInboxJsons";
 import styles from "./EmailInboxes.module.css";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
-import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
+import {
+  ProgressContext,
+  ProgressKeys,
+} from "../../components/ProgressContext";
 
 // a single email in the inbox
 function Email({ sender, title, content, date }: EmailJson) {
@@ -50,7 +53,9 @@ function Inbox({ inbox, index }: InboxProps) {
   return (
     <div className={styles.inboxParent}>
       <div className={styles.emailList}>
-        <div className={styles.loggedIn}>You are logged in as: {ownerToDisplay}</div>
+        <div className={styles.loggedIn}>
+          You are logged in as: {ownerToDisplay}
+        </div>
         <div>.</div> {/* invisible top padding */}
         {emailList}
       </div>
@@ -121,5 +126,11 @@ export default function EmailInboxes() {
       setSolved(ProgressKeys.EMAILS, true);
     }
   };
-  return <TabContentBase evidence={evidence} objectivesJson={objectives} onCorrect={onCorrect} />;
+  return (
+    <TabContentBase
+      evidence={evidence}
+      objectivesJson={objectives}
+      onCorrect={onCorrect}
+    />
+  );
 }

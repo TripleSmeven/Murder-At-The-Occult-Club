@@ -37,11 +37,25 @@ const Hungry: ConversationJson = {
 const Haunted: ConversationJson = {
   date: "1/13/26 8:25",
   messages: [
-    { sender: david, content: `@${nikki} @${daisy} @${matt} you guys coming down for breakfast?` },
-    { sender: nikki, content: "I'm up here with her in her room. She had a nightmare." },
+    {
+      sender: david,
+      content: `@${nikki} @${daisy} @${matt} you guys coming down for breakfast?`,
+    },
+    {
+      sender: nikki,
+      content: "I'm up here with her in her room. She had a nightmare.",
+    },
     { sender: matt, content: "Oh, sorry to hear that. Is she alright?" },
-    { sender: david, content: "I dont blame her. I didnt want to say anything but this house feels haunted. No offence @looprevil99" },
-    { sender: nikki, content: "She's a bit shaken but she's alright. Said she felt like something was watching her." },
+    {
+      sender: david,
+      content:
+        "I dont blame her. I didnt want to say anything but this house feels haunted. No offence @looprevil99",
+    },
+    {
+      sender: nikki,
+      content:
+        "She's a bit shaken but she's alright. Said she felt like something was watching her.",
+    },
     { sender: nikki, content: "@looprevil99 did you check out the library? " },
     { sender: demon, content: "I'M HUNGRY. WHEN ARE U FEEDING ME?" },
     { sender: nikki, content: "@sam_slow_down Very funny." },
@@ -142,7 +156,7 @@ const Stars: ConversationJson = {
     },
     {
       sender: martin,
-      content: "Guys, look at what the stars look like tonight",
+      content: "@justagreengirl Making sure we're all set for tonight",
     },
     {
       sender: martin,
@@ -153,12 +167,8 @@ const Stars: ConversationJson = {
       },
     },
     {
-      sender: david,
-      content: "@justagreengirl Looking at that ^",
-    },
-    {
       sender: daisy,
-      content: "ooh you brought your telescope?",
+      content: "ooh you brought your camera?",
     },
     {
       sender: david,
@@ -166,7 +176,8 @@ const Stars: ConversationJson = {
     },
     {
       sender: david,
-      content: "It's heavy! Lucky I didn't do arm day this week!",
+      content:
+        "All this equipment is heavy! Lucky I didn't do arm day this week!",
     },
     {
       sender: nikki,
@@ -196,8 +207,7 @@ const Stars: ConversationJson = {
     },
     {
       sender: martin,
-      content:
-        "Kinda weird tho. It's normally too early in the year to see these constellations.",
+      content: "Both are visible, so we are good to go",
     },
     {
       sender: david,
@@ -210,7 +220,11 @@ const Stars: ConversationJson = {
     {
       sender: martin,
       content:
-        "Strength but also community, support, friendship. Actually, that one should be visible, but it's not today.",
+        "Strength but also community, support, friendship. That one is usually visible too, but it's not today.",
+    },
+    {
+      sender: martin,
+      content: "Photo's also a bit dim. Need to crank the exposure up a bit.",
     },
   ],
 };
@@ -242,12 +256,11 @@ const Leaving: ConversationJson = {
     },
     {
       sender: daisy,
-      content:
-        "article basically says nothing. just that this info was leaked but no official statement from police",
+      content: "who knows. article barely gives any details",
     },
     {
       sender: matt,
-      content: `Make sure you all packed some snacks. It's gonna be 5 hours to Hamper`,
+      content: `Make sure you all have your assigned items and packed some snacks. It's gonna be 5 hours to Hamper`,
     },
   ],
 };
@@ -273,34 +286,28 @@ const Mansion: ConversationJson = {
     {
       sender: matt,
       content:
-        "Reckon while my folks are out, we have a little house-colding party there before they sell off the place or something, yea?",
+        "Reckon while my folks are out, we can use it as the location before they sell off the place or something, yea?",
     },
     {
       sender: martin,
-      content: "Another party? We just had one a week ago!",
+      content: "Are you sure about this? They won't find out?",
+    },
+    {
+      sender: matt,
+      content: "They won't know a thing!",
     },
     {
       sender: matt,
       content:
-        "We're on holiday! Cmon this would be way different than my dinky flat",
+        "We can make it a whole weekend getaway. We're on holiday, aren't we?",
+    },
+    {
+      sender: matt,
+      content: "Plus, it would be way better than doing it in my dinky flat",
     },
     {
       sender: nikki,
       content: "Your apartment is far from dinky.",
-    },
-    {
-      sender: matt,
-      content:
-        "Alright but my flat isn't also rumored to have a locked display room with creepy victorian-era artifacts",
-    },
-    {
-      sender: daisy,
-      content: "whaaaa",
-    },
-    {
-      sender: matt,
-      content:
-        "@playingWithMyHeart dont think of it like party. Think of it like an adventure! The mansion is huge and we can explore it",
     },
     {
       sender: martin,
@@ -308,27 +315,27 @@ const Mansion: ConversationJson = {
     },
     {
       sender: matt,
-      content: "Hold on I wrote it down somewhere",
+      content: "It's in Hamper",
     },
     {
       sender: matt,
-      content: "42 W Wilson Dr, Hamper, NY 14533",
+      content: "The place is brilliant. You guys are gonna love it!",
     },
-    {
-      sender: martin,
-      content:
-        "Have you plugged that into google maps? There's nothing even at that address.",
-    },
-    {
-      sender: matt,
-      content:
-        "Trust me its there, okay? There's pictures blueprints and everything",
-    },
+    // {
+    //   sender: martin,
+    //   content:
+    //     "Have you plugged that into google maps? There's nothing even at that address.",
+    // },
+    // {
+    //   sender: matt,
+    //   content:
+    //     "Trust me its there, okay? There's pictures blueprints and everything",
+    // },
   ],
 };
 
 const Grades: ConversationJson = {
-  date: "1/04/26 13:46",
+  date: "1/04/26 9:46",
   messages: [
     {
       sender: nikki,
@@ -349,7 +356,7 @@ const Grades: ConversationJson = {
     {
       sender: daisy,
       content:
-        "wanna trade families? being a middle child means noone cares about your grades",
+        "wanna trade families? my mom and dad never care about my grades",
     },
     {
       sender: david,
@@ -369,11 +376,11 @@ const Grades: ConversationJson = {
     },
     {
       sender: nikki,
-      content: "Sure, but according to my big sis, I'm a terrible teacher.",
+      content: "Sure, but according to Naomi, I'm a terrible teacher.",
     },
     {
       sender: matt,
-      content: "You used to tutor your older sister?",
+      content: "You used to tutor Naomi? Not the other way around?",
     },
     {
       sender: david,
@@ -382,6 +389,34 @@ const Grades: ConversationJson = {
     {
       sender: david,
       content: "forget it. im too dumb for college. im dropping out",
+    },
+    {
+      sender: david,
+      content: `Oh and happy birthday Daisy (and Florian)! Doing anything together with him?`,
+    },
+    {
+      sender: daisy,
+      content: "nah we haven't celebrated together in years",
+    },
+    {
+      sender: daisy,
+      content: "mom stopped forcing it after middle school",
+    },
+    {
+      sender: daisy,
+      content: "and _technically_ his birthday was yesterday",
+    },
+    {
+      sender: david,
+      content: `Wait what? How?`,
+    },
+    {
+      sender: daisy,
+      content: "he was born 11:55pm and i was born 12:18am",
+    },
+    {
+      sender: david,
+      content: `Oh yeah makes sense`,
     },
   ],
 };

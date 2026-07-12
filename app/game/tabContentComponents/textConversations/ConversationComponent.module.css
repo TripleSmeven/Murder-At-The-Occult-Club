@@ -163,6 +163,7 @@
 .attachmentTitle {
   color: #00b0f4;
   font-size: 1em;
+  cursor: pointer;
 }
 
 .attachmentSize {
@@ -180,4 +181,8 @@
 .hyperlink {
   color: #00b0f4;
   cursor: pointer;
+}
+
+.italics {
+  font-style: italic;
 }

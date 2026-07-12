@@ -1,15 +1,30 @@
 import { useContext } from "react";
 import CustomCarousel from "../../components/CustomCarousel";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
-import { CHAPTER2_NAMES, Color } from "../../components/WordPicker";
+import { CHAPTER2_NAMES, Color } from "../../components/ObjectiveBuilder";
 import TabContentBase from "../TabContentBase";
 import { ConversationComponent } from "./ConversationComponent";
-import { daisy, david, GroupChatConversations, martin, matt, nikki } from "./ConversationJsons2";
-import { ProgressContext, ProgressKeys } from "../../components/ProgressContext";
+import {
+  daisy,
+  david,
+  GroupChatConversations,
+  martin,
+  matt,
+  nikki,
+} from "./ConversationJsons2";
+import {
+  ProgressContext,
+  ProgressKeys,
+} from "../../components/ProgressContext";
 
 export default function GroupChat() {
   const conversations = GroupChatConversations.map((conversation, index) => (
-    <ConversationComponent key={index} {...conversation} index={index} theme="discord" />
+    <ConversationComponent
+      key={index}
+      {...conversation}
+      index={index}
+      theme="discord"
+    />
   ));
 
   const objectives: ObjectivesJson = {
@@ -20,7 +35,7 @@ export default function GroupChat() {
         questions: [
           {
             question: "",
-            answers: CHAPTER2_NAMES,
+            answers: null,
             answer: "Matthew Crocker",
             color: Color.GRAY,
           },
@@ -31,7 +46,7 @@ export default function GroupChat() {
         questions: [
           {
             question: "",
-            answers: CHAPTER2_NAMES,
+            answers: null,
             answer: "Nikki Yu",
             color: Color.GRAY,
           },
@@ -42,7 +57,7 @@ export default function GroupChat() {
         questions: [
           {
             question: "",
-            answers: CHAPTER2_NAMES,
+            answers: null,
             answer: "Daisy Verde",
             color: Color.GRAY,
           },
@@ -53,7 +68,7 @@ export default function GroupChat() {
         questions: [
           {
             question: "",
-            answers: CHAPTER2_NAMES,
+            answers: null,
             answer: "Martin Larssen",
             color: Color.GRAY,
           },
@@ -64,7 +79,7 @@ export default function GroupChat() {
         questions: [
           {
             question: "",
-            answers: CHAPTER2_NAMES,
+            answers: null,
             answer: "David Kataria",
             color: Color.GRAY,
           },
