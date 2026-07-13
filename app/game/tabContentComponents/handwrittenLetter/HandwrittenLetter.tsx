@@ -17,10 +17,12 @@ export default function HandwrittenLetter({
     );
   });
   const evidence = (
-    <div
-      className={`${styles.letter} ${style === "fromWalter" && styles.fromWalter}`}
-    >
-      <div className={styles.page}>{lineElements}</div>
+    <div className={`${styles.letter}`}>
+      <div
+        className={`${styles.page} ${style === "fromWalter" && styles.fromWalter}`}
+      >
+        {lineElements}
+      </div>
     </div>
   );
 

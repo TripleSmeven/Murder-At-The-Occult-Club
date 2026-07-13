@@ -35,7 +35,7 @@ const kataria1: TranscriptJson = {
       text: "My children? My youngest is at home with me. My oldest...Um...he went to a friend's vacation house a few days ago. Said he'd be there for a week. And that's all of them. Is there something going on?",
     },
     { name: SAMSON, text: "Do you know where this friend's house is?" },
-    { name: KATARIA, text: "Somewhere in Hamper I think." },
+    { name: KATARIA, text: "Uh, I'm not sure." },
     {
       name: SAMSON,
       text: "And do you know the name of this friend and who else he is with?",
@@ -71,7 +71,7 @@ const kataria2: TranscriptJson = {
     },
     {
       name: KATARIA,
-      text: "Umm...besides Matthew and Martin, I think there's two other girls. I don't remember their names. Officer, what in the world is going on? Is my son in danger?",
+      text: "Well, he's friends with a lot of the neighbor kids. Um, there's Emma, there's Mabel, there's also Justin. And Daisy. And Alex. Officer, what in the world is going on? Is my son in danger?",
     },
     {
       name: SAMSON,
@@ -80,7 +80,7 @@ const kataria2: TranscriptJson = {
     { name: KATARIA, text: "What about Martin? You said he's missing?" },
     {
       name: SAMSON,
-      text: "Sir, thank you again for your help. I have some calls to make, but I will contact you as soon as I have something to share with you, alright? Keep trying to call David. Take care.",
+      text: "Sir, thank you again for your help. I need you to do two things. One, text me the name and phone numbers all the parents of his friends. Two, keep trying to call your son. I have some calls to make, but I will contact you as soon as I have something to share with you, alright? Take care.",
     },
   ],
 };
@@ -170,11 +170,11 @@ const larssen2: TranscriptJson = {
     },
     {
       name: LARSSEN,
-      text: "Yes, one of them's named is David. Dropped Martin off at home after that party. Don't like him one bit. He looks like a drug dealer. Or maybe drug dealer's bodyguard.",
+      text: "One of them dropped Martin off at home after that party. Didn't like that kid one bit. He looks like a drug dealer. Or maybe drug dealer's bodyguard.",
     },
     {
       name: SAMSON,
-      text: "And do you know David's last name?",
+      text: "And do you know his name",
     },
     {
       name: LARSSEN,

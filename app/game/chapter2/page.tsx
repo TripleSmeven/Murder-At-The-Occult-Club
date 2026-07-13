@@ -17,6 +17,7 @@ import { ProgressContext, ProgressKeys } from "../components/ProgressContext";
 import { useContext } from "react";
 import { TabContext } from "../context/TabContext";
 import ConstellationPhoto from "../tabContentComponents/imageEvidence/ConstellationPhoto";
+import LetterFromWalter from "../tabContentComponents/handwrittenLetter/LetterFromWalter";
 
 const CHAPTER = 2;
 
@@ -52,6 +53,7 @@ function GameComponent() {
               <NavItemWithLock eventKey="TripPlan" title="Trip Plan" />
             </Nav>
           </div>
+
           <div
             className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}
           >
@@ -65,6 +67,17 @@ function GameComponent() {
                 eventKey="ConstellationPhoto"
                 title="Constellation Photo"
                 locked={!isSolved(ProgressKeys.CONSTELLATION_PHOTO_UNLOCKED)}
+              />
+            </Nav>
+          </div>
+
+          <div
+            className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}
+          >
+            <Nav variant="pills">
+              <NavItemWithLock
+                eventKey="HandwrittenLetter"
+                title="Handwritten Letter"
               />
             </Nav>
           </div>
@@ -88,6 +101,9 @@ function GameComponent() {
             </Tab.Pane>
             <Tab.Pane eventKey="ConstellationPhoto">
               <ConstellationPhoto />
+            </Tab.Pane>
+            <Tab.Pane eventKey="HandwrittenLetter">
+              <LetterFromWalter />
             </Tab.Pane>
           </Tab.Content>
         </Col>

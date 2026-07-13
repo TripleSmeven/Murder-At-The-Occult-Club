@@ -11,7 +11,7 @@ import {
   Pangolin,
   Crafty_Girls,
   Domine,
-  Lavishly_Yours,
+  Rouge_Script,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
@@ -31,8 +31,8 @@ const patrick = Patrick_Hand({
 });
 
 // letter from walter
-const lavishly_yours = Lavishly_Yours({
-  variable: "--font-patrick",
+const rouge_script = Rouge_Script({
+  variable: "--font-rouge_script",
   weight: "400",
   subsets: ["latin"],
 });

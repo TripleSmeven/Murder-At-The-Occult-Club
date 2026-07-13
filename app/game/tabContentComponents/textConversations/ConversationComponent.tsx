@@ -96,6 +96,10 @@ export const TextMessageAttachment = ({
       setSolved(ProgressKeys.CONSTELLATION_PHOTO_UNLOCKED, true);
       setActiveTab("ConstellationPhoto");
     }
+    if (title.startsWith("updated_instructions")) {
+      setSolved(ProgressKeys.CONSTELLATION_PHOTO_UNLOCKED, true);
+      setActiveTab("ConstellationPhoto");
+    }
   };
   return (
     <div className={styles.attachmentContainer}>

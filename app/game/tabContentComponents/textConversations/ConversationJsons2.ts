@@ -87,13 +87,13 @@ const Ritual: ConversationJson = {
     },
     {
       sender: matt,
-      content: "This is for later tonight:",
+      content: "Final version of instructions for tonight:",
     },
     {
       sender: matt,
       content: "",
       attachment: {
-        title: "instructions.pdf",
+        title: "updated_instructions_final.pdf",
         bytes: 55,
       },
     },
@@ -112,25 +112,33 @@ const Ritual: ConversationJson = {
     },
     {
       sender: matt,
-      content:
-        "You have until tonight to figure out the password! First one gets a sneak peak at tonight!",
+      content: "For security!",
+    },
+    {
+      sender: matt,
+      content: "You never know who could be peeping in",
     },
     {
       sender: david,
-      content: "bruhhhhh",
+      content: "bruhh",
     },
     {
-      sender: daisy,
-      content: "ooh sounds fun! Like a puzzle!",
+      sender: matt,
+      content:
+        "We already went over everything last night. This is just for reference",
+    },
+    {
+      sender: matt,
+      content:
+        "Besides, you already know I use the same passcode for everything",
     },
     {
       sender: nikki,
-      content: "Pretty creative. It'd better be challenging at least.",
+      content: "I've already unlocked it.",
     },
     {
       sender: david,
-      content:
-        "nah you two can figure this out. Imma take my boy for a run when he wakes up.",
+      content: "It's WAY too early in the morning for this.",
     },
   ],
 };
@@ -259,6 +267,34 @@ const Leaving: ConversationJson = {
       content: "who knows. article barely gives any details",
     },
     {
+      sender: daisy,
+      content: "someone tipped off the police about something?",
+    },
+    {
+      sender: david,
+      content: `He was probably into some sus stuff. Like maybe drugs or something. Keep him away from @${martin} lololol`,
+    },
+    {
+      sender: nikki,
+      content: `@${david}. A little class please.`,
+    },
+    {
+      sender: nikki,
+      content: `Some of us here might have known him.`,
+    },
+    {
+      sender: david,
+      content: "Ah.",
+    },
+    {
+      sender: david,
+      content: "My bad guys.",
+    },
+    {
+      sender: david,
+      content: "Sorry. 🙇",
+    },
+    {
       sender: matt,
       content: `Make sure you all have your assigned items and packed some snacks. It's gonna be 5 hours to Hamper`,
     },
@@ -281,7 +317,7 @@ const Mansion: ConversationJson = {
     {
       sender: matt,
       content:
-        "And a few months ago, I overheard them talking about this mansion of sorts grandad apparently owned. Had no idea it existed",
+        "And a few months ago, I overheard them talking about this mansion of sorts grandad apparently owned right here. In New York! Had no idea it existed",
     },
     {
       sender: matt,
@@ -318,8 +354,44 @@ const Mansion: ConversationJson = {
       content: "It's in Hamper",
     },
     {
+      sender: daisy,
+      content: "omg hamper??? eeek!",
+    },
+    {
+      sender: daisy,
+      content: "its gonna be just like glam girls!",
+    },
+    {
+      sender: david,
+      content:
+        "And there's a lake nearby too right? Finally my time at the row machine is gonna pay off",
+    },
+    {
       sender: matt,
       content: "The place is brilliant. You guys are gonna love it!",
+    },
+    {
+      sender: martin,
+      content:
+        "Okay, idm if we go for some fun but if this is going to be the location we need to focus and not be distracted",
+    },
+    {
+      sender: nikki,
+      content:
+        "He's right. Let's make a plan and move quickly. We don't want to miss this window.",
+    },
+    {
+      sender: matt,
+      content:
+        "Alright, alright, so we're in agreement? Let me get a quick plan together and I'll send it out. Meetup at Round 10 11am tomorrow? Usual booth",
+    },
+    {
+      sender: david,
+      content: "🫡",
+    },
+    {
+      sender: daisy,
+      content: "okiii",
     },
     // {
     //   sender: martin,
@@ -392,7 +464,7 @@ const Grades: ConversationJson = {
     },
     {
       sender: david,
-      content: `Oh and happy birthday Daisy (and Florian)! Doing anything together with him?`,
+      content: `Oh and happy birthday @${daisy}, and belated to Florian! Doing anything together with him?`,
     },
     {
       sender: daisy,
@@ -400,23 +472,16 @@ const Grades: ConversationJson = {
     },
     {
       sender: daisy,
-      content: "mom stopped forcing it after middle school",
+      content:
+        "mom stopped forcing it after middle school. i guess it stopped being cute and both of us refused to dress up in matching outfits ",
     },
     {
       sender: daisy,
-      content: "and _technically_ his birthday was yesterday",
+      content: "and then caleb came along, sooo",
     },
     {
       sender: david,
-      content: `Wait what? How?`,
-    },
-    {
-      sender: daisy,
-      content: "he was born 11:55pm and i was born 12:18am",
-    },
-    {
-      sender: david,
-      content: `Oh yeah makes sense`,
+      content: `HAHA I remember the matching outfits. Pretty sure my dad has a pic of us at one of your bday parties on the fridge.`,
     },
   ],
 };
@@ -513,11 +578,10 @@ const AfterNYE: ConversationJson = {
 };
 
 export const GroupChatConversations = [
-  Haunted,
   Stars,
   Leaving,
   Mansion,
   Grades,
   AfterNYE,
 ];
-export const GroupChatConversations2 = [Hungry, Haunted];
+export const GroupChatConversations2 = [Ritual];

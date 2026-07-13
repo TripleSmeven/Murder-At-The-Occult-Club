@@ -269,7 +269,7 @@ const CorrectStatus = () => {
 const IncorrectStatus = () => {
   const renderTooltip = (
     <Tooltip id="objectives-status-tooltip">
-      Select the correct answer for each question to complete this objective.
+      Enter the correct answer for each question to complete this objective.
     </Tooltip>
   );
   return (
@@ -286,7 +286,7 @@ const IncorrectStatus = () => {
 const IncompleteStatus = () => {
   const renderTooltip = (
     <Tooltip id="objectives-status-tooltip">
-      Select the correct answer for each question to complete this objective.
+      Enter the correct answer for each question to complete this objective.
     </Tooltip>
   );
   return (

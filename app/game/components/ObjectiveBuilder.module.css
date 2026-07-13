@@ -20,13 +20,17 @@
   select.disabled {
     background-image: none; /* Removes the down arrow*/
   }
+
+  input:disabled {
+    background-color: white;
+  }
 }
 
 .label {
   font-size: 1.2em;
   line-height: 1.1em;
   padding: 0 0.5em;
-  margin-top: 0.1em; /* move the lable a tad down*/
+  margin-top: 0.1em; /* move the label a tad down*/
   margin-right: 0.25em;
   margin-left: 0.25em;
   color: black;
