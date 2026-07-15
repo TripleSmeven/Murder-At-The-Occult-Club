@@ -214,7 +214,7 @@ const Sarah: Inbox = {
       sender: "Greg Carlson, me (2)",
       title: "Re: Question",
       content:
-        'Typically the field of natural science doesn\'t consider "necromancy" to be legitimate field of study, but certain jelly fish and starfish can regenerate...',
+        'Typically the field of natural science doesn\'t consider "necromancy" to be legitimate field of study, but certain jellyfish and starfish can regenerate...',
       date: "Dec 2",
     },
     {

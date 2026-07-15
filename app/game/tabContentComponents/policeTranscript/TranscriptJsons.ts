@@ -71,7 +71,7 @@ const kataria2: TranscriptJson = {
     },
     {
       name: KATARIA,
-      text: "Well, he's friends with a lot of the neighbor kids. Um, there's Emma, there's Mabel, there's also Justin. And Daisy. And Alex. Officer, what in the world is going on? Is my son in danger?",
+      text: "Well, he's friends with a lot of the neighbor kids. Um, there's the Meyer kids, there's Justin. And Daisy. And Alex. Officer, what in the world is going on? Is my son in danger?",
     },
     {
       name: SAMSON,
@@ -174,7 +174,7 @@ const larssen2: TranscriptJson = {
     },
     {
       name: SAMSON,
-      text: "And do you know his name",
+      text: "And do you know his name?",
     },
     {
       name: LARSSEN,

@@ -18,6 +18,7 @@ import { useContext } from "react";
 import { TabContext } from "../context/TabContext";
 import ConstellationPhoto from "../tabContentComponents/imageEvidence/ConstellationPhoto";
 import LetterFromWalter from "../tabContentComponents/handwrittenLetter/LetterFromWalter";
+import Pentagram from "../tabContentComponents/pentagram/Pentagram";
 
 const CHAPTER = 2;
 
@@ -79,6 +80,7 @@ function GameComponent() {
                 eventKey="HandwrittenLetter"
                 title="Handwritten Letter"
               />
+              <NavItemWithLock eventKey="Pentagram" title="Pentagram" />
             </Nav>
           </div>
         </Col>
@@ -104,6 +106,9 @@ function GameComponent() {
             </Tab.Pane>
             <Tab.Pane eventKey="HandwrittenLetter">
               <LetterFromWalter />
+            </Tab.Pane>
+            <Tab.Pane eventKey="Pentagram">
+              <Pentagram />
             </Tab.Pane>
           </Tab.Content>
         </Col>

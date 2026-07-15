@@ -23,7 +23,7 @@ export default function KaiserTimes() {
       `What was expected to be a modest outdoor screening turned into one of the most talked-about campus events of the week, as senior film student Justin Holmes premiered his latest short film, Tendered, to a crowd of over 200 attendees at Founders Park last night.`,
       `Shot entirely in black and white and boasting a 40 minute runtime, Tendered follows a single chicken tender from the KaiserU dining hall freezer to its eventual disposal into a garbage bin, narrated only by ambient sound and long, static shots. Holmes has described his film as "an exploration of commodification, consumption, and the quiet tragedy of things made only to be consumed or forgotten."`,
       `The film's most striking sequence — a slow, single-take shot of the tender left out on a rooftop under a full moon, wreathed in a faint, lingering mist — has already become the subject of campus chatter. Holmes said the scene took "several attempts to get right" and credited an unnamed classmate for help with the visual effect, though he declined to elaborate further.`,
-      `Audience reaction was enthusiastic, but divided. "I don't know if it's genius or ridiculous," said one attendee, "but I couldn't look away."`,
+      `Audience reaction was enthusiastic, but divided. "I don't know if it's genius or ridiculous," said Alex Blanc, a student at KaiserU. "But I couldn't look away."`,
       `Holmes plans to submit Tendered to several regional student film festivals this spring. The screening was part of an ongoing cinema series funded by KaiserU's film department."`,
     ],
   };
@@ -33,10 +33,10 @@ export default function KaiserTimes() {
     author: "",
     date: "Dec 23rd, 2025",
     paragraphs: [
-      `Kaiser University senior Naomi Yu claimed first place at the KaiserU Fall Science Fair on December 22nd, finishing off a semester of late nights in the engineering lab with a win that drew cheers from a packed auditorium.`,
+      `Kaiser University senior Naomi Yu claimed first place at the KaiserU Fall Science Fair on December 22nd, just barely eking out a win over fellow senior Clara Meyer, who took second place with his project on the cellular regeneration ability of jellyfish.`,
       `Yu, whose autonomous puzzle solving robot won over the hearts of the judges, was ecstatic as she accepted the trophy. Her family, seated in the front row throughout the event, joined her on stage. "I just want to thank my parents and my sister for taking the time to come out and support me tonight," Yu said in her acceptance speech. "This means everything to me. I couldn't have done this without them."`,
       `"I want to give a special thanks to my sister, Nikki, who has been my biggest supporter all my life", Yu went on. "Out of the four of us, she's always been the smartest one in our little family. I'm so lucky to have her as my sister."`,
-      `University officials praised the strength of this year's competition overall, noting that submissions spanned everything from planetary mapping systems to allergy detection devices.`,
+      `University officials praised the strength of this year's competition overall, with other notable submissions including a planetary mapping system and an allergy detection device.`,
       `Yu, who is set to graduate next year, said she plans to pursue a career in robotics engineering after finishing her degree at KaiserU.`,
       `Congratulations to Naomi Yu and all who competed this semester.`,
     ],
