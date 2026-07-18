@@ -39,7 +39,7 @@ const senderToProfileMap: { [key: string]: string } = {
 
   justagreengirl: "justagreengirl",
   sam_slow_down: "sam_slow_down",
-  looprevil99: "looprevil99",
+  looprevil92: "looprevil92",
   meremere: "meremere",
   playingWithMyHeart: "playingWithMyHeart",
 };

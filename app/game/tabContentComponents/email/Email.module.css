@@ -6,13 +6,15 @@
   color: #000000;
 }
 .emailTitle {
-  font-size: 1.5em;
+  font-size: 1.75em;
   padding: 1em;
+  padding-bottom: 0.5em;
   padding-left: 4.5rem; /* must be rem to align with profile */
 }
 
 .underTitle {
   display: flex;
+  width: 100%;
 }
 
 .profilePicture {
@@ -66,7 +68,12 @@
   padding: 0 0.5em;
 }
 
+.rightSide {
+  width: 100%;
+}
+
 .emailBody {
   padding: 1.5em 1.5em 1.5em 0;
   font-size: 1em;
+  width: 100%;
 }

@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  FormEvent,
-  ReactNode,
-  useContext,
-  useId,
-  useState,
-} from "react";
+import { FormEvent, ReactNode, useContext, useState } from "react";
 import {
   ProgressContext,
   ProgressKeys,
@@ -31,7 +25,6 @@ export default function LockedPdf({
   const { isSolved, setSolved } = useContext(ProgressContext);
   const [enteredPassword, setEnteredPassword] = useState("");
   const [hasIncorrectPassword, setHasIncorrectPassword] = useState(false);
-  const passwordInputId = useId();
   const isUnlocked = isSolved(progressKey);
 
   function unlockPdf(event: FormEvent<HTMLFormElement>) {
@@ -55,16 +48,18 @@ export default function LockedPdf({
       {!isUnlocked && (
         <div className={styles.lockOverlay}>
           <form className={styles.passwordForm} onSubmit={unlockPdf}>
-            <label htmlFor={passwordInputId}>Enter password to unlock PDF</label>
+            <div className={styles.passwordLabel}>
+              Enter password to unlock PDF
+            </div>
             <input
               autoComplete="off"
-              id={passwordInputId}
               onChange={(event) => {
                 setEnteredPassword(event.target.value);
                 setHasIncorrectPassword(false);
               }}
               type="password"
               value={enteredPassword}
+              maxLength={4}
             />
             <button type="submit">Unlock</button>
             {hasIncorrectPassword && (

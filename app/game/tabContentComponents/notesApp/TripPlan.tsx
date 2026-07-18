@@ -43,8 +43,6 @@ export default function TripPlan() {
           <li>bagel shop</li>
         </ul>
       </div>
-
-      <div>Address: The Crocker Estate, 42 W Wilson Dr, Hamper, NY 14533</div>
     </NotesApp>
   );
 

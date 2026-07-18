@@ -6,11 +6,19 @@ import styles from "./Email.module.css";
 interface EmailProps {
   title: string;
   senderName: string;
+  /**
+   * e.g. "December 8, 2025, 3:00 PM"
+   */
   timestamp: string;
   children: ReactNode;
 }
 
-export default function Email({ title, senderName, timestamp, children }: EmailProps) {
+export default function Email({
+  title,
+  senderName,
+  timestamp,
+  children,
+}: EmailProps) {
   return (
     <div className={styles.emailContainer}>
       <div className={styles.emailTitle}>{title}</div>

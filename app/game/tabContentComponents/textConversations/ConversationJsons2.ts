@@ -1,6 +1,6 @@
 import { ConversationJson } from "./ConversationJsons";
 
-export const matt = "looprevil99";
+export const matt = "looprevil92";
 export const daisy = "justagreengirl";
 export const nikki = "meremere";
 export const david = "sam_slow_down";
@@ -49,14 +49,14 @@ const Haunted: ConversationJson = {
     {
       sender: david,
       content:
-        "I dont blame her. I didnt want to say anything but this house feels haunted. No offence @looprevil99",
+        "I dont blame her. I didnt want to say anything but this house feels haunted. No offence @looprevil92",
     },
     {
       sender: nikki,
       content:
         "She's a bit shaken but she's alright. Said she felt like something was watching her.",
     },
-    { sender: nikki, content: "@looprevil99 did you check out the library? " },
+    { sender: nikki, content: "@looprevil92 did you check out the library? " },
     { sender: demon, content: "I'M HUNGRY. WHEN ARE U FEEDING ME?" },
     { sender: nikki, content: "@sam_slow_down Very funny." },
     { sender: david, content: "What? I didnt invite this guy." },
@@ -215,7 +215,8 @@ const Stars: ConversationJson = {
     },
     {
       sender: martin,
-      content: "Both are visible, so we are good to go",
+      content:
+        "Both are visible, and weather app says tomorrow will be just as clear. So we are good to go",
     },
     {
       sender: david,
@@ -232,7 +233,7 @@ const Stars: ConversationJson = {
     },
     {
       sender: martin,
-      content: "Photo's also a bit dim. Need to crank the exposure up a bit.",
+      content: "Photo's also a bit dim. Need to crank the brightness up a bit.",
     },
   ],
 };
@@ -251,7 +252,16 @@ const Leaving: ConversationJson = {
     {
       sender: martin,
       content:
-        "@looprevil99 can you park a few blocks away? I don't want my mom seeing you",
+        "@looprevil92 can you park a few blocks away? I don't want my mom seeing you",
+    },
+    {
+      sender: matt,
+      content: "Does she even know what my van looks like?",
+    },
+    {
+      sender: martin,
+      content:
+        "Giant black van with license plate LP1892? Pretty sure she'll spot it",
     },
     {
       sender: daisy,
@@ -307,7 +317,7 @@ const Mansion: ConversationJson = {
     {
       sender: david,
       content:
-        "@looprevil99 tell everyone what you were telling me over lunch today",
+        "@looprevil92 tell everyone what you were telling me over lunch today",
     },
     {
       sender: matt,
@@ -383,7 +393,7 @@ const Mansion: ConversationJson = {
     {
       sender: matt,
       content:
-        "Alright, alright, so we're in agreement? Let me get a quick plan together and I'll send it out. Meetup at Round 10 11am tomorrow? Usual booth",
+        "Alright, alright, so we're in agreement? Let me get a quick plan together and I'll send it out. Meetup at Round 10 6pm tomorrow? Usual booth",
     },
     {
       sender: david,

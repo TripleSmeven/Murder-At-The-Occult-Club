@@ -19,6 +19,8 @@ import { TabContext } from "../context/TabContext";
 import ConstellationPhoto from "../tabContentComponents/imageEvidence/ConstellationPhoto";
 import LetterFromWalter from "../tabContentComponents/handwrittenLetter/LetterFromWalter";
 import Pentagram from "../tabContentComponents/pentagram/Pentagram";
+import BookingConfirmations from "../tabContentComponents/email/BookingConfirmations";
+import LockedPentagram from "../tabContentComponents/lockedPdf/LockedPentagram";
 
 const CHAPTER = 2;
 
@@ -50,8 +52,16 @@ function GameComponent() {
                 eventKey="PoliceTranscript"
                 title="Police Transcript"
               />
-              <NavItemWithLock eventKey="GroupChat" title="Group Chat" />
+              <NavItemWithLock
+                eventKey="GroupChat"
+                title="Group Chat"
+                emoji={isSolved(ProgressKeys.LOCKED_PDF_UNLOCKED) ? "✅" : "🎯"}
+              />
               <NavItemWithLock eventKey="TripPlan" title="Trip Plan" />
+              <NavItemWithLock
+                eventKey="Round10Emails"
+                title="Round 10 Emails"
+              />
             </Nav>
           </div>
 
@@ -80,7 +90,11 @@ function GameComponent() {
                 eventKey="HandwrittenLetter"
                 title="Handwritten Letter"
               />
-              <NavItemWithLock eventKey="Pentagram" title="Pentagram" />
+              <NavItemWithLock
+                eventKey="LockedPDF"
+                title="Locked PDF"
+                emoji={isSolved(ProgressKeys.LOCKED_PDF_UNLOCKED) ? "✅" : "🎯"}
+              />
             </Nav>
           </div>
         </Col>
@@ -98,6 +112,9 @@ function GameComponent() {
             <Tab.Pane eventKey="TripPlan">
               <TripPlan />
             </Tab.Pane>
+            <Tab.Pane eventKey="Round10Emails">
+              <BookingConfirmations />
+            </Tab.Pane>
             <Tab.Pane eventKey="KaiserTimes">
               <KaiserTimes />
             </Tab.Pane>
@@ -107,8 +124,8 @@ function GameComponent() {
             <Tab.Pane eventKey="HandwrittenLetter">
               <LetterFromWalter />
             </Tab.Pane>
-            <Tab.Pane eventKey="Pentagram">
-              <Pentagram />
+            <Tab.Pane eventKey="LockedPDF">
+              <LockedPentagram />
             </Tab.Pane>
           </Tab.Content>
         </Col>

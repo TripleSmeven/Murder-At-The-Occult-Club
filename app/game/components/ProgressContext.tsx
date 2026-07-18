@@ -24,8 +24,10 @@ export enum ProgressKeys {
   SOLVE_THE_CASE = "solveTheCase",
   SOLVE_THE_CASE_2 = "solveTheCase2",
 
+  GROUP_CHAT = "groupChat",
   KAISER_TIMES_UNLOCKED = "kaiserTimesUnlocked",
   CONSTELLATION_PHOTO_UNLOCKED = "constellationPhotoUnlocked",
+  LOCKED_PDF_UNLOCKED = "lockedPdfUnlocked",
 }
 
 interface ProgressProviderProps {

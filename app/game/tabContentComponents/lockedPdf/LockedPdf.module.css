@@ -11,6 +11,10 @@
   user-select: none;
 }
 
+.passwordLabel {
+  color: black;
+}
+
 .lockOverlay {
   align-items: center;
   background: rgb(0 0 0 / 28%);

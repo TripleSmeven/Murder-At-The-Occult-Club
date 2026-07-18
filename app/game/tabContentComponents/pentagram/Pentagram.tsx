@@ -1,15 +1,10 @@
-import TabContentBase from "../TabContentBase";
 import styles from "./Pentagram.module.css";
 
 interface PentagramProps {
-  points?: [string, string, string, string, string];
+  points: [string, string, string, string, string];
 }
 
-function Star({
-  points,
-}: {
-  points: [string, string, string, string, string];
-}) {
+export default function Pentagram({ points }: PentagramProps) {
   return (
     <div className={styles.pentagramContainer}>
       <div className={styles.starFrame}>
@@ -43,10 +38,4 @@ function Star({
       </div>
     </div>
   );
-}
-
-export default function Pentagram({
-  points = ["1", "2", "3", "4", "5"],
-}: PentagramProps) {
-  return <TabContentBase evidence={<Star points={points} />} />;
 }
