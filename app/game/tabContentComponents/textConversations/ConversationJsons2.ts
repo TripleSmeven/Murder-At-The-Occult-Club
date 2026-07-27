@@ -180,7 +180,7 @@ const Stars: ConversationJson = {
     },
     {
       sender: david,
-      content: "Yep. We set it up on the hill around the back.",
+      content: "Yep. We set it up on the hill behind the neighbor's house",
     },
     {
       sender: david,
@@ -229,7 +229,7 @@ const Stars: ConversationJson = {
     {
       sender: martin,
       content:
-        "Strength but also community, support, friendship. That one is usually visible too, but it's not today.",
+        "Strength but also authority, conquest, and good fortune. That one is usually visible too, but it's not today.",
     },
     {
       sender: martin,

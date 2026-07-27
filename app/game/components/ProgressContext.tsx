@@ -25,8 +25,10 @@ export enum ProgressKeys {
   SOLVE_THE_CASE_2 = "solveTheCase2",
 
   GROUP_CHAT = "groupChat",
+  VOICEMAIL = "voicemail",
   KAISER_TIMES_UNLOCKED = "kaiserTimesUnlocked",
   CONSTELLATION_PHOTO_UNLOCKED = "constellationPhotoUnlocked",
+  // if the player solved the locked PDF puzzle, not if they unlocked the PDF tab itself
   LOCKED_PDF_UNLOCKED = "lockedPdfUnlocked",
 }
 

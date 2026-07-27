@@ -23,7 +23,7 @@ export default function TripPlan() {
         <div>Day 2</div>
         <ul>
           <li>Final prep</li>
-          <li>Rehersal dinner (literally)</li>
+          <li>Rehersal dinner</li>
           <li>Showtime!</li>
         </ul>
 

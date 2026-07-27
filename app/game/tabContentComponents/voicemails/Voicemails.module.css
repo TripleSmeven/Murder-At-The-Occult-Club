@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: white;
+  border-radius: 2em;
+  margin: 0 6vw;
+  font-family: Inter;
+
+  --accent: #007aff; /* iOS blue */
+  --muted: #6b7280;
+  --danger: #ff3b30;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 1.1em;
+  color: var(--accent);
+  font-weight: 600;
+
+  padding: 1.5em 1em;
+  border-radius: 2em 2em 0 0;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
+}
+
+.voicemailList {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.voicemailCard {
+  padding: 2em;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.25em;
+  color: #0f172a;
+
+  display: flex;
+  align-items: center;
+}
+
+.smallDot {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 4px;
+  background: var(--accent);
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.titleLeft {
+  display: flex;
+  align-items: center;
+}
+
+.date {
+  font-size: 1em;
+  color: var(--muted);
+  margin-top: 0.5em;
+}
+
+.audioWrapper {
+  margin-top: 1em;
+}
+
+.actionsRow {
+  display: flex;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.fakeAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  border-radius: 18px;
+  font-size: 2em;
+
+  &.favorite {
+    color: var(--accent);
+    margin-left: auto;
+  }
+
+  &.delete {
+    color: var(--danger);
+  }
+}
+
+.transcriptButton {
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 600;
+  background: none;
+}
+
+.transcriptDropdown {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  border-radius: 6px;
+  color: #111827;
+  line-height: 1.25em;
+  transition:
+    max-height 300ms ease,
+    opacity 200ms ease,
+    padding 300ms ease,
+    border-color 300ms ease;
+}
+
+.transcriptDropdown.open {
+  /* open state: allow content to expand */
+  max-height: 25em; /* large enough for typical transcript content */
+  opacity: 1;
+  padding: 1em;
+}
+
+.transcriptDropdown.closed {
+  /* closed state ensures collapsed appearance */
+  max-height: 0;
+  opacity: 0;
+  padding: 0 1em;
+}
+
+.audioElement {
+  width: 100%;
+}

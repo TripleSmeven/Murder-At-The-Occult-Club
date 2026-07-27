@@ -12,9 +12,12 @@ import {
   Crafty_Girls,
   Domine,
   Rouge_Script,
+  Inter,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
+
+// FONTS HERE
 
 // notes
 const pangolin = Pangolin({
@@ -68,6 +71,12 @@ const roboto = Roboto({
 // default text
 const space_mono = Space_Mono({
   variable: "--font-space_mono",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   weight: "400",
   subsets: ["latin"],
 });

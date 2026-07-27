@@ -18,9 +18,11 @@ import { useContext } from "react";
 import { TabContext } from "../context/TabContext";
 import ConstellationPhoto from "../tabContentComponents/imageEvidence/ConstellationPhoto";
 import LetterFromWalter from "../tabContentComponents/handwrittenLetter/LetterFromWalter";
-import Pentagram from "../tabContentComponents/pentagram/Pentagram";
 import BookingConfirmations from "../tabContentComponents/email/BookingConfirmations";
 import LockedPentagram from "../tabContentComponents/lockedPdf/LockedPentagram";
+import { StageContext } from "../context/StageContext";
+import PoliceVoicemails from "../tabContentComponents/voicemails/PoliceVoicemails";
+import HamperHerald from "../tabContentComponents/newspaper/HamperHerald";
 
 const CHAPTER = 2;
 
@@ -35,6 +37,13 @@ export default function Game2() {
 function GameComponent() {
   const { activeTab, setActiveTab } = useContext(TabContext);
   const { isSolved } = useContext(ProgressContext);
+
+  /**
+   * 0: solve the group chat
+   * 1: solve the mansion address
+   * 2: solve the rituals
+   */
+  const { currentStage } = useContext(StageContext);
   const tabsComponent = (
     <Tab.Container
       id="left-tabs-example"
@@ -71,13 +80,31 @@ function GameComponent() {
             <Nav variant="pills">
               <NavItemWithLock
                 eventKey="KaiserTimes"
-                title="Kaiser Times"
+                title="The Kaiser Times"
                 locked={!isSolved(ProgressKeys.KAISER_TIMES_UNLOCKED)}
               />
               <NavItemWithLock
                 eventKey="ConstellationPhoto"
                 title="Constellation Photo"
                 locked={!isSolved(ProgressKeys.CONSTELLATION_PHOTO_UNLOCKED)}
+              />
+            </Nav>
+          </div>
+
+          <div
+            className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}
+          >
+            <Nav variant="pills">
+              <NavItemWithLock
+                eventKey="Voicemails"
+                title="Voicemail"
+                emoji={isSolved(ProgressKeys.VOICEMAIL) ? "✅" : "🎯"}
+                locked={false} // stage 1 prob
+                lockedTooltip="Unlocked by completing the Objectives in the Group Chat"
+              />
+              <NavItemWithLock
+                eventKey="HamperHerald"
+                title="The Hamper Herald"
               />
             </Nav>
           </div>
@@ -120,6 +147,12 @@ function GameComponent() {
             </Tab.Pane>
             <Tab.Pane eventKey="ConstellationPhoto">
               <ConstellationPhoto />
+            </Tab.Pane>
+            <Tab.Pane eventKey="Voicemails">
+              <PoliceVoicemails />
+            </Tab.Pane>
+            <Tab.Pane eventKey="HamperHerald">
+              <HamperHerald />
             </Tab.Pane>
             <Tab.Pane eventKey="HandwrittenLetter">
               <LetterFromWalter />

@@ -11,7 +11,6 @@ Play the game here! https://murder-at-the-occult-club.vercel.app/ The game takes
 - Fill-in-the-blank-style puzzles that unlock more evidence as you go on
 - A save system that automatically keeps track of your progress
 
-### Planned Features
+## Development
 
-- A feedback form to submit feedback/bugs
-- Sound effects and images to enhance immersion
+`npm run dev` to start development server (http://localhost:3000)

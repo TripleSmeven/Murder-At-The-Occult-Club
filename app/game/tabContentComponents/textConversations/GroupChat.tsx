@@ -1,7 +1,6 @@
-import { useContext } from "react";
 import CustomCarousel from "../../components/CustomCarousel";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
-import { CHAPTER2_NAMES, Color } from "../../components/ObjectiveBuilder";
+import { Color } from "../../components/ObjectiveBuilder";
 import TabContentBase from "../TabContentBase";
 import { ConversationComponent } from "./ConversationComponent";
 import {
@@ -12,10 +11,6 @@ import {
   matt,
   nikki,
 } from "./ConversationJsons2";
-import {
-  ProgressContext,
-  ProgressKeys,
-} from "../../components/ProgressContext";
 
 export default function GroupChat() {
   const conversations = GroupChatConversations.map((conversation, index) => (

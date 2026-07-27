@@ -49,7 +49,7 @@ export default function LockedPdf({
         <div className={styles.lockOverlay}>
           <form className={styles.passwordForm} onSubmit={unlockPdf}>
             <div className={styles.passwordLabel}>
-              Enter password to unlock PDF
+              Enter 4-digit PIN to unlock PDF
             </div>
             <input
               autoComplete="off"

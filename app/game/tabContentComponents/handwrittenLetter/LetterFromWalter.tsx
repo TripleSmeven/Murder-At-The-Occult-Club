@@ -6,11 +6,11 @@ export default function LetterFromWalter() {
   const lines1 = [
     "To my daughter-in-law, Jane",
 
-    "I hope this letter finds you well. I want to first  to express my gratitude for the love and care you have shown to my son, Gregory. Your presence in his life has brought him immense joy and happiness, and for that, I am truly thankful.",
+    "I hope this letter finds you well. I want to first  to express my gratitude for the love and care you have shown to my son. Your presence in his life has brought him immense joy and happiness, and for that, I am truly thankful.",
 
     "But you'll excuse me if the pleasantries end here. I have given you this note, on my very death bed, because I have something of grave importance to tell you. I regret that I've lacked the courage and fortitude to tell you this, but I cannot leave this mortal coil without doing so. I have been keeping a secret from you, one that has weighed heavily on my conscience for decades.",
 
-    "My son has committed the sin of infedelity against you. It happened about two years into your courtship when the two of you still resided in Berkshire. The other woman became pregnant and gave birth to a boy. Against my better judgement, I assisted my son in covering up this transgression and sent the woman and her child away. You were none the wiser. After you and Gregory moved abroad, Gregory began sending me money under the guise of paying for his mother's medical care. In reality, much of the funds were used to support his illegitimate son.",
+    "My son has committed the sin of infedelity against you. It happened about two years into your courtship when the two of you still resided in Berkshire. The other woman became pregnant and gave birth to a boy. Against my better judgement, I assisted my son in covering up this transgression and sent the woman and her child away. You were none the wiser. After you two moved abroad, my son began sending me money under the guise of paying for his mother's medical care. In reality, much of the funds were used to support his illegitimate son.",
   ];
 
   const lines2 = [
