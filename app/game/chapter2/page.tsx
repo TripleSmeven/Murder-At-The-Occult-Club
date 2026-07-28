@@ -23,6 +23,7 @@ import LockedPentagram from "../tabContentComponents/lockedPdf/LockedPentagram";
 import { StageContext } from "../context/StageContext";
 import PoliceVoicemails from "../tabContentComponents/voicemails/PoliceVoicemails";
 import HamperHerald from "../tabContentComponents/newspaper/HamperHerald";
+import PoliceNotes from "../tabContentComponents/diaryPages/PoliceNotes";
 
 const CHAPTER = 2;
 
@@ -103,6 +104,10 @@ function GameComponent() {
                 lockedTooltip="Unlocked by completing the Objectives in the Group Chat"
               />
               <NavItemWithLock
+                eventKey="PoliceNotes"
+                title="Handwritten Notes"
+              />
+              <NavItemWithLock
                 eventKey="HamperHerald"
                 title="The Hamper Herald"
               />
@@ -150,6 +155,9 @@ function GameComponent() {
             </Tab.Pane>
             <Tab.Pane eventKey="Voicemails">
               <PoliceVoicemails />
+            </Tab.Pane>
+            <Tab.Pane eventKey="PoliceNotes">
+              <PoliceNotes />
             </Tab.Pane>
             <Tab.Pane eventKey="HamperHerald">
               <HamperHerald />

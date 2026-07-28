@@ -13,13 +13,14 @@ import {
   Domine,
   Rouge_Script,
   Inter,
+  Indie_Flower,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
 
 // FONTS HERE
 
-// notes
+// notes (player)
 const pangolin = Pangolin({
   variable: "--font-pangolin",
   weight: "400",
@@ -36,6 +37,13 @@ const patrick = Patrick_Hand({
 // letter from walter
 const rouge_script = Rouge_Script({
   variable: "--font-rouge_script",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// police notes (handwritten)
+const indie_flower = Indie_Flower({
+  variable: "--font-indie_flower",
   weight: "400",
   subsets: ["latin"],
 });
@@ -95,7 +103,7 @@ const permanent_marker = Permanent_Marker({
   subsets: ["latin"],
 });
 
-// diary
+// notebook
 const crafty_girls = Crafty_Girls({
   variable: "--font-crafty_girls",
   weight: "400",

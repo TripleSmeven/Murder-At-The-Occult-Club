@@ -1,8 +1,9 @@
-.diaryPage {
+.notebookPage {
   background-color: #ffffff;
   padding: 2rem 3rem;
 
-  line-height: 2rem; /* Adjust this to change line height */
+  /* Adjust this to change line height */
+  line-height: 2rem;
 
   /* Create the horizontal lines */
   background-image: linear-gradient(transparent 95%, #add8e6 95%);
@@ -11,11 +12,18 @@
   background-size: 100% 2rem; /* Must match the line-height */
   background-attachment: local;
 
-  width: 100%;
+  max-width: 100%;
   height: 100%;
 
   overflow: auto;
   scrollbar-width: thin;
+
+  &.notepadStyle {
+    background-color: #feffe0;
+    margin: 0 10vh;
+    line-height: 1.8rem;
+    background-size: 100% 1.8rem;
+  }
 }
 
 .textContent {
@@ -26,4 +34,9 @@
   color: #2c2c2c;
   /* push text slightly down so it looks like its on the line */
   padding-top: 0.25em;
+
+  &.notepadStyle {
+    font-family: Indie Flower;
+    padding-top: 0.2em;
+  }
 }

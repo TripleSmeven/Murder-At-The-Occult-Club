@@ -180,12 +180,22 @@ const Stars: ConversationJson = {
     },
     {
       sender: david,
-      content: "Yep. We set it up on the hill behind the neighbor's house",
+      content:
+        "Yep. We set it up on the hill behind the next-door neighbor's house",
     },
     {
       sender: david,
       content:
         "All this equipment is heavy! Lucky I didn't do arm day this week!",
+    },
+    {
+      sender: daisy,
+      content: "is that tresspassing?",
+    },
+    {
+      sender: david,
+      content:
+        "The highest part of the hill is here! They're probably asleep anyways",
     },
     {
       sender: nikki,
@@ -194,7 +204,7 @@ const Stars: ConversationJson = {
     {
       sender: martin,
       content:
-        "That square? That's the umbral cage. Symbolizes endless toils and the feeling of being trapped.",
+        "The square shapped one is the umbral cage. Symbolizes endless toils and the feeling of being trapped.",
     },
     {
       sender: daisy,

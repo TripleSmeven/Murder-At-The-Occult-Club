@@ -17,7 +17,7 @@ export default function PoliceVoicemails() {
   const evidence = <Voicemails voicemailsData={voicemailData} />;
 
   const objectives: ObjectivesJson = {
-    heading: "Where did the missing students go in Hamper?",
+    heading: "What is the address of the Crocker Mansion?",
     sections: [
       {
         title: "House number",
@@ -26,7 +26,7 @@ export default function PoliceVoicemails() {
             question: "",
             answer: "123",
             answers: null,
-            color: Color.PURPLE,
+            color: Color.BLUE,
           },
         ],
       },
@@ -37,7 +37,7 @@ export default function PoliceVoicemails() {
             question: "",
             answer: "123",
             answers: null,
-            color: Color.PURPLE,
+            color: Color.BLUE,
           },
         ],
       },
