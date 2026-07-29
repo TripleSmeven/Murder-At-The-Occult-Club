@@ -12,7 +12,7 @@ const LARSSEN = "Larssen";
 const KATARIA = "Kataria";
 
 const kataria1: TranscriptJson = {
-  date: "1/14/26 10:10 AM",
+  date: "1/13/26 10:10 AM",
   interviewer: "Troy Samson",
   interviewee: "Sandeep Kataria",
   location: "Phone Call",
@@ -46,7 +46,7 @@ const kataria1: TranscriptJson = {
     },
     {
       name: SAMSON,
-      text: "We're trying to verify that. We got a missing person report for one Martin Larssen, and I believe David is a good friend of his.",
+      text: "We're trying to verify that. We got a missing person report for one of his friends, Martin. Do you know Martin?",
     },
   ],
 };
@@ -71,7 +71,7 @@ const kataria2: TranscriptJson = {
     },
     {
       name: KATARIA,
-      text: "Well, he's friends with a lot of the neighbor kids. Um, there's the Meyer kids, there's Justin. And Daisy. And Alex. Officer, what in the world is going on? Is my son in danger?",
+      text: "Well, he's friends with a lot of the neighbor kids that he grew up with. Um, there's the Meyer kids, there's Justin. And Daisy. And Alex. Officer, what in the world is going on? Is my son in danger?",
     },
     {
       name: SAMSON,

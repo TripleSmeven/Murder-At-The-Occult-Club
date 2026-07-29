@@ -64,7 +64,7 @@ export default function BookingConfirmations() {
       >
         <Confirmation
           reservationName="Booth 1892"
-          reservationDetails="6:00pm - 9:00pm"
+          reservationDetails={`6:00pm - 9:00pm on ${date}`}
           guestName="M. Crocker"
           confirmationNumber={confirmationIds[index]}
           address="Round 10, 186 Pleasant Grove Rd, Kaiser County, NY 14850"

@@ -11,8 +11,13 @@ import {
   matt,
   nikki,
 } from "./ConversationJsons2";
+import { ProgressKeys } from "../../context/ProgressContext";
+import { useContext } from "react";
+import { ProgressContext } from "../../context/ProgressContext";
 
 export default function GroupChat() {
+  const { setSolved } = useContext(ProgressContext);
+
   const conversations = GroupChatConversations.map((conversation, index) => (
     <ConversationComponent
       key={index}
@@ -83,6 +88,16 @@ export default function GroupChat() {
     ],
   };
 
+  const onCorrect = () => {
+    setSolved(ProgressKeys.GROUP_CHAT);
+  };
+
   const evidence = <CustomCarousel items={conversations} />;
-  return <TabContentBase evidence={evidence} objectivesJson={objectives} />;
+  return (
+    <TabContentBase
+      evidence={evidence}
+      objectivesJson={objectives}
+      onCorrect={onCorrect}
+    />
+  );
 }

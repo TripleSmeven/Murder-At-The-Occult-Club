@@ -1,10 +1,7 @@
 "use client";
 
 import { FormEvent, ReactNode, useContext, useState } from "react";
-import {
-  ProgressContext,
-  ProgressKeys,
-} from "../../components/ProgressContext";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 import styles from "./LockedPdf.module.css";
 
 interface LockedPdfProps {
@@ -49,7 +46,7 @@ export default function LockedPdf({
         <div className={styles.lockOverlay}>
           <form className={styles.passwordForm} onSubmit={unlockPdf}>
             <div className={styles.passwordLabel}>
-              Enter 4-digit PIN to unlock PDF
+              Enter 4-digit PIN to unlock
             </div>
             <input
               autoComplete="off"

@@ -13,17 +13,18 @@ import LetterFromX2_1 from "../tabContentComponents/handwrittenLetter/LetterFrom
 import PoliceTranscript from "../tabContentComponents/policeTranscript/PoliceTranscript";
 import TripPlan from "../tabContentComponents/notesApp/TripPlan";
 import KaiserTimes from "../tabContentComponents/newspaper/KaiserTimes";
-import { ProgressContext, ProgressKeys } from "../components/ProgressContext";
+import { ProgressContext, ProgressKeys } from "../context/ProgressContext";
 import { useContext } from "react";
 import { TabContext } from "../context/TabContext";
 import ConstellationPhoto from "../tabContentComponents/imageEvidence/ConstellationPhoto";
 import LetterFromWalter from "../tabContentComponents/handwrittenLetter/LetterFromWalter";
 import BookingConfirmations from "../tabContentComponents/email/BookingConfirmations";
-import LockedPentagram from "../tabContentComponents/lockedPdf/LockedPentagram";
+import LockedRitualPlan from "../tabContentComponents/lockedPdf/LockedRitualPlan";
 import { StageContext } from "../context/StageContext";
 import PoliceVoicemails from "../tabContentComponents/voicemails/PoliceVoicemails";
 import HamperHerald from "../tabContentComponents/newspaper/HamperHerald";
 import PoliceNotes from "../tabContentComponents/diaryPages/PoliceNotes";
+import MantlesOfInheritance from "../tabContentComponents/occultDocuments/MantlesOfInheritance";
 
 const CHAPTER = 2;
 
@@ -127,6 +128,10 @@ function GameComponent() {
                 title="Locked PDF"
                 emoji={isSolved(ProgressKeys.LOCKED_PDF_UNLOCKED) ? "✅" : "🎯"}
               />
+              <NavItemWithLock
+                eventKey="MantlesOfInheritance"
+                title="Strange Document"
+              />
             </Nav>
           </div>
         </Col>
@@ -166,7 +171,10 @@ function GameComponent() {
               <LetterFromWalter />
             </Tab.Pane>
             <Tab.Pane eventKey="LockedPDF">
-              <LockedPentagram />
+              <LockedRitualPlan />
+            </Tab.Pane>
+            <Tab.Pane eventKey="MantlesOfInheritance">
+              <MantlesOfInheritance />
             </Tab.Pane>
           </Tab.Content>
         </Col>

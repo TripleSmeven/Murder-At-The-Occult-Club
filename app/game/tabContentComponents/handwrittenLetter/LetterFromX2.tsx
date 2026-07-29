@@ -4,10 +4,7 @@ import { StageContext } from "../../context/StageContext";
 import { CHAPTER1_NAMES, Color } from "../../components/ObjectiveBuilder";
 import HandwrittenLetter from "./HandwrittenLetter";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
-import {
-  ProgressContext,
-  ProgressKeys,
-} from "../../components/ProgressContext";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 import TabContentBase from "../TabContentBase";
 
 export default function LetterFromX2() {

@@ -14,6 +14,7 @@ import {
   Rouge_Script,
   Inter,
   Indie_Flower,
+  Fondamento,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
@@ -48,16 +49,23 @@ const indie_flower = Indie_Flower({
   subsets: ["latin"],
 });
 
-// police report
+// police report (typewriter)
 const special = Special_Elite({
   variable: "--font-special",
   weight: "400",
   subsets: ["latin"],
 });
 
-// recipe
+// recipe (creepy old font)
 const gochi = Gochi_Hand({
   variable: "--font-gochi",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// mantles of inheritance (old looking font)
+const fondamento = Fondamento({
+  variable: "--font-fondamento",
   weight: "400",
   subsets: ["latin"],
 });
@@ -69,7 +77,7 @@ const noto = Noto_Sans({
   subsets: ["latin"],
 });
 
-// email
+// email inbox
 const roboto = Roboto({
   variable: "--font-roboto",
   weight: "400",
@@ -83,6 +91,7 @@ const space_mono = Space_Mono({
   subsets: ["latin"],
 });
 
+// iphone like font
 const inter = Inter({
   variable: "--font-inter",
   weight: "400",
@@ -103,14 +112,14 @@ const permanent_marker = Permanent_Marker({
   subsets: ["latin"],
 });
 
-// notebook
+// girl diary
 const crafty_girls = Crafty_Girls({
   variable: "--font-crafty_girls",
   weight: "400",
   subsets: ["latin"],
 });
 
-// Ritual instructions email
+// email content
 const domine = Domine({
   variable: "--font-domine",
   weight: "400",

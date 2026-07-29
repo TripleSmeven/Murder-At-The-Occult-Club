@@ -1,7 +1,7 @@
 import { ConversationJson } from "./ConversationJsons";
 
 export const matt = "looprevil92";
-export const daisy = "justagreengirl";
+export const daisy = "justagreengremlin";
 export const nikki = "meremere";
 export const david = "sam_slow_down";
 export const martin = "playingWithMyHeart";
@@ -17,46 +17,6 @@ const Hungry: ConversationJson = {
     { sender: daisy, content: "wtf" },
     { sender: martin, content: "who is this?" },
     { sender: daisy, content: "did someone invite someone?" },
-    { sender: demon, content: "I'M HUNGRY. WHEN ARE U FEEDING ME?" },
-    { sender: nikki, content: "@sam_slow_down Very funny." },
-    { sender: david, content: "What? I didnt invite this guy." },
-    { sender: daisy, content: "just kick them" },
-    { sender: demon, content: "I'M HUNGRY. WHEN ARE U FEEDING ME?" },
-    {
-      sender: daisy,
-      content: "if one if u boys is pulling a prank stop it its not funny",
-    },
-    { sender: david, content: "This isnt me!" },
-    { sender: demon, content: "I'M HUNGRY. WHEN ARE U FEEDING ME?" },
-    { sender: martin, content: "I'm waking up Matt" },
-    { sender: david, content: "I cant kick them its not working" },
-    { sender: demon, content: "I'M HUNGRY. WHEN ARE U FEEDING ME?" },
-  ],
-};
-
-const Haunted: ConversationJson = {
-  date: "1/13/26 8:25",
-  messages: [
-    {
-      sender: david,
-      content: `@${nikki} @${daisy} @${matt} you guys coming down for breakfast?`,
-    },
-    {
-      sender: nikki,
-      content: "I'm up here with her in her room. She had a nightmare.",
-    },
-    { sender: matt, content: "Oh, sorry to hear that. Is she alright?" },
-    {
-      sender: david,
-      content:
-        "I dont blame her. I didnt want to say anything but this house feels haunted. No offence @looprevil92",
-    },
-    {
-      sender: nikki,
-      content:
-        "She's a bit shaken but she's alright. Said she felt like something was watching her.",
-    },
-    { sender: nikki, content: "@looprevil92 did you check out the library? " },
     { sender: demon, content: "I'M HUNGRY. WHEN ARE U FEEDING ME?" },
     { sender: nikki, content: "@sam_slow_down Very funny." },
     { sender: david, content: "What? I didnt invite this guy." },
@@ -124,13 +84,12 @@ const Ritual: ConversationJson = {
     },
     {
       sender: matt,
-      content:
-        "We already went over everything last night. This is just for reference",
+      content: "You know I use the same passcode for everything",
     },
     {
       sender: matt,
       content:
-        "Besides, you already know I use the same passcode for everything",
+        "Besides, we already went over everything last night. This is just for reference",
     },
     {
       sender: nikki,
@@ -164,7 +123,7 @@ const Stars: ConversationJson = {
     },
     {
       sender: martin,
-      content: "@justagreengirl Making sure we're all set for tonight",
+      content: "@justagreengremlin Making sure we're all set for tonight",
     },
     {
       sender: martin,

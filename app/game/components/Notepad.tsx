@@ -115,7 +115,7 @@ export default function Notepad({ objectivesJson, onCorrect }: NotepadProps) {
       onSelect={handleTabSelect}
     >
       <Col className={styles.tabCol}>
-        <Row sm={1}>
+        <Row sm={1} className={styles.tabHeaderRow}>
           <Nav variant="tabs" className="flex-row">
             {objectivesTab && (
               <Nav.Item className={styles.tabs}>

@@ -1,10 +1,7 @@
 import { ConversationJson } from "./ConversationJsons";
 import styles from "./ConversationComponent.module.css";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
-import {
-  ProgressContext,
-  ProgressKeys,
-} from "../../components/ProgressContext";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 import { useContext } from "react";
 import { TabContext } from "../../context/TabContext";
 
@@ -37,7 +34,7 @@ const senderToProfileMap: { [key: string]: string } = {
   "Unknown A": "unknownA",
   "Unknown B": "unknownB",
 
-  justagreengirl: "justagreengirl",
+  justagreengremlin: "justagreengremlin",
   sam_slow_down: "sam_slow_down",
   looprevil92: "looprevil92",
   meremere: "meremere",

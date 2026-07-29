@@ -8,10 +8,7 @@ import { Color } from "../../components/ObjectiveBuilder";
 import { useContext } from "react";
 import { StageContext } from "../../context/StageContext";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
-import {
-  ProgressContext,
-  ProgressKeys,
-} from "../../components/ProgressContext";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 
 export default function PoliceReport() {
   const item1 = (

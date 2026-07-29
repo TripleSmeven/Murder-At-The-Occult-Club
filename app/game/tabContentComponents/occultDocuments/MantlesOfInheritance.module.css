@@ -1,0 +1,28 @@
+.parent {
+  color: black;
+  font-family: Fondamento;
+  font-size: 1.5em;
+
+  overflow: auto;
+  scrollbar-color: gray transparent;
+  scrollbar-width: thin;
+}
+
+.page {
+  /* https://www.magnific.com/free-photo/grunge-paper-background_5203416.htm */
+  background-image: url("./old-book-2.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  padding: 1em 2em;
+
+  h2 {
+    text-align: center;
+    margin: 1em 0;
+    font-size: 1.5em;
+  }
+}
+
+.section {
+  margin-bottom: 1em;
+}

@@ -6,10 +6,7 @@ import TabContentBase from "../TabContentBase";
 import { allInboxes, type EmailJson, type Inbox } from "./EmailInboxJsons";
 import styles from "./EmailInboxes.module.css";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
-import {
-  ProgressContext,
-  ProgressKeys,
-} from "../../components/ProgressContext";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 
 // a single email in the inbox
 function Email({ sender, title, content, date }: EmailJson) {

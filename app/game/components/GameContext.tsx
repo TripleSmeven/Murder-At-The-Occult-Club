@@ -2,7 +2,7 @@
 
 import { JSX, ReactNode } from "react";
 import { ObjectivesProvider } from "../context/ObjectivesContext";
-import { ProgressProvider } from "./ProgressContext";
+import { ProgressProvider } from "../context/ProgressContext";
 import { GlobalNotesProvider } from "../context/GlobalNotesContext";
 import { StageProvider } from "../context/StageContext";
 
@@ -11,7 +11,10 @@ interface GameContextProps {
   children: ReactNode;
 }
 
-export function GameContext({ chapter = 1, children }: GameContextProps): JSX.Element {
+export function GameContext({
+  chapter = 1,
+  children,
+}: GameContextProps): JSX.Element {
   return (
     <StageProvider chapter={chapter}>
       <GlobalNotesProvider chapter={chapter}>

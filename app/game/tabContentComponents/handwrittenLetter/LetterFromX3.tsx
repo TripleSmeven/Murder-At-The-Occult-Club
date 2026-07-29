@@ -3,10 +3,7 @@ import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { StageContext } from "../../context/StageContext";
 import { CHAPTER1_NAMES, Color } from "../../components/ObjectiveBuilder";
 import HandwrittenLetter from "./HandwrittenLetter";
-import {
-  ProgressContext,
-  ProgressKeys,
-} from "../../components/ProgressContext";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 import { VictoryScreen } from "../../components/VictoryScreen";
 import TabContentBase from "../TabContentBase";
 

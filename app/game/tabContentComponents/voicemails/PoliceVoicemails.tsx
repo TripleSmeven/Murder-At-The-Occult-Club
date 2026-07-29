@@ -1,17 +1,20 @@
+import { useContext } from "react";
 import { Color } from "../../components/ObjectiveBuilder";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import TabContentBase from "../TabContentBase";
 import Voicemails from "./Voicemails";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 
 export default function PoliceVoicemails() {
+  const { setSolved } = useContext(ProgressContext);
   const voicemailData = [
     {
       id: "1",
       title: "William Phelps",
-      date: "January 15, 2026 at 3:58 PM",
-      audioSrc: "/audio/RhysWill_HeyTroy.wav",
+      date: "January 14, 2026 at 3:58 PM",
+      audioSrc: "/audio/PoliceVoicemail.mp3",
       transcript:
-        "Hey Troy, so uh… bad news. I couldn’t get that address for you. These rich folks…they’re pretty cagey on sharing things with outside people, especially the police. I tried to make some calls, but they have a strict policy that they don’t budge on. So you have two options. If you compile some real evidence, you can try to get a subpoena. Or, you can try to ask around the locales to see if they’ve seen any college students, and find out that way. I wish I could help more, but I’ve got other stuff to take care of right now. But you can call or text me anytime, alright? Bye",
+        "Hey Troy, so uh… bad news. I couldn’t get that address for you. These rich folks…they’re pretty cagey on sharing things with outside people, especially the police. I tried to make some calls, but they have a strict policy that they don’t budge on. So you have two options. If you compile some real evidence, you can try to get a subpoena. But that might take a week. Or, you can try to ask around, see if the locales have noticed any college students, and find out that way. Listen, I wish I could help more, but I’ve got other stuff to take care of right now. But you can call or text me anytime, okay? Bye.",
     },
   ];
   const evidence = <Voicemails voicemailsData={voicemailData} />;
@@ -24,7 +27,7 @@ export default function PoliceVoicemails() {
         questions: [
           {
             question: "",
-            answer: "123",
+            answer: "7",
             answers: null,
             color: Color.BLUE,
           },
@@ -35,7 +38,7 @@ export default function PoliceVoicemails() {
         questions: [
           {
             question: "",
-            answer: "123",
+            answer: "Apple Avenue",
             answers: null,
             color: Color.BLUE,
           },
@@ -44,5 +47,15 @@ export default function PoliceVoicemails() {
     ],
   };
 
-  return <TabContentBase evidence={evidence} objectivesJson={objectives} />;
+  const onCorrect = () => {
+    setSolved(ProgressKeys.VOICEMAIL, true);
+  };
+
+  return (
+    <TabContentBase
+      evidence={evidence}
+      objectivesJson={objectives}
+      onCorrect={onCorrect}
+    />
+  );
 }

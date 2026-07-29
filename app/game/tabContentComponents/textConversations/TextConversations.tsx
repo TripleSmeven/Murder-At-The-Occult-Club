@@ -5,10 +5,7 @@ import { CHAPTER1_NAMES, Color } from "../../components/ObjectiveBuilder";
 import TabContentBase from "../TabContentBase";
 import { ConversationComponent } from "./ConversationComponent";
 import { primaryConversations } from "./ConversationJsons";
-import {
-  ProgressContext,
-  ProgressKeys,
-} from "../../components/ProgressContext";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 
 export default function TextConversations() {
   const conversations = primaryConversations.map((conversation, index) => (

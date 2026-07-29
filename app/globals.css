@@ -96,6 +96,11 @@ select.form-select:disabled {
   background-image: none;
 }
 
+/* hack bootstrap to remove weird margins in row elements */
+.row {
+  --bs-gutter-x: 0 !important;
+}
+
 /* Style the MDX editor https://mdxeditor.dev/editor/docs/theming */
 .mdxeditor {
   height: 100%;

@@ -2,7 +2,7 @@
 
 import { JSX, ReactNode } from "react";
 import { ObjectivesProvider } from "./ObjectivesContext";
-import { ProgressProvider } from "../components/ProgressContext";
+import { ProgressProvider } from "./ProgressContext";
 import { GlobalNotesProvider } from "./GlobalNotesContext";
 import { StageProvider } from "./StageContext";
 import { TabContextProvider } from "./TabContext";

@@ -7,7 +7,7 @@ export default function TripPlan() {
       <div>
         <div>Room assignments</div>
         <ul>
-          <li>flower girl: east wing bedroom 1 (closest to the greenhouse)</li>
+          <li>flower girl: east wing bedroom 1 (view of forest)</li>
           <li>bookworm: attic room (cozy)</li>
           <li>the shadow: west wing bedroom 1</li>
           <li>star gazer: west wing bedroom 2</li>

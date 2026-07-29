@@ -16,7 +16,7 @@ export default function HandwrittenLetter({
       </div>
     );
   });
-  const evidence = (
+  return (
     <div className={`${styles.letter}`}>
       <div
         className={`${styles.page} ${style === "fromWalter" && styles.fromWalter}`}
@@ -25,6 +25,4 @@ export default function HandwrittenLetter({
       </div>
     </div>
   );
-
-  return evidence;
 }

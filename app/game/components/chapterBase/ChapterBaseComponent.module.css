@@ -31,8 +31,8 @@
   padding: 0 0.5em;
 }
 
-/* so that the tab container row is always expanded horizontally as much as it can*/
 .navRow {
+  /* so that the tab container row is always expanded horizontally as much as it can*/
   width: 100%;
 }
 

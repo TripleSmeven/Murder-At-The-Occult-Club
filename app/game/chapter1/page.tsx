@@ -9,7 +9,7 @@ import styles from "../components/chapterBase/ChapterBaseComponent.module.css";
 
 import LetterFromX1 from "../tabContentComponents/handwrittenLetter/LetterFromX1";
 import PoliceReport from "../tabContentComponents/policeReport/PoliceReport";
-import Recipe from "../tabContentComponents/recipe/Recipe";
+import ElixirRecipe from "../tabContentComponents/occultDocuments/ElixirRecipe";
 import AmazingOrders from "../tabContentComponents/amazingOrders/AmazingOrders";
 import TextConversations from "../tabContentComponents/textConversations/TextConversations";
 import EmailInboxes from "../tabContentComponents/emailInboxes/EmailInboxes";
@@ -18,7 +18,7 @@ import { GameContext } from "../context/GameContext";
 import { useContext } from "react";
 import { StageContext } from "../context/StageContext";
 import PotluckPlanner from "../tabContentComponents/potluckPlanner/PotluckPlanner";
-import { ProgressContext, ProgressKeys } from "../components/ProgressContext";
+import { ProgressContext, ProgressKeys } from "../context/ProgressContext";
 import LetterFromX2 from "../tabContentComponents/handwrittenLetter/LetterFromX2";
 import DiaryPages from "../tabContentComponents/diaryPages/DiaryPages";
 import MeetingSummary from "../tabContentComponents/meetingSummary/MeetingSummary";
@@ -96,7 +96,7 @@ function GameComponent() {
                 locked={currentStage < 1}
               />
               <NavItemWithLock
-                eventKey="Recipe"
+                eventKey="MysteriousRecipe"
                 title="Mysterious Recipe"
                 locked={currentStage < 1}
               />
@@ -191,8 +191,8 @@ function GameComponent() {
             <Tab.Pane eventKey="Newspaper">
               <SchoolNewspaper />
             </Tab.Pane>
-            <Tab.Pane eventKey="Recipe">
-              <Recipe />
+            <Tab.Pane eventKey="MysteriousRecipe">
+              <ElixirRecipe />
             </Tab.Pane>
             <Tab.Pane eventKey="TextConversations">
               <TextConversations />

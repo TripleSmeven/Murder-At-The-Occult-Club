@@ -6,10 +6,7 @@ import TabContentBase from "../TabContentBase";
 import { CHAPTER1_NAMES, Color } from "../../components/ObjectiveBuilder";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
-import {
-  ProgressContext,
-  ProgressKeys,
-} from "../../components/ProgressContext";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 
 const INDEX_TO_UNKNOWN_MAP: Record<number, string> = {
   0: "A",
