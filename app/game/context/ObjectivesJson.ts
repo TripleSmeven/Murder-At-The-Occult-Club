@@ -15,4 +15,5 @@ export type ObjectiveQuestion = {
   answers: string[] | null;
   answer: string;
   color: Color;
+  size?: "sm" | "lg"; // size of input for freeform questions, default is sm
 };

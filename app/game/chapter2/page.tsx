@@ -14,7 +14,7 @@ import PoliceTranscript from "../tabContentComponents/policeTranscript/PoliceTra
 import TripPlan from "../tabContentComponents/notesApp/TripPlan";
 import KaiserTimes from "../tabContentComponents/newspaper/KaiserTimes";
 import { ProgressContext, ProgressKeys } from "../context/ProgressContext";
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { TabContext } from "../context/TabContext";
 import ConstellationPhoto from "../tabContentComponents/imageEvidence/ConstellationPhoto";
 import LetterFromWalter from "../tabContentComponents/handwrittenLetter/LetterFromWalter";
@@ -25,7 +25,26 @@ import PoliceVoicemails from "../tabContentComponents/voicemails/PoliceVoicemail
 import HamperHerald from "../tabContentComponents/newspaper/HamperHerald";
 import PoliceNotes from "../tabContentComponents/diaryPages/PoliceNotes";
 import MantlesOfInheritance from "../tabContentComponents/occultDocuments/MantlesOfInheritance";
-import GroupChat2 from "../tabContentComponents/textConversations/GroupChat2";
+import RitualsOfTiaccabode from "../tabContentComponents/occultDocuments/RitualsOfTiaccabode";
+import LetterFromX2_2 from "../tabContentComponents/handwrittenLetter/LetterFromX2_2";
+
+// Memo required because when we change tabs, setActiveTab is called, which causes the
+// entire parent to rerender, and rerender all of these children. Memo prevents the rerending.
+const MemoLetterFromX2_1 = memo(LetterFromX2_1);
+const MemoPoliceTranscript = memo(PoliceTranscript);
+const MemoGroupChat = memo(GroupChat);
+const MemoTripPlan = memo(TripPlan);
+const MemoBookingConfirmations = memo(BookingConfirmations);
+const MemoLockedRitualPlan = memo(LockedRitualPlan);
+const MemoConstellationPhoto = memo(ConstellationPhoto);
+const MemoKaiserTimes = memo(KaiserTimes);
+const MemoPoliceVoicemails = memo(PoliceVoicemails);
+const MemoPoliceNotes = memo(PoliceNotes);
+const MemoHamperHerald = memo(HamperHerald);
+const MemoLetterFromWalter = memo(LetterFromWalter);
+const MemoMantlesOfInheritance = memo(MantlesOfInheritance);
+const MemoRitualsOfTiaccabode = memo(RitualsOfTiaccabode);
+const MemoLetterFromX2_2 = memo(LetterFromX2_2);
 
 const CHAPTER = 2;
 
@@ -52,6 +71,8 @@ function GameComponent() {
     currentStage === 1
       ? "Unlock by completing the Objectives in the Police Notes."
       : "";
+  const unlockableTooltop = "Unlock by finding this piece of evidence.";
+
   const tabsComponent = (
     <Tab.Container
       id="left-tabs-example"
@@ -72,7 +93,7 @@ function GameComponent() {
               <NavItemWithLock
                 eventKey="GroupChat"
                 title="Group Chat"
-                emoji={isSolved(ProgressKeys.LOCKED_PDF) ? "✅" : "🎯"}
+                emoji={isSolved(ProgressKeys.GROUP_CHAT) ? "✅" : "🎯"}
               />
               <NavItemWithLock eventKey="TripPlan" title="Trip Plan" />
               <NavItemWithLock
@@ -80,14 +101,23 @@ function GameComponent() {
                 title="Round 10 Emails"
               />
               <NavItemWithLock
-                eventKey="KaiserTimes"
-                title="The Kaiser Times"
-                locked={!isSolved(ProgressKeys.KAISER_TIMES_UNLOCKED)}
+                eventKey="LockedPdf"
+                title="Locked PDF"
+                locked={!isSolved(ProgressKeys.LOCKED_PDF_UNLOCKED)}
+                emoji={isSolved(ProgressKeys.LOCKED_PDF) ? "✅" : "🎯"}
+                lockedTooltip={unlockableTooltop}
               />
               <NavItemWithLock
                 eventKey="ConstellationPhoto"
                 title="Constellation Photo"
                 locked={!isSolved(ProgressKeys.CONSTELLATION_PHOTO_UNLOCKED)}
+                lockedTooltip={unlockableTooltop}
+              />
+              <NavItemWithLock
+                eventKey="KaiserTimes"
+                title="The Kaiser Times"
+                locked={!isSolved(ProgressKeys.KAISER_TIMES_UNLOCKED)}
+                lockedTooltip={unlockableTooltop}
               />
             </Nav>
           </div>
@@ -115,6 +145,12 @@ function GameComponent() {
                 locked={currentStage < 1}
                 lockedTooltip="Unlock by completing the Objectives in the Group Chat."
               />
+              <NavItemWithLock
+                eventKey="RitualsOfTiaccabode"
+                title="Strange Document 1"
+                locked={currentStage < 1}
+                lockedTooltip="Unlock by completing the Objectives in the Group Chat."
+              />
             </Nav>
           </div>
 
@@ -123,28 +159,23 @@ function GameComponent() {
           >
             <Nav variant="pills">
               <NavItemWithLock
-                eventKey="GroupChat2"
-                title="Group Chat 2"
+                eventKey="SolveTheCase"
+                title="Solve The Case"
                 locked={currentStage < 2}
-                lockedTooltip={stage2LockedTooltip}
-                emoji={isSolved(ProgressKeys.GROUP_CHAT_2) ? "✅" : "🎯"}
+                lockedTooltip={"Unlock by completing all previous objectives."}
+                emoji={isSolved(ProgressKeys.SOLVE_THE_CASE) ? "✅" : "🎯"}
               />
               <NavItemWithLock
-                eventKey="HandwrittenLetter"
-                title="Handwritten Letter"
+                eventKey="LetterFromWalter"
+                title="Letter From Walter"
                 locked={currentStage < 2}
                 lockedTooltip={stage2LockedTooltip}
-              />
-
-              <NavItemWithLock
-                eventKey="LockedPdf"
-                title="Locked PDF"
-                locked={!isSolved(ProgressKeys.LOCKED_PDF_UNLOCKED)}
-                emoji={isSolved(ProgressKeys.LOCKED_PDF) ? "✅" : "🎯"}
               />
               <NavItemWithLock
                 eventKey="MantlesOfInheritance"
-                title="Strange Document"
+                title="Strange Document 2"
+                locked={currentStage < 2}
+                lockedTooltip={stage2LockedTooltip}
               />
             </Nav>
           </div>
@@ -152,46 +183,52 @@ function GameComponent() {
         <Col sm={10} className={styles.col}>
           <Tab.Content className={styles.tabContent}>
             <Tab.Pane eventKey="LetterFromX">
-              <LetterFromX2_1 />
+              <MemoLetterFromX2_1 />
             </Tab.Pane>
             <Tab.Pane eventKey="PoliceTranscript">
-              <PoliceTranscript />
+              <MemoPoliceTranscript />
             </Tab.Pane>
             <Tab.Pane eventKey="GroupChat">
-              <GroupChat />
+              <MemoGroupChat />
             </Tab.Pane>
             <Tab.Pane eventKey="TripPlan">
-              <TripPlan />
+              <MemoTripPlan />
             </Tab.Pane>
             <Tab.Pane eventKey="Round10Emails">
-              <BookingConfirmations />
-            </Tab.Pane>
-            <Tab.Pane eventKey="KaiserTimes">
-              <KaiserTimes />
-            </Tab.Pane>
-            <Tab.Pane eventKey="ConstellationPhoto">
-              <ConstellationPhoto />
-            </Tab.Pane>
-            <Tab.Pane eventKey="Voicemails">
-              <PoliceVoicemails />
-            </Tab.Pane>
-            <Tab.Pane eventKey="PoliceNotes">
-              <PoliceNotes />
-            </Tab.Pane>
-            <Tab.Pane eventKey="HamperHerald">
-              <HamperHerald />
-            </Tab.Pane>
-            <Tab.Pane eventKey="GroupChat2">
-              <GroupChat2 />
-            </Tab.Pane>
-            <Tab.Pane eventKey="HandwrittenLetter">
-              <LetterFromWalter />
+              <MemoBookingConfirmations />
             </Tab.Pane>
             <Tab.Pane eventKey="LockedPdf">
-              <LockedRitualPlan />
+              <MemoLockedRitualPlan />
+            </Tab.Pane>
+            <Tab.Pane eventKey="ConstellationPhoto">
+              <MemoConstellationPhoto />
+            </Tab.Pane>
+            <Tab.Pane eventKey="KaiserTimes">
+              <MemoKaiserTimes />
+            </Tab.Pane>
+            <Tab.Pane eventKey="Voicemails">
+              <MemoPoliceVoicemails />
+            </Tab.Pane>
+            <Tab.Pane eventKey="PoliceNotes">
+              <MemoPoliceNotes />
+            </Tab.Pane>
+            <Tab.Pane eventKey="HamperHerald">
+              <MemoHamperHerald />
+            </Tab.Pane>
+            {/* <Tab.Pane eventKey="GroupChat2">
+              <GroupChat2 />
+            </Tab.Pane> */}
+            <Tab.Pane eventKey="LetterFromWalter">
+              <MemoLetterFromWalter />
             </Tab.Pane>
             <Tab.Pane eventKey="MantlesOfInheritance">
-              <MantlesOfInheritance />
+              <MemoMantlesOfInheritance />
+            </Tab.Pane>
+            <Tab.Pane eventKey="RitualsOfTiaccabode">
+              <MemoRitualsOfTiaccabode />
+            </Tab.Pane>
+            <Tab.Pane eventKey="SolveTheCase">
+              <MemoLetterFromX2_2 />
             </Tab.Pane>
           </Tab.Content>
         </Col>

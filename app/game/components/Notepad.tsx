@@ -240,6 +240,7 @@ const ObjectivesContent = ({
                     color={question.color}
                     storageKey={storageKey}
                     disabled={status === "correct"}
+                    size={question.size}
                   />
                 </div>
               );

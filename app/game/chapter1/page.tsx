@@ -13,7 +13,6 @@ import ElixirRecipe from "../tabContentComponents/occultDocuments/ElixirRecipe";
 import AmazingOrders from "../tabContentComponents/amazingOrders/AmazingOrders";
 import TextConversations from "../tabContentComponents/textConversations/TextConversations";
 import EmailInboxes from "../tabContentComponents/emailInboxes/EmailInboxes";
-import Newspaper from "../tabContentComponents/newspaper/Newspaper";
 import { GameContext } from "../context/GameContext";
 import { useContext } from "react";
 import { StageContext } from "../context/StageContext";

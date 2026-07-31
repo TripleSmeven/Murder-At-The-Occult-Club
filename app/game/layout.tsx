@@ -15,6 +15,7 @@ import {
   Inter,
   Indie_Flower,
   Fondamento,
+  Julee,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
@@ -63,9 +64,16 @@ const gochi = Gochi_Hand({
   subsets: ["latin"],
 });
 
-// mantles of inheritance (old looking font)
+// mantles of inheritance (old looking book)
 const fondamento = Fondamento({
   variable: "--font-fondamento",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// rituals of tiaccabode (old handwriting)
+const julee = Julee({
+  variable: "--font-julee",
   weight: "400",
   subsets: ["latin"],
 });

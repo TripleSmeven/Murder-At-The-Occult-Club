@@ -7,6 +7,7 @@ interface CustomPickerProps {
   label?: string;
   labelPosition?: string;
   color?: Color;
+  size?: "sm" | "lg";
   disabled?: boolean;
   words?: string[];
   storageKey: string;
@@ -67,12 +68,7 @@ export function CustomPicker({
       <div className={`${styles.label} ${color && styles[color]}`}>
         {label?.length ? label + ":" : null}
       </div>
-      <Form.Select
-        onChange={onChange}
-        size={"sm"}
-        disabled={disabled}
-        value={currentValue}
-      >
+      <Form.Select onChange={onChange} disabled={disabled} value={currentValue}>
         <option key={0} value={""}>
           [Select an option]
         </option>
@@ -89,6 +85,7 @@ export function CustomPicker({
 export function FreeformInput({
   label,
   color,
+  size,
   disabled,
   storageKey,
   callback,
@@ -113,6 +110,7 @@ export function FreeformInput({
         onChange={onChange}
         disabled={disabled}
         maxLength={32}
+        className={size === "lg" ? styles.largeInput : ""}
       ></Form.Control>
     </div>
   );

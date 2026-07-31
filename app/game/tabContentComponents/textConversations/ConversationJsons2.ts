@@ -291,7 +291,7 @@ const Mansion: ConversationJson = {
     {
       sender: matt,
       content:
-        "Oh yeah so me mum and dad are gonna be away. Have to handle some stuff back home after grandad passed",
+        "Oh yeah so me mum and dad are gonna be away. Had to handle some stuff back home in Berkshire after grandad passed",
     },
     {
       sender: matt,
@@ -557,10 +557,10 @@ const AfterNYE: ConversationJson = {
 };
 
 export const GroupChatConversations = [
+  Ritual,
   Stars,
   Leaving,
   Mansion,
   Grades,
   AfterNYE,
 ];
-export const GroupChatConversations2 = [Ritual];

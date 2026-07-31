@@ -94,19 +94,84 @@ export const hintsJson: HintsJson = {
         },
         {
           title: "Flower hint",
-          content: "There's only once choice here if you've identified the cause of death.",
+          content:
+            "There's only once choice here if you've identified the cause of death.",
         },
       ],
     },
   ],
   chapter2: [
     {
-      heading: "Test",
+      heading: "Group Chat",
+      unlockedAtStage: 0,
+      panels: [
+        {
+          title: "Getting started",
+          content:
+            "In the police transcripts, the parents of two of the students mention their names and their relationship with each other. Compare this information with the messages in the group chat, and you'll be able to identify their usernames.",
+        },
+        {
+          title: "looprevil92 hint",
+          content:
+            "Their first and last name appear in two different pieces of evidence. If you understand looprevil92's role in the group, you'll be able to deduce their name.",
+        },
+        {
+          title: "meremere hint",
+          content:
+            "Have you unlocked The Kaiser Times evidence yet? One of the articles has a connection to meremere.",
+        },
+        {
+          title: "justagreengremlin hint",
+          content:
+            "You learn quite a bit about this person and sam_slow_down from the 4th page of the group chat evidence. What you learn about them there connects with information found in the Trip Plan evidence and the police transcripts.",
+        },
+      ],
+    },
+    {
+      heading: "Locked PDF",
+      unlockedAtStage: 0,
+      panels: [
+        {
+          title: "Do I need to solve the Locked PDF to solve the Group Chat?",
+          content:
+            "No, both can be solved independently. But solving the locked PDF might make solving the Group Chat easier.",
+        },
+        {
+          title: "Gentle nudge",
+          content:
+            "The person who set the password offers a hint in the group chat. Are there any numbers associated with this person?",
+        },
+      ],
+    },
+    {
+      heading: "Crocker Mansion Address",
       unlockedAtStage: 1,
       panels: [
         {
-          title: "test",
-          content: "test",
+          title: "Where do I start?",
+          content:
+            "Use the Hamper Herald articles to get an understanding of how the Hamper Community is structured.",
+        },
+        {
+          title: "Hint 1",
+          content:
+            "The group chat reveals some clues about what is near the mansion. Is anything near the mansion also mentioned in other pieces of evidence?",
+        },
+        {
+          title: "Hint 2",
+          content:
+            "The group chat reveals there's a hill near the mansion. According to the Hamper Herald, Hamper is mostly flat except for a hill on the north side. What street is on the north side, and which house is the hill closest to?",
+        },
+      ],
+    },
+    {
+      heading: "Solve the Case",
+      unlockedAtStage: 2,
+      panels: [
+        {
+          title: "Cause of death hint",
+          content:
+            "The new evidence narrows down the cause of death to a few choices. Is there a way to narrow it further down to just one?",
         },
       ],
     },

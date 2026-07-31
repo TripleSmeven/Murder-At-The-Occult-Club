@@ -10,7 +10,7 @@ export default function LockedRitualPlan() {
     <LockedPdf password={"1892"} progressKey={ProgressKeys.LOCKED_PDF}>
       <div className={styles.container}>
         <h2>Ritual Plan</h2>
-        <Pentagram points={["Nikki", "Matt", "Daisy", "David", "Martin"]} />
+        <Pentagram points={["NY", "MC", "DV", "DK", "ML"]} />
         <div className={styles.info}>
           <div>
             <strong>Time: </strong>11:00pm
@@ -23,7 +23,7 @@ export default function LockedRitualPlan() {
           </div>
           <ul>
             <li>Charcoal</li>
-            <li>20-lined seashells</li>
+            <li>5 Tiaccabode's seashells</li>
             <li>Candles</li>
           </ul>
         </div>

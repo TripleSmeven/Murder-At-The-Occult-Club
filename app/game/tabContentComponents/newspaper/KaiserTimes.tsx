@@ -23,7 +23,7 @@ export default function KaiserTimes() {
       `What was expected to be a modest outdoor screening turned into one of the most talked-about campus events of the week, as senior film student Justin Holmes premiered his latest short film, Tendered, to a crowd of over 200 attendees at Founders Park last night.`,
       `Shot entirely in black and white and boasting a 40 minute runtime, Tendered follows a single chicken tender from the KaiserU dining hall freezer to its eventual disposal into a garbage bin, narrated only by ambient sound and long, static shots. Holmes has described his film as "an exploration of commodification, consumption, and the quiet tragedy of things made only to be consumed or forgotten."`,
       `The film's most striking sequence — a slow, single-take shot of the tender left out on a rooftop under a full moon, wreathed in a faint, lingering mist — has already become the subject of campus chatter. Holmes said the scene took "several attempts to get right" and credited an unnamed classmate for help with the visual effect, though he declined to elaborate further.`,
-      `Audience reaction was enthusiastic, but divided. "I don't know if it's genius or ridiculous," said Alex Blanc, a student at KaiserU. "But I couldn't look away."`,
+      `Audience reaction was enthusiastic, but divided. "I don't know if it's genius or ridiculous," said Donna Valera, a student at KaiserU. "But I couldn't look away."`,
       `Holmes plans to submit Tendered to several regional student film festivals this spring. The screening was part of an ongoing cinema series funded by KaiserU's film department."`,
     ],
   };

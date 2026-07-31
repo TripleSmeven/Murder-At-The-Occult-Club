@@ -15,6 +15,10 @@
     padding-top: 0.1em;
     padding-bottom: 0em;
     justify-content: center;
+
+    &.largeInput {
+      width: 15em;
+    }
   }
 
   select.disabled {
@@ -24,6 +28,9 @@
   input:disabled {
     background-color: white;
   }
+}
+
+.largeInput {
 }
 
 .label {

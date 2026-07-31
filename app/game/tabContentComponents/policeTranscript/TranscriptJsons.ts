@@ -12,7 +12,7 @@ const LARSSEN = "Larssen";
 const KATARIA = "Kataria";
 
 const kataria1: TranscriptJson = {
-  date: "1/13/26 10:10 AM",
+  date: "1/14/26 10:10 AM",
   interviewer: "Troy Samson",
   interviewee: "Sandeep Kataria",
   location: "Phone Call",
@@ -71,7 +71,7 @@ const kataria2: TranscriptJson = {
     },
     {
       name: KATARIA,
-      text: "Well, he's friends with a lot of the neighbor kids that he grew up with. Um, there's the Meyer kids, there's Justin. And Daisy. And Alex. Officer, what is going on?",
+      text: "Well, he's friends with a lot of the neighbor kids that he grew up with. Um, there's the Meyer kids, there's Justin. And Daisy. And Donna. Officer, what is going on?",
     },
     {
       name: SAMSON,
