@@ -25,6 +25,7 @@ import PoliceVoicemails from "../tabContentComponents/voicemails/PoliceVoicemail
 import HamperHerald from "../tabContentComponents/newspaper/HamperHerald";
 import PoliceNotes from "../tabContentComponents/diaryPages/PoliceNotes";
 import MantlesOfInheritance from "../tabContentComponents/occultDocuments/MantlesOfInheritance";
+import GroupChat2 from "../tabContentComponents/textConversations/GroupChat2";
 
 const CHAPTER = 2;
 
@@ -46,6 +47,11 @@ function GameComponent() {
    * 2: solve the rituals
    */
   const { currentStage } = useContext(StageContext);
+
+  const stage2LockedTooltip =
+    currentStage === 1
+      ? "Unlock by completing the Objectives in the Police Notes."
+      : "";
   const tabsComponent = (
     <Tab.Container
       id="left-tabs-example"
@@ -66,20 +72,13 @@ function GameComponent() {
               <NavItemWithLock
                 eventKey="GroupChat"
                 title="Group Chat"
-                emoji={isSolved(ProgressKeys.LOCKED_PDF_UNLOCKED) ? "✅" : "🎯"}
+                emoji={isSolved(ProgressKeys.LOCKED_PDF) ? "✅" : "🎯"}
               />
               <NavItemWithLock eventKey="TripPlan" title="Trip Plan" />
               <NavItemWithLock
                 eventKey="Round10Emails"
                 title="Round 10 Emails"
               />
-            </Nav>
-          </div>
-
-          <div
-            className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}
-          >
-            <Nav variant="pills">
               <NavItemWithLock
                 eventKey="KaiserTimes"
                 title="The Kaiser Times"
@@ -101,16 +100,20 @@ function GameComponent() {
                 eventKey="Voicemails"
                 title="Voicemail"
                 emoji={isSolved(ProgressKeys.VOICEMAIL) ? "✅" : "🎯"}
-                locked={false} // stage 1 prob
-                lockedTooltip="Unlocked by completing the Objectives in the Group Chat"
+                locked={currentStage < 1}
+                lockedTooltip="Unlock by completing the Objectives in the Group Chat."
               />
               <NavItemWithLock
                 eventKey="PoliceNotes"
                 title="Handwritten Notes"
+                locked={currentStage < 1}
+                lockedTooltip="Unlock by completing the Objectives in the Group Chat."
               />
               <NavItemWithLock
                 eventKey="HamperHerald"
                 title="The Hamper Herald"
+                locked={currentStage < 1}
+                lockedTooltip="Unlock by completing the Objectives in the Group Chat."
               />
             </Nav>
           </div>
@@ -120,13 +123,24 @@ function GameComponent() {
           >
             <Nav variant="pills">
               <NavItemWithLock
-                eventKey="HandwrittenLetter"
-                title="Handwritten Letter"
+                eventKey="GroupChat2"
+                title="Group Chat 2"
+                locked={currentStage < 2}
+                lockedTooltip={stage2LockedTooltip}
+                emoji={isSolved(ProgressKeys.GROUP_CHAT_2) ? "✅" : "🎯"}
               />
               <NavItemWithLock
-                eventKey="LockedPDF"
+                eventKey="HandwrittenLetter"
+                title="Handwritten Letter"
+                locked={currentStage < 2}
+                lockedTooltip={stage2LockedTooltip}
+              />
+
+              <NavItemWithLock
+                eventKey="LockedPdf"
                 title="Locked PDF"
-                emoji={isSolved(ProgressKeys.LOCKED_PDF_UNLOCKED) ? "✅" : "🎯"}
+                locked={!isSolved(ProgressKeys.LOCKED_PDF_UNLOCKED)}
+                emoji={isSolved(ProgressKeys.LOCKED_PDF) ? "✅" : "🎯"}
               />
               <NavItemWithLock
                 eventKey="MantlesOfInheritance"
@@ -167,10 +181,13 @@ function GameComponent() {
             <Tab.Pane eventKey="HamperHerald">
               <HamperHerald />
             </Tab.Pane>
+            <Tab.Pane eventKey="GroupChat2">
+              <GroupChat2 />
+            </Tab.Pane>
             <Tab.Pane eventKey="HandwrittenLetter">
               <LetterFromWalter />
             </Tab.Pane>
-            <Tab.Pane eventKey="LockedPDF">
+            <Tab.Pane eventKey="LockedPdf">
               <LockedRitualPlan />
             </Tab.Pane>
             <Tab.Pane eventKey="MantlesOfInheritance">

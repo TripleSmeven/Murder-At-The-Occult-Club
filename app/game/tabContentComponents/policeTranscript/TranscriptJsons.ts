@@ -38,11 +38,11 @@ const kataria1: TranscriptJson = {
     { name: KATARIA, text: "Uh, I'm not sure." },
     {
       name: SAMSON,
-      text: "And do you know the name of this friend and who else he is with?",
+      text: "And do you know the name of this friend?",
     },
     {
       name: KATARIA,
-      text: "Yeah, it's his friend Matthew's house. Officer, is David okay?",
+      text: "Yeah, Matthew. British guy. Officer, is David okay?",
     },
     {
       name: SAMSON,
@@ -67,11 +67,11 @@ const kataria2: TranscriptJson = {
     },
     {
       name: SAMSON,
-      text: "Mr. Kataria, do you know the names of any of his other friends?",
+      text: "Mr. Kataria, I'm going to ask you again. Do you know the names of any of his other friends?",
     },
     {
       name: KATARIA,
-      text: "Well, he's friends with a lot of the neighbor kids that he grew up with. Um, there's the Meyer kids, there's Justin. And Daisy. And Alex. Officer, what in the world is going on? Is my son in danger?",
+      text: "Well, he's friends with a lot of the neighbor kids that he grew up with. Um, there's the Meyer kids, there's Justin. And Daisy. And Alex. Officer, what is going on?",
     },
     {
       name: SAMSON,

@@ -84,6 +84,10 @@
   pointer-events: auto;
 }
 
+.navLink {
+  padding: 0.5em 0.75em;
+}
+
 /* Floating spotlight for “something new here” — overlay is out of flow (no layout shift). */
 .navItemSpotlight {
   position: relative;

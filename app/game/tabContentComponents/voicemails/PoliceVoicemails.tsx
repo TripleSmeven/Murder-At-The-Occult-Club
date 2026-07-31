@@ -4,9 +4,11 @@ import { ObjectivesJson } from "../../context/ObjectivesJson";
 import TabContentBase from "../TabContentBase";
 import Voicemails from "./Voicemails";
 import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
+import { StageContext } from "../../context/StageContext";
 
 export default function PoliceVoicemails() {
   const { setSolved } = useContext(ProgressContext);
+  const { setStage } = useContext(StageContext);
   const voicemailData = [
     {
       id: "1",
@@ -49,6 +51,7 @@ export default function PoliceVoicemails() {
 
   const onCorrect = () => {
     setSolved(ProgressKeys.VOICEMAIL, true);
+    setStage(2);
   };
 
   return (

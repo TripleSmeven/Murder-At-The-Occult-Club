@@ -120,13 +120,15 @@ export default function Notepad({ objectivesJson, onCorrect }: NotepadProps) {
             {objectivesTab && (
               <Nav.Item className={styles.tabs}>
                 {spotlightOverlay}
-                <Nav.Link eventKey="objectives">
+                <Nav.Link eventKey="objectives" className={styles.navLink}>
                   {objectivesVisited === "true" ? "" : "❗"}🎯OBJECTIVES
                 </Nav.Link>
               </Nav.Item>
             )}
             <Nav.Item className={styles.tabs}>
-              <Nav.Link eventKey="freeform">📝NOTES</Nav.Link>
+              <Nav.Link eventKey="freeform" className={styles.navLink}>
+                📝NOTES
+              </Nav.Link>
             </Nav.Item>
           </Nav>
         </Row>

@@ -17,6 +17,10 @@
   position: relative; /* for the spotlight component to work */
 }
 
+.navLink {
+  padding: 0.25em 1em;
+}
+
 .tabCol {
   display: flex;
   flex-direction: column;

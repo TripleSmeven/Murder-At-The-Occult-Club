@@ -94,8 +94,8 @@ export const TextMessageAttachment = ({
       setActiveTab("ConstellationPhoto");
     }
     if (title.startsWith("updated_instructions")) {
-      setSolved(ProgressKeys.CONSTELLATION_PHOTO_UNLOCKED, true);
-      setActiveTab("ConstellationPhoto");
+      setSolved(ProgressKeys.LOCKED_PDF_UNLOCKED, true);
+      setActiveTab("LockedPdf");
     }
   };
   return (

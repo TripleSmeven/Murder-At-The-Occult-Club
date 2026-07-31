@@ -69,7 +69,7 @@ export function NavItemWithLock({
   }
 
   const navLink = (
-    <Nav.Link eventKey={eventKey} disabled={locked}>
+    <Nav.Link eventKey={eventKey} disabled={locked} className={styles.navLink}>
       {textToShow}
     </Nav.Link>
   );

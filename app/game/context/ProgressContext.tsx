@@ -29,8 +29,10 @@ export enum ProgressKeys {
   VOICEMAIL = "voicemail",
   KAISER_TIMES_UNLOCKED = "kaiserTimesUnlocked",
   CONSTELLATION_PHOTO_UNLOCKED = "constellationPhotoUnlocked",
-  // if the player solved the locked PDF puzzle, not if they unlocked the PDF tab itself
+  // if the player unlocked the pdf itself (by clicking on the link in group chat)
   LOCKED_PDF_UNLOCKED = "lockedPdfUnlocked",
+  // if the player solved the locked PDF puzzle (by entering the pw)
+  LOCKED_PDF = "lockedPdf",
 }
 
 interface ProgressProviderProps {

@@ -7,7 +7,7 @@ import styles from "./LockedRitualPlan.module.css";
 
 export default function LockedRitualPlan() {
   const evidence = (
-    <LockedPdf password={"1892"} progressKey={ProgressKeys.LOCKED_PDF_UNLOCKED}>
+    <LockedPdf password={"1892"} progressKey={ProgressKeys.LOCKED_PDF}>
       <div className={styles.container}>
         <h2>Ritual Plan</h2>
         <Pentagram points={["Nikki", "Matt", "Daisy", "David", "Martin"]} />
