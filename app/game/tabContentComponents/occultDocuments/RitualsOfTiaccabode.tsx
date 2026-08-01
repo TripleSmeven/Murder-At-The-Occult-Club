@@ -18,19 +18,20 @@ export default function RitualsOfTiaccabode() {
           me.
         </div>
         <div className={styles.section}>
-          Every power begins with the Ring. The Ring composes of five bearers
-          each channeling it with a 20-lined seashell. A bearer grants its
-          currents to two others that it touches, no more and no less. To break
-          this embrace is to fracture the current. Or worse, evoke a power
-          unseen to the mind’s eye.
+          Every ritual begins with the Ring. The Ring composes of five bearers
+          each channeling it with a 20-lined seashell in palm. A bearer grants
+          its currents to two others that it touches, no more and no less.
         </div>
         <div className={styles.section}>
           The final piece is the auras of specific celestial constructions. To
           harness the might of the void is to lay eyes upon them skyward as you
-          bask in its attendance. But beware of Death’s Fog. Like a creature
-          born under the cover of night, its mere presence is as overwhelming as
-          its shadow is domineering. It blocks all beings of light and renders
-          their authority inert.
+          bask in its attendance, which you may do once a moon.
+        </div>
+        <div className={styles.section}>
+          But beware of Death’s Fog. Like a creature born under the cover of
+          night, its mere presence is as overwhelming as its shadow is
+          domineering. It blocks all beings of light and renders their authority
+          inert.
         </div>
       </div>
     </div>
@@ -38,37 +39,43 @@ export default function RitualsOfTiaccabode() {
 
   const page2 = (
     <div className={styles.parent}>
-      <div className={styles.page}>
+      <div className={`${styles.page} ${styles.xFlip}`}>
         <div className={styles.section}>
-          Ritual of something
+          <h3>Ritual of the Mystic Step</h3>
+          <div className={styles.description}>
+            Each bearer must hold fast a far away place like a painting in their
+            mind. When the all paintings are one, the Ring travels as one. After
+            that moment, no step shall lie between the bearers and the painting.
+          </div>
           <ul>
             <li>A Torch and Bridge must join currents.</li>
-            <li>As least two Crowns must embrace the ring.</li>
+            <li>As least two Crowns must embrace the Ring.</li>
             <li>The Eye of Elo and the Umbral Cage must align in the sky.</li>
           </ul>
         </div>
         <div className={styles.section}>
-          Ritual of something
+          <h3>Ritual of the Whispered Voice</h3>
+          <div className={styles.description}>
+            If one destined to cross the River Styx lingers still, their hushed,
+            whispered words may be heard by those with willing ears.
+          </div>
           <ul>
-            <li>A Torch and Bridge must join currents.</li>
-            <li>As least two Crowns must embrace the ring.</li>
+            <li>A Torch and Door must join currents.</li>
+            <li>As least two Doors must embrace the Ring.</li>
             <li>The Eye of Elo and the Umbral Cage must align in the sky.</li>
           </ul>
         </div>
         <div className={styles.section}>
-          Ritual of something
+          <h3>Ritual of the Single Choir</h3>
+          <div className={styles.description}>
+            Focus on the currents and allow the Ring to hum in harmony. So then
+            no thought among the Ring is possessed by a single bearer, instead
+            what is known by one is percieved by all.
+          </div>
           <ul>
-            <li>A Torch and Bridge must join currents.</li>
-            <li>As least two Crowns must embrace the ring.</li>
-            <li>The Eye of Elo and the Umbral Cage must align in the sky.</li>
-          </ul>
-        </div>
-        <div className={styles.section}>
-          Ritual of something
-          <ul>
-            <li>A Torch and Bridge must join currents.</li>
-            <li>As least two Crowns must embrace the ring.</li>
-            <li>The Eye of Elo and the Umbral Cage must align in the sky.</li>
+            <li>A Crown must recieve the currents of a Door and Bridge.</li>
+            <li>A Torch must recieve the currents of a Crown and Bridge.</li>
+            <li>The Arm of the Nine must be present in the night.</li>
           </ul>
         </div>
       </div>
@@ -79,34 +86,56 @@ export default function RitualsOfTiaccabode() {
     <div className={styles.parent}>
       <div className={styles.page}>
         <div className={styles.section}>
-          Ritual of something
+          <h3>Ritual of What They Actually Did</h3>
+          <div className={styles.description}>
+            They actually did this. Whomp whomp
+          </div>
           <ul>
-            <li>A Torch and Bridge must join currents.</li>
-            <li>As least two Crowns must embrace the ring.</li>
-            <li>The Eye of Elo and the Umbral Cage must align in the sky.</li>
+            <li>A Bridge and Door must join currents.</li>
+            <li>A Torch and Crown must join currents.</li>
+            <li>Death's Fog casts its shadow on the heavens.</li>
           </ul>
         </div>
         <div className={styles.section}>
-          Ritual of something
+          <h3>Ritual of The Migrant Tree</h3>
+          <div className={styles.description}>
+            The bearer of the Bridge must hold fast a far away place like a
+            painting in their mind. The house that shelters the Ring shall
+            loosen its roots of this realm and travel to that place, so long as
+            the Bridge maintains their mind's brush. The house must be made of
+            once living forest.
+          </div>
           <ul>
-            <li>A Torch and Bridge must join currents.</li>
-            <li>As least two Crowns must embrace the ring.</li>
-            <li>The Eye of Elo and the Umbral Cage must align in the sky.</li>
+            <li>
+              A Torch and Door must embrace the Ring, but cannot join currents.
+            </li>
+            <li>A Door and Crown must join currents.</li>
+            <li>Death's Fog casts its shadow on the heavens.</li>
           </ul>
         </div>
         <div className={styles.section}>
-          Ritual of something
+          <h3>Ritual of the Humble Kingdom</h3>
+          <div className={styles.description}>
+            Each of the bearers of the Ring must channel the spirits of a field
+            rodent, and assume its humble form. Memory and speech remain, though
+            its tongue carries only squeaks.
+          </div>
           <ul>
             <li>A Torch and Bridge must join currents.</li>
-            <li>As least two Crowns must embrace the ring.</li>
-            <li>The Eye of Elo and the Umbral Cage must align in the sky.</li>
+            <li>A Door and Bridge must join currents.</li>
+            <li>Death's Fog casts its shadow on the heavens.</li>
           </ul>
         </div>
         <div className={styles.section}>
-          Ritual of something
+          <h3>Ritual of the Pale Crossing</h3>
+          <div className={styles.description}>
+            Release the chains that bind you to this realm. When each bearer
+            does so, their flesh dissolve as their spirits cross over the Pale.
+            As colorless and weightless as mist, the Earth is yours to roam.
+          </div>
           <ul>
-            <li>A Torch and Bridge must join currents.</li>
-            <li>As least two Crowns must embrace the ring.</li>
+            <li>Two Doors must join currents.</li>
+            <li>A Crown and Torch must join currents.</li>
             <li>The Eye of Elo and the Umbral Cage must align in the sky.</li>
           </ul>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, JSX, ReactNode } from "react";
+import { createContext, JSX, ReactNode, useCallback, useMemo } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 /**
@@ -19,16 +19,30 @@ interface StageProviderProps {
   children: ReactNode;
 }
 
-export function StageProvider({ chapter, children }: StageProviderProps): JSX.Element {
-  const [stageString, setStageSstring] = useLocalStorage(STAGE_STORAGE_KEY, chapter.toString());
+export function StageProvider({
+  chapter,
+  children,
+}: StageProviderProps): JSX.Element {
+  const [stageString, setStageString] = useLocalStorage(
+    STAGE_STORAGE_KEY,
+    chapter.toString(),
+  );
   const currentStage = stageString ? parseInt(stageString, 10) : 0;
 
-  const setStage = (newStage: number) => {
-    setStageSstring(newStage.toString());
-  };
+  const setStage = useCallback(
+    (newStage: number) => {
+      setStageString(newStage.toString());
+    },
+    [setStageString],
+  );
+
+  const providerValue = useMemo(
+    () => ({ currentStage, chapter, setStage }),
+    [currentStage, chapter, setStage],
+  );
 
   return (
-    <StageContext.Provider value={{ currentStage, chapter, setStage }}>
+    <StageContext.Provider value={providerValue}>
       {children}
     </StageContext.Provider>
   );

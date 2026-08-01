@@ -11,7 +11,11 @@ interface HintsModalProps {
   onClose: () => void;
 }
 
-export default function HintsModal({ chapter, isOpen, onClose }: HintsModalProps) {
+export default function HintsModal({
+  chapter,
+  isOpen,
+  onClose,
+}: HintsModalProps) {
   const [expandedPanels, setExpandedPanels] = useState<Set<string>>(new Set());
 
   const sections = hintsJson[`chapter${chapter}`];
@@ -61,10 +65,16 @@ export default function HintsModal({ chapter, isOpen, onClose }: HintsModalProps
                         className={`${styles.panelTitle} ${isExpanded ? styles.expanded : ""}`}
                         onClick={() => togglePanel(panelKey)}
                       >
-                        <span className={styles.panelTitleText}>{panel.title}</span>
-                        <span className={styles.toggleIcon}>{isExpanded ? "▼" : "▶"}</span>
+                        <span>{panel.title}</span>
+                        <span className={styles.toggleIcon}>
+                          {isExpanded ? "▼" : "▶"}
+                        </span>
                       </button>
-                      {isExpanded && <div className={styles.panelContent}>{panel.content}</div>}
+                      {isExpanded && (
+                        <div className={styles.panelContent}>
+                          {panel.content}
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -79,7 +89,11 @@ export default function HintsModal({ chapter, isOpen, onClose }: HintsModalProps
   return (
     <div className={styles.backdrop} onClick={handleBackdropClick}>
       <div className={styles.modalContainer}>
-        <button className={styles.closeButton} onClick={onClose} aria-label="Close hints">
+        <button
+          className={styles.closeButton}
+          onClick={onClose}
+          aria-label="Close hints"
+        >
           ✕
         </button>
         <h2 className={styles.modalTitle}>Hints</h2>

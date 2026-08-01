@@ -74,13 +74,16 @@ export function ProgressProvider({
     [setProgressState, progressStateJson],
   );
 
+  const providerValue = useMemo(
+    () => ({
+      isSolved,
+      setSolved,
+    }),
+    [isSolved, setSolved],
+  );
+
   return (
-    <ProgressContext.Provider
-      value={{
-        isSolved,
-        setSolved,
-      }}
-    >
+    <ProgressContext.Provider value={providerValue}>
       {children}
     </ProgressContext.Provider>
   );

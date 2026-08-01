@@ -16,9 +16,22 @@
   background-size: 100% 100%;
 
   padding: 2.5em 2em;
-  font-weight: bold;
+
+  &.xFlip {
+    background-image: url("./old-book-3-xFlip.jpg");
+  }
 }
 
 .section {
   margin-bottom: 1em;
+
+  line-height: 1.2em;
+
+  h3 {
+    font-weight: bold;
+  }
+}
+
+.description {
+  margin-bottom: 0.5em;
 }

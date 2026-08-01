@@ -28,7 +28,7 @@ export default function DiaryPages() {
         " ",
         "Gossip:",
         "- New home construction at 7 Dogwood Boulevard delayed. Brick suppliers on strike",
-        "- weird cracks on trees in middle of block in front of 5 Cherry Drive. Owner freaked out. Town wont cut down",
+        "- owner of 5 Cherry drive hears voices coming from trees in middle of block in front of house. Owner freaked out. Town wont cut down",
       ]}
       type="notepad"
     />
@@ -38,7 +38,7 @@ export default function DiaryPages() {
     <NotebookPage
       textBlocks={[
         "- Nycron stocks predicted to dip, should buy?",
-        "- some areas have bad signal. Minor fire broke out at 2 Evergreen place on westside and firefighters couldnt be called",
+        "- man says his house at 2 Evergreen Place and rest of west side of street has mouse infestation",
         "- should go boating on lake. Keep receipt for reimbursement",
         "- woman wants to sell her place which is closest to hill. Hates that it blocks sun, prevents snow melting. 8 something?",
         "- Hort's daughter got parasite from salad. Lettuce recalled. Live at 3 Birch",

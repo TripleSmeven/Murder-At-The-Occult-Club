@@ -14,7 +14,7 @@ import PoliceTranscript from "../tabContentComponents/policeTranscript/PoliceTra
 import TripPlan from "../tabContentComponents/notesApp/TripPlan";
 import KaiserTimes from "../tabContentComponents/newspaper/KaiserTimes";
 import { ProgressContext, ProgressKeys } from "../context/ProgressContext";
-import { useContext, memo } from "react";
+import { useContext, memo, useEffect } from "react";
 import { TabContext } from "../context/TabContext";
 import ConstellationPhoto from "../tabContentComponents/imageEvidence/ConstellationPhoto";
 import LetterFromWalter from "../tabContentComponents/handwrittenLetter/LetterFromWalter";
@@ -65,11 +65,25 @@ function GameComponent() {
    * 1: solve the mansion address
    * 2: solve the rituals
    */
-  const { currentStage } = useContext(StageContext);
+  const { currentStage, setStage } = useContext(StageContext);
+
+  // move from stage 0 to 1 if group chat and locked PDF are both solved
+  useEffect(() => {
+    if (
+      isSolved(ProgressKeys.GROUP_CHAT) &&
+      isSolved(ProgressKeys.LOCKED_PDF) &&
+      currentStage === 0
+    ) {
+      setStage(1);
+    }
+  }, [isSolved, setStage, currentStage]);
+
+  const stage1LockedTooltip =
+    "Unlock by completing the Objectives in the Group Chat and Locked PDF.";
 
   const stage2LockedTooltip =
     currentStage === 1
-      ? "Unlock by completing the Objectives in the Police Notes."
+      ? "Unlock by completing the Objectives in the Voicemail."
       : "";
   const unlockableTooltop = "Unlock by finding this piece of evidence.";
 
@@ -131,25 +145,25 @@ function GameComponent() {
                 title="Voicemail"
                 emoji={isSolved(ProgressKeys.VOICEMAIL) ? "✅" : "🎯"}
                 locked={currentStage < 1}
-                lockedTooltip="Unlock by completing the Objectives in the Group Chat."
+                lockedTooltip={stage1LockedTooltip}
               />
               <NavItemWithLock
                 eventKey="PoliceNotes"
                 title="Handwritten Notes"
                 locked={currentStage < 1}
-                lockedTooltip="Unlock by completing the Objectives in the Group Chat."
+                lockedTooltip={stage1LockedTooltip}
               />
               <NavItemWithLock
                 eventKey="HamperHerald"
                 title="The Hamper Herald"
                 locked={currentStage < 1}
-                lockedTooltip="Unlock by completing the Objectives in the Group Chat."
+                lockedTooltip={stage1LockedTooltip}
               />
               <NavItemWithLock
                 eventKey="RitualsOfTiaccabode"
                 title="Strange Document 1"
                 locked={currentStage < 1}
-                lockedTooltip="Unlock by completing the Objectives in the Group Chat."
+                lockedTooltip={stage1LockedTooltip}
               />
             </Nav>
           </div>

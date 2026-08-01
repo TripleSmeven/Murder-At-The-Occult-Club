@@ -83,7 +83,7 @@
   border: none;
   background-color: #fffec0;
   cursor: pointer;
-  font-size: 0.8em;
+  font-size: 0.9em;
   transition: background-color 0.2s;
 }
 
@@ -95,11 +95,6 @@
   background-color: #ececb8;
 }
 
-.panelTitleText {
-  flex: 1;
-  text-align: left;
-}
-
 .toggleIcon {
   margin-left: 12px;
   font-size: 12px;
@@ -108,7 +103,7 @@
 .panelContent {
   padding: 0.75em 1.25em;
   background-color: #fff;
-  font-size: 0.8em;
+  font-size: 0.9em;
   border-top: 1px solid #eee;
 }
 

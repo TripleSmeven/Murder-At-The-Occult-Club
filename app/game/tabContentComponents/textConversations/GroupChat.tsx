@@ -14,11 +14,9 @@ import {
 import { ProgressKeys } from "../../context/ProgressContext";
 import { useContext } from "react";
 import { ProgressContext } from "../../context/ProgressContext";
-import { StageContext } from "../../context/StageContext";
 
 export default function GroupChat() {
   const { setSolved } = useContext(ProgressContext);
-  const { setStage } = useContext(StageContext);
 
   const conversations = GroupChatConversations.map((conversation, index) => (
     <ConversationComponent
@@ -92,7 +90,6 @@ export default function GroupChat() {
 
   const onCorrect = () => {
     setSolved(ProgressKeys.GROUP_CHAT);
-    setStage(1);
   };
 
   const evidence = <CustomCarousel items={conversations} />;

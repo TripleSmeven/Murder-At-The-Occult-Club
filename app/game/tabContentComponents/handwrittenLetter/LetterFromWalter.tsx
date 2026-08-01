@@ -18,7 +18,7 @@ export default function LetterFromWalter() {
 
     "If anything, I've learned at least one thing from this entire ordeal. Which is that one may be rich in wealth but morally bankrupt. That's the unfortunate truth I'll have to part this world with.",
 
-    "What you do now is up to you, my dear. My only ask is that you do not hold anything against the other woman or her child. They are innocent in this matter.",
+    "What you do now is up to you, my dear, although I do hope that my only two grandchildren may meet one day. My only request is that you do not hold anything against the other woman or her child. They are innocent in this matter.",
 
     "Farewell, and may you find peace and happiness in your life.",
 
