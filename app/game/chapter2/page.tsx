@@ -27,6 +27,8 @@ import PoliceNotes from "../tabContentComponents/diaryPages/PoliceNotes";
 import MantlesOfInheritance from "../tabContentComponents/occultDocuments/MantlesOfInheritance";
 import RitualsOfTiaccabode from "../tabContentComponents/occultDocuments/RitualsOfTiaccabode";
 import LetterFromX2_2 from "../tabContentComponents/handwrittenLetter/LetterFromX2_2";
+import GroupChat2 from "../tabContentComponents/textConversations/GroupChat2";
+import LetterFromX2_3 from "../tabContentComponents/handwrittenLetter/LetterFromX2_3";
 
 // Memo required because when we change tabs, setActiveTab is called, which causes the
 // entire parent to rerender, and rerender all of these children. Memo prevents the rerending.
@@ -45,6 +47,8 @@ const MemoLetterFromWalter = memo(LetterFromWalter);
 const MemoMantlesOfInheritance = memo(MantlesOfInheritance);
 const MemoRitualsOfTiaccabode = memo(RitualsOfTiaccabode);
 const MemoLetterFromX2_2 = memo(LetterFromX2_2);
+const MemoGroupChat2 = memo(GroupChat2);
+const MemoLetterFromX2_3 = memo(LetterFromX2_3);
 
 const CHAPTER = 2;
 
@@ -161,7 +165,7 @@ function GameComponent() {
               />
               <NavItemWithLock
                 eventKey="RitualsOfTiaccabode"
-                title="Strange Document 1"
+                title="Rituals Document"
                 locked={currentStage < 1}
                 lockedTooltip={stage1LockedTooltip}
               />
@@ -180,6 +184,12 @@ function GameComponent() {
                 emoji={isSolved(ProgressKeys.SOLVE_THE_CASE) ? "✅" : "🎯"}
               />
               <NavItemWithLock
+                eventKey="GroupChat2"
+                title="Group Chat 2"
+                locked={currentStage < 2}
+                lockedTooltip={"Unlock by completing all previous objectives."}
+              />
+              <NavItemWithLock
                 eventKey="LetterFromWalter"
                 title="Letter From Walter"
                 locked={currentStage < 2}
@@ -187,11 +197,20 @@ function GameComponent() {
               />
               <NavItemWithLock
                 eventKey="MantlesOfInheritance"
-                title="Strange Document 2"
+                title="Mantles Document"
                 locked={currentStage < 2}
                 lockedTooltip={stage2LockedTooltip}
               />
             </Nav>
+          </div>
+          <div
+            className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}
+          >
+            <NavItemWithLock
+              eventKey="FarewellLetter"
+              title="Farewell Letter"
+              locked={currentStage < 3}
+            />
           </div>
         </Col>
         <Col sm={10} className={styles.col}>
@@ -229,9 +248,6 @@ function GameComponent() {
             <Tab.Pane eventKey="HamperHerald">
               <MemoHamperHerald />
             </Tab.Pane>
-            {/* <Tab.Pane eventKey="GroupChat2">
-              <GroupChat2 />
-            </Tab.Pane> */}
             <Tab.Pane eventKey="LetterFromWalter">
               <MemoLetterFromWalter />
             </Tab.Pane>
@@ -243,6 +259,12 @@ function GameComponent() {
             </Tab.Pane>
             <Tab.Pane eventKey="SolveTheCase">
               <MemoLetterFromX2_2 />
+            </Tab.Pane>
+            <Tab.Pane eventKey="GroupChat2">
+              <MemoGroupChat2 />
+            </Tab.Pane>
+            <Tab.Pane eventKey="FarewellLetter">
+              <MemoLetterFromX2_3 />
             </Tab.Pane>
           </Tab.Content>
         </Col>

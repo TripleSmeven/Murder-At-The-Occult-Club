@@ -3,6 +3,8 @@ import { ObjectivesJson } from "../../context/ObjectivesJson";
 import TabContentBase from "../TabContentBase";
 import HandwrittenLetter from "./HandwrittenLetter";
 
+const MANTLES = ["Crown", "Torch", "Bridge", "Door"];
+
 export default function LetterFromX2_2() {
   const lines = [
     "Hello.",
@@ -17,6 +19,41 @@ export default function LetterFromX2_2() {
   const objectives: ObjectivesJson = {
     heading: "Solve the Case",
     sections: [
+      {
+        title: "What is each student's Mantle?",
+        questions: [
+          {
+            question: "Matthew",
+            answer: "Door",
+            answers: MANTLES,
+            color: Color.RED,
+          },
+          {
+            question: "Nikki",
+            answer: "Door",
+            answers: MANTLES,
+            color: Color.RED,
+          },
+          {
+            question: "Daisy",
+            answer: "Bridge",
+            answers: MANTLES,
+            color: Color.RED,
+          },
+          {
+            question: "Martin",
+            answer: "Crown",
+            answers: MANTLES,
+            color: Color.RED,
+          },
+          {
+            question: "David",
+            answer: "Torch",
+            answers: MANTLES,
+            color: Color.RED,
+          },
+        ],
+      },
       {
         title: "What were the students trying to do?",
         questions: [

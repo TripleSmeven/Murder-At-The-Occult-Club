@@ -38,13 +38,21 @@
 
 .navCol {
   padding: 0;
-  height: fit-content;
+  height: 100%;
+  overflow: auto;
+  scrollbar-color: gray transparent;
+  scrollbar-width: thin;
+  direction: rtl; /* so the scrollbar is on the left side */
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .navSection {
   border: 1px solid var(--bootstrap-blue);
-  margin-bottom: 1em;
   padding: 0.25em;
+  direction: ltr; /* to retain the normal text direction for children */
 
   &.orange {
     border: 1px solid var(--chapter2-orange-default);

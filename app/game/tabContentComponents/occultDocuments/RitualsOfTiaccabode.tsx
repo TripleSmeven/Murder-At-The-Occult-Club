@@ -78,6 +78,17 @@ export default function RitualsOfTiaccabode() {
             <li>The Arm of the Nine must be present in the night.</li>
           </ul>
         </div>
+        <div className={styles.section}>
+          <h3>Ritual of they wanted to do</h3>
+          <div className={styles.description}>
+            They wanted to do this. Too bad lol
+          </div>
+          <ul>
+            <li>A Crown must recieve the currents of two Crowns. </li>
+            <li>A Torch must recieve the currents of a Bridge.</li>
+            <li>The Eye of Elo and the Umbral Cage must align in the sky.</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
@@ -93,7 +104,7 @@ export default function RitualsOfTiaccabode() {
           <ul>
             <li>A Bridge and Door must join currents.</li>
             <li>A Torch and Crown must join currents.</li>
-            <li>Death's Fog casts its shadow on the heavens.</li>
+            <li>Death's Fog must cast its shadow on the heavens.</li>
           </ul>
         </div>
         <div className={styles.section}>
@@ -110,7 +121,7 @@ export default function RitualsOfTiaccabode() {
               A Torch and Door must embrace the Ring, but cannot join currents.
             </li>
             <li>A Door and Crown must join currents.</li>
-            <li>Death's Fog casts its shadow on the heavens.</li>
+            <li>Death's Fog must cast its shadow on the heavens.</li>
           </ul>
         </div>
         <div className={styles.section}>
@@ -123,7 +134,7 @@ export default function RitualsOfTiaccabode() {
           <ul>
             <li>A Torch and Bridge must join currents.</li>
             <li>A Door and Bridge must join currents.</li>
-            <li>Death's Fog casts its shadow on the heavens.</li>
+            <li>Death's Fog must cast its shadow on the heavens.</li>
           </ul>
         </div>
         <div className={styles.section}>

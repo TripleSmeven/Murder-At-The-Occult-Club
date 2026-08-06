@@ -27,7 +27,7 @@ export default function DiaryPages() {
         "50 bucks for lobster roll? Keep receipt for reimbursement",
         " ",
         "Gossip:",
-        "- New home construction at 7 Dogwood Boulevard delayed. Brick suppliers on strike",
+        "- New home construction at 4 Dogwood Boulevard delayed. Brick suppliers on strike",
         "- owner of 5 Cherry drive hears voices coming from trees in middle of block in front of house. Owner freaked out. Town wont cut down",
       ]}
       type="notepad"
@@ -38,10 +38,10 @@ export default function DiaryPages() {
     <NotebookPage
       textBlocks={[
         "- Nycron stocks predicted to dip, should buy?",
-        "- man says his house at 2 Evergreen Place and rest of west side of street has mouse infestation",
+        "- man says his house at 7 Evergreen Place and other west side houses has mouse infestation",
         "- should go boating on lake. Keep receipt for reimbursement",
         "- woman wants to sell her place which is closest to hill. Hates that it blocks sun, prevents snow melting. 8 something?",
-        "- Hort's daughter got parasite from salad. Lettuce recalled. Live at 3 Birch",
+        "- Hort's daughter got parasite from salad. Lettuce recalled. Live at 2 Birch (east side I think?)",
         "Been here 3 hours. Not one peep about college students. Gonna have to change tactics tomorrow",
       ]}
       type="notepad"

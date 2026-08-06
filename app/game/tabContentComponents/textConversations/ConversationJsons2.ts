@@ -34,6 +34,43 @@ const Hungry: ConversationJson = {
   ],
 };
 
+const Past: ConversationJson = {
+  date: "7/26/20 2:54",
+  speed: "fast",
+  messages: [
+    { sender: daisy, content: "i have something to tell everyone" },
+    { sender: david, content: "Woah why so serious?" },
+    { sender: nikki, content: "What is it, Daisy?" },
+    { sender: daisy, content: "here..." },
+    {
+      sender: daisy,
+      content: "",
+      attachment: {
+        title: "ultrasound.png",
+        bytes: 120,
+      },
+    },
+    { sender: david, content: "What? You're pregnant???" },
+    { sender: daisy, content: "noooo its my mom!!!" },
+    { sender: daisy, content: "my mom's pregnant..." },
+    { sender: david, content: "oh shoot" },
+    { sender: nikki, content: "Congratulations!" },
+    { sender: martin, content: "Wow! That's amazing news!" },
+    { sender: matt, content: "Congrats" },
+    { sender: daisy, content: "yeah thanks i guess..." },
+    { sender: nikki, content: "How are you taking the news?" },
+    { sender: daisy, content: "idk...mixed ig." },
+    {
+      sender: daisy,
+      content: "ive always been the little sister and now im the big sister",
+    },
+    { sender: nikki, content: "Yeah. That's quite a change." },
+    { sender: david, content: "Hey. You'll be a great big sister!" },
+    { sender: matt, content: "What he said!" },
+    { sender: matt, content: "We've gotta meetup and celebrate! Usual spot?" },
+  ],
+};
+
 const Ritual: ConversationJson = {
   date: "1/13/26 9:25",
   messages: [
@@ -443,7 +480,7 @@ const Grades: ConversationJson = {
     },
     {
       sender: david,
-      content: `Oh and happy birthday @${daisy}, and belated to Florian! Doing anything together with him?`,
+      content: `Oh and happy birthday @${daisy}, and to Florian! Doing anything together with him?`,
     },
     {
       sender: daisy,
@@ -452,7 +489,7 @@ const Grades: ConversationJson = {
     {
       sender: daisy,
       content:
-        "mom stopped forcing it after middle school. i guess it stopped being cute and both of us refused to dress up in matching outfits ",
+        "mom stopped forcing it after middle school. i guess it stopped being cute when both of us refused to dress up in matching outfits ",
     },
     {
       sender: daisy,
@@ -564,3 +601,5 @@ export const GroupChatConversations = [
   Grades,
   AfterNYE,
 ];
+
+export const GroupChatConversations2 = [Past];

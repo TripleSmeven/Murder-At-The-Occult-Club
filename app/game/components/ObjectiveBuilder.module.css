@@ -9,7 +9,7 @@
 
   select,
   input {
-    width: 10.5em;
+    width: 10.8em;
     line-height: 1.1em;
     font-size: 1.2em;
     padding-top: 0.1em;
@@ -35,7 +35,7 @@
 
 .label {
   font-size: 1.2em;
-  line-height: 1.1em;
+  line-height: 1.2em;
   padding: 0 0.5em;
   margin-top: 0.1em; /* move the label a tad down*/
   margin-right: 0.25em;
