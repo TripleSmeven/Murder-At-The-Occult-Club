@@ -93,7 +93,7 @@ export default function RitualsOfTiaccabode() {
             lowly pigeon knows the direction of its home.
           </div>
           <ul>
-            <li>A Crown must recieve the currents of two Crowns. </li>
+            <li>A Door must recieve the currents of two Crowns. </li>
             <li>A Torch must recieve the currents of a Bridge.</li>
             <li>The Eye of Elo and the Umbral Cage must align in the sky.</li>
           </ul>
