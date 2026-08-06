@@ -212,8 +212,8 @@ function GameComponent() {
           >
             <Nav variant="pills">
               <NavItemWithLock
-                eventKey="FarewellLetter"
-                title="Farewell Letter"
+                eventKey="HandwrittenNotes2"
+                title="Handwritten Notes 2"
                 locked={!isSolved(ProgressKeys.CHAPTER_2_SOLVE_THE_CASE)}
               />
             </Nav>
@@ -269,7 +269,7 @@ function GameComponent() {
             <Tab.Pane eventKey="GroupChat2">
               <MemoGroupChat2 />
             </Tab.Pane>
-            <Tab.Pane eventKey="FarewellLetter">
+            <Tab.Pane eventKey="HandwrittenNotes2">
               <MemoPoliceNotes2 />
             </Tab.Pane>
           </Tab.Content>
