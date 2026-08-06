@@ -10,6 +10,13 @@
   overflow: auto;
   scrollbar-color: grey transparent;
   scrollbar-width: thin;
+
+  &.discordTheme {
+    background-color: #36393e;
+    color: white;
+    margin: 0 3vw;
+    border-radius: 0;
+  }
 }
 
 .primaryParent {
@@ -29,6 +36,10 @@
   border-radius: 0.3em;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+
+  &.discordTheme {
+    border-radius: 1em;
+  }
 
   &.waller {
     /*https://www.pexels.com/photo/man-drinking-liquor-wearing-red-cap-and-black-crew-neck-shirt-1267335/*/
@@ -71,6 +82,26 @@
     background-blend-mode: multiply;
     background-color: rgb(184, 184, 255);
   }
+
+  &.justagreengremlin {
+    background-image: url("./profilePictures/catpfp.jpg");
+  }
+
+  &.sam_slow_down {
+    background-image: url("./profilePictures/racer.jpg");
+  }
+
+  &.looprevil92 {
+    background-image: url("./profilePictures/soccer.jpg");
+  }
+
+  &.meremere {
+    background-image: url("./profilePictures/brainbook.webp");
+  }
+
+  &.playingWithMyHeart {
+    background-image: url("./profilePictures/pillars.webp");
+  }
 }
 
 .messageParent {
@@ -92,8 +123,70 @@
 
 .messageTime {
   color: gray;
+  align-items: end;
+  padding: 0px 0.25em;
   font-size: 0.8em;
   display: flex;
+  line-height: inherit;
+}
+
+.attachmentContainer {
+  display: flex;
   align-items: center;
-  padding: 0 0.1em;
+  gap: 1em;
+  padding: 0.75em;
+  background-color: #2f3136;
+  border-radius: 0.5em;
+  width: fit-content;
+  margin-top: 0.5em;
+  margin-left: 3em;
+}
+
+.attachmentIcon {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: #1935a1;
+  border-radius: 0.3em;
+  flex-shrink: 0;
+  position: relative;
+
+  &::before {
+    content: "📄";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+  }
+}
+
+.attachmentTitle {
+  color: #00b0f4;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.attachmentSize {
+  color: #72767d;
+  font-size: 0.8em;
+}
+
+.usernameMention {
+  color: #00b0f4;
+  background-color: rgba(0, 176, 244, 0.1);
+  padding: 0 0.25em;
+  border-radius: 0.4em;
+}
+
+.hyperlink {
+  color: #00b0f4;
+  cursor: pointer;
+}
+
+.italics {
+  font-style: italic;
+}
+
+.noLink {
+  cursor: default;
 }

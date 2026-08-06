@@ -1,0 +1,102 @@
+"use client";
+
+import React, { useContext, useState } from "react";
+import styles from "./Hints.module.css";
+import { hintsJson } from "./HintsJson";
+import { StageContext } from "../../../context/StageContext";
+
+interface HintsModalProps {
+  chapter: number;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function HintsModal({
+  chapter,
+  isOpen,
+  onClose,
+}: HintsModalProps) {
+  const [expandedPanels, setExpandedPanels] = useState<Set<string>>(new Set());
+
+  const sections = hintsJson[`chapter${chapter}`];
+  const { currentStage } = useContext(StageContext);
+
+  if (!isOpen) {
+    return null;
+  }
+
+  const togglePanel = (panelKey: string) => {
+    const newExpanded = new Set(expandedPanels);
+    if (newExpanded.has(panelKey)) {
+      newExpanded.delete(panelKey);
+    } else {
+      newExpanded.add(panelKey);
+    }
+    setExpandedPanels(newExpanded);
+  };
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  const noHintsComponent = (
+    <p className={styles.noHints}>
+      No hints unlocked yet. Progress through the game to unlock hints!
+    </p>
+  );
+
+  const sectionComponents = sections.map((section) => (
+    <div key={section.heading} className={styles.section}>
+      {currentStage >= section.unlockedAtStage && (
+        <>
+          <h3 className={styles.sectionHeading}>{section.heading}</h3>
+          <div className={styles.panelsContainer}>
+            {section.panels.map((panel) => {
+              const panelKey = `${section.heading}-${panel.title}`;
+              const isExpanded = expandedPanels.has(panelKey);
+
+              return (
+                <div key={panelKey} className={styles.panelWrapper}>
+                  <button
+                    className={`${styles.panelTitle} ${isExpanded ? styles.expanded : ""}`}
+                    onClick={() => togglePanel(panelKey)}
+                  >
+                    <span>{panel.title}</span>
+                    <span className={styles.toggleIcon}>
+                      {isExpanded ? "▼" : "▶"}
+                    </span>
+                  </button>
+                  {isExpanded && (
+                    <div className={styles.panelContent}>{panel.content}</div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
+    </div>
+  ));
+
+  const hintsComponent = (
+    <div className={styles.sectionsContainer}>{sectionComponents}</div>
+  );
+
+  return (
+    <div className={styles.backdrop} onClick={handleBackdropClick}>
+      <div className={styles.modalContainer}>
+        <button
+          className={styles.closeButton}
+          onClick={onClose}
+          aria-label="Close hints"
+        >
+          ✕
+        </button>
+        <h2 className={styles.modalTitle}>Hints</h2>
+        {sectionComponents.length === 0 ? noHintsComponent : hintsComponent}
+      </div>
+    </div>
+  );
+}

@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import CustomCarousel from "../../components/CustomCarousel";
-import { ObjectivesJson } from "../../components/ObjectivesJson";
-import { Color } from "../../components/WordPicker";
+import { ObjectivesJson } from "../../context/ObjectivesJson";
+import { CHAPTER1_NAMES, Color } from "../../components/ObjectiveBuilder";
 import TabContentBase from "../TabContentBase";
 import { ConversationComponent } from "./ConversationComponent";
-import { primaryConversations } from "./Conversations";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
+import { primaryConversations } from "./ConversationJsons";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 
 export default function TextConversations() {
   const conversations = primaryConversations.map((conversation, index) => (
@@ -17,39 +17,83 @@ export default function TextConversations() {
       {
         title: "Text Message 2",
         questions: [
-          { question: "Unknown A", answer: "Thomas Brooke", color: Color.RED },
-          { question: "Unknown B", answer: "Sarah Findley", color: Color.INDIGO },
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Thomas Brooke",
+            color: Color.RED,
+          },
+          {
+            question: "Unknown B",
+            answers: CHAPTER1_NAMES,
+            answer: "Sarah Findley",
+            color: Color.INDIGO,
+          },
         ],
       },
       {
         title: "Text Message 3",
         questions: [
-          { question: "Unknown A", answer: "Andrew Wolfe", color: Color.RED },
-          { question: "Unknown B", answer: "Carlos Sanchez", color: Color.INDIGO },
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Andrew Wolfe",
+            color: Color.RED,
+          },
+          {
+            question: "Unknown B",
+            answers: CHAPTER1_NAMES,
+            answer: "Carlos Sanchez",
+            color: Color.INDIGO,
+          },
         ],
       },
       {
         title: "Text Message 4",
-        questions: [{ question: "Unknown A", answer: "Candace Eng", color: Color.RED }],
+        questions: [
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Candace Eng",
+            color: Color.RED,
+          },
+        ],
       },
       {
         title: "Text Message 5",
-        questions: [{ question: "Unknown A", answer: "Sarah Findley", color: Color.RED }],
+        questions: [
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Sarah Findley",
+            color: Color.RED,
+          },
+        ],
       },
       {
         title: "Text Message 7",
         questions: [
-          { question: "Unknown A", answer: "Candace Eng", color: Color.RED },
-          { question: "Unknown B", answer: "Sarah Findley", color: Color.INDIGO },
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Candace Eng",
+            color: Color.RED,
+          },
+          {
+            question: "Unknown B",
+            answers: CHAPTER1_NAMES,
+            answer: "Sarah Findley",
+            color: Color.INDIGO,
+          },
         ],
       },
     ],
   };
 
-  const { getProgress, setProgress } = useContext(ObjectivesContext);
+  const { isSolved, setSolved } = useContext(ProgressContext);
   const onCorrect = () => {
-    if (!getProgress(ProgressKeys.TEXT_CONVERSATIONS)) {
-      setProgress(ProgressKeys.TEXT_CONVERSATIONS, true);
+    if (!isSolved(ProgressKeys.TEXT_CONVERSATIONS)) {
+      setSolved(ProgressKeys.TEXT_CONVERSATIONS, true);
     }
   };
 
@@ -59,5 +103,11 @@ export default function TextConversations() {
       lockedTooltip="Unlock by completing the Objectives in Text Messages, Email Inboxes, and Online Orders."
     />
   );
-  return <TabContentBase evidence={evidence} objectives={objectives} onCorrect={onCorrect} />;
+  return (
+    <TabContentBase
+      evidence={evidence}
+      objectivesJson={objectives}
+      onCorrect={onCorrect}
+    />
+  );
 }

@@ -1,0 +1,89 @@
+.namePickerParent {
+  display: flex;
+  justify-content: center;
+  margin: 0.25em;
+  font-family: Pangolin;
+
+  border-radius: 1em;
+  border: 2px solid black;
+
+  select,
+  input {
+    width: 10.8em;
+    line-height: 1.1em;
+    font-size: 1.2em;
+    padding-top: 0.1em;
+    padding-bottom: 0em;
+    justify-content: center;
+
+    &.largeInput {
+      width: 15em;
+    }
+  }
+
+  select.disabled {
+    background-image: none; /* Removes the down arrow*/
+  }
+
+  input:disabled {
+    background-color: white;
+  }
+}
+
+.label {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  padding: 0 0.5em;
+  margin-top: 0.1em; /* move the label a tad down*/
+  margin-right: 0.25em;
+  margin-left: 0.25em;
+  color: black;
+}
+
+.red {
+  background-color: var(--faded-red);
+}
+
+.orange {
+  background-color: var(--faded-orange);
+}
+
+.yellow {
+  background-color: lightyellow;
+}
+
+.green {
+  background-color: var(--faded-green);
+}
+
+.cyan {
+  background-color: var(--faded-cyan);
+}
+
+.blue {
+  background-color: var(--faded-blue);
+}
+
+.indigo {
+  background-color: var(--faded-indigo);
+}
+
+.purple {
+  background-color: var(--faded-purple);
+}
+
+.black {
+  background-color: black;
+  color: white;
+  border-color: gray;
+}
+
+.white {
+  background-color: white;
+  color: black;
+}
+
+.gray {
+  background-color: rgb(80, 79, 79);
+  color: white;
+}

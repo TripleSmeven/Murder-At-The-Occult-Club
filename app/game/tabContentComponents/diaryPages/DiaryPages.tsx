@@ -1,10 +1,10 @@
 import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
-import DiaryPage from "./DiaryPage";
+import NotebookPage from "./NotebookPage";
 
 export default function DiaryPages() {
   const page1 = (
-    <DiaryPage
+    <NotebookPage
       textBlocks={[
         "December 7th, 2025",
         "i hate u i hate u i hate u!!!",
@@ -16,7 +16,7 @@ export default function DiaryPages() {
   );
 
   const page2 = (
-    <DiaryPage
+    <NotebookPage
       textBlocks={[
         "December 11th, 2025",
         "it took a while but i finally did it. i invited him to talk and he gave the same bs as last time. that he recognizes my work and he will have me doing more next time. liar! little did he know he walked right onto my hidden ritual circle.",
@@ -26,7 +26,7 @@ export default function DiaryPages() {
   );
 
   const page3 = (
-    <DiaryPage textBlocks={["December 13th, 2025", "he's dead.", "did i", "i need to"]} />
+    <NotebookPage textBlocks={["December 13th, 2025", "he's dead.", "did i", "i need to"]} />
   );
 
   const evidence = <CustomCarousel items={[page1, page2, page3]} />;

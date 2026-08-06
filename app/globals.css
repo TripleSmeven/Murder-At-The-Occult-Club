@@ -5,8 +5,8 @@ html {
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -70,10 +70,35 @@ body {
   }
 }
 
+/* hack bootstrap to make an orange version for nav*/
+.orange-nav-bootstrap .nav-pills {
+  .nav-link {
+    color: var(--chapter2-orange-default);
+  }
+  .nav-link.active {
+    color: white;
+    background: var(--chapter2-orange-default);
+  }
+  .nav-link.active:hover {
+    color: white;
+  }
+  .nav-link:hover {
+    color: var(--chapter2-orange-hover);
+  }
+  .nav-link.disabled {
+    color: gray;
+  }
+}
+
 /* hack bootstrap disabled select forms */
 select.form-select:disabled {
   background-color: rgb(255, 255, 255);
   background-image: none;
+}
+
+/* hack bootstrap to remove weird margins in row elements */
+.row {
+  --bs-gutter-x: 0 !important;
 }
 
 /* Style the MDX editor https://mdxeditor.dev/editor/docs/theming */

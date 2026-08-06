@@ -1,0 +1,33 @@
+.letter {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: black;
+
+  /* scroll and overflow must be in this parent component, not in .page, or else the background doesnt scroll with the text*/
+  height: 100%;
+  overflow: auto;
+  scrollbar-color: gray transparent;
+  scrollbar-width: thin;
+}
+
+.page {
+  font-family: Patrick Hand;
+  font-size: 2em;
+  line-height: 1.1em;
+
+  /* must put background in this child component, so text scrolls with it */
+  background-image: url("./paper.jpg");
+  padding: 1.8em;
+
+  &.fromWalter {
+    font-family: Rouge Script;
+
+    background-image:
+      linear-gradient(rgba(255, 239, 150, 0.2), rgba(255, 239, 150, 0.2)),
+      url("./paper2.jpg");
+  }
+}
+
+.line {
+  margin-bottom: 1em;
+}

@@ -11,11 +11,18 @@ import {
   Pangolin,
   Crafty_Girls,
   Domine,
+  Rouge_Script,
+  Inter,
+  Indie_Flower,
+  Fondamento,
+  Julee,
 } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./gameLayout.module.css";
 
-// notes
+// FONTS HERE
+
+// notes (player)
 const pangolin = Pangolin({
   variable: "--font-pangolin",
   weight: "400",
@@ -29,16 +36,44 @@ const patrick = Patrick_Hand({
   subsets: ["latin"],
 });
 
-// police report
+// letter from walter
+const rouge_script = Rouge_Script({
+  variable: "--font-rouge_script",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// police notes (handwritten)
+const indie_flower = Indie_Flower({
+  variable: "--font-indie_flower",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// police report (typewriter)
 const special = Special_Elite({
   variable: "--font-special",
   weight: "400",
   subsets: ["latin"],
 });
 
-// recipe
+// recipe (creepy old font)
 const gochi = Gochi_Hand({
   variable: "--font-gochi",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// mantles of inheritance (old looking book)
+const fondamento = Fondamento({
+  variable: "--font-fondamento",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// rituals of tiaccabode (old handwriting)
+const julee = Julee({
+  variable: "--font-julee",
   weight: "400",
   subsets: ["latin"],
 });
@@ -50,7 +85,7 @@ const noto = Noto_Sans({
   subsets: ["latin"],
 });
 
-// email
+// email inbox
 const roboto = Roboto({
   variable: "--font-roboto",
   weight: "400",
@@ -60,6 +95,13 @@ const roboto = Roboto({
 // default text
 const space_mono = Space_Mono({
   variable: "--font-space_mono",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+// iphone like font
+const inter = Inter({
+  variable: "--font-inter",
   weight: "400",
   subsets: ["latin"],
 });
@@ -78,14 +120,14 @@ const permanent_marker = Permanent_Marker({
   subsets: ["latin"],
 });
 
-// diary
+// girl diary
 const crafty_girls = Crafty_Girls({
   variable: "--font-crafty_girls",
   weight: "400",
   subsets: ["latin"],
 });
 
-// Ritual instructions email
+// email content
 const domine = Domine({
   variable: "--font-domine",
   weight: "400",

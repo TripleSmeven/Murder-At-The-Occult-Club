@@ -1,0 +1,37 @@
+.parent {
+  color: black;
+  font-family: Julee;
+  font-size: 1.5em;
+
+  overflow: auto;
+  scrollbar-color: gray transparent;
+  scrollbar-width: thin;
+  height: 100%;
+}
+
+.page {
+  /* https://www.magnific.com/free-photo/grunge-paper-background_5286663.htm */
+  background-image: url("./old-book-3.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  padding: 2.5em 2em;
+
+  &.xFlip {
+    background-image: url("./old-book-3-xFlip.jpg");
+  }
+}
+
+.section {
+  margin-bottom: 1em;
+
+  line-height: 1.2em;
+
+  h3 {
+    font-weight: bold;
+  }
+}
+
+.description {
+  margin-bottom: 0.5em;
+}

@@ -3,11 +3,12 @@ import Image from "next/image";
 import badge from "./police-badge.png";
 import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
-import { ObjectivesJson } from "../../components/ObjectivesJson";
-import { Color } from "../../components/WordPicker";
+import { ObjectivesJson } from "../../context/ObjectivesJson";
+import { Color } from "../../components/ObjectiveBuilder";
 import { useContext } from "react";
-import { StageContext } from "../../components/StageContext";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
+import { StageContext } from "../../context/StageContext";
+import { ObjectivesContext } from "../../context/ObjectivesContext";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 
 export default function PoliceReport() {
   const item1 = (
@@ -33,8 +34,8 @@ export default function PoliceReport() {
         </div>
         <strong>Responding Officers:</strong> Sebastian Waller, Troy Samson
         <br />
-        <strong>Incident Location:</strong> Kaiser University, 150 Pleasant Grove Rd, Kaiser County,
-        NY 14850
+        <strong>Incident Location:</strong> Kaiser University, 150 Pleasant
+        Grove Rd, Kaiser County, NY 14850
         <br />
         <strong>Last Updated:</strong> December 18, 2025, 2:32 PM (see addendum)
       </div>
@@ -43,22 +44,25 @@ export default function PoliceReport() {
         <div className={styles.smallTitle}>
           <strong>Incident Summary</strong>
         </div>
-        Officers Waller and Samson responded to a call made from the Secretary&apos;s Office of
-        Kaiser University on Tuesday, December 13 at 8:46 PM. They arrived at the scene at 8:58 PM.
+        Officers Waller and Samson responded to a call made from the
+        Secretary&apos;s Office of Kaiser University on Tuesday, December 13 at
+        8:46 PM. They arrived at the scene at 8:58 PM.
         <br />
         <br />
-        A janitor had discovered a body in room 608 on the 6th floor of the east wing. The body was
-        identified as 24 year old Zach Cunningham, a senior majoring in biochemistry. Officers
-        Waller and Samson had noted there were no signs of a struggle and no blood at the scene.
+        A janitor had discovered a body in room 608 on the 6th floor of the east
+        wing. The body was identified as 24 year old Zach Cunningham, a senior
+        majoring in biochemistry. Officers Waller and Samson had noted there
+        were no signs of a struggle and no blood at the scene.
         <br />
         <br />
-        Medical personnel arrived soon after and confirmed the victim had passed. Medical arranged
-        for the body to be placed in evidence storage and a full investigation was authorized by the
-        Kaiser County department sheriff.
+        Medical personnel arrived soon after and confirmed the victim had
+        passed. Medical arranged for the body to be placed in evidence storage
+        and a full investigation was authorized by the Kaiser County department
+        sheriff.
         <br />
         <br />
-        The cause of death was asphyxiation, but there were no signs of manual strangulation. A
-        toxicology report is pending.
+        The cause of death was asphyxiation, but there were no signs of manual
+        strangulation. A toxicology report is pending.
       </div>
     </div>
   );
@@ -66,10 +70,11 @@ export default function PoliceReport() {
   const item2 = (
     <div className={styles.reportParent}>
       <div className={styles.section}>
-        During the investigation of the crime scene, 6 small vials with residual liquid were
-        discovered. Analysis of the residual liquid revealed it was not any kind of common drink or
-        commercial product, but instead was a mixture of several seemingly unrelated components. The
-        initial results are:
+        During the investigation of the crime scene, 6 small vials with residual
+        liquid were discovered. Analysis of the residual liquid revealed it was
+        not any kind of common drink or commercial product, but instead was a
+        mixture of several seemingly unrelated components. The initial results
+        are:
         <br />
         <ol className={styles.orderedList}>
           <li>Burnt ashes of animal fur and bird feathers</li>
@@ -82,8 +87,8 @@ export default function PoliceReport() {
         Further investigation of this liquid is pending.
         <br />
         <br />
-        Additionally, DNA analysis of the vials revealed each of the 6 vials was drunk by 6
-        different individuals:
+        Additionally, DNA analysis of the vials revealed each of the 6 vials was
+        drunk by 6 different individuals:
         <ol className={styles.orderedList}>
           <li>
             <strong>Zach Cunningham</strong>, male, 24 years old, senior
@@ -111,7 +116,8 @@ export default function PoliceReport() {
         meeting.`}
         <br />
         <br />
-        The 5 other remaining students of the club are considered <strong>PRIME SUSPECTS</strong>.
+        The 5 other remaining students of the club are considered{" "}
+        <strong>PRIME SUSPECTS</strong>.
         <br />
         <br />
         The priority action items for this case are:
@@ -121,40 +127,49 @@ export default function PoliceReport() {
           <li>Confirming the root cause of asphyxiation.</li>
           <li>Naming the final suspect.</li>
         </ol>
-        <strong>ADDENDUM</strong>: As of December 18th, the case has been closed. All pending
-        investigations are cancelled. The Medical Examiner will be releasing the body of Zach
-        Cunningham to the next of kin. All digital evidence will be encrypted and archived.
+        <strong>ADDENDUM</strong>: As of December 18th, the case has been
+        closed. All pending investigations are cancelled. The Medical Examiner
+        will be releasing the body of Zach Cunningham to the next of kin. All
+        digital evidence will be encrypted and archived.
       </div>
     </div>
   );
 
   const { currentStage, setStage } = useContext(StageContext);
-  const { getProgress, setProgress } = useContext(ObjectivesContext);
+  const { isSolved, setSolved } = useContext(ProgressContext);
 
   // set stage from 0 to 1 when user views second page of police report.
   const onChange = (index: number) => {
-    console.log("onChange called", { index });
     if (currentStage === 0 && index === 1) {
       setStage(1);
     }
   };
-  const evidenceComponent = <CustomCarousel items={[item1, item2]} onChange={onChange} />;
+  const evidenceComponent = (
+    <CustomCarousel items={[item1, item2]} onChange={onChange} />
+  );
   const objectives: ObjectivesJson = {
     heading: "Answer the questions below:",
     sections: [
       {
-        title: "What kind of compound is the unknown substance mentioned on page 2?",
+        title:
+          "What kind of compound is the unknown substance mentioned on page 2?",
         questions: [
           {
             question: "",
             answer: "A sodium one",
-            answers: ["A lithium one", "A sodium one", "A hydrogen one", "A calcium one"],
+            answers: [
+              "A lithium one",
+              "A sodium one",
+              "A hydrogen one",
+              "A calcium one",
+            ],
             color: Color.GREEN,
           },
         ],
       },
       {
-        title: "Who does X think is covering up the true nature of Cunningham's death?",
+        title:
+          "Who does X think is covering up the true nature of Cunningham's death?",
         questions: [
           {
             question: "",
@@ -180,15 +195,16 @@ export default function PoliceReport() {
     if (currentStage === STAGE_UNLOCKED) {
       setStage(2);
     }
-    if (!getProgress(ProgressKeys.POLICE_REPORT)) {
-      setProgress(ProgressKeys.POLICE_REPORT, true);
+    if (!isSolved(ProgressKeys.POLICE_REPORT)) {
+      setSolved(ProgressKeys.POLICE_REPORT, true);
     }
   };
+
   return (
     <TabContentBase
       evidence={evidenceComponent}
       // dont show objectives until stage 1
-      objectives={currentStage < STAGE_UNLOCKED ? undefined : objectives}
+      objectivesJson={currentStage < STAGE_UNLOCKED ? undefined : objectives}
       onCorrect={onCorrect}
     />
   );

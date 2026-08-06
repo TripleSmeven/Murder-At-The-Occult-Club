@@ -1,13 +1,26 @@
-import { ConversationJson } from "./Conversations";
+import { Attachment, ConversationJson } from "./ConversationJsons";
 import styles from "./ConversationComponent.module.css";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
+import { ObjectivesContext } from "../../context/ObjectivesContext";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 import { useContext } from "react";
+import { TabContext } from "../../context/TabContext";
+
+type Theme = "slack" | "discord";
+
+const DATE_FORMAT: Intl.DateTimeFormatOptions = {
+  year: "2-digit",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+};
 
 interface TextMessageJson {
   sender: string;
   profile: string;
   content: string;
   time: string;
+  theme: Theme;
 }
 
 const senderToProfileMap: { [key: string]: string } = {
@@ -20,18 +33,35 @@ const senderToProfileMap: { [key: string]: string } = {
   "Sarah Findley": "sarah",
   "Unknown A": "unknownA",
   "Unknown B": "unknownB",
+
+  justagreengremlin: "justagreengremlin",
+  sam_slow_down: "sam_slow_down",
+  looprevil92: "looprevil92",
+  meremere: "meremere",
+  playingWithMyHeart: "playingWithMyHeart",
 };
 
-const TextMessagePrimary = ({ sender, profile, content, time }: TextMessageJson) => {
+const TextMessagePrimary = ({
+  sender,
+  profile,
+  content,
+  time,
+  theme = "slack",
+}: TextMessageJson) => {
+  if (!senderToProfileMap[profile]) {
+    profile = "Unknown A";
+  }
   return (
     <div className={styles.primaryParent}>
-      <div className={`${styles.profile} ${styles[senderToProfileMap[profile]]}`}></div>
+      <div
+        className={`${styles.profile} ${styles[senderToProfileMap[profile]]} ${theme === "discord" && styles.discordTheme}`}
+      ></div>
       <div className={styles.messageParent}>
         <div className={styles.messageHeader}>
           <div className={styles.messageSender}>{sender}</div>
           <div className={styles.messageTime}>{time}</div>
         </div>
-        <div className={styles.messageContent}>{content}</div>
+        <MessageContent content={content} />
       </div>
     </div>
   );
@@ -41,35 +71,129 @@ const TextMessageSecondary = ({ content }: { content: string }) => {
   return (
     <div className={styles.secondaryParent}>
       <div className={styles.secondaryMessageParent}>
-        <div className={styles.messageContent}>{content}</div>
+        <MessageContent content={content} />
       </div>
     </div>
   );
 };
 
+export const TextMessageAttachment = ({
+  title,
+  bytes,
+  noLink = false,
+}: Attachment) => {
+  const { setActiveTab } = useContext(TabContext);
+  const { setSolved } = useContext(ProgressContext);
+  const onClick = () => {
+    if (title.startsWith("photo")) {
+      setSolved(ProgressKeys.CONSTELLATION_PHOTO_UNLOCKED, true);
+      setActiveTab("ConstellationPhoto");
+    }
+    if (title.startsWith("updated_instructions")) {
+      setSolved(ProgressKeys.LOCKED_PDF_UNLOCKED, true);
+      setActiveTab("LockedPdf");
+    }
+  };
+  return (
+    <div className={styles.attachmentContainer}>
+      <div className={styles.attachmentIcon}></div>
+      <div>
+        <div
+          className={`${styles.attachmentTitle} ${noLink && styles.noLink}`}
+          onClick={onClick}
+        >
+          {title}
+        </div>
+        <div className={styles.attachmentSize}>{bytes + " KB"}</div>
+      </div>
+      <div
+        className={`${styles.hyperlink} ${noLink && styles.noLink}`}
+        onClick={onClick}
+      >
+        ⬇️
+      </div>
+    </div>
+  );
+};
+
+export const MessageContent = ({ content }: { content: string }) => {
+  const { setActiveTab } = useContext(TabContext);
+  const { setSolved } = useContext(ProgressContext);
+
+  // splits string by @, https://, and _.
+  const parts = content.split(/(@\w+|https:\/\/\S+|_\S+)/g);
+
+  const processedContent = parts.map((part, index) => {
+    if (part.startsWith("@")) {
+      return (
+        <span key={index} className={styles.usernameMention}>
+          {part}
+        </span>
+      );
+    }
+    if (part.startsWith("_") && part.endsWith("_")) {
+      part = part.slice(1, -1); // remove starting and ending "_"
+      return (
+        <span key={index} className={styles.italics}>
+          {part}
+        </span>
+      );
+    }
+    if (part.startsWith("https://kaisertimes")) {
+      const onClick = () => {
+        setSolved(ProgressKeys.KAISER_TIMES_UNLOCKED, true);
+        setActiveTab("KaiserTimes");
+      };
+      return (
+        <span key={index} className={styles.hyperlink} onClick={onClick}>
+          {part}
+        </span>
+      );
+    }
+    return part;
+  });
+
+  return <div className={styles.messageContent}>{processedContent}</div>;
+};
+
 interface ConversationComponentProps extends ConversationJson {
+  theme?: Theme;
   index: number;
 }
 
-export const ConversationComponent = ({ date, messages, index }: ConversationComponentProps) => {
+export const ConversationComponent = ({
+  date,
+  messages,
+  index,
+  theme = "slack",
+  speed,
+}: ConversationComponentProps) => {
   const { answers } = useContext(ObjectivesContext);
-  const dateFormat: Intl.DateTimeFormatOptions = {
-    year: "2-digit",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-  };
+
   let previousSender = "";
   const currentTimeStamp = new Date(date);
 
-  const { getProgress } = useContext(ObjectivesContext);
-  const completedObjective = getProgress(ProgressKeys.TEXT_CONVERSATIONS);
+  const { isSolved } = useContext(ProgressContext);
+  const completedObjective = isSolved(ProgressKeys.TEXT_CONVERSATIONS);
 
   const conversationContent = messages.map((message, index2) => {
     // advance the timestamp by 1 second per character in the message,
     // to simulate the time it takes to type up that message
-    currentTimeStamp.setTime(currentTimeStamp.getTime() + 1000 * message.content.length);
+    const msPerWord = speed === "fast" ? 100 : 1000;
+    currentTimeStamp.setTime(
+      currentTimeStamp.getTime() + msPerWord * message.content.length,
+    );
+
+    if (message.attachment) {
+      return (
+        <TextMessageAttachment
+          title={message.attachment.title}
+          bytes={message.attachment.bytes}
+          noLink={message.attachment.noLink}
+          key={index2}
+        />
+      );
+    }
 
     // if the sender is the same as the previous message, render a secondary message (no profile or name)
     if (message.sender === previousSender) {
@@ -94,11 +218,21 @@ export const ConversationComponent = ({ date, messages, index }: ConversationCom
           key={index2}
           sender={senderToDisplay}
           profile={message.sender}
-          time={currentTimeStamp.toLocaleString(navigator.language, dateFormat)}
+          time={currentTimeStamp.toLocaleString(
+            navigator.language,
+            DATE_FORMAT,
+          )}
           content={message.content}
+          theme={theme}
         />
       );
     }
   });
-  return <div className={styles.conversationParent}>{conversationContent}</div>;
+  return (
+    <div
+      className={`${styles.conversationParent} ${theme === "discord" && styles.discordTheme}`}
+    >
+      {conversationContent}
+    </div>
+  );
 };

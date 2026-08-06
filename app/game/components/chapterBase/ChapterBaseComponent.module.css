@@ -1,0 +1,103 @@
+.gameParent {
+  font-family: Space Mono;
+  /* center game screen*/
+  margin: 0 auto 0;
+  padding: 10vh 0 8vh 0;
+  max-width: 75vw;
+  max-height: 100vh;
+  min-height: 100vh;
+  font-size: 16px;
+
+  display: flex;
+}
+
+@media screen and (max-height: 800px) {
+  .gameParent {
+    font-size: 12px;
+    padding: 8vh 0 6vh 0;
+  }
+}
+
+@media screen and (max-width: 1550) {
+  .gameParent {
+    font-size: 12px;
+    max-width: 85vw;
+  }
+}
+
+/* maintain height of game */
+.col {
+  height: 100%;
+  padding: 0 0.5em;
+}
+
+.navRow {
+  /* so that the tab container row is always expanded horizontally as much as it can*/
+  width: 100%;
+}
+
+.navCol {
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+  scrollbar-color: gray transparent;
+  scrollbar-width: thin;
+  direction: rtl; /* so the scrollbar is on the left side */
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.navSection {
+  border: 1px solid var(--bootstrap-blue);
+  padding: 0.25em;
+  direction: ltr; /* to retain the normal text direction for children */
+
+  &.orange {
+    border: 1px solid var(--chapter2-orange-default);
+  }
+}
+
+/* hack the bootstrap nav a bit */
+.tabContent {
+  height: 100%;
+  display: flex;
+
+  > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+}
+
+/* hack */
+.amazingOrdersTab {
+  width: 100%;
+}
+
+.cornerButtons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  display: flex;
+
+  .cornerButton {
+    margin: 0 0.1em;
+    font-size: 1em;
+  }
+}
+
+.lockedNavItem {
+  pointer-events: auto;
+}
+
+.navLink {
+  padding: 0.5em 0.75em;
+}
+
+/* Floating spotlight for “something new here” — overlay is out of flow (no layout shift). */
+.navItemSpotlight {
+  position: relative;
+}

@@ -19,6 +19,12 @@ const scrollToTop = (ref: React.RefObject<CarouselRef | null>) => {
   });
 };
 
+/**
+ * @param items - The items to display in the carousel.
+ * @param lockedPages - The pages to lock by index.
+ * @param lockedTooltip - The tooltip to display when a page is locked.
+ * @param onChange - The function to call when the active index changes.
+ */
 export default function CustomCarousel({
   items,
   lockedPages = [],
@@ -102,7 +108,9 @@ export default function CustomCarousel({
 
       <Pagination className={styles.pageButtonsParent}>
         {items.map((_, index) => {
-          const tooltip = <Tooltip id={`tooltip-${activeIndex}`}>{lockedTooltip}</Tooltip>;
+          const tooltip = (
+            <Tooltip id={`tooltip-${activeIndex}`}>{lockedTooltip}</Tooltip>
+          );
           const itemContent = isPageLocked(index) ? (
             <OverlayTrigger placement="top" overlay={tooltip}>
               <span>🔒</span>

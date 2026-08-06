@@ -1,24 +1,39 @@
 "use client";
-import { useContext, useEffect, useCallback, useState, useRef, useMemo } from "react";
+import {
+  useContext,
+  useEffect,
+  useCallback,
+  useState,
+  useRef,
+  useMemo,
+} from "react";
 import dynamic from "next/dynamic";
 
 import styles from "./Notepad.module.css";
-import { CustomPicker, NamePicker } from "./WordPicker";
-import { ObjectivesJson } from "./ObjectivesJson";
+import { CustomPicker, FreeformInput } from "./ObjectiveBuilder";
+import { ObjectivesJson } from "../context/ObjectivesJson";
 import { Col, Nav, OverlayTrigger, Row, Tab, Tooltip } from "react-bootstrap";
-import { GlobalNotesContext } from "./GlobalNotesContext";
-import { useLocalStorage } from "./useLocalStorage";
-import { ObjectivesContext } from "./ObjectivesContext";
+import { GlobalNotesContext } from "../context/GlobalNotesContext";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { ObjectivesContext } from "../context/ObjectivesContext";
 import { MDXEditorMethods } from "@mdxeditor/editor";
 import SpotlightOverlay from "./SpotlightOverlay";
 
-const MarkdownEditor = dynamic(() => import("./MarkdownEditor"), { ssr: false });
+const MarkdownEditor = dynamic(() => import("./MarkdownEditor"), {
+  ssr: false,
+});
 
-export default function Notepad({ heading, sections, onCorrect }: ObjectivesContentProps) {
-  const startingKey = heading ? "objectives" : "freeform";
+interface NotepadProps {
+  objectivesJson?: ObjectivesJson;
+  onCorrect?: () => void;
+}
+
+export default function Notepad({ objectivesJson, onCorrect }: NotepadProps) {
+  const startingKey = objectivesJson ? "objectives" : "freeform";
   const { globalNotes, setGlobalNotes } = useContext(GlobalNotesContext);
   const [localNotes, setLocalNotes] = useState(globalNotes);
-  const [objectivesVisited, setObjectivesVisited] = useLocalStorage("objectivesVisited");
+  const [objectivesVisited, setObjectivesVisited] =
+    useLocalStorage("objectivesVisited");
 
   const debounceTimer = useRef<NodeJS.Timeout | null>(null);
   const editorRef = useRef<MDXEditorMethods | null>(null);
@@ -63,22 +78,34 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
     [objectivesVisited, setObjectivesVisited],
   );
 
-  const objectivesTab = heading ? (
-    <Tab.Pane eventKey="objectives" className={`${styles.tabContent} ${styles.objectivesContent}`}>
-      <ObjectivesContent heading={heading} sections={sections} onCorrect={onCorrect} />
+  const objectivesTab = objectivesJson ? (
+    <Tab.Pane
+      eventKey="objectives"
+      className={`${styles.tabContent} ${styles.objectivesContent}`}
+    >
+      <ObjectivesContent {...objectivesJson} onCorrect={onCorrect} />
     </Tab.Pane>
   ) : null;
 
   const freeformTab = (
-    <Tab.Pane eventKey="freeform" className={`${styles.tabContent} ${styles.freeformContent}`}>
+    <Tab.Pane
+      eventKey="freeform"
+      className={`${styles.tabContent} ${styles.freeformContent}`}
+    >
       <div className={`${styles.notesTextareaParent}`}>
-        <MarkdownEditor markdown={localNotes} onChange={handleChange} editorRef={editorRef} />
+        <MarkdownEditor
+          markdown={localNotes}
+          onChange={handleChange}
+          editorRef={editorRef}
+        />
       </div>
     </Tab.Pane>
   );
 
   const spotlightOverlay =
-    objectivesVisited === "true" ? null : <SpotlightOverlay variant="topTabs" />;
+    objectivesVisited === "true" ? null : (
+      <SpotlightOverlay variant="topTabs" />
+    );
 
   const tabs = (
     <Tab.Container
@@ -88,18 +115,20 @@ export default function Notepad({ heading, sections, onCorrect }: ObjectivesCont
       onSelect={handleTabSelect}
     >
       <Col className={styles.tabCol}>
-        <Row sm={1}>
+        <Row sm={1} className={styles.tabHeaderRow}>
           <Nav variant="tabs" className="flex-row">
             {objectivesTab && (
               <Nav.Item className={styles.tabs}>
                 {spotlightOverlay}
-                <Nav.Link eventKey="objectives">
+                <Nav.Link eventKey="objectives" className={styles.navLink}>
                   {objectivesVisited === "true" ? "" : "❗"}🎯OBJECTIVES
                 </Nav.Link>
               </Nav.Item>
             )}
             <Nav.Item className={styles.tabs}>
-              <Nav.Link eventKey="freeform">📝NOTES</Nav.Link>
+              <Nav.Link eventKey="freeform" className={styles.navLink}>
+                📝NOTES
+              </Nav.Link>
             </Nav.Item>
           </Nav>
         </Row>
@@ -124,7 +153,11 @@ const getStorageKey = (sectionTitle: string, question: string) => {
   return `${sectionTitle.substring(0, 16)}-${question}`;
 };
 
-const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentProps) => {
+const ObjectivesContent = ({
+  heading,
+  sections,
+  onCorrect,
+}: ObjectivesContentProps) => {
   const { answers } = useContext(ObjectivesContext);
   const hasTriggeredCorrectRef = useRef(false);
 
@@ -144,12 +177,12 @@ const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentPr
       return "incomplete";
     }
 
-    // Check if all answers are correct
+    // Check if all answers are correct, case-insensitve
     const allAnswersCorrect = sections?.every((section) =>
       section.questions.every((question) => {
         const storageKey = getStorageKey(section.title, question.question);
         const storedValue = answers[storageKey];
-        return storedValue === question.answer;
+        return storedValue.toLowerCase() === question.answer.toLowerCase();
       }),
     );
 
@@ -184,29 +217,35 @@ const ObjectivesContent = ({ heading, sections, onCorrect }: ObjectivesContentPr
           <div className={styles.objectivesSectionTitle}>{section.title}</div>
           {section.questions.map((question, questionIndex) => {
             const storageKey = getStorageKey(section.title, question.question);
-            if (question.answers && question.answers.length > 0) {
+
+            // if there's answers tied to the, make it a multiple choice
+            // otherwise, its a freeform text input
+            if (question.answers) {
               return (
                 <div key={`${questionIndex}`}>
                   <CustomPicker
                     label={question.question}
                     color={question.color}
+                    size={question.size}
                     words={question.answers}
                     storageKey={storageKey}
                     disabled={status === "correct"}
                   />
                 </div>
               );
+            } else {
+              return (
+                <div key={`${questionIndex}`}>
+                  <FreeformInput
+                    label={question.question}
+                    color={question.color}
+                    storageKey={storageKey}
+                    disabled={status === "correct"}
+                    size={question.size}
+                  />
+                </div>
+              );
             }
-            return (
-              <div key={`${questionIndex}`}>
-                <NamePicker
-                  label={question.question}
-                  color={question.color}
-                  storageKey={storageKey}
-                  disabled={status === "correct"}
-                />
-              </div>
-            );
           })}
         </div>
       ))}
@@ -234,7 +273,7 @@ const CorrectStatus = () => {
 const IncorrectStatus = () => {
   const renderTooltip = (
     <Tooltip id="objectives-status-tooltip">
-      Select the correct answer for each question to complete this objective.
+      Enter the correct answer for each question to complete this objective.
     </Tooltip>
   );
   return (
@@ -251,7 +290,7 @@ const IncorrectStatus = () => {
 const IncompleteStatus = () => {
   const renderTooltip = (
     <Tooltip id="objectives-status-tooltip">
-      Select the correct answer for each question to complete this objective.
+      Enter the correct answer for each question to complete this objective.
     </Tooltip>
   );
   return (

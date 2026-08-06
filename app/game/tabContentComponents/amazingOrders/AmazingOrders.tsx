@@ -3,9 +3,10 @@ import { JSX, useContext, useState } from "react";
 import styles from "./AmazingOrders.module.css";
 import CustomCarousel from "../../components/CustomCarousel";
 import TabContentBase from "../TabContentBase";
-import { Color } from "../../components/WordPicker";
-import { ObjectivesJson } from "../../components/ObjectivesJson";
-import { ObjectivesContext, ProgressKeys } from "../../components/ObjectivesContext";
+import { CHAPTER1_NAMES, Color } from "../../components/ObjectiveBuilder";
+import { ObjectivesJson } from "../../context/ObjectivesJson";
+import { ObjectivesContext } from "../../context/ObjectivesContext";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
 
 const INDEX_TO_UNKNOWN_MAP: Record<number, string> = {
   0: "A",
@@ -39,7 +40,9 @@ function OrderRow({
 function OrderRowHeader({ entries }: { entries: string[] }) {
   return (
     <tr className={styles.orderRowHeader}>
-      <td className={`${styles.numberCell} ${styles.ignoreInHeaderRow}`}>{entries[0]}</td>
+      <td className={`${styles.numberCell} ${styles.ignoreInHeaderRow}`}>
+        {entries[0]}
+      </td>
       <td className={styles.dateCell}>{entries[1]}</td>
       <td className={styles.nameCell}>{entries[2]}</td>
       <td className={styles.titleCell}>{entries[3]}</td>
@@ -52,8 +55,8 @@ function OrderRowHeader({ entries }: { entries: string[] }) {
 function AmazingOrdersTable() {
   const { answers } = useContext(ObjectivesContext);
 
-  const { getProgress } = useContext(ObjectivesContext);
-  const completedObjective = getProgress(ProgressKeys.ONLINE_ORDERS);
+  const { isSolved } = useContext(ProgressContext);
+  const completedObjective = isSolved(ProgressKeys.ONLINE_ORDERS);
 
   const orderRows: JSX.Element[] = [];
   let rowCount = 2;
@@ -63,7 +66,9 @@ function AmazingOrdersTable() {
       if (INDEX_TO_UNKNOWN_MAP[index]) {
         const storageKey = `Customer Name-Unknown ${INDEX_TO_UNKNOWN_MAP[index]}`;
         if (answers[storageKey]) {
-          customName = completedObjective ? `[${answers[storageKey]}]` : `[${answers[storageKey]}?]`;
+          customName = completedObjective
+            ? `[${answers[storageKey]}]`
+            : `[${answers[storageKey]}?]`;
         }
       }
       orderRows.push(
@@ -89,11 +94,21 @@ function AmazingOrdersTable() {
     <div className={styles.amazingOrdersParent}>
       <table className={styles.amazingOrdersTable}>
         <thead className={styles.tableHeader}>
-          <OrderRow rowClassName={styles.lettersRow} entries={["", "A", "B", "C", "D", "E"]} />
+          <OrderRow
+            rowClassName={styles.lettersRow}
+            entries={["", "A", "B", "C", "D", "E"]}
+          />
         </thead>
         <tbody>
           <OrderRowHeader
-            entries={["1", "Date", "Customer Name", "Item Name", "Category", "Price"]}
+            entries={[
+              "1",
+              "Date",
+              "Customer Name",
+              "Item Name",
+              "Category",
+              "Price",
+            ]}
           />
           {orderRows}
         </tbody>
@@ -112,22 +127,41 @@ export default function AmazingOrders() {
       {
         title: "Customer Name",
         questions: [
-          { question: "Unknown A", answer: "Candace Eng", color: Color.RED },
-          { question: "Unknown B", answer: "Andrew Wolfe", color: Color.ORANGE },
-          { question: "Unknown C", answer: "Carlos Sanchez", color: Color.YELLOW },
+          {
+            question: "Unknown A",
+            answers: CHAPTER1_NAMES,
+            answer: "Candace Eng",
+            color: Color.RED,
+          },
+          {
+            question: "Unknown B",
+            answers: CHAPTER1_NAMES,
+            answer: "Andrew Wolfe",
+            color: Color.ORANGE,
+          },
+          {
+            question: "Unknown C",
+            answers: CHAPTER1_NAMES,
+            answer: "Carlos Sanchez",
+            color: Color.YELLOW,
+          },
         ],
       },
     ],
   };
 
-  const { getProgress, setProgress } = useContext(ObjectivesContext);
+  const { isSolved, setSolved } = useContext(ProgressContext);
   const onCorrect = () => {
-    if (!getProgress(ProgressKeys.ONLINE_ORDERS)) {
-      setProgress(ProgressKeys.ONLINE_ORDERS, true);
+    if (!isSolved(ProgressKeys.ONLINE_ORDERS)) {
+      setSolved(ProgressKeys.ONLINE_ORDERS, true);
     }
   };
 
   return (
-    <TabContentBase evidence={evidenceComponent} objectives={objectives} onCorrect={onCorrect} />
+    <TabContentBase
+      evidence={evidenceComponent}
+      objectivesJson={objectives}
+      onCorrect={onCorrect}
+    />
   );
 }

@@ -1,19 +1,23 @@
 import Notepad from "../components/Notepad";
-import { ObjectivesJson } from "../components/ObjectivesJson";
+import { ObjectivesJson } from "../context/ObjectivesJson";
 import styles from "./TabContentBase.module.css";
 
 interface TabContentBaseProps {
   evidence: React.ReactNode;
-  objectives?: ObjectivesJson;
+  objectivesJson?: ObjectivesJson;
   onCorrect?: () => void;
 }
 
-export default function TabContentBase({ evidence, objectives, onCorrect }: TabContentBaseProps) {
+export default function TabContentBase({
+  evidence,
+  objectivesJson,
+  onCorrect,
+}: TabContentBaseProps) {
   return (
     <div className={styles.parent}>
       <div className={styles.evidence}>{evidence}</div>
       <div className={styles.notes}>
-        <Notepad {...objectives} onCorrect={onCorrect} />
+        <Notepad objectivesJson={objectivesJson} onCorrect={onCorrect} />
       </div>
     </div>
   );
