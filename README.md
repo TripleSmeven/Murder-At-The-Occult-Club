@@ -2,7 +2,7 @@
 
 A browser-based murder mystery puzzle game built on Next.js and deployed with Vercel.
 
-Play the game here! https://murder-at-the-occult-club.vercel.app/ The game takes about 1 hour to complete (shorter if you're really smart).
+Play the game here! https://murder-at-the-occult-club.vercel.app/game
 
 ### Current Features
 
