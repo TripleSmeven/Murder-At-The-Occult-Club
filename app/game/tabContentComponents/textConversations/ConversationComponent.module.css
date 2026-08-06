@@ -186,3 +186,7 @@
 .italics {
   font-style: italic;
 }
+
+.noLink {
+  cursor: default;
+}

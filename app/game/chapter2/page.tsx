@@ -29,6 +29,7 @@ import RitualsOfTiaccabode from "../tabContentComponents/occultDocuments/Rituals
 import LetterFromX2_2 from "../tabContentComponents/handwrittenLetter/LetterFromX2_2";
 import GroupChat2 from "../tabContentComponents/textConversations/GroupChat2";
 import LetterFromX2_3 from "../tabContentComponents/handwrittenLetter/LetterFromX2_3";
+import PoliceNotes2 from "../tabContentComponents/diaryPages/PoliceNotes2";
 
 // Memo required because when we change tabs, setActiveTab is called, which causes the
 // entire parent to rerender, and rerender all of these children. Memo prevents the rerending.
@@ -49,6 +50,7 @@ const MemoRitualsOfTiaccabode = memo(RitualsOfTiaccabode);
 const MemoLetterFromX2_2 = memo(LetterFromX2_2);
 const MemoGroupChat2 = memo(GroupChat2);
 const MemoLetterFromX2_3 = memo(LetterFromX2_3);
+const MemoPoliceNotes2 = memo(PoliceNotes2);
 
 const CHAPTER = 2;
 
@@ -68,6 +70,7 @@ function GameComponent() {
    * 0: solve the group chat
    * 1: solve the mansion address
    * 2: solve the rituals
+   * 3: Done, show farewell letter
    */
   const { currentStage, setStage } = useContext(StageContext);
 
@@ -84,7 +87,6 @@ function GameComponent() {
 
   const stage1LockedTooltip =
     "Unlock by completing the Objectives in the Group Chat and Locked PDF.";
-
   const stage2LockedTooltip =
     currentStage === 1
       ? "Unlock by completing the Objectives in the Voicemail."
@@ -178,16 +180,18 @@ function GameComponent() {
             <Nav variant="pills">
               <NavItemWithLock
                 eventKey="SolveTheCase"
-                title="Solve The Case"
+                title="Solve the Case"
                 locked={currentStage < 2}
-                lockedTooltip={"Unlock by completing all previous objectives."}
-                emoji={isSolved(ProgressKeys.SOLVE_THE_CASE) ? "✅" : "🎯"}
+                lockedTooltip={stage2LockedTooltip}
+                emoji={
+                  isSolved(ProgressKeys.CHAPTER_2_SOLVE_THE_CASE) ? "✅" : "🎯"
+                }
               />
               <NavItemWithLock
                 eventKey="GroupChat2"
                 title="Group Chat 2"
                 locked={currentStage < 2}
-                lockedTooltip={"Unlock by completing all previous objectives."}
+                lockedTooltip={stage2LockedTooltip}
               />
               <NavItemWithLock
                 eventKey="LetterFromWalter"
@@ -206,11 +210,13 @@ function GameComponent() {
           <div
             className={`${styles.navSection} ${styles.orange} orange-nav-bootstrap`}
           >
-            <NavItemWithLock
-              eventKey="FarewellLetter"
-              title="Farewell Letter"
-              locked={currentStage < 3}
-            />
+            <Nav variant="pills">
+              <NavItemWithLock
+                eventKey="FarewellLetter"
+                title="Farewell Letter"
+                locked={!isSolved(ProgressKeys.CHAPTER_2_SOLVE_THE_CASE)}
+              />
+            </Nav>
           </div>
         </Col>
         <Col sm={10} className={styles.col}>
@@ -264,7 +270,7 @@ function GameComponent() {
               <MemoGroupChat2 />
             </Tab.Pane>
             <Tab.Pane eventKey="FarewellLetter">
-              <MemoLetterFromX2_3 />
+              <MemoPoliceNotes2 />
             </Tab.Pane>
           </Tab.Content>
         </Col>

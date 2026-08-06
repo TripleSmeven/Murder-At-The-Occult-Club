@@ -3,12 +3,15 @@ export type ConversationJson = {
   messages: Array<{
     sender: string;
     content: string;
-    attachment?: {
-      title: string;
-      bytes: number;
-    };
+    attachment?: Attachment;
   }>;
   speed?: "fast" | "normal";
+};
+
+export type Attachment = {
+  title: string;
+  bytes: number;
+  noLink?: boolean;
 };
 
 const Police: ConversationJson = {

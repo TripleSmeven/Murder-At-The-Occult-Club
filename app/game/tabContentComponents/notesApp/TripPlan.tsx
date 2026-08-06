@@ -27,10 +27,10 @@ export default function TripPlan() {
           <li>Showtime!</li>
         </ul>
 
-        <div>Day 3</div>
+        <div>Day 3 (test day)</div>
         <ul>
           <li>Have a bout round the nearby town</li>
-          <li>Shop for groceries</li>
+          <li>Huge library</li>
           <li>Toy shop for the Verde twins&apos; lil bro</li>
           <li>Boating in lake? (Be in same boat as David)</li>
         </ul>

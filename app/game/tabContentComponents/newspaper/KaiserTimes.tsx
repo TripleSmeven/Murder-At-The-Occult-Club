@@ -33,7 +33,7 @@ export default function KaiserTimes() {
     author: "",
     date: "Dec 23rd, 2025",
     paragraphs: [
-      `Kaiser University senior Naomi Yu claimed first place at the KaiserU Fall Science Fair on December 22nd, just barely eking out a win over fellow senior Clara Meyer, who took second place with his project on the cellular regeneration ability of jellyfish.`,
+      `Kaiser University senior Naomi Yu claimed first place at the KaiserU Fall Science Fair on December 22nd, just barely eking out a win over fellow senior Clara Meyer, who took second place with her project on the cellular regeneration ability of jellyfish.`,
       `Yu, whose autonomous puzzle solving robot won over the hearts of the judges, was ecstatic as she accepted the trophy. Her family, seated in the front row throughout the event, joined her on stage. "I just want to thank my parents and my sister for taking the time to come out and support me tonight," Yu said in her acceptance speech. "This means everything to me. I couldn't have done this without them."`,
       `"I want to give a special thanks to my sister, Nikki, who has been my biggest supporter all my life", Yu went on. "Out of the four of us, she's always been the smartest one in our little family. I'm so lucky to have her as my sister."`,
       `University officials praised the strength of this year's competition overall, with other notable submissions including a planetary mapping system and an allergy detection device.`,

@@ -35,14 +35,14 @@ const kataria1: TranscriptJson = {
       text: "My children? My youngest is at home with me. My oldest...Um...he went to a friend's vacation house a few days ago. Said he'd be there for a week. And that's all of them. Is there something going on?",
     },
     { name: SAMSON, text: "Do you know where this friend's house is?" },
-    { name: KATARIA, text: "Uh, I'm not sure." },
+    { name: KATARIA, text: "That rich neighborhood...Hamper, it's called." },
     {
       name: SAMSON,
       text: "And do you know the name of this friend?",
     },
     {
       name: KATARIA,
-      text: "Yeah, Matthew. British guy. Officer, is David okay?",
+      text: "Yeah, Matthew. Matthew something. British guy. Officer, is David okay?",
     },
     {
       name: SAMSON,
@@ -182,7 +182,7 @@ const larssen2: TranscriptJson = {
     },
     {
       name: SAMSON,
-      text: "We can't just track any phone we want to, ma'am. We need probable cause and an active missing person's case",
+      text: "We can't just track any phone we want to, ma'am. We need probable cause and an active missing person's case.",
     },
     { name: LARSSEN, text: "Well, get on it then!" },
     {

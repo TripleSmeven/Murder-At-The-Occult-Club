@@ -113,7 +113,7 @@ export const hintsJson: HintsJson = {
         {
           title: "looprevil92 hint",
           content:
-            "Their first and last name appear in two different pieces of evidence. If you understand looprevil92's role in the group, you'll be able to deduce their name.",
+            "Their first name and last name appear in two different pieces of evidence. If you understand looprevil92's role in the group, you'll be able to deduce their name.",
         },
         {
           title: "meremere hint",
@@ -123,7 +123,7 @@ export const hintsJson: HintsJson = {
         {
           title: "justagreengremlin hint",
           content:
-            "You learn quite a bit about this person and sam_slow_down from the 4th page of the group chat evidence. What you learn about them there connects with information found in the Trip Plan evidence and the police transcripts.",
+            "You learn quite a bit about this person and sam_slow_down from the 5th page of the group chat evidence. What you learn about them there connects with information found in the Trip Plan evidence and the police transcripts.",
         },
       ],
     },
@@ -131,6 +131,11 @@ export const hintsJson: HintsJson = {
       heading: "Locked PDF",
       unlockedAtStage: 0,
       panels: [
+        {
+          title: "Where is the Locked PDF?",
+          content:
+            "The Locked PDF is hidden in the group chat. You'll have to click on something to unlock it.",
+        },
         {
           title: "Do I need to solve the Locked PDF to solve the Group Chat?",
           content:
@@ -169,9 +174,24 @@ export const hintsJson: HintsJson = {
       unlockedAtStage: 2,
       panels: [
         {
-          title: "Cause of death hint",
+          title: "Mantles hint 1",
           content:
-            "The new evidence narrows down the cause of death to a few choices. Is there a way to narrow it further down to just one?",
+            "If you read the Mantles of Inheritance document, you'll learn that a person's Mantle can be determined by that person's birth order compared to their siblings in their family. Look through previous evidence to see if you can learn more about each student's family.",
+        },
+        {
+          title: "Mantles hint 2",
+          content:
+            "Matthew's can be determined from the Letter from Walter. For Nikki, refer to the news article on her sister. For Daisy, read Group Chat 2. For Martin and David, their parent's words make it clear.",
+        },
+        {
+          title: "Intended Ritual",
+          content:
+            "Think of what Mantle each person believed themselves to be, and which constellation they were looking the night before. That should narrow it down. Some clues in the Trip Plan and The Hamper Herald will help you narrow it down to just one. ",
+        },
+        {
+          title: "Actual Ritual",
+          content:
+            "What Mantle did each person actually have, and what celestial construction might have gotten in the way?",
         },
       ],
     },

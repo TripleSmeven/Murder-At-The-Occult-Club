@@ -33,6 +33,7 @@ export enum ProgressKeys {
   LOCKED_PDF_UNLOCKED = "lockedPdfUnlocked",
   // if the player solved the locked PDF puzzle (by entering the pw)
   LOCKED_PDF = "lockedPdf",
+  CHAPTER_2_SOLVE_THE_CASE = "chapter2SolveTheCase",
 }
 
 interface ProgressProviderProps {

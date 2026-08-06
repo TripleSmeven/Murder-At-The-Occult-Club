@@ -18,7 +18,7 @@ export default function MantlesOfInheritance() {
           Your portion is your prize.
         </div>
         <div className={styles.section}>
-          When in your line emerges the second, surrender the crown and bear the
+          When in your line emerges the second, surrender the Crown and bear the
           Torch. Your kindle illuminates the front path, yet casts a dark shadow
           behind. Those who trail you try to match their footprints in yours,
           whether they fit or not. Will they be ready when your fire burns out?

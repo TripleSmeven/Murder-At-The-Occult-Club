@@ -31,7 +31,11 @@ export default function GameTitle() {
           link="/game/chapter1"
           image="chapter1"
         />
-        <ChapterCard title="2. (Coming soon!)" link="#" image="chapter2" />
+        <ChapterCard
+          title="2. The Rituals of Tiaccabode"
+          link="/game/chapter2"
+          image="chapter2"
+        />
       </div>
     </div>
   );

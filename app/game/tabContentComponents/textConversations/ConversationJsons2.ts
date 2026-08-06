@@ -48,6 +48,7 @@ const Past: ConversationJson = {
       attachment: {
         title: "ultrasound.png",
         bytes: 120,
+        noLink: true,
       },
     },
     { sender: david, content: "What? You're pregnant???" },
@@ -65,7 +66,10 @@ const Past: ConversationJson = {
       content: "ive always been the little sister and now im the big sister",
     },
     { sender: nikki, content: "Yeah. That's quite a change." },
-    { sender: david, content: "Hey. You'll be a great big sister!" },
+    {
+      sender: david,
+      content: "Hey. You'll be a great big sister to the third Verde!",
+    },
     { sender: matt, content: "What he said!" },
     { sender: matt, content: "We've gotta meetup and celebrate! Usual spot?" },
   ],
@@ -328,7 +332,7 @@ const Mansion: ConversationJson = {
     {
       sender: matt,
       content:
-        "Oh yeah so me mum and dad are gonna be away. Had to handle some stuff back home in Berkshire after grandad passed",
+        "Oh yeah so me mum and dad are gonna be away. Had to handle some stuff back home in Berkshire with my grandad.",
     },
     {
       sender: matt,
@@ -399,7 +403,7 @@ const Mansion: ConversationJson = {
     {
       sender: matt,
       content:
-        "Alright, alright, so we're in agreement? Let me get a quick plan together and I'll send it out. Meetup at Round 10 6pm tomorrow? Usual booth",
+        "Alright, alright, so we're in agreement? Let me get a quick plan together and I'll send it out. Meetup at the usual spot at 6?",
     },
     {
       sender: david,
@@ -542,11 +546,6 @@ const AfterNYE: ConversationJson = {
     {
       sender: matt,
       content: "Alright I'm gonna catch some zeds, gn everyone!",
-    },
-    {
-      sender: daisy,
-      content:
-        "speaking of Z's, i need to water my ZZ. Then im going to sleep too",
     },
     {
       sender: daisy,

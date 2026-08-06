@@ -50,6 +50,7 @@ export enum Color {
 export function CustomPicker({
   label,
   color,
+  size,
   disabled,
   words,
   storageKey,
@@ -68,7 +69,12 @@ export function CustomPicker({
       <div className={`${styles.label} ${color && styles[color]}`}>
         {label?.length ? label + ":" : null}
       </div>
-      <Form.Select onChange={onChange} disabled={disabled} value={currentValue}>
+      <Form.Select
+        onChange={onChange}
+        disabled={disabled}
+        value={currentValue}
+        className={size === "lg" ? styles.largeInput : ""}
+      >
         <option key={0} value={""}>
           [Select an option]
         </option>

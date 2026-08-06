@@ -22,6 +22,8 @@ export default function LetterFromWalter() {
 
     "Farewell, and may you find peace and happiness in your life.",
 
+    "January 14, 2026",
+
     "- Walter",
   ];
   const pages = [

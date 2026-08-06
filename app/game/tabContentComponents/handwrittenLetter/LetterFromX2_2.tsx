@@ -1,11 +1,26 @@
+import { useContext, useState } from "react";
 import { Color } from "../../components/ObjectiveBuilder";
 import { ObjectivesJson } from "../../context/ObjectivesJson";
 import TabContentBase from "../TabContentBase";
 import HandwrittenLetter from "./HandwrittenLetter";
+import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
+import { StageContext } from "../../context/StageContext";
+import { VictoryScreen } from "../../components/VictoryScreen";
 
 const MANTLES = ["Crown", "Torch", "Bridge", "Door"];
 
+const RITUALS = [
+  "The Mystic Step",
+  "The Whispered Voice",
+  "The Single Choir",
+  "The Invisible Thread",
+  "The Migrant Tree",
+  "The Humble Kingdom",
+  "The Pale Crossing",
+];
+
 export default function LetterFromX2_2() {
+  const [showVictoryScreen, setShowVictoryScreen] = useState(false);
   const lines = [
     "Hello.",
     "Children are really something, aren't they? They go off on their own, chase their wildest dreams, and what do they have to show for?",
@@ -55,24 +70,24 @@ export default function LetterFromX2_2() {
         ],
       },
       {
-        title: "What were the students trying to do?",
+        title: "Which ritual were the students trying to do?",
         questions: [
           {
             question: "",
-            answer: "asd",
-            answers: null,
+            answer: "The Invisible Thread",
+            answers: RITUALS,
             color: Color.RED,
             size: "lg",
           },
         ],
       },
       {
-        title: "What did the students actually do?",
+        title: "What ritual did the students actually do?",
         questions: [
           {
             question: "",
-            answer: "asd",
-            answers: null,
+            answer: "The Humble Kingdom",
+            answers: RITUALS,
             color: Color.RED,
             size: "lg",
           },
@@ -80,5 +95,34 @@ export default function LetterFromX2_2() {
       },
     ],
   };
-  return <TabContentBase evidence={evidence} objectivesJson={objectives} />;
+
+  // move to stage 5 if user solves the case
+  const { currentStage, setStage } = useContext(StageContext);
+  const { setSolved } = useContext(ProgressContext);
+
+  const onCorrect = () => {
+    if (currentStage === 2) {
+      setShowVictoryScreen(true);
+    }
+  };
+
+  // triggers AFTER the victory overlay plays
+  const handleVictoryComplete = () => {
+    setStage(3); // unlocks final letter
+    setSolved(ProgressKeys.CHAPTER_2_SOLVE_THE_CASE, true);
+    setShowVictoryScreen(false); // unmount the victory overlay after its done.
+  };
+
+  return (
+    <>
+      {showVictoryScreen && (
+        <VictoryScreen onComplete={handleVictoryComplete} />
+      )}
+      <TabContentBase
+        evidence={evidence}
+        objectivesJson={objectives}
+        onCorrect={onCorrect}
+      />
+    </>
+  );
 }

@@ -226,6 +226,7 @@ const ObjectivesContent = ({
                   <CustomPicker
                     label={question.question}
                     color={question.color}
+                    size={question.size}
                     words={question.answers}
                     storageKey={storageKey}
                     disabled={status === "correct"}

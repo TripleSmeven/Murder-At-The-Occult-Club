@@ -1,4 +1,4 @@
-import { ConversationJson } from "./ConversationJsons";
+import { Attachment, ConversationJson } from "./ConversationJsons";
 import styles from "./ConversationComponent.module.css";
 import { ObjectivesContext } from "../../context/ObjectivesContext";
 import { ProgressContext, ProgressKeys } from "../../context/ProgressContext";
@@ -77,15 +77,11 @@ const TextMessageSecondary = ({ content }: { content: string }) => {
   );
 };
 
-interface TextMessageAttachmentProps {
-  title: string;
-  bytes: number;
-}
-
 export const TextMessageAttachment = ({
   title,
   bytes,
-}: TextMessageAttachmentProps) => {
+  noLink = false,
+}: Attachment) => {
   const { setActiveTab } = useContext(TabContext);
   const { setSolved } = useContext(ProgressContext);
   const onClick = () => {
@@ -102,12 +98,18 @@ export const TextMessageAttachment = ({
     <div className={styles.attachmentContainer}>
       <div className={styles.attachmentIcon}></div>
       <div>
-        <div className={styles.attachmentTitle} onClick={onClick}>
+        <div
+          className={`${styles.attachmentTitle} ${noLink && styles.noLink}`}
+          onClick={onClick}
+        >
           {title}
         </div>
         <div className={styles.attachmentSize}>{bytes + " KB"}</div>
       </div>
-      <div className={styles.hyperlink} onClick={onClick}>
+      <div
+        className={`${styles.hyperlink} ${noLink && styles.noLink}`}
+        onClick={onClick}
+      >
         ⬇️
       </div>
     </div>
@@ -187,6 +189,7 @@ export const ConversationComponent = ({
         <TextMessageAttachment
           title={message.attachment.title}
           bytes={message.attachment.bytes}
+          noLink={message.attachment.noLink}
           key={index2}
         />
       );

@@ -8,7 +8,7 @@ import { StageContext } from "../../context/StageContext";
 
 export default function PoliceVoicemails() {
   const { setSolved } = useContext(ProgressContext);
-  const { setStage } = useContext(StageContext);
+  const { currentStage, setStage } = useContext(StageContext);
   const voicemailData = [
     {
       id: "1",
@@ -50,8 +50,10 @@ export default function PoliceVoicemails() {
   };
 
   const onCorrect = () => {
-    setSolved(ProgressKeys.VOICEMAIL, true);
-    setStage(2);
+    if (currentStage < 2) {
+      setSolved(ProgressKeys.VOICEMAIL, true);
+      setStage(2);
+    }
   };
 
   return (

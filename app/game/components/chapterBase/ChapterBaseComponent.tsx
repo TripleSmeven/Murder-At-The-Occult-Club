@@ -32,7 +32,7 @@ export function ChapterBaseComponent({
 }
 
 // titles that are revealed even if its locked
-const EXEMPT_TITLES = ["Solve the Case"];
+const EXEMPT_TITLES = ["solve the case"];
 
 type NavItemWithLockProps = {
   eventKey: string;
@@ -59,7 +59,7 @@ export function NavItemWithLock({
 
   let textToShow;
   if (locked) {
-    if (EXEMPT_TITLES.includes(title)) {
+    if (EXEMPT_TITLES.includes(title.toLowerCase())) {
       textToShow = "🔒" + title;
     } else {
       textToShow = `🔒???`;

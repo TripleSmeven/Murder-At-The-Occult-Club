@@ -23,6 +23,11 @@ export default function RitualsOfTiaccabode() {
           its currents to two others that it touches, no more and no less.
         </div>
         <div className={styles.section}>
+          Each bearer must then focus on the currents and the needed energies in
+          the room. Ensure no mind is wandering, as concentration waxes and
+          wanes like the waves. Hold fast, lest the wrong powers be envoked.
+        </div>
+        <div className={styles.section}>
           The final piece is the auras of specific celestial constructions. To
           harness the might of the void is to lay eyes upon them skyward as you
           bask in its attendance, which you may do once a moon.
@@ -56,7 +61,8 @@ export default function RitualsOfTiaccabode() {
         <div className={styles.section}>
           <h3>Ritual of the Whispered Voice</h3>
           <div className={styles.description}>
-            If one destined to cross the River Styx lingers still, their hushed,
+            Hone your minds on the spiritual energies latent in the air. If one
+            destined to cross the River Styx lingers still, their hushed,
             whispered words may be heard by those with willing ears.
           </div>
           <ul>
@@ -68,9 +74,9 @@ export default function RitualsOfTiaccabode() {
         <div className={styles.section}>
           <h3>Ritual of the Single Choir</h3>
           <div className={styles.description}>
-            Focus on the currents and allow the Ring to hum in harmony. So then
-            no thought among the Ring is possessed by a single bearer, instead
-            what is known by one is percieved by all.
+            Focus on the currents of one bearer and allow the Ring to hum in
+            harmony. So then no thought among that bearer is possessed by them,
+            instead what is thought by them is thought by all.
           </div>
           <ul>
             <li>A Crown must recieve the currents of a Door and Bridge.</li>
@@ -79,9 +85,12 @@ export default function RitualsOfTiaccabode() {
           </ul>
         </div>
         <div className={styles.section}>
-          <h3>Ritual of they wanted to do</h3>
+          <h3>Ritual of the Invisible Thread</h3>
           <div className={styles.description}>
-            They wanted to do this. Too bad lol
+            Sharpen your minds to the presence of each bearer's soul. When it is
+            so, though mountains or valleys should divide them, each bearer of
+            the Ring shall know the direction of every other, as surely as the
+            lowly pigeon knows the direction of its home.
           </div>
           <ul>
             <li>A Crown must recieve the currents of two Crowns. </li>
@@ -97,18 +106,7 @@ export default function RitualsOfTiaccabode() {
     <div className={styles.parent}>
       <div className={styles.page}>
         <div className={styles.section}>
-          <h3>Ritual of What They Actually Did</h3>
-          <div className={styles.description}>
-            They actually did this. Whomp whomp
-          </div>
-          <ul>
-            <li>A Bridge and Door must join currents.</li>
-            <li>A Torch and Crown must join currents.</li>
-            <li>Death's Fog must cast its shadow on the heavens.</li>
-          </ul>
-        </div>
-        <div className={styles.section}>
-          <h3>Ritual of The Migrant Tree</h3>
+          <h3>Ritual of the Migrant Tree</h3>
           <div className={styles.description}>
             The bearer of the Bridge must hold fast a far away place like a
             painting in their mind. The house that shelters the Ring shall
@@ -127,9 +125,9 @@ export default function RitualsOfTiaccabode() {
         <div className={styles.section}>
           <h3>Ritual of the Humble Kingdom</h3>
           <div className={styles.description}>
-            Each of the bearers of the Ring must channel the spirits of a field
-            rodent, and assume its humble form. Memory and speech remain, though
-            its tongue carries only squeaks.
+            Channel your inner strength to the living Earth, tap into the soul
+            of a field mouse, and assume its humble form. Memory and speech
+            remain, though its tongue carries only squeaks.
           </div>
           <ul>
             <li>A Torch and Bridge must join currents.</li>
