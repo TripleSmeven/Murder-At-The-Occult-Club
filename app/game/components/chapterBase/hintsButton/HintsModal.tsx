@@ -47,38 +47,45 @@ export default function HintsModal({
     </p>
   );
 
-  const sectionComponents = sections.map((section) => (
-    <div key={section.heading} className={styles.section}>
-      {currentStage >= section.unlockedAtStage && (
-        <>
-          <h3 className={styles.sectionHeading}>{section.heading}</h3>
-          <div className={styles.panelsContainer}>
-            {section.panels.map((panel) => {
-              const panelKey = `${section.heading}-${panel.title}`;
-              const isExpanded = expandedPanels.has(panelKey);
+  const sectionComponents: React.ReactNode[] = [];
 
-              return (
-                <div key={panelKey} className={styles.panelWrapper}>
-                  <button
-                    className={`${styles.panelTitle} ${isExpanded ? styles.expanded : ""}`}
-                    onClick={() => togglePanel(panelKey)}
-                  >
-                    <span>{panel.title}</span>
-                    <span className={styles.toggleIcon}>
-                      {isExpanded ? "▼" : "▶"}
-                    </span>
-                  </button>
-                  {isExpanded && (
-                    <div className={styles.panelContent}>{panel.content}</div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </>
-      )}
-    </div>
-  ));
+  sections.forEach((section) => {
+    if (currentStage < section.unlockedAtStage) {
+      return;
+    }
+    sectionComponents.push(
+      <div key={section.heading} className={styles.section}>
+        {currentStage >= section.unlockedAtStage && (
+          <>
+            <h3 className={styles.sectionHeading}>{section.heading}</h3>
+            <div className={styles.panelsContainer}>
+              {section.panels.map((panel) => {
+                const panelKey = `${section.heading}-${panel.title}`;
+                const isExpanded = expandedPanels.has(panelKey);
+
+                return (
+                  <div key={panelKey} className={styles.panelWrapper}>
+                    <button
+                      className={`${styles.panelTitle} ${isExpanded ? styles.expanded : ""}`}
+                      onClick={() => togglePanel(panelKey)}
+                    >
+                      <span>{panel.title}</span>
+                      <span className={styles.toggleIcon}>
+                        {isExpanded ? "▼" : "▶"}
+                      </span>
+                    </button>
+                    {isExpanded && (
+                      <div className={styles.panelContent}>{panel.content}</div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
+      </div>,
+    );
+  });
 
   const hintsComponent = (
     <div className={styles.sectionsContainer}>{sectionComponents}</div>
