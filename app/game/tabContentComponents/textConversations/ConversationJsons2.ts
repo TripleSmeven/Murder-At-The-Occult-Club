@@ -204,7 +204,7 @@ const Stars: ConversationJson = {
     {
       sender: martin,
       content:
-        "The square shapped one is the umbral cage. Sometimes it symbolizes containment and punishment. Other times its actually protection and safety.",
+        "The square shaped one is the umbral cage. Sometimes it symbolizes containment and punishment. Other times its actually protection and safety.",
     },
     {
       sender: daisy,

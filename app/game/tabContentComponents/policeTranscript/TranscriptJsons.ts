@@ -80,7 +80,7 @@ const kataria2: TranscriptJson = {
     { name: KATARIA, text: "What about Martin? You said he's missing?" },
     {
       name: SAMSON,
-      text: "Sir, thank you again for your help. I need you to do two things. One, text me the name and phone numbers all the parents of his friends. Two, keep trying to call your son. I have some calls to make, but I will contact you as soon as I have something to share with you, alright? Take care.",
+      text: "Sir, thank you again for your help. I need you to do two things. One, text me the name and phone numbers of all the parents of his friends. Two, keep trying to call your son. I have some calls to make, but I will contact you as soon as I have something to share with you, alright? Take care.",
     },
   ],
 };

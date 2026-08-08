@@ -79,8 +79,8 @@ export default function RitualsOfTiaccabode() {
             instead what is thought by them is thought by all.
           </div>
           <ul>
-            <li>A Crown must recieve the currents of a Door and Bridge.</li>
-            <li>A Torch must recieve the currents of a Crown and Bridge.</li>
+            <li>A Crown must receive the currents of a Door and Bridge.</li>
+            <li>A Torch must receive the currents of a Crown and Bridge.</li>
             <li>The Arm of the Nine must be present in the night.</li>
           </ul>
         </div>
@@ -93,8 +93,8 @@ export default function RitualsOfTiaccabode() {
             lowly pigeon knows the direction of its home.
           </div>
           <ul>
-            <li>A Door must recieve the currents of two Crowns. </li>
-            <li>A Torch must recieve the currents of a Bridge.</li>
+            <li>A Door must receive the currents of two Crowns. </li>
+            <li>A Torch must receive the currents of a Bridge.</li>
             <li>The Eye of Elo and the Umbral Cage must align in the sky.</li>
           </ul>
         </div>
