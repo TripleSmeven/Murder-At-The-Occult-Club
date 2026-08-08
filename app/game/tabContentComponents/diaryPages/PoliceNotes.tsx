@@ -41,7 +41,7 @@ export default function PoliceNotes() {
         "- man says his house at 7 Evergreen Place and other east side houses has mouse infestation",
         "- should go boating on lake. Keep receipt for reimbursement",
         "- woman wants to sell her place which is closest to hill. Hates that it blocks sun, prevents snow melting. 8 something?",
-        "- Hort's daughter got parasite from salad. Lettuce recalled. Live at 2 Cherry Drive(east side I think?)",
+        "- Hort's daughter got parasite from salad. Lettuce recalled. Live at 2 Cherry Drive (west side?)",
         "Been here 3 hours. Not one peep about college students. Gonna have to change tactics tomorrow",
       ]}
       type="notepad"
