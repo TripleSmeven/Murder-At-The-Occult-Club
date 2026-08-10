@@ -186,12 +186,12 @@ export const hintsJson: HintsJson = {
         {
           title: "Intended Ritual",
           content:
-            "Think of what Mantle each person believed themselves to be, and which constellation they were looking the night before. That should narrow it down. Some clues in the Trip Plan and The Hamper Herald will help you narrow it down to just one. ",
+            "Think of what Mantle each person believed themselves to be, and which constellation they were looking the night before. That should narrow it down to a few. Some clues in the Trip Plan and The Hamper Herald will help you narrow it down to just one. ",
         },
         {
           title: "Actual Ritual",
           content:
-            "What Mantle did each person actually have, and what celestial construction might have gotten in the way? Martin said something about the picture he took of the night sky.",
+            "What Mantle did each person actually have, and what celestial construction might have gotten in the way? Take a closer look at the constellation photo.",
         },
       ],
     },

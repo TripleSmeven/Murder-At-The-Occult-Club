@@ -188,7 +188,7 @@ const Aftermath2: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "It must be. That means the ritual actually worked.",
+      content: "It must be. That means Zach encountered something.",
     },
     {
       sender: "Unknown B",
@@ -201,17 +201,29 @@ const Aftermath2: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "Not even I can match Zach's level. He's a prodigy.",
+      content: "Oh, but I did.",
+    },
+    {
+      sender: "Unknown B",
+      content: "What?",
     },
     {
       sender: "Unknown A",
       content:
-        "Regardless, we need to contact our sister club and let them know. Maybe there's someone knows more about the Oblivion who can help.",
+        "But it wasn't for long. When I heard Zach fall over, I couldn't maintain my concentration.",
     },
     {
       sender: "Unknown B",
       content:
-        "I've been talking to someone who I think can tell us more'. Hold on.",
+        "We have to meetup and figure out what happened. I've been talking to a master and they seem to know a lot. I think they can help us.",
+    },
+    {
+      sender: "Unknown A",
+      content: "A master? For what reason would you need to talk to a master?",
+    },
+    {
+      sender: "Unknown B",
+      content: "I'll tell you later.",
     },
     {
       sender: "Unknown B",
@@ -220,7 +232,7 @@ const Aftermath2: ConversationJson = {
     },
     {
       sender: "Unknown A",
-      content: "We'll deal with that later.",
+      content: "I don't want to think about that right now.",
     },
   ],
 };

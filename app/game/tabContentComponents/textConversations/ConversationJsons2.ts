@@ -212,7 +212,7 @@ const Stars: ConversationJson = {
     },
     {
       sender: nikki,
-      content: "And on the right?",
+      content: "And diamond-shaped one on the right?",
     },
     {
       sender: martin,
@@ -242,8 +242,17 @@ const Stars: ConversationJson = {
         "Strength but also authority, community, and good fortune. That one is usually visible too, but it's not today.",
     },
     {
+      sender: daisy,
+      content: "why is your pic so dark? can hardly see anything!",
+    },
+    {
+      sender: david,
+      content: "turn up the brightness on your phone 🤣",
+    },
+    {
       sender: martin,
-      content: "Photo's also a bit dim. Need to crank the brightness up a bit.",
+      content:
+        "Oh, it's better in real life. I can see everything just fine out here.",
     },
   ],
 };

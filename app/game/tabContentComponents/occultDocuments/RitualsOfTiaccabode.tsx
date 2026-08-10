@@ -20,7 +20,7 @@ export default function RitualsOfTiaccabode() {
         <div className={styles.section}>
           Every ritual begins with the Ring. The Ring composes of five bearers
           each channeling it with a 20-lined seashell in palm. A bearer grants
-          its currents to two others that it touches, no more and no less.
+          its currents to two others on each side, no more and no less.
         </div>
         <div className={styles.section}>
           Each bearer must then focus on the currents and the needed energies in
