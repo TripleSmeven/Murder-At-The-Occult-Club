@@ -4,21 +4,21 @@ import Newspaper from "./Newspaper";
 
 export default function HamperHerald() {
   const page1 = {
-    title: "Dense Fog Blankets Hamper",
+    title: "Dense Fog Finally Clears",
     author: "",
-    date: "Jan 7th, 2026",
+    date: "Jan 10th, 2026",
     paragraphs: [
-      `Residents of Hamper Community are contending with an unusually stretch of dense fog this week, with visibility dropping to under fifty feet along several roadways during early morning and late evening hours.`,
+      `Residents of Hamper Community were contending with an unusually stretch of dense fog this week, with visibility dropping to under fifty feet along several roadways during early morning and late evening hours. The fog has finally cleared today, but not without leaving a trail of confusion and anxiety in its wake.`,
 
-      `The fog has been linked to at least three minor traffic collisions along Birch Lane since January 4th, according to local authorities, though no serious injuries have been reported. Town officials have urged drivers to reduce speed and use low-beam headlights when navigating affected areas.`,
+      `The fog has been linked to at least three minor traffic collisions along Birch Lane since January 4th, according to local authorities, though no serious injuries have been reported. Town officials urged drivers to reduce speed and use low-beam headlights when navigating affected areas.`,
 
-      `"This fog is deadly," said Winston Hall, who lives at 1 Birch Lane. "It's like a void where you can't see anything, not even my porch lights. I don't think I've seen anything more dangerous."`,
+      `"The fog was deadly," said Winston Hall, who lives at 1 Birch Lane. "It was like a void where you can't see anything, not even my porch lights. I don't think I've seen anything more dangerous."`,
 
       `"It's not too bad," said another resident. "The flood 5 years ago was worse. All those wooden houses destroyed. Thankfully mine and the rest of the homes now are brick."`,
 
-      `The Hamper town council has discussed installing additional fog lights for visibility, likely starting with the area with the least natural light: the base of the town's only hill on the northern border.`,
+      `Although the fog has already lifted, The Hamper town council has discussed installing additional fog lights for visibility, likely starting with the area with the least natural light: the base of the town's only hill on the northern border.`,
 
-      `The National Weather Service has not issued any formal advisory, but continues to monitor conditions closely.`,
+      `The National Weather Service continues to encourage residents to monitor local weather reports and exercise caution when driving in foggy conditions.`,
     ],
   };
 

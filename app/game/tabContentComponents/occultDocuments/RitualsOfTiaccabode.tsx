@@ -33,10 +33,10 @@ export default function RitualsOfTiaccabode() {
           bask in its attendance, which you may do once a moon.
         </div>
         <div className={styles.section}>
-          But beware of Death’s Fog. Like a creature born under the cover of
-          night, its mere presence is as overwhelming as its shadow is
-          domineering. It blocks all beings of light and renders their authority
-          inert.
+          But beware of one such construction, Death's Fog. Like a creature born
+          under the cover of night, its mere presence in the void is as
+          overwhelming as its shadow is domineering. It blocks all beings of
+          light and renders their authority inert.
         </div>
       </div>
     </div>

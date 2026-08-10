@@ -191,7 +191,7 @@ export const hintsJson: HintsJson = {
         {
           title: "Actual Ritual",
           content:
-            "What Mantle did each person actually have, and what celestial construction might have gotten in the way?",
+            "What Mantle did each person actually have, and what celestial construction might have gotten in the way? Martin said something about the picture he took of the night sky.",
         },
       ],
     },

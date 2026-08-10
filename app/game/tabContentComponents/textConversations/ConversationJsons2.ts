@@ -403,7 +403,7 @@ const Mansion: ConversationJson = {
     {
       sender: matt,
       content:
-        "Alright, alright, so we're in agreement? Let me get a quick plan together and I'll send it out. Meetup at the usual spot at 6?",
+        "Alright, alright, so we're in agreement? Let me get a quick plan together and I'll send it out. Meetup at the usual booth at 6?",
     },
     {
       sender: david,
