@@ -34,9 +34,15 @@ export default function GroupChat() {
         title: matt,
         questions: [
           {
-            question: "",
+            question: "First name",
             answers: null,
-            answer: "Matthew Crocker",
+            answer: "Matthew",
+            color: Color.GRAY,
+          },
+          {
+            question: "Last name",
+            answers: null,
+            answer: "Crocker",
             color: Color.GRAY,
           },
         ],
@@ -45,9 +51,15 @@ export default function GroupChat() {
         title: nikki,
         questions: [
           {
-            question: "",
+            question: "First name",
             answers: null,
-            answer: "Nikki Yu",
+            answer: "Nikki",
+            color: Color.GRAY,
+          },
+          {
+            question: "Last name",
+            answers: null,
+            answer: "Yu",
             color: Color.GRAY,
           },
         ],
@@ -56,9 +68,15 @@ export default function GroupChat() {
         title: daisy,
         questions: [
           {
-            question: "",
+            question: "First name",
             answers: null,
-            answer: "Daisy Verde",
+            answer: "Daisy",
+            color: Color.GRAY,
+          },
+          {
+            question: "Last name",
+            answers: null,
+            answer: "Verde",
             color: Color.GRAY,
           },
         ],
@@ -67,9 +85,15 @@ export default function GroupChat() {
         title: martin,
         questions: [
           {
-            question: "",
+            question: "First name",
             answers: null,
-            answer: "Martin Larssen",
+            answer: "Martin",
+            color: Color.GRAY,
+          },
+          {
+            question: "Last name",
+            answers: null,
+            answer: "Larssen",
             color: Color.GRAY,
           },
         ],
@@ -78,9 +102,15 @@ export default function GroupChat() {
         title: david,
         questions: [
           {
-            question: "",
+            question: "First name",
             answers: null,
-            answer: "David Kataria",
+            answer: "David",
+            color: Color.GRAY,
+          },
+          {
+            question: "Last name",
+            answers: null,
+            answer: "Kataria",
             color: Color.GRAY,
           },
         ],

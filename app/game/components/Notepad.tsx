@@ -182,7 +182,10 @@ const ObjectivesContent = ({
       section.questions.every((question) => {
         const storageKey = getStorageKey(section.title, question.question);
         const storedValue = answers[storageKey];
-        return storedValue.toLowerCase() === question.answer.toLowerCase();
+        return (
+          storedValue.toLowerCase().trim() ===
+          question.answer.toLowerCase().trim()
+        );
       }),
     );
 
