@@ -473,6 +473,10 @@ const Grades: ConversationJson = {
     },
     {
       sender: david,
+      content: "I think you have more credits than most juniors at this point",
+    },
+    {
+      sender: david,
       content: "Can you tutor us mortal beings?",
     },
     {
